@@ -9,6 +9,10 @@ header {
     padding: 0;
 }
 
+h1 {
+    cursor: pointer;
+}
+
 .back-forth-navigation-btns {
     @include flex(row, nowrap, center, center);
     mat-icon {
