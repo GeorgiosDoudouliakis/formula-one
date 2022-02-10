@@ -1,0 +1,36 @@
+@import 'src/assets/scss/main';
+
+.table {
+    padding-bottom: 1rem;
+}
+
+.mat-form-field {
+    width: 100%;
+}
+
+.mat-table {
+    width: 100%;
+    background: lighten($accent, 5%);
+}
+
+th {
+    font-size: 1rem;
+}
+
+input, input::placeholder, th, td {
+    color: $white;
+}
+
+tr {
+    cursor: pointer;
+    transition: .4s ease-in-out;
+    &:hover {
+        background: darken($accent, 5%);
+    }
+}
+
+@media(min-width: 1024px) {
+    .table {
+        padding-bottom:  2rem;
+    }
+}

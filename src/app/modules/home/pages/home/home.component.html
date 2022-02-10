@@ -1,3 +1,4 @@
 <app-toggle (optionHandler)="option = $event"></app-toggle>
 <h2 class="max-width">{{ option }} Standings</h2>
-<app-table></app-table>
+<p class="max-width">Click on each row to show more details</p>
+<app-table [option]="option"></app-table>
