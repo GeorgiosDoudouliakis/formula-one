@@ -1,0 +1,12 @@
+@import 'src/assets/scss/main';
+
+main {
+    min-height: calc(100vh - 101.59px);
+    background: $accent;
+}
+
+@media(min-width: 600px) {
+    main {
+        min-height: calc(100vh - 109.59px);
+    }
+}
