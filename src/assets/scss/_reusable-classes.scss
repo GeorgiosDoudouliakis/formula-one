@@ -1,0 +1,15 @@
+.max-width {
+    width: 90%;
+    max-width: 1280px;
+    margin: auto;
+}
+
+.pad {
+    padding: 1rem 0;
+}
+
+@media(min-width: 1024px) {
+    .pad {
+        padding: 2rem 0;
+    }
+}
