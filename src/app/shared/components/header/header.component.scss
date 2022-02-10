@@ -1,0 +1,21 @@
+@import 'src/assets/scss/main';
+
+header {
+    background: $primary;
+}
+
+.mat-toolbar-row {
+    @include flex(row, nowrap, space-between, center);
+    padding: 0;
+}
+
+.back-forth-navigation-btns {
+    @include flex(row, nowrap, center, center);
+    mat-icon {
+        font-size: 1.8rem;
+        cursor: pointer;
+        &:last-of-type {
+            margin-left: 1rem;
+        }
+    }
+}
