@@ -1,5 +1,5 @@
 import { Location } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Driver } from '@shared/models/constructor-driver.model';
 import { Subscription, switchMap } from 'rxjs';
@@ -15,7 +15,7 @@ interface State {
   templateUrl: './driver-constructor.component.html',
   styleUrls: ['./driver-constructor.component.scss']
 })
-export class DriverConstructorComponent implements OnInit {
+export class DriverConstructorComponent implements OnInit, OnDestroy {
   details: Driver;
   private detailsSub$: Subscription;
 
@@ -27,6 +27,10 @@ export class DriverConstructorComponent implements OnInit {
 
   ngOnInit(): void {
     this.getDriverOrConstructorData();
+  }
+
+  ngOnDestroy() {
+    this.detailsSub$?.unsubscribe();
   }
 
   private getDriverOrConstructorData() {
