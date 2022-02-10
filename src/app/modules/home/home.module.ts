@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { SharedModule } from '@shared/shared.module';
 import { HomeComponent } from './pages/home/home.component';
+import { ToggleComponent } from './components/toggle/toggle.component';
 
 const routes = [
   { path: '', component: HomeComponent }
@@ -10,7 +11,8 @@ const routes = [
 
 @NgModule({
   declarations: [
-    HomeComponent
+    HomeComponent,
+    ToggleComponent
   ],
   imports: [
     CommonModule,

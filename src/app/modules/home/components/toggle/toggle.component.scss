@@ -1,0 +1,23 @@
+@import 'src/assets/scss/main';
+
+section {
+    @include flex(row, nowrap, flex-end, center);
+}
+
+span {
+    color: $white;
+}
+
+.driver-standings {
+    margin-right: 1rem;
+}
+
+.constructor-standings {
+    margin-left: 1rem;
+}
+
+@media(min-width: 768px) {
+    span {
+        font-size: 1rem;
+    }
+}
