@@ -1,6 +1,7 @@
 import { Component, Input, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { MatSort } from '@angular/material/sort';
-import { MatTableDataSource } from '@angular/material/table';
+import { MatRow, MatTableDataSource } from '@angular/material/table';
+import { Router } from '@angular/router';
 import { ConstructorStandingsList, ConstructorStanding } from '@shared/models/constructor-standings.model';
 import { DriverStandingsList, DriverStanding } from '@shared/models/driver-standings.model';
 import { Subscription } from 'rxjs';
@@ -20,7 +21,10 @@ export class TableComponent implements OnInit, OnDestroy {
   data: DriverStanding[] | ConstructorStanding[] = [];
   private standingsSub$: Subscription;
 
-  constructor(private driverConstructorStandingsService: DriverConstructorStandingsService) {}
+  constructor(
+    private driverConstructorStandingsService: DriverConstructorStandingsService,
+    private router: Router
+  ) {}
   
   ngOnChanges() {
     this.displayedColumns = [];
@@ -40,6 +44,15 @@ export class TableComponent implements OnInit, OnDestroy {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
   
+  showDetails(row: DriverStanding) {
+    if(this.option === 'Driver') {
+      this.router.navigate(['/drivers'], { 
+        queryParams: { driver: row['Driver']['driverId'] },
+        state: { type: 'driver' } 
+      });
+    }
+  }
+
   private tableDataSource() {
     if(this.option === 'Driver') {
       this.standingsSub$ = this.driverConstructorStandingsService.getDriverStandings()
