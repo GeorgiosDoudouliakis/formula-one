@@ -9,14 +9,14 @@ export interface DriverStanding {
     Constructors: Constructor[];
 }
 
-export interface StandingsList {
+export interface DriverStandingsList {
     season: string;
     round: string;
     DriverStandings: DriverStanding[];
 }
 
 export interface StandingsTable {
-    StandingsLists: StandingsList[];
+    StandingsLists: DriverStandingsList[];
     season: string;
 }
 
