@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -8,9 +9,7 @@ import { Location } from '@angular/common';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(public location: Location) { }
+  constructor(public location: Location, public router: Router) { }
 
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 }

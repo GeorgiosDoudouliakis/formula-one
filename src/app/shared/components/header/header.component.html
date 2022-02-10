@@ -1,7 +1,7 @@
 <header>
     <mat-toolbar class="max-width" color="primary">
         <mat-toolbar-row>
-            <h1 routerLink="/">Formula One</h1>
+            <h1 (click)="router.navigate(['/'])">Formula One</h1>
             <section class="back-forth-navigation-btns">
                 <mat-icon (click)="location.back()" matTooltip="Back">keyboard_arrow_left</mat-icon>
                 <mat-icon (click)="location.forward()" matTooltip="Forward">keyboard_arrow_right</mat-icon>
