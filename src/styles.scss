@@ -90,3 +90,11 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .mat-typography p {
   margin: 0 ;
 }
+
+.mat-form-field-label {
+  color: white;
+}
+
+.mat-form-field-appearance-standard .mat-form-field-underline {
+  background-color: white;
+}
