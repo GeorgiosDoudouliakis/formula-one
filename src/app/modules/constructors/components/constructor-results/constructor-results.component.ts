@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Race } from '@shared/models/round-standings.model';
 
 @Component({
@@ -10,7 +11,7 @@ import { Race } from '@shared/models/round-standings.model';
 export class ConstructorResultsComponent implements OnInit {
   @Input() race: Race;
 
-  constructor() { }
+  constructor(public router: Router) { }
 
   ngOnInit(): void {}
 }

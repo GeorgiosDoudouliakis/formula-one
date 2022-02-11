@@ -12,7 +12,9 @@
           <p class="drivers">
               <span>Drivers:</span>
               <ng-container *ngFor="let result of race.Results">
-                <span class="driver">{{ result.Driver.givenName }} {{ result.Driver.familyName }}</span>
+                <span class="driver" (click)="router.navigate(['/drivers', result.Driver.driverId])">
+                  {{ result.Driver.givenName }} {{ result.Driver.familyName }}
+                </span>
               </ng-container>
           </p>  
           <p>Laps: {{ race.Results[0].laps }}</p>

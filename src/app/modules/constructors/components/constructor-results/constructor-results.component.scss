@@ -13,7 +13,12 @@
     background: lighten($accent, 5%);
     padding: 0.3rem;
     border-radius: 4px;
+    cursor: pointer;
+    transition: .4s ease-in-out;
     &:not(:last-of-type) {
         margin-bottom: 0.3rem;
+    }
+    &:hover {
+        background: black;
     }
 }
