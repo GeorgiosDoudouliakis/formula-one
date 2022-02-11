@@ -7,12 +7,14 @@ import { FormsModule } from '@angular/forms';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { NavigationComponent } from './components/navigation/navigation.component';
+import { GoTopDirective } from './directives/go-top.directive';
 
 @NgModule({
   declarations: [
     HeaderComponent,
     FooterComponent,
-    NavigationComponent
+    NavigationComponent,
+    GoTopDirective
   ],
   imports: [
     CommonModule,
@@ -26,7 +28,8 @@ import { NavigationComponent } from './components/navigation/navigation.componen
     HttpClientModule,
     FormsModule,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    GoTopDirective
   ]
 })
 export class SharedModule { }
