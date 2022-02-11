@@ -11,6 +11,9 @@
 .grid {
     display: grid;
     grid-auto-rows: auto;
+    &.constructors-drivers {
+        gap: 20px;
+    }
 }
 
 .box {

@@ -24,6 +24,9 @@ a {
 @media(min-width: 1024px){
     h2 {
         font-size: 1.7rem;
+        &.constructors-drivers {
+            margin-bottom: 1.5rem;
+        }
     }
 }
 

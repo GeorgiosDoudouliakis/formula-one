@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Constructor } from '@shared/models/constructor-driver.model';
+import { Observable } from 'rxjs';
+import { ConstructorsService } from '../../services/constructors.service';
 
 @Component({
   selector: 'app-constructors',
@@ -6,10 +10,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./constructors.component.scss']
 })
 export class ConstructorsComponent implements OnInit {
+  constructors$: Observable<Constructor[]>;
 
-  constructor() { }
+  constructor(private constructorsService: ConstructorsService, public router: Router) { }
 
   ngOnInit(): void {
+    this.constructors$ = this.constructorsService.getConstructors();
   }
-
 }
