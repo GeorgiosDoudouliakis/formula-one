@@ -8,6 +8,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { NavigationComponent } from './components/navigation/navigation.component';
 import { CircuitResultsComponent } from './components/circuit-results/circuit-results.component';
+import { DriverConstructorComponent } from './components/driver-constructor/driver-constructor.component';
 import { GoTopDirective } from './directives/go-top.directive';
 
 @NgModule({
@@ -16,6 +17,7 @@ import { GoTopDirective } from './directives/go-top.directive';
     FooterComponent,
     NavigationComponent,
     CircuitResultsComponent,
+    DriverConstructorComponent,
     GoTopDirective
   ],
   imports: [
@@ -32,6 +34,7 @@ import { GoTopDirective } from './directives/go-top.directive';
     HeaderComponent,
     FooterComponent,
     CircuitResultsComponent,
+    DriverConstructorComponent,
     GoTopDirective
   ]
 })

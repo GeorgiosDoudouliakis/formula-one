@@ -4,7 +4,6 @@ import { RouterModule } from '@angular/router';
 import { SharedModule } from '@shared/shared.module';
 import { ConstructorsComponent } from './pages/constructors/constructors.component';
 import { ConstructorComponent } from './components/constructor/constructor.component';
-import { ConstructorsService } from './services/constructors.service';
 
 const routes = [
   { path: '', component: ConstructorsComponent },
@@ -20,7 +19,6 @@ const routes = [
     CommonModule,
     RouterModule.forChild(routes),
     SharedModule
-  ],
-  providers: [ConstructorsService]
+  ]
 })
 export class ConstructorsModule { }

@@ -1,17 +1,1 @@
-<article class="max-width pad">
-    <h2 class="details-header">Driver Details</h2>
-    <section class="details">
-        <h3 class="details-name">
-            {{ details?.givenName }} {{ details?.familyName }}
-        </h3>
-        <p>Date of birth: {{ details?.dateOfBirth | date }}</p>
-        <p>Nationality: {{ details?.nationality }}</p>
-        <p>Number: {{ details?.permanentNumber }}</p>
-    </section>
-    <h3 class="results-header">CIRCUIT RESULTS</h3>
-    <section class="grid">
-        <ng-container *ngFor="let result of results">
-            <app-circuit-results [type]="'driver'" [race]="result"></app-circuit-results>
-        </ng-container>
-    </section>
-</article>
+<app-driver-constructor [type]="'driver'"></app-driver-constructor>

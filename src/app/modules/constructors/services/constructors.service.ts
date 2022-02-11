@@ -6,7 +6,9 @@ import { Observable, pluck } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { ConstructorData } from '../models/constructor-data.model';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class ConstructorsService {
 
   constructor(private http: HttpClient) { }
