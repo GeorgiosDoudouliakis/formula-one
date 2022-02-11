@@ -4,6 +4,7 @@ import { RouterModule } from '@angular/router';
 import { SharedModule } from '@shared/shared.module';
 import { DriversComponent } from './pages/drivers/drivers.component';
 import { DriverComponent } from './components/driver/driver.component';
+import { DriversService } from './services/drivers.service';
 
 const routes = [
   { path: '', component: DriversComponent },
@@ -22,6 +23,7 @@ const routes = [
   ],
   exports: [
     RouterModule
-  ]
+  ],
+  providers: [DriversService]
 })
 export class DriversModule { }

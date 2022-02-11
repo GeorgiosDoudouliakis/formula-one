@@ -5,9 +5,7 @@ import { Observable, pluck } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Race, RoundStandings } from '@shared/models/round-standings.model';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class DriversService {
 
   constructor(private http: HttpClient) { }
