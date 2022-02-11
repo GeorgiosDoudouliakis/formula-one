@@ -10,6 +10,7 @@ import { NavigationComponent } from './components/navigation/navigation.componen
 import { CircuitResultsComponent } from './components/circuit-results/circuit-results.component';
 import { DriverConstructorComponent } from './components/driver-constructor/driver-constructor.component';
 import { GoTopDirective } from './directives/go-top.directive';
+import { ConstructorsDriversComponent } from './components/constructors-drivers/constructors-drivers.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { GoTopDirective } from './directives/go-top.directive';
     NavigationComponent,
     CircuitResultsComponent,
     DriverConstructorComponent,
-    GoTopDirective
+    GoTopDirective,
+    ConstructorsDriversComponent
   ],
   imports: [
     CommonModule,
@@ -35,7 +37,8 @@ import { GoTopDirective } from './directives/go-top.directive';
     FooterComponent,
     CircuitResultsComponent,
     DriverConstructorComponent,
-    GoTopDirective
+    GoTopDirective,
+    ConstructorsDriversComponent
   ]
 })
 export class SharedModule { }

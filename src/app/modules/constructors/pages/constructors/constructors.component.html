@@ -1,11 +1,1 @@
-<section class="max-width pad">
-    <h2 class="constructors-drivers">Constructors List</h2>
-    <section class="grid constructors-drivers">
-        <article *ngFor="let constructor of constructors$ | async" class="box" (click)="router.navigate(['/constructors', constructor.constructorId])">
-            <span>
-               {{ constructor.name }}
-            </span>
-            <mat-icon>keyboard_arrow_right</mat-icon>
-        </article>
-    </section>
-</section>
+<app-constructors-drivers [type]="'constructors'" [data$]="constructors$"></app-constructors-drivers>

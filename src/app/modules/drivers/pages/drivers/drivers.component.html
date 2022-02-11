@@ -1,12 +1,1 @@
-<section class="max-width pad">
-    <h2 class="constructors-drivers">Drivers List</h2>
-    <section class="grid constructors-drivers">
-        <article *ngFor="let driver of drivers$ | async" class="box" 
-        (click)="router.navigate(['/drivers', driver.driverId])">
-            <span>
-                {{ driver.givenName }} {{ driver.familyName }}
-            </span>
-            <mat-icon>keyboard_arrow_right</mat-icon>
-        </article>
-    </section>
-</section>
+<app-constructors-drivers [type]="'drivers'" [data$]="drivers$"></app-constructors-drivers>

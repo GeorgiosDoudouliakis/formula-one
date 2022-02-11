@@ -1,0 +1,11 @@
+<section class="max-width pad">
+    <h2 class="constructors-drivers">Constructors List</h2>
+    <section class="grid constructors-drivers">
+        <article *ngFor="let data of data$ | async" class="box" (click)="navigateTo(data)">
+            <span>
+               {{ type === 'constructors' ? data.name : data.givenName + " " + data.familyName }}
+            </span>
+            <mat-icon>keyboard_arrow_right</mat-icon>
+        </article>
+    </section>
+</section>
