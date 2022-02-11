@@ -46,9 +46,7 @@ export class TableComponent implements OnInit, OnDestroy {
   
   showDetails(row: DriverStanding) {
     if(this.option === 'Driver') {
-      this.router.navigate(['/drivers'], { 
-        queryParams: { driver: row['Driver']['driverId'] }
-      });
+      this.router.navigate(['/drivers', row['Driver']['driverId']]);
     }
   }
 

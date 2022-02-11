@@ -1,11 +1,11 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Driver, DriverData } from '../../../shared/models/constructor-driver.model';
+import { Driver, DriverData } from '@shared/models/constructor-driver.model';
 import { Observable, pluck } from 'rxjs';
 import { environment } from 'src/environments/environment';
 
 @Injectable()
-export class DriverService {
+export class DriversService {
 
   constructor(private http: HttpClient) { }
 
@@ -13,5 +13,10 @@ export class DriverService {
     return this.http.get<DriverData>(`${environment.api}/drivers/${driverId}.json`).pipe(
       pluck('MRData', 'DriverTable', 'Drivers')
     );
+  }
+
+  getDrivers(): Observable<any> {
+    return this.http.get<Driver[]>(`${environment.api}/2021/drivers.json`)
+    .pipe(pluck('MRData', 'DriverTable', 'Drivers'));
   }
 }

@@ -4,7 +4,7 @@
         <h3>
             {{ details?.givenName }} {{ details?.familyName }}
         </h3>
-        <p>Date of birth: {{ details?.dateOfBirth }}</p>
+        <p>Date of birth: {{ details?.dateOfBirth | date }}</p>
         <p>Nationality: {{ details?.nationality }}</p>
         <p>Number: {{ details?.permanentNumber }}</p>
     </section>

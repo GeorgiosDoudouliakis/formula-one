@@ -2,7 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Driver } from '@shared/models/constructor-driver.model';
 import { Subscription, switchMap } from 'rxjs';
-import { DriverService } from '../../services/driver.service';
+import { DriversService } from '../../services/drivers.service';
 
 @Component({
   selector: 'app-driver',
@@ -14,7 +14,7 @@ export class DriverComponent implements OnInit, OnDestroy {
   private detailsSub$: Subscription;
 
   constructor(
-    private driverService: DriverService,
+    private driversService: DriversService,
     private route: ActivatedRoute
   ) { }
 
@@ -27,8 +27,8 @@ export class DriverComponent implements OnInit, OnDestroy {
   }
 
   private getDriverData() {
-    this.detailsSub$ = this.route.queryParams.pipe(
-      switchMap((params: Params) => this.driverService.getDriverDetails(params['driver']))
+    this.detailsSub$ = this.route.params.pipe(
+      switchMap((params: Params) => this.driversService.getDriverDetails(params['id']))
     ).subscribe((driver: Driver[]) => this.details = driver[0]);
   }
 }
