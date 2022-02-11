@@ -67,6 +67,10 @@
         background: $accent;
         position: relative;
     }
+    .mat-card-title {
+        padding-bottom: 12px;
+        border-bottom: 1px solid lighten($accent, 5%);
+    }
     .mat-card-subtitle {
         @include flex(row, nowrap, center, center);
         position: absolute;
