@@ -22,11 +22,11 @@ export interface DriverData {
             driverId: string;
             Drivers: Driver[];
         };
+        limit: string;
+        offset: string;
+        series: string;
+        total: string;
+        url: string;
+        xmlns: string;
     };
-    limit: string;
-    offset: string;
-    series: string;
-    total: string;
-    url: string;
-    xmlns: string;
 }
