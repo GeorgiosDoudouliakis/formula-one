@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Race } from '@shared/models/round-standings.model';
+import { Race } from '../../models/round-standings.model';
 
 @Component({
   selector: 'app-driver-constructor',
