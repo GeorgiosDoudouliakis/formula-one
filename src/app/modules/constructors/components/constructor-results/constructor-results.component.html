@@ -9,6 +9,12 @@
           </mat-card-subtitle>
         </mat-card-header>
         <mat-card-content>
+          <p class="drivers">
+              <span>Drivers:</span>
+              <ng-container *ngFor="let result of race.Results">
+                <span class="driver">{{ result.Driver.givenName }} {{ result.Driver.familyName }}</span>
+              </ng-container>
+          </p>  
           <p>Laps: {{ race.Results[0].laps }}</p>
           <p>Status: {{ race.Results[0].status }}</p>
           <p>Points: {{ race.Results[0].points }}</p>

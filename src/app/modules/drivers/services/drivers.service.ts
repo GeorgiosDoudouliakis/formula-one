@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Driver, DriverData } from '@shared/models/constructor-driver.model';
 import { Observable, pluck } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { Race, RoundStandings } from '../models/results.model';
+import { Race, RoundStandings } from '@shared/models/round-standings.model';
 
 @Injectable()
 export class DriversService {

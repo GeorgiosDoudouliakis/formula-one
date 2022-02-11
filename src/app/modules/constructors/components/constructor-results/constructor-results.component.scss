@@ -1,0 +1,11 @@
+@import 'src/assets/scss/main';
+
+.drivers > span {
+    margin-right: 0.5rem;
+}
+
+.driver {
+    background: lighten($accent, 5%);
+    padding: 0.3rem;
+    border-radius: 4px;
+}

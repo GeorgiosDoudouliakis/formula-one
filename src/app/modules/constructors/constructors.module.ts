@@ -5,6 +5,7 @@ import { SharedModule } from '@shared/shared.module';
 import { ConstructorsComponent } from './pages/constructors/constructors.component';
 import { ConstructorComponent } from './components/constructor/constructor.component';
 import { ConstructorsService } from './services/constructors.service';
+import { ConstructorResultsComponent } from './components/constructor-results/constructor-results.component';
 
 const routes = [
   { path: '', component: ConstructorsComponent },
@@ -14,7 +15,8 @@ const routes = [
 @NgModule({
   declarations: [
     ConstructorsComponent,
-    ConstructorComponent
+    ConstructorComponent,
+    ConstructorResultsComponent
   ],
   imports: [
     CommonModule,

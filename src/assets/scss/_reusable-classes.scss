@@ -60,6 +60,32 @@
     }
 }
 
+.card {
+    height: 100%;
+    & > .mat-card {
+        height: 100%;
+        background: $accent;
+        position: relative;
+    }
+    .mat-card-subtitle {
+        @include flex(row, nowrap, center, center);
+        position: absolute;
+        top: -10px;
+        right: -10px;
+        width: 30px;
+        height: 30px;
+        color: $white;
+        background: $primary;
+        border-radius: 100%;
+    }
+    p {
+        font-size: 0.9rem;
+        &:not(:last-of-type) {
+            margin-bottom: 0.3rem;
+        }
+    }
+}
+
 @media(min-width: 768px) {
     .grid {
         grid-template-columns: repeat(2, 1fr);

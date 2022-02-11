@@ -2,7 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Driver } from '@shared/models/constructor-driver.model';
 import { Subscription, switchMap } from 'rxjs';
-import { Race } from '../../models/results.model';
+import { Race } from '@shared/models/round-standings.model';
 import { DriversService } from '../../services/drivers.service';
 
 @Component({
