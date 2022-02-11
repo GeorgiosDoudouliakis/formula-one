@@ -1,0 +1,17 @@
+<article>
+    <mat-card class="mat-elevation-z8">
+        <mat-card-header>
+          <mat-card-title>
+              {{ race.Circuit.circuitName | uppercase }}
+          </mat-card-title>
+          <mat-card-subtitle>
+              {{ race.Results[0].position }}
+          </mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          <p>Laps: {{ race.Results[0].laps }}</p>
+          <p>Status: {{ race.Results[0].status }}</p>
+          <p>Points: {{ race.Results[0].points }}</p>
+        </mat-card-content>
+      </mat-card>
+</article>
