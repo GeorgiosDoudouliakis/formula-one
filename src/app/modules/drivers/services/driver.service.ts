@@ -1,12 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Driver, DriverData } from '../models/constructor-driver.model';
+import { Driver, DriverData } from '../../../shared/models/constructor-driver.model';
 import { Observable, pluck } from 'rxjs';
 import { environment } from 'src/environments/environment';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class DriverService {
 
   constructor(private http: HttpClient) { }

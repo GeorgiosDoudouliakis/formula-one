@@ -1,0 +1,31 @@
+@import 'src/assets/scss/main';
+
+h3 {
+    padding-left: 0.5rem;
+    border-left: 2px solid $primary;
+}
+
+p {
+    font-size: 0.9rem;
+    &:not(:last-of-type) {
+        margin-bottom: 0.5rem;
+    }
+}
+
+@media(min-width: 768px) {
+    p {
+        font-size: 1rem;
+    }
+}
+
+@media(min-width: 1024px) {
+    h2 {
+        margin-bottom: 1.5rem;
+    }
+
+    p {
+        &:not(:last-of-type) {
+            margin-bottom: 0.8rem;
+        }
+    }
+}

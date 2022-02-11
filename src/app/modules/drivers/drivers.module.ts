@@ -2,10 +2,11 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { SharedModule } from '@shared/shared.module';
-import { DriverConstructorComponent } from '@shared/components/driver-constructor/driver-constructor.component';
+import { DriverComponent } from './components/driver/driver.component';
+import { DriverService } from './services/driver.service';
 
 const routes = [
-  { path: '', component: DriverConstructorComponent }
+  { path: '', component: DriverComponent }
 ]
 
 @NgModule({
@@ -17,6 +18,7 @@ const routes = [
   ],
   exports: [
     RouterModule
-  ]
+  ],
+  providers: [DriverService]
 })
 export class DriversModule { }

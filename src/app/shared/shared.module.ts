@@ -5,13 +5,11 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { DriverConstructorComponent } from './components/driver-constructor/driver-constructor.component';
 
 @NgModule({
   declarations: [
     HeaderComponent,
-    FooterComponent,
-    DriverConstructorComponent
+    FooterComponent
   ],
   imports: [
     CommonModule,
@@ -24,8 +22,7 @@ import { DriverConstructorComponent } from './components/driver-constructor/driv
     HttpClientModule,
     FormsModule,
     HeaderComponent,
-    FooterComponent,
-    DriverConstructorComponent
+    FooterComponent
   ]
 })
 export class SharedModule { }
