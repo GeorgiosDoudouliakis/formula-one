@@ -7,6 +7,7 @@ import { FormsModule } from '@angular/forms';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { NavigationComponent } from './components/navigation/navigation.component';
+import { CircuitResultsComponent } from './components/circuit-results/circuit-results.component';
 import { GoTopDirective } from './directives/go-top.directive';
 
 @NgModule({
@@ -14,6 +15,7 @@ import { GoTopDirective } from './directives/go-top.directive';
     HeaderComponent,
     FooterComponent,
     NavigationComponent,
+    CircuitResultsComponent,
     GoTopDirective
   ],
   imports: [
@@ -29,6 +31,7 @@ import { GoTopDirective } from './directives/go-top.directive';
     FormsModule,
     HeaderComponent,
     FooterComponent,
+    CircuitResultsComponent,
     GoTopDirective
   ]
 })

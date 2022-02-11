@@ -11,7 +11,7 @@
     <h3 class="results-header">CIRCUIT RESULTS</h3>
     <section class="grid">
         <ng-container *ngFor="let result of results">
-            <app-driver-results [race]="result"></app-driver-results>
+            <app-circuit-results [type]="'driver'" [race]="result"></app-circuit-results>
         </ng-container>
     </section>
 </article>

@@ -3,12 +3,13 @@ import { Router } from '@angular/router';
 import { Race } from '@shared/models/round-standings.model';
 
 @Component({
-  selector: 'app-constructor-results',
-  templateUrl: './constructor-results.component.html',
-  styleUrls: ['./constructor-results.component.scss'],
+  selector: 'app-circuit-results',
+  templateUrl: './circuit-results.component.html',
+  styleUrls: ['./circuit-results.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class ConstructorResultsComponent implements OnInit {
+export class CircuitResultsComponent implements OnInit {
+  @Input() type: 'driver' | 'constructor';
   @Input() race: Race;
 
   constructor(public router: Router) { }

@@ -5,7 +5,6 @@ import { SharedModule } from '@shared/shared.module';
 import { DriversService } from './services/drivers.service';
 import { DriversComponent } from './pages/drivers/drivers.component';
 import { DriverComponent } from './components/driver/driver.component';
-import { DriverResultsComponent } from './components/driver-results/driver-results.component';
 
 const routes = [
   { path: '', component: DriversComponent },
@@ -15,8 +14,7 @@ const routes = [
 @NgModule({
   declarations: [
     DriversComponent,
-    DriverComponent,
-    DriverResultsComponent
+    DriverComponent
   ],
   imports: [
     CommonModule,
