@@ -48,7 +48,6 @@ export class TableComponent implements OnInit, OnDestroy {
     if(this.option === 'Driver') {
       this.router.navigate(['/drivers', row['Driver']['driverId']]);
     } else if(this.option === 'Constructor') {
-      console.log(row);
       this.router.navigate(['/constructors', row['Constructor']['constructorId']]);
     }
   }
