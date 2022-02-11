@@ -82,7 +82,6 @@ $formula-one-theme: mat.define-light-theme((
 
 @include mat.all-component-themes($formula-one-theme);
 
-// Global Styles
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 

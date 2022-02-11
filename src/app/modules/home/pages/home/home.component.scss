@@ -1,7 +1,6 @@
 @import 'src/assets/scss/main';
 
 h2, p {
-    color: $white;
     margin-bottom: 1rem !important;
 }
 
@@ -9,24 +8,8 @@ p {
     font-size: 0.9rem;
 }
 
-@media(min-width: 768px){
-    h2 {
-        font-size: 1.5rem;
-    }
-
+@media(min-width: 768px) {
     p {
         font-size: 1rem;
-    }
-}
-
-@media(min-width: 1024px){
-    h2 {
-        font-size: 1.7rem;
-    }
-}
-
-@media(min-width: 1280px){
-    h2 {
-        font-size: 2rem;
     }
 }

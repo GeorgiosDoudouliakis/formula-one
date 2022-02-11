@@ -1,0 +1,22 @@
+h2, p {
+  color: white;
+}
+
+// Media
+@media(min-width: 768px){
+    h2 {
+        font-size: 1.5rem;
+    }
+}
+
+@media(min-width: 1024px){
+    h2 {
+        font-size: 1.7rem;
+    }
+}
+
+@media(min-width: 1280px){
+    h2 {
+        font-size: 2rem;
+    }
+}
