@@ -1,6 +1,6 @@
 import { Component, Input, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { MatSort } from '@angular/material/sort';
-import { MatRow, MatTableDataSource } from '@angular/material/table';
+import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
 import { ConstructorStandingsList, ConstructorStanding } from '@shared/models/constructor-standings.model';
 import { DriverStandingsList, DriverStanding } from '@shared/models/driver-standings.model';
@@ -44,9 +44,12 @@ export class TableComponent implements OnInit, OnDestroy {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
   
-  showDetails(row: DriverStanding) {
+  showDetails(row: any) {
     if(this.option === 'Driver') {
       this.router.navigate(['/drivers', row['Driver']['driverId']]);
+    } else if(this.option === 'Constructor') {
+      console.log(row);
+      this.router.navigate(['/constructors', row['Constructor']['constructorId']]);
     }
   }
 
