@@ -13,6 +13,20 @@ h1 {
     cursor: pointer;
 }
 
+.navigation {
+    @include flex(row, nowrap, unset, center);
+}
+
+button {
+    margin-right: 1rem;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    mat-icon {
+        color: $white;
+    }
+}
+
 .back-forth-navigation-btns {
     @include flex(row, nowrap, center, center);
     mat-icon {
