@@ -8,8 +8,54 @@
     padding: 1rem 0;
 }
 
+.grid {
+    display: grid;
+    gap: 20px;
+}
+
+.box {
+    @include flex(row, nowrap, space-between, center);
+    padding: 0.5rem;
+    background: lighten($accent, 5%);
+    border-radius: 4px;
+    border-right: 1px solid lighten($primary, 20%);
+    border-bottom: 1px solid lighten($primary, 20%);
+    color: $white;
+    cursor: pointer;
+    transition: .4s ease-in-out;
+    span {
+        font-size: 1rem;
+    }
+    &:hover {
+        transform: translateX(10px);
+    }
+}
+
+@media(min-width: 768px) {
+    .grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
 @media(min-width: 1024px) {
     .pad {
         padding: 2rem 0;
+    }
+
+    .grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .box {
+        padding: 0.8rem;
+        span {
+            font-size: 1.1rem;
+        }
+    }
+}
+
+@media(min-width: 1280px) {
+    .grid {
+        grid-template-columns: repeat(4, 1fr);
     }
 }
