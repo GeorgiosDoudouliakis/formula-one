@@ -2,7 +2,7 @@ import { Constructor } from "@shared/models/constructor-driver.model";
 
 export interface ConstructorData {
     MRData: {
-        ConstructorsTable: {
+        ConstructorTable: {
             Constructors: Constructor[];
             season: string;
         };

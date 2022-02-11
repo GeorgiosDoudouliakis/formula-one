@@ -34,9 +34,41 @@
     }
 }
 
+.details-name {
+    padding-left: 0.5rem;
+    border-left: 2px solid $primary;
+}
+
+.details {
+    margin-bottom: 2rem;
+    p {
+        font-size: 0.9rem;
+        &:not(:last-of-type) {
+            margin-bottom: 0.5rem;
+        }
+    }
+}
+
+.results-header {
+    padding: 0.5rem;
+    background: lighten($accent, 5%);
+    border-radius: 4px;
+    margin-bottom: 2rem;
+    & + .grid {
+        gap: 60px 20px;
+        margin-bottom: 3rem;
+    }
+}
+
 @media(min-width: 768px) {
     .grid {
         grid-template-columns: repeat(2, 1fr);
+    }
+
+    .details {
+        p {
+            font-size: 1rem;
+        }
     }
 }
 
@@ -53,6 +85,18 @@
         padding: 0.8rem;
         span {
             font-size: 1.1rem;
+        }
+    }
+
+    .details-header {
+        margin-bottom: 1.5rem;
+    }
+
+    .details {
+        p {
+            &:not(:last-of-type) {
+                margin-bottom: 0.8rem;
+            }
         }
     }
 }

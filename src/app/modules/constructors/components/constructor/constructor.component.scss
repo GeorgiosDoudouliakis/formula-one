@@ -1,0 +1,21 @@
+@import 'src/assets/scss/main';
+
+.details {
+    p {
+        &:last-of-type {
+            margin-bottom: 0.5rem;
+        }
+    }
+}
+
+a {
+    font-size: 0.9rem;
+    color: $white;
+    text-decoration: underline;
+}
+
+@media(min-width: 768px) {
+    a {
+        font-size: 1rem;
+    }
+}

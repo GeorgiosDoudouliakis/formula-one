@@ -1,1 +1,16 @@
-<p>constructor works!</p>
+<article class="max-width pad">
+    <h2 class="details-header">Constructor Details</h2>
+    <section class="details">
+        <h3 class="details-name">
+            {{ details?.name }}
+        </h3>
+        <p>Nationality: {{ details?.nationality }}</p>
+        <a [href]="details?.url" target="_blank">Wikipedia</a>
+    </section>
+    <h3 class="results-header">CIRCUIT RESULTS</h3>
+    <section class="grid">
+        <!-- <ng-container *ngFor="let result of results">
+            <app-driver-results [race]="result"></app-driver-results>
+        </ng-container> -->
+    </section>
+</article>
