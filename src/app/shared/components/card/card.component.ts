@@ -2,7 +2,6 @@ import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { CircuitLocationComponent } from 'src/app/modules/circuits/components/circuit-location/circuit-location.component';
-import { Race } from '../../models/round-standings.model';
 
 @Component({
   selector: 'app-card',
