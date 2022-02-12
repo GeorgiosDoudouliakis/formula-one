@@ -14,6 +14,10 @@ const routes: Routes = [
   {
     path: 'constructors',
     loadChildren: () => import('./modules/constructors/constructors.module').then(m => m.ConstructorsModule)
+  },
+  {
+    path: 'circuits',
+    loadChildren: () => import('./modules/circuits/circuits.module').then(m => m.CircuitsModule)
   }
 ];
 

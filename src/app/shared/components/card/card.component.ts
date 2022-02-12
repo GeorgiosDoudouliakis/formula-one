@@ -3,14 +3,14 @@ import { Router } from '@angular/router';
 import { Race } from '../../models/round-standings.model';
 
 @Component({
-  selector: 'app-circuit-results',
-  templateUrl: './circuit-results.component.html',
-  styleUrls: ['./circuit-results.component.scss'],
+  selector: 'app-card',
+  templateUrl: './card.component.html',
+  styleUrls: ['./card.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class CircuitResultsComponent implements OnInit {
-  @Input() type: 'driver' | 'constructor';
-  @Input() race: Race;
+export class CardComponent implements OnInit {
+  @Input() type: 'driver' | 'constructor' | 'circuit';
+  @Input() data: any;
 
   constructor(public router: Router) { }
 

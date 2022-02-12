@@ -1,0 +1,7 @@
+<section class="max-width pad">
+    <h2 class="constructors-drivers-circuits-header">Circuits</h2>
+    <section class="grid">
+        <app-card *ngFor="let circuit of circuits$ | async" 
+        [type]="'circuit'" [data]="circuit"></app-card>
+    </section>
+</section>

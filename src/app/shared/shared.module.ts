@@ -7,7 +7,7 @@ import { FormsModule } from '@angular/forms';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { NavigationComponent } from './components/navigation/navigation.component';
-import { CircuitResultsComponent } from './components/circuit-results/circuit-results.component';
+import { CardComponent } from './components/card/card.component';
 import { DriverConstructorComponent } from './components/driver-constructor/driver-constructor.component';
 import { GoTopDirective } from './directives/go-top.directive';
 import { ConstructorsDriversComponent } from './components/constructors-drivers/constructors-drivers.component';
@@ -17,7 +17,7 @@ import { ConstructorsDriversComponent } from './components/constructors-drivers/
     HeaderComponent,
     FooterComponent,
     NavigationComponent,
-    CircuitResultsComponent,
+    CardComponent,
     DriverConstructorComponent,
     GoTopDirective,
     ConstructorsDriversComponent
@@ -35,7 +35,7 @@ import { ConstructorsDriversComponent } from './components/constructors-drivers/
     FormsModule,
     HeaderComponent,
     FooterComponent,
-    CircuitResultsComponent,
+    CardComponent,
     DriverConstructorComponent,
     GoTopDirective,
     ConstructorsDriversComponent

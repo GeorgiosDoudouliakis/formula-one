@@ -12,7 +12,7 @@
     <h3 class="results-header">CIRCUIT RESULTS</h3>
     <section class="grid">
         <ng-container *ngFor="let result of results">
-            <app-circuit-results [type]="type" [race]="result"></app-circuit-results>
+            <app-card [type]="type" [data]="result"></app-card>
         </ng-container>
     </section>
 </article>
