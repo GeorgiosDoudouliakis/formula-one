@@ -4,7 +4,7 @@
         <article *ngFor="let data of data$ | async" class="box" (click)="navigateTo(data)">
             <section class="image-name-container">
                 <div class="img-container">
-                    <img src="assets/images/{{ type === 'drivers' ? data.driverId : data.constructorId }}_logo.png" [alt]="(type === 'constructors' ? data.name : data.familyName)  + ' photo'" />
+                    <img src="assets/images/{{ type === 'drivers' ? data.driverId : data.constructorId }}.png" [alt]="(type === 'constructors' ? data.name : data.familyName) + (type === 'drivers' ? ' photo' : ' logo')" />
                 </div>
                 <span>
                     {{ type === 'constructors' ? data.name : data.givenName + " " + data.familyName }}

@@ -3,7 +3,7 @@
     <section class="details">
         <section class="image-name-container driver-constructor">
             <div class="img-container">
-                <img src="assets/images/{{ type === 'driver' ? details?.driverId : details?.constructorId }}_logo.png" [alt]="(type === 'driver' ? details?.driverId : details?.constructorId)  + ' photo'">
+                <img src="assets/images/{{ type === 'driver' ? details?.driverId : details?.constructorId }}.png" [alt]="(type === 'driver' ? details?.driverId : details?.constructorId) + (type === 'driver' ? ' photo' : ' logo')">
             </div>
             <h3 class="details-name">
                 {{ type === 'constructor' ? details?.name : details?.givenName + " " + details?.familyName }}
