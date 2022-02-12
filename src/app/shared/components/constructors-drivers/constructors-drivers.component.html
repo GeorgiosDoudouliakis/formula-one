@@ -2,9 +2,14 @@
     <h2 class="constructors-drivers-circuits-header">{{ type === 'drivers' ? 'Drivers' : 'Constructors' }} List</h2>
     <section class="grid constructors-drivers">
         <article *ngFor="let data of data$ | async" class="box" (click)="navigateTo(data)">
-            <span>
-               {{ type === 'constructors' ? data.name : data.givenName + " " + data.familyName }}
-            </span>
+            <section class="image-name-container">
+                <div class="img-container">
+                    <img src="assets/images/{{ type === 'drivers' ? data.driverId : data.constructorId }}_logo.png" [alt]="(type === 'constructors' ? data.name : data.familyName)  + ' photo'" />
+                </div>
+                <span>
+                    {{ type === 'constructors' ? data.name : data.givenName + " " + data.familyName }}
+                </span>
+            </section>
             <mat-icon>keyboard_arrow_right</mat-icon>
         </article>
     </section>

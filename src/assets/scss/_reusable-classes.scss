@@ -36,6 +36,7 @@
 
 .details-name {
     padding-left: 0.5rem;
+    margin-bottom: 0;
     border-left: 2px solid $primary;
 }
 
@@ -95,6 +96,26 @@
         display: inline-block;
         font-size: 0.9rem;
         margin-top: 0.3rem;
+    }
+}
+
+.image-name-container {
+    @include flex(row, nowrap, flex-start, center);
+    span, h3 {
+        margin-left: 1rem;
+    }
+    &.driver-constructor {
+        margin-bottom: 1rem;
+    }
+}
+
+.img-container {
+    width: 30px;
+    height: 30px;
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
     }
 }
 

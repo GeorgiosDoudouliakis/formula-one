@@ -1,9 +1,14 @@
 <article class="max-width pad">
     <h2 class="details-header">{{ type === 'driver' ? 'Driver' : 'Constructor' }} Details</h2>
     <section class="details">
-        <h3 class="details-name">
-            {{ type === 'constructor' ? details?.name : details?.givenName + " " + details?.familyName }}
-        </h3>
+        <section class="image-name-container driver-constructor">
+            <div class="img-container">
+                <img src="assets/images/{{ type === 'driver' ? details?.driverId : details?.constructorId }}_logo.png" [alt]="(type === 'driver' ? details?.driverId : details?.constructorId)  + ' photo'">
+            </div>
+            <h3 class="details-name">
+                {{ type === 'constructor' ? details?.name : details?.givenName + " " + details?.familyName }}
+            </h3>
+        </section>
         <p *ngIf="type === 'driver'">Date of birth: {{ details?.dateOfBirth | date }}</p>
         <p>Nationality: {{ details?.nationality }}</p>
         <p *ngIf="type === 'driver'">Number: {{ details?.permanentNumber }}</p>
