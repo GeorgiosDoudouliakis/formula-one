@@ -59,6 +59,7 @@ export class TableComponent implements OnInit, OnDestroy {
           this.data = res[0].DriverStandings;
           this.dataSource = new MatTableDataSource(this.data);
           this.displayedColumns = ["position", "name", "constructor", "points", "wins"];
+          this.dataSource.filterPredicate = (data: DriverStanding, filter) => this.predicate(data, filter);
           this.dataSource.sort = this.sort;
         });
     } else if(this.option === 'Constructor') {
@@ -67,8 +68,29 @@ export class TableComponent implements OnInit, OnDestroy {
           this.data = res[0].ConstructorStandings;
           this.dataSource = new MatTableDataSource(this.data);
           this.displayedColumns = ["position", "constructor", "nationality", "points", "wins"];
+          this.dataSource.filterPredicate = (data: ConstructorStanding, filter) => this.predicate(data, filter);
           this.dataSource.sort = this.sort;
         });
     }
+  }
+
+  private predicate(data: any, filter: string) {
+    let convertedData:string[] = [data['position'], data['points'], data['wins']];
+
+    if(this.option === 'Driver') {
+      convertedData = [
+        ...convertedData,
+        data['Driver']['givenName'] + " " + data['Driver']['familyName'],
+        data['Constructors'][0]['name']
+      ];
+    } else if(this.option === 'Constructor') {
+      convertedData = [
+        ...convertedData,
+        data['Constructor']['name'],
+        data['Constructor']['nationality']
+      ];
+    }
+
+    return convertedData.toString().toLowerCase().includes(filter);
   }
 }
