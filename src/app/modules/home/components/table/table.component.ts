@@ -60,6 +60,7 @@ export class TableComponent implements OnInit, OnDestroy {
           this.dataSource = new MatTableDataSource(this.data);
           this.displayedColumns = ["position", "name", "constructor", "points", "wins"];
           this.dataSource.filterPredicate = (data: DriverStanding, filter) => this.predicate(data, filter);
+          this.dataSource.sortingDataAccessor = (data: any, property: any) => this.dataAccessor(data, property);
           this.dataSource.sort = this.sort;
         });
     } else if(this.option === 'Constructor') {
@@ -69,6 +70,7 @@ export class TableComponent implements OnInit, OnDestroy {
           this.dataSource = new MatTableDataSource(this.data);
           this.displayedColumns = ["position", "constructor", "nationality", "points", "wins"];
           this.dataSource.filterPredicate = (data: ConstructorStanding, filter) => this.predicate(data, filter);
+          this.dataSource.sortingDataAccessor = (data: any, property: any) => this.dataAccessor(data, property);
           this.dataSource.sort = this.sort;
         });
     }
@@ -92,5 +94,21 @@ export class TableComponent implements OnInit, OnDestroy {
     }
 
     return convertedData.toString().toLowerCase().includes(filter);
+  }
+
+  private dataAccessor(data: any, property: any) {
+    if(this.option === 'Driver') {
+      switch(property) {
+        case 'name': return data['Driver']['givenName'] + " " + data['Driver']['familyName'];
+        case 'constructor': return data['Constructors'][0]['name'];
+        default: return +data[property];
+      }
+    } else if(this.option === 'Constructor') {
+      switch(property) {
+        case 'constructor': return data['Constructor']['name'];
+        case 'nationality': return data['Constructor']['nationality'];
+        default: return +data[property];
+      }
+    }
   }
 }
