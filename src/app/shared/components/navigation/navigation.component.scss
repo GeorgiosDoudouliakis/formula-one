@@ -19,10 +19,10 @@ ul {
             display: inline-block;
             font-size: 1rem;
             text-align: center;
+            width: 112px;
             color: $primary;
             background: $white !important;
             padding: 0.3rem 0.5rem;
-            border-radius: 4px;
             &.active {
                 color: $white;
                 background: $primary !important;
@@ -42,8 +42,10 @@ ul {
                 margin-bottom: 0;
             }
             a {
+                width: unset;
                 color: $white !important;
                 background: darken($primary, 10%) !important;
+                border-radius: 4px;
                 &.active {
                     background: darken($primary, 20%) !important;
                 }
