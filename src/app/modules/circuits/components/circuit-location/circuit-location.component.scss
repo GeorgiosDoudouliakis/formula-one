@@ -1,0 +1,14 @@
+@import 'src/assets/scss/main';
+
+h2 {
+    font-size: 1.2rem;
+    text-align: center;
+    color: black;
+    line-height: 1.5rem;
+}
+
+@media(min-width: 1024px) {
+    h2 {
+        font-size: 1.4rem;
+    }
+}
