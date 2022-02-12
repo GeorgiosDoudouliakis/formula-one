@@ -29,7 +29,7 @@
           </ng-container>  
         </mat-card-content>
         <mat-card-actions *ngIf="type === 'circuit'">
-          <button mat-raised-button color="primary">Circuit Location</button>
+          <button mat-raised-button color="primary" (click)="showLocation(data.Location.lat, data.Location.long)">Circuit Location</button>
         </mat-card-actions>
       </mat-card>
 </article>

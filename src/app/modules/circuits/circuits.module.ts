@@ -4,6 +4,8 @@ import { RouterModule } from '@angular/router';
 import { SharedModule } from '@shared/shared.module';
 import { CircuitsComponent } from './pages/circuits/circuits.component';
 import { CircuitsService } from './services/circuits.service';
+import { CircuitLocationComponent } from './components/circuit-location/circuit-location.component';
+import { MapComponent } from './components/map/map.component';
 
 const routes = [
   { path: '', component: CircuitsComponent }
@@ -11,7 +13,9 @@ const routes = [
 
 @NgModule({
   declarations: [
-    CircuitsComponent
+    CircuitsComponent,
+    CircuitLocationComponent,
+    MapComponent
   ],
   imports: [
     CommonModule,
