@@ -18,10 +18,10 @@ export class ConstructorsService {
   }
 
   getConstructorResults(constructorId: string): Observable<Race[]> {
-    return this.http.get<RoundStandings>(`${environment.api}/2021/constructors/${constructorId}/results.json`).pipe(pluck('MRData', 'RaceTable', 'Races'));
+    return this.http.get<RoundStandings>(`${environment.api}/constructors/${constructorId}/results.json`).pipe(pluck('MRData', 'RaceTable', 'Races'));
   }
 
-  getConstructors(): Observable<any> {
-    return this.http.get<ConstructorData>(`${environment.api}/2021/constructors.json`).pipe(pluck('MRData', 'ConstructorTable', 'Constructors'));
+  getConstructors(year: string = '2021'): Observable<any> {
+    return this.http.get<ConstructorData>(`${environment.api}/${year}/constructors.json`).pipe(pluck('MRData', 'ConstructorTable', 'Constructors'));
   }
 }

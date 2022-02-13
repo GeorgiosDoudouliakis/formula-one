@@ -1,0 +1,10 @@
+<section class="max-width">
+    <mat-form-field appearance="standard">
+        <mat-label>Year</mat-label>
+        <mat-select [formControl]="yearControl">
+          <mat-option *ngFor="let year of years" [value]="year">
+            {{ year }}
+          </mat-option>
+        </mat-select>
+    </mat-form-field>
+</section>

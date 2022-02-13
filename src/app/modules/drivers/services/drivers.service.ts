@@ -17,11 +17,11 @@ export class DriversService {
   }
 
   getDriverResults(driverId: string): Observable<Race[]> {
-    return this.http.get<RoundStandings>(`${environment.api}/2021/drivers/${driverId}/results.json`).pipe(pluck('MRData', 'RaceTable', 'Races'));
+    return this.http.get<RoundStandings>(`${environment.api}/drivers/${driverId}/results.json`).pipe(pluck('MRData', 'RaceTable', 'Races'));
   }
 
-  getDrivers(): Observable<any> {
-    return this.http.get<Driver[]>(`${environment.api}/2021/drivers.json`)
+  getDrivers(year: string = '2021'): Observable<any> {
+    return this.http.get<Driver[]>(`${environment.api}/${year}/drivers.json`)
     .pipe(pluck('MRData', 'DriverTable', 'Drivers'));
   }
 }

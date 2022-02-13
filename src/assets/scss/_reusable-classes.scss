@@ -101,9 +101,6 @@
 
 .image-name-container {
     @include flex(row, nowrap, flex-start, center);
-    span, h3 {
-        margin-left: 1rem;
-    }
     &.driver-constructor {
         margin-bottom: 1rem;
     }

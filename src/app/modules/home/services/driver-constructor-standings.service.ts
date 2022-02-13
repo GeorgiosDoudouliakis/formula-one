@@ -11,13 +11,13 @@ export class DriverConstructorStandingsService {
 
   constructor(private http: HttpClient) { }
 
-  getDriverStandings(): Observable<DriverStandingsList[]> {
-    return this.http.get<DriverStandings>(`${environment.api}/2021/driverStandings.json?limit=400&offset=0`)
+  getDriverStandings(year: string = '2021'): Observable<DriverStandingsList[]> {
+    return this.http.get<DriverStandings>(`${environment.api}/${year}/driverStandings.json?limit=400&offset=0`)
                .pipe(pluck('MRData', 'StandingsTable', 'StandingsLists'));
   }
 
-  getConstructorStandings(): Observable<any> {
-    return this.http.get<ConstructorStandings>(`${environment.api}/2021/constructorStandings.json?limit=400&offset=0`)
+  getConstructorStandings(year: string = '2021'): Observable<any> {
+    return this.http.get<ConstructorStandings>(`${environment.api}/${year}/constructorStandings.json?limit=400&offset=0`)
                .pipe(pluck('MRData', 'StandingsTable', 'StandingsLists'))
              
   }

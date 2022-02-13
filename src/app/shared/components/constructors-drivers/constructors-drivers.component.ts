@@ -1,6 +1,7 @@
-import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Observable } from 'rxjs';
+import { YearHandlerService } from '@shared/services/year-handler.service';
+import { Observable, Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-constructors-drivers',
@@ -8,13 +9,24 @@ import { Observable } from 'rxjs';
   styleUrls: ['./constructors-drivers.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class ConstructorsDriversComponent implements OnInit {
+export class ConstructorsDriversComponent implements OnInit, OnDestroy {
   @Input() type: 'drivers' | 'constructors';
   @Input() data$: Observable<any>;
+  year: string;
+  private yearSub$: Subscription;
 
-  constructor(public router: Router) { }
+  constructor(
+    public router: Router,
+    private yearHandlerService: YearHandlerService
+  ) { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.yearSub$ = this.yearHandlerService.year$.subscribe((year: string) => this.year = year);
+  }
+
+  ngOnDestroy() {
+    this.yearSub$?.unsubscribe();
+  }
 
   navigateTo(data: any) {
     if(this.type === 'drivers') {

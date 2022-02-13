@@ -4,7 +4,8 @@ import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
 import { ConstructorStandingsList, ConstructorStanding } from '@shared/models/constructor-standings.model';
 import { DriverStandingsList, DriverStanding } from '@shared/models/driver-standings.model';
-import { Subscription } from 'rxjs';
+import { YearHandlerService } from '@shared/services/year-handler.service';
+import { Subscription, switchMap } from 'rxjs';
 import { DriverConstructorStandingsService } from '../../services/driver-constructor-standings.service';
 
 @Component({
@@ -22,6 +23,7 @@ export class TableComponent implements OnInit, OnDestroy {
   private standingsSub$: Subscription;
 
   constructor(
+    private yearHandlerService: YearHandlerService,
     private driverConstructorStandingsService: DriverConstructorStandingsService,
     private router: Router
   ) {}
@@ -29,6 +31,7 @@ export class TableComponent implements OnInit, OnDestroy {
   ngOnChanges() {
     this.displayedColumns = [];
     this.data = [];
+    this.dataSource = new MatTableDataSource();
     this.filterValue = '';
     this.tableDataSource();
   }
@@ -54,25 +57,31 @@ export class TableComponent implements OnInit, OnDestroy {
 
   private tableDataSource() {
     if(this.option === 'Driver') {
-      this.standingsSub$ = this.driverConstructorStandingsService.getDriverStandings()
-        .subscribe((res: DriverStandingsList[]) => { 
-          this.data = res[0].DriverStandings;
-          this.dataSource = new MatTableDataSource(this.data);
-          this.displayedColumns = ["position", "name", "constructor", "points", "wins"];
-          this.dataSource.filterPredicate = (data: DriverStanding, filter) => this.predicate(data, filter);
-          this.dataSource.sortingDataAccessor = (data: any, property: any) => this.dataAccessor(data, property);
-          this.dataSource.sort = this.sort;
-        });
+      this.standingsSub$ = this.yearHandlerService.year$.pipe(
+        switchMap((year: string) => this.driverConstructorStandingsService.getDriverStandings(year))
+      )
+      .subscribe((res: DriverStandingsList[]) => {
+        if(!res[0]) return; 
+        this.data = res[0].DriverStandings;
+        this.dataSource = new MatTableDataSource(this.data);
+        this.displayedColumns = ["position", "name", "constructor", "points", "wins"];
+        this.dataSource.filterPredicate = (data: DriverStanding, filter) => this.predicate(data, filter);
+        this.dataSource.sortingDataAccessor = (data: any, property: any) => this.dataAccessor(data, property);
+        this.dataSource.sort = this.sort;
+      })  
     } else if(this.option === 'Constructor') {
-      this.standingsSub$ = this.driverConstructorStandingsService.getConstructorStandings()
-        .subscribe((res: ConstructorStandingsList[]) => {
-          this.data = res[0].ConstructorStandings;
-          this.dataSource = new MatTableDataSource(this.data);
-          this.displayedColumns = ["position", "constructor", "nationality", "points", "wins"];
-          this.dataSource.filterPredicate = (data: ConstructorStanding, filter) => this.predicate(data, filter);
-          this.dataSource.sortingDataAccessor = (data: any, property: any) => this.dataAccessor(data, property);
-          this.dataSource.sort = this.sort;
-        });
+      this.standingsSub$ = this.yearHandlerService.year$.pipe(
+        switchMap((year: string) => this.driverConstructorStandingsService.getConstructorStandings(year))
+      )
+      .subscribe((res: ConstructorStandingsList[]) => {
+        if(!res[0]) return;
+        this.data = res[0].ConstructorStandings;
+        this.dataSource = new MatTableDataSource(this.data);
+        this.displayedColumns = ["position", "constructor", "nationality", "points", "wins"];
+        this.dataSource.filterPredicate = (data: ConstructorStanding, filter) => this.predicate(data, filter);
+        this.dataSource.sortingDataAccessor = (data: any, property: any) => this.dataAccessor(data, property);
+        this.dataSource.sort = this.sort;
+      })  
     }
   }
 

@@ -2,12 +2,12 @@
     <h2 class="details-header">{{ type === 'driver' ? 'Driver' : 'Constructor' }} Details</h2>
     <section class="details">
         <section class="image-name-container driver-constructor">
-            <div class="img-container"
+            <div class="img-container" *ngIf="year === '2021'"
             [ngStyle]="{ width: type === 'driver' ? '45px' : '30px', height: type === 'driver' ? '45px' : '30px'}">
                 <img src="assets/images/{{ type === 'driver' ? details?.driverId : details?.constructorId }}.png" 
                 [alt]="(type === 'driver' ? details?.driverId : details?.constructorId) + (type === 'driver' ? ' photo' : ' logo')">
             </div>
-            <h3 class="details-name">
+            <h3 class="details-name" [style.marginLeft]="year === '2021' ? '1rem' : '0'">
                 {{ type === 'constructor' ? details?.name : details?.givenName + " " + details?.familyName }}
             </h3>
         </section>

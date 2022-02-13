@@ -3,11 +3,11 @@
     <section class="grid constructors-drivers">
         <article *ngFor="let data of data$ | async" class="box" (click)="navigateTo(data)">
             <section class="image-name-container">
-                <div class="img-container" 
+                <div class="img-container" *ngIf="year === '2021'"
                 [ngStyle]="{ width: type === 'drivers' ? '45px' : '30px', height: type === 'drivers' ? '45px' : '30px'}">
                     <img src="assets/images/{{ type === 'drivers' ? data.driverId : data.constructorId }}.png" [alt]="(type === 'constructors' ? data.name : data.familyName) + (type === 'drivers' ? ' photo' : ' logo')" />
                 </div>
-                <span>
+                <span [style.marginLeft]="year === '2021' ? '1rem' : '0'">
                     {{ type === 'constructors' ? data.name : data.givenName + " " + data.familyName }}
                 </span>
             </section>

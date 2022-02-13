@@ -1,0 +1,12 @@
+@import 'src/assets/scss/main';
+
+section {
+    @include flex(row, nowrap, center, center);
+    padding-top: 1rem;
+}
+
+@media(min-width: 600px) {
+    section {
+        justify-content: flex-end;
+    }
+}

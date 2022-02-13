@@ -106,3 +106,8 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   color: white !important;
   margin: 0 !important;
 }
+
+.mat-select-value-text, 
+.mat-select-arrow {
+  color: white;
+}
