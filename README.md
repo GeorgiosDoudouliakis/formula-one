@@ -21,4 +21,5 @@ The design i followed depends on reusability and modularity. Modules for each pa
 ## New Features
 - Provide race schedule
 - For each circuit provide race results(standings)
+- Refactor routing to include year as a param
 - SEO
