@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Driver } from '@shared/models/constructor-driver.model';
+import { SeasonFilterVisibilityHandlerService } from '@shared/services/season-filter-visibility-handler.service';
 import { YearHandlerService } from '@shared/services/year-handler.service';
 import { Observable, switchMap } from 'rxjs';
 import { DriversService } from '../../services/drivers.service';
@@ -16,12 +17,15 @@ export class DriversComponent implements OnInit {
   constructor(
     private yearHandlerService: YearHandlerService,
     public driversService: DriversService,
-    public router: Router
+    public router: Router,
+    private seasonFilterVisibilityHandlerService: SeasonFilterVisibilityHandlerService
   ) { }
 
   ngOnInit(): void {
     this.drivers$ = this.yearHandlerService.year$.pipe(
       switchMap((year: string) => this.driversService.getDrivers(year))
     );
+
+    this.seasonFilterVisibilityHandlerService.seasonFilterVisibilityHandler(true);
   }
 }

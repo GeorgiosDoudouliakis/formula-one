@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SeasonFilterVisibilityHandlerService } from '@shared/services/season-filter-visibility-handler.service';
 
 @Component({
   selector: 'app-home',
@@ -8,9 +9,9 @@ import { Component, OnInit } from '@angular/core';
 export class HomeComponent implements OnInit {
   option: 'Driver' | 'Constructor' = 'Driver';
 
-  constructor() { }
+  constructor(private seasonFilterVisibilityHandlerService: SeasonFilterVisibilityHandlerService) { }
 
   ngOnInit(): void {
+    this.seasonFilterVisibilityHandlerService.seasonFilterVisibilityHandler(true);
   }
-
 }

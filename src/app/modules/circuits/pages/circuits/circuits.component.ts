@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SeasonFilterVisibilityHandlerService } from '@shared/services/season-filter-visibility-handler.service';
 import { YearHandlerService } from '@shared/services/year-handler.service';
 import { Observable, switchMap } from 'rxjs';
 import { Circuit } from '../../models/circuits.model';
@@ -14,12 +15,15 @@ export class CircuitsComponent implements OnInit {
 
   constructor(
     private yearHandlerService: YearHandlerService,
-    private circuitsService: CircuitsService
+    private circuitsService: CircuitsService,
+    private seasonFilterVisibilityHandler: SeasonFilterVisibilityHandlerService
   ) { }
 
   ngOnInit(): void {
     this.circuits$ = this.yearHandlerService.year$.pipe(
       switchMap(year => this.circuitsService.getCircuits(year))
-    )
+    );
+
+    this.seasonFilterVisibilityHandler.seasonFilterVisibilityHandler(true);
   }
 }

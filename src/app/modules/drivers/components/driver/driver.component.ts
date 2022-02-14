@@ -2,6 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Driver } from '@shared/models/constructor-driver.model';
 import { Race } from '@shared/models/round-standings.model';
+import { SeasonFilterVisibilityHandlerService } from '@shared/services/season-filter-visibility-handler.service';
 import { Subscription, switchMap } from 'rxjs';
 import { DriversService } from '../../services/drivers.service';
 
@@ -18,11 +19,13 @@ export class DriverComponent implements OnInit, OnDestroy {
 
   constructor(
     private driversService: DriversService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private seasonFilterVisibilityHandlerService: SeasonFilterVisibilityHandlerService
   ) { }
 
   ngOnInit(): void {
     this.getDriverDetails();
+    this.seasonFilterVisibilityHandlerService.seasonFilterVisibilityHandler(false);
   }
 
   ngOnDestroy() {
