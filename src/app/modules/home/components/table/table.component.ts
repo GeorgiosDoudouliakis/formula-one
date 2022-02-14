@@ -16,6 +16,7 @@ import { DriverConstructorStandingsService } from '../../services/driver-constru
 export class TableComponent implements OnInit, AfterViewChecked, OnDestroy {
   @Input() option: 'Driver' | 'Constructor';
   @ViewChild(MatSort) sort: MatSort | null;
+  isLoading: boolean = false;
   filterValue: string = '';
   displayedColumns: string[] = [];
   dataSource: MatTableDataSource<any>;
@@ -29,6 +30,7 @@ export class TableComponent implements OnInit, AfterViewChecked, OnDestroy {
   ) {}
   
   ngOnChanges() {
+    this.isLoading = false;
     this.displayedColumns = [];
     this.data = [];
     this.dataSource = new MatTableDataSource();
@@ -39,6 +41,12 @@ export class TableComponent implements OnInit, AfterViewChecked, OnDestroy {
   ngOnInit(): void {}
   
   ngAfterViewChecked() {
+    if(this.option === 'Driver') {
+      this.displayedColumns = ["position", "name", "constructor", "points", "wins"];
+    } else {
+      this.displayedColumns = ["position", "constructor", "nationality", "points", "wins"];
+    }
+
     this.dataSource.filterPredicate = (data: any, filter) => this.predicate(data, filter);
     this.dataSource.sortingDataAccessor = (data: any, property: any) => this.dataAccessor(data, property);
     this.dataSource.sort = this.sort;
@@ -63,24 +71,34 @@ export class TableComponent implements OnInit, AfterViewChecked, OnDestroy {
 
   private tableDataSource() {
     if(this.option === 'Driver') {
+      this.isLoading = true;
       this.standingsSub$ = this.yearHandlerService.year$.pipe(
         switchMap((year: string) => this.driverConstructorStandingsService.getDriverStandings(year))
       )
-      .subscribe((res: DriverStandingsList[]) => {
-        if(!res[0]) return; 
-        this.data = res[0].DriverStandings;
-        this.dataSource = new MatTableDataSource(this.data);
-        this.displayedColumns = ["position", "name", "constructor", "points", "wins"];
+      .subscribe({
+        next: (res: DriverStandingsList[]) => {
+          this.isLoading = false;
+          if(!res[0]) return; 
+          this.data = res[0].DriverStandings;
+          this.dataSource = new MatTableDataSource(this.data);
+        },
+        error: (err) => this.isLoading = false,
+        complete: () => this.isLoading = false
       })  
     } else if(this.option === 'Constructor') {
+      this.isLoading = true;
       this.standingsSub$ = this.yearHandlerService.year$.pipe(
         switchMap((year: string) => this.driverConstructorStandingsService.getConstructorStandings(year))
       )
-      .subscribe((res: ConstructorStandingsList[]) => {
-        if(!res[0]) return;
-        this.data = res[0].ConstructorStandings;
-        this.dataSource = new MatTableDataSource(this.data);
-        this.displayedColumns = ["position", "constructor", "nationality", "points", "wins"];
+      .subscribe({
+        next: (res: ConstructorStandingsList[]) => {
+          this.isLoading = false;
+          if(!res[0]) return;
+          this.data = res[0].ConstructorStandings;
+          this.dataSource = new MatTableDataSource(this.data);
+        },
+        error: (err) => this.isLoading = false,
+        complete: () => this.isLoading = false
       })  
     }
   }
