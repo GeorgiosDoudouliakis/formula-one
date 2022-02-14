@@ -1,7 +1,7 @@
 @import 'src/assets/scss/main';
 
 section {
-    @include flex(row, nowrap, flex-end, center);
+    @include flex(row, nowrap, center, center);
 }
 
 span {
@@ -14,6 +14,12 @@ span {
 
 .constructor-standings {
     margin-left: 1rem;
+}
+
+@media(min-width: 600px) {
+    section {
+        justify-content: flex-end;
+    }
 }
 
 @media(min-width: 768px) {
