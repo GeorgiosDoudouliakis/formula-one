@@ -1,5 +1,5 @@
 <section class="max-width table">
-    <ng-container *ngIf="data.length > 0">
+    <ng-container *ngIf="dataSource.data.length > 0">
         <mat-form-field appearance="standard">
             <mat-label>Filter</mat-label>
             <input matInput (keyup)="applyFilter($event)" placeholder="Search..." [(ngModel)]="filterValue" autocomplete="off">
@@ -51,5 +51,5 @@
             </table>
         </section>      
     </ng-container>
-    <p class="no-data" *ngIf="data.length === 0">NO DATA FOUND</p>
+    <p class="no-data" *ngIf="dataSource.data.length === 0">NO DATA FOUND</p>
 </section>

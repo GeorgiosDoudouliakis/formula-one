@@ -1,4 +1,4 @@
-import { Component, Input, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { AfterViewChecked, Component, Input, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
@@ -13,7 +13,7 @@ import { DriverConstructorStandingsService } from '../../services/driver-constru
   templateUrl: './table.component.html',
   styleUrls: ['./table.component.scss']
 })
-export class TableComponent implements OnInit, OnDestroy {
+export class TableComponent implements OnInit, AfterViewChecked, OnDestroy {
   @Input() option: 'Driver' | 'Constructor';
   @ViewChild(MatSort) sort: MatSort | null;
   filterValue: string = '';
@@ -38,6 +38,12 @@ export class TableComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {}
   
+  ngAfterViewChecked() {
+    this.dataSource.filterPredicate = (data: any, filter) => this.predicate(data, filter);
+    this.dataSource.sortingDataAccessor = (data: any, property: any) => this.dataAccessor(data, property);
+    this.dataSource.sort = this.sort;
+  }
+
   ngOnDestroy() {
     this.standingsSub$?.unsubscribe();
   }
@@ -65,9 +71,6 @@ export class TableComponent implements OnInit, OnDestroy {
         this.data = res[0].DriverStandings;
         this.dataSource = new MatTableDataSource(this.data);
         this.displayedColumns = ["position", "name", "constructor", "points", "wins"];
-        this.dataSource.filterPredicate = (data: DriverStanding, filter) => this.predicate(data, filter);
-        this.dataSource.sortingDataAccessor = (data: any, property: any) => this.dataAccessor(data, property);
-        this.dataSource.sort = this.sort;
       })  
     } else if(this.option === 'Constructor') {
       this.standingsSub$ = this.yearHandlerService.year$.pipe(
@@ -78,9 +81,6 @@ export class TableComponent implements OnInit, OnDestroy {
         this.data = res[0].ConstructorStandings;
         this.dataSource = new MatTableDataSource(this.data);
         this.displayedColumns = ["position", "constructor", "nationality", "points", "wins"];
-        this.dataSource.filterPredicate = (data: ConstructorStanding, filter) => this.predicate(data, filter);
-        this.dataSource.sortingDataAccessor = (data: any, property: any) => this.dataAccessor(data, property);
-        this.dataSource.sort = this.sort;
       })  
     }
   }
@@ -106,13 +106,13 @@ export class TableComponent implements OnInit, OnDestroy {
   }
 
   private dataAccessor(data: any, property: any) {
-    if(this.option === 'Driver') {
+    if(this.data && this.option === 'Driver') {
       switch(property) {
         case 'name': return data['Driver']['givenName'] + " " + data['Driver']['familyName'];
         case 'constructor': return data['Constructors'][0]['name'];
         default: return +data[property];
       }
-    } else if(this.option === 'Constructor') {
+    } else if(this.data && this.option === 'Constructor') {
       switch(property) {
         case 'constructor': return data['Constructor']['name'];
         case 'nationality': return data['Constructor']['nationality'];
