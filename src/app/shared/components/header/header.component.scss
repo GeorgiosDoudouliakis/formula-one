@@ -10,7 +10,11 @@ header {
 }
 
 h1 {
+    @include flex(row, nowrap, unset, center);
     cursor: pointer;
+    img {
+        margin-right: 0.5rem;
+    }
 }
 
 .navigation {
@@ -45,11 +49,5 @@ button {
         &:last-of-type {
             margin-left: 1rem;
         }
-    }
-}
-
-@media(min-width: 768px) {
-    h1 {
-        font-size: 1.5rem;
     }
 }
