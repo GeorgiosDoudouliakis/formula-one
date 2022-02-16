@@ -16,11 +16,6 @@ export class StatisticsComponent implements AfterViewChecked {
 
   ngAfterViewChecked(): void {
     this.chartOption = {
-      tooltip: {
-        show: true,
-        trigger: 'axis',
-        type: "line"
-      },
       xAxis: {
         type: 'category',
         data: this.xAxisData,
@@ -41,9 +36,27 @@ export class StatisticsComponent implements AfterViewChecked {
         axisLabel: {
           color: 'white'
         },
+        minorTick: {
+          show: true
+        },
         splitLine: {
           lineStyle: {
             color: '#444'
+          }
+        },
+        axisPointer: {
+          show: true,
+          type: 'line',
+          snap: true,
+          label: {
+            show: true,
+            precision: 2,
+            formatter: function(params) {
+              return params.value.toString();
+            }
+          },
+          lineStyle: {
+            color: '#666'
           }
         }
       },
