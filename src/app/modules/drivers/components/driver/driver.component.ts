@@ -3,7 +3,7 @@ import { ActivatedRoute, Params } from '@angular/router';
 import { Driver } from '@shared/models/constructor-driver.model';
 import { Race } from '@shared/models/round-standings.model';
 import { SeasonFilterVisibilityHandlerService } from '@shared/services/season-filter-visibility-handler.service';
-import { Subscription, switchMap } from 'rxjs';
+import { forkJoin, Subscription, switchMap } from 'rxjs';
 import { DriversService } from '../../services/drivers.service';
 
 @Component({
@@ -15,7 +15,6 @@ export class DriverComponent implements OnInit, OnDestroy {
   details: any;
   results: Race[] = [];
   private detailsSub$: Subscription;
-  private resultsSub$: Subscription;
 
   constructor(
     private driversService: DriversService,
@@ -30,16 +29,17 @@ export class DriverComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     this.detailsSub$?.unsubscribe();
-    this.resultsSub$?.unsubscribe();
   }
 
   private getDriverDetails() {
     this.detailsSub$ = this.route.params.pipe(
-      switchMap((params: Params) => this.driversService.getDriverDetails(params['id']))
-    ).subscribe((driver: Driver[]) => this.details = driver[0]);
-      
-    this.resultsSub$ = this.route.params.pipe(
-      switchMap((params: Params) => this.driversService.getDriverResults(params['id']))
-    ).subscribe((results: Race[]) => this.results = results);
+      switchMap((params: Params) => forkJoin([
+        this.driversService.getDriverDetails(params['id']),
+        this.driversService.getDriverResults(params['id'])
+      ]))
+      ).subscribe((res: [Driver[], Race[]]) => {
+        this.details = res[0][0];
+        this.results = res[1];
+    })
   }
 }

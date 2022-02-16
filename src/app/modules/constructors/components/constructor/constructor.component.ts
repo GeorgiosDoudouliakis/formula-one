@@ -3,7 +3,7 @@ import { ActivatedRoute, Params } from '@angular/router';
 import { Constructor } from '@shared/models/constructor-driver.model';
 import { Race } from '@shared/models/round-standings.model';
 import { SeasonFilterVisibilityHandlerService } from '@shared/services/season-filter-visibility-handler.service';
-import { Subscription, switchMap } from 'rxjs';
+import { forkJoin, Subscription, switchMap } from 'rxjs';
 import { ConstructorsService } from '../../services/constructors.service';
 
 @Component({
@@ -15,7 +15,6 @@ export class ConstructorComponent implements OnInit, OnDestroy {
   details: any;
   results: Race[] = [];
   private detailsSub$: Subscription;
-  private resultsSub$: Subscription;
 
   constructor(
     private constructorsService: ConstructorsService,
@@ -30,16 +29,17 @@ export class ConstructorComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     this.detailsSub$?.unsubscribe();
-    this.resultsSub$?.unsubscribe();
   }
 
   private getConstructorDetails() {
     this.detailsSub$ = this.route.params.pipe(
-      switchMap((params: Params) => this.constructorsService.getConstructorDetails(params['id']))
-    ).subscribe((constructors: Constructor[]) => this.details = constructors[0]);
-
-    this.resultsSub$ = this.route.params.pipe(
-      switchMap((params: Params) => this.constructorsService.getConstructorResults(params['id']))
-    ).subscribe((results: Race[]) => this.results = results);
+      switchMap((params: Params) => forkJoin([
+        this.constructorsService.getConstructorDetails(params['id']),
+        this.constructorsService.getConstructorResults(params['id'])
+      ]))
+    ).subscribe((res: [Constructor[], Race[]]) => {
+      this.details = res[0][0];
+      this.results = res[1];
+    })
   }
 }
