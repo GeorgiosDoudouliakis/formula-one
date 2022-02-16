@@ -1,8 +1,12 @@
 # FormulaOne
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.2.2.
+
+## Description
+
+Website with stats about formula one from 1950 to 2021. Driver/Constructor details, standings, circuits, statistics showing points per circuit and map with the location of each circuit
+
 Live environment: https://georgiosdoudouliakis.github.io/formula-one/
-Total hours spent: ~32.5 
 
 ## Libraries Used
 - Angular Material
@@ -11,15 +15,3 @@ Total hours spent: ~32.5
   
 ## Thought Process
 The design i followed depends on reusability and modularity. Modules for each page and reusable components that can be used in different places. With this design the code has a better structure and there is no code duplication.
-
-## Issues
-- Table filtering (filter on nested objects)
-- Table sorting (sort on nested objects)
-- Connectivity of app wide season selector with toggle button in home page
-- Hide season selector from driver and constructor pages
-
-## New Features
-- Provide race schedule
-- For each circuit provide race results(standings)
-- Refactor routing to include year as a param
-- SEO
