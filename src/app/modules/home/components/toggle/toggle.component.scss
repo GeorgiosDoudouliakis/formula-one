@@ -4,7 +4,12 @@ section {
     @include flex(row, nowrap, center, center);
 }
 
+.max-width {
+    margin: 0 auto 1rem auto;
+}
+
 span {
+    font-size: 1rem;
     color: $white;
 }
 
@@ -19,11 +24,5 @@ span {
 @media(min-width: 600px) {
     section {
         justify-content: flex-end;
-    }
-}
-
-@media(min-width: 768px) {
-    span {
-        font-size: 1rem;
     }
 }
