@@ -4,6 +4,10 @@
     padding-bottom: 1rem;
 }
 
+::ng-deep .mat-form-field-appearance-standard .mat-form-field-flex {
+    padding-top: 0;
+}
+
 .mat-form-field {
     width: 100%;
 }
