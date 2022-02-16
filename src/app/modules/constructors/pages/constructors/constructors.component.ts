@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 import { Constructor } from '@shared/models/constructor-driver.model';
 import { SeasonFilterVisibilityHandlerService } from '@shared/services/season-filter-visibility-handler.service';
@@ -15,11 +16,14 @@ export class ConstructorsComponent implements OnInit {
   constructors$: Observable<Constructor[]>;
 
   constructor(
+    private title: Title,
     private yearHandlerService: YearHandlerService,
     private constructorsService: ConstructorsService, 
     public router: Router,
     private seasonFilterVisibilityHandlerService: SeasonFilterVisibilityHandlerService
-  ) { }
+  ) { 
+    this.title.setTitle('Formula 1 | Constructors');
+  }
 
   ngOnInit(): void {
     this.constructors$ = this.yearHandlerService.year$.pipe(
