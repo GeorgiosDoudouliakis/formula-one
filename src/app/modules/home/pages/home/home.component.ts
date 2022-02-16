@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 import { SeasonFilterVisibilityHandlerService } from '@shared/services/season-filter-visibility-handler.service';
 
 @Component({
@@ -9,7 +10,12 @@ import { SeasonFilterVisibilityHandlerService } from '@shared/services/season-fi
 export class HomeComponent implements OnInit {
   option: 'Driver' | 'Constructor' = 'Driver';
 
-  constructor(private seasonFilterVisibilityHandlerService: SeasonFilterVisibilityHandlerService) { }
+  constructor(
+    private title: Title,
+    private seasonFilterVisibilityHandlerService: SeasonFilterVisibilityHandlerService
+  ) { 
+    this.title.setTitle('Formula 1');
+  }
 
   ngOnInit(): void {
     this.seasonFilterVisibilityHandlerService.seasonFilterVisibilityHandler(true);
