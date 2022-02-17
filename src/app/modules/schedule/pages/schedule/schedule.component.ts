@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 import { SeasonFilterVisibilityHandlerService } from '@shared/services/season-filter-visibility-handler.service';
 
 @Component({
@@ -8,7 +9,12 @@ import { SeasonFilterVisibilityHandlerService } from '@shared/services/season-fi
 })
 export class ScheduleComponent implements OnInit {
 
-  constructor(private seasonFilterVisibilityHandlerService: SeasonFilterVisibilityHandlerService) { }
+  constructor(
+    private title: Title,
+    private seasonFilterVisibilityHandlerService: SeasonFilterVisibilityHandlerService
+  ) { 
+    this.title.setTitle('Formula 1 | Schedule');
+  }
 
   ngOnInit(): void {
     this.seasonFilterVisibilityHandlerService.seasonFilterVisibilityHandler(true);
