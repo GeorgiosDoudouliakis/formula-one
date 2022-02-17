@@ -30,7 +30,7 @@
           </ng-container>  
           <ng-container *ngIf="type === 'race'">
             <p>Date: {{ data.date | date }}</p>
-            <p *ngIf="data.time">Time: {{ data.time }}</p>
+            <p *ngIf="data.time">Time: {{ data.time | toLocalTime }}</p>
           </ng-container>  
         </mat-card-content>
         <mat-card-actions *ngIf="type === 'circuit'">

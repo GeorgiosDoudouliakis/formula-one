@@ -15,6 +15,7 @@ import { GoTopDirective } from './directives/go-top.directive';
 import { ConstructorsDriversComponent } from './components/constructors-drivers/constructors-drivers.component';
 import { SeasonFilterComponent } from './components/season-filter/season-filter.component';
 import { StatisticsComponent } from './components/statistics/statistics.component';
+import { ToLocalTimePipe } from './pipes/to-local-time.pipe';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { StatisticsComponent } from './components/statistics/statistics.componen
     GoTopDirective,
     ConstructorsDriversComponent,
     SeasonFilterComponent,
-    StatisticsComponent
+    StatisticsComponent,
+    ToLocalTimePipe
   ],
   imports: [
     CommonModule,
