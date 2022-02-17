@@ -18,6 +18,10 @@ const routes: Routes = [
   {
     path: 'circuits',
     loadChildren: () => import('./modules/circuits/circuits.module').then(m => m.CircuitsModule)
+  },
+  {
+    path: 'schedule',
+    loadChildren: () => import('./modules/schedule/schedule.module').then(m => m.ScheduleModule)
   }
 ];
 
