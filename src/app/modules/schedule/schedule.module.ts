@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { SharedModule } from '@shared/shared.module';
 import { ScheduleComponent } from './pages/schedule/schedule.component';
+import { ScheduleService } from './services/schedule.service';
 
 const routes = [
   { path: '', component: ScheduleComponent }
@@ -19,6 +20,7 @@ const routes = [
   ],
   exports: [
     RouterModule
-  ]
+  ],
+  providers: [ScheduleService]
 })
 export class ScheduleModule { }
