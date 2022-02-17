@@ -4,17 +4,17 @@
         <section class="image-name-container driver-constructor">
             <div class="img-container" *ngIf="year === '2021'"
             [ngStyle]="{ width: type === 'driver' ? '45px' : '30px', height: type === 'driver' ? '45px' : '30px'}">
-                <img src="assets/images/{{ type === 'driver' ? details?.driverId : details?.constructorId }}.png" 
-                [alt]="(type === 'driver' ? details?.driverId : details?.constructorId) + (type === 'driver' ? ' photo' : ' logo')">
+                <img src="assets/images/{{ type === 'driver' ? (details && details.driverId) : (details && details.constructorId) }}.png" 
+                [alt]="(type === 'driver' ? (details && details.driverId) : (details && details.constructorId)) + (type === 'driver' ? ' photo' : ' logo')">
             </div>
             <h3 class="details-name" [style.marginLeft]="year === '2021' ? '1rem' : '0'">
-                {{ type === 'constructor' ? details?.name : details?.givenName + " " + details?.familyName }}
+                {{ type === 'constructor' ? (details && details.name) : (details && details.givenName + " " + details.familyName) }}
             </h3>
         </section>
-        <p *ngIf="type === 'driver'">Date of birth: {{ details?.dateOfBirth | date }}</p>
-        <p>Nationality: {{ details?.nationality }}</p>
-        <p *ngIf="type === 'driver'">Number: {{ details?.permanentNumber }}</p>
-        <a [href]="details?.url" target="_blank">Wikipedia</a>
+        <p *ngIf="type === 'driver'">Date of birth: {{ (details && details.dateOfBirth) | date }}</p>
+        <p>Nationality: {{ details && details.nationality }}</p>
+        <p *ngIf="type === 'driver'">Number: {{ details && details.permanentNumber }}</p>
+        <a [href]="details && details.url" target="_blank">Wikipedia</a>
     </section>
     <h3 class="results-header">CIRCUIT RESULTS</h3>
     <section class="grid">
