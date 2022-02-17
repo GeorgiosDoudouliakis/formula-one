@@ -1,0 +1,12 @@
+@import 'src/assets/scss/main';
+
+.grid {
+    gap: 60px 20px;
+    margin-bottom: 3rem;
+}
+
+@media(min-width: 1024px) {
+    h2 {
+        margin-bottom: 2rem;
+    }
+}

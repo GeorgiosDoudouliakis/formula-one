@@ -2,11 +2,12 @@
     <mat-card class="mat-elevation-z8">
         <mat-card-header>
           <mat-card-title>
-              {{ type === 'circuit' ? data.circuitName : data.Circuit.circuitName | uppercase }}
+              {{ cardHeader | uppercase }}
           </mat-card-title>
-          <mat-card-subtitle *ngIf="type !== 'circuit'">
+          <mat-card-subtitle *ngIf="type === 'driver' || type === 'constructor'">
               {{ data.Results[0].position }}
           </mat-card-subtitle>
+          <mat-card-subtitle *ngIf="type === 'race'" class="race-subtitle">Round {{ data.round }}</mat-card-subtitle>
         </mat-card-header>
         <mat-card-content>
           <p class="drivers" *ngIf="type === 'constructor'">
@@ -17,7 +18,7 @@
                 </span>
               </ng-container>
           </p>
-          <ng-container *ngIf="type !== 'circuit'">
+          <ng-container *ngIf="type !== 'circuit' && type !== 'race'">
             <p>Laps: {{ data.Results[0].laps }}</p>
             <p>Status: {{ data.Results[0].status }}</p>
             <p>Points: {{ data.Results[0].points }}</p>
@@ -26,6 +27,10 @@
             <p>Country: {{ data.Location.country }}</p>
             <p>Locality: {{ data.Location.locality }}</p>
             <a [href]="data.url" target="_blank">Wikipedia</a>
+          </ng-container>  
+          <ng-container *ngIf="type === 'race'">
+            <p>Date: {{ data.date | date }}</p>
+            <p *ngIf="data.time">Time: {{ data.time }}</p>
           </ng-container>  
         </mat-card-content>
         <mat-card-actions *ngIf="type === 'circuit'">

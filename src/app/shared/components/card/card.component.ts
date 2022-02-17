@@ -10,12 +10,21 @@ import { CircuitLocationComponent } from 'src/app/modules/circuits/components/ci
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CardComponent implements OnInit {
-  @Input() type: 'driver' | 'constructor' | 'circuit';
+  @Input() type: 'driver' | 'constructor' | 'circuit' | 'race';
   @Input() data: any;
 
   constructor(public router: Router, private dialog: MatDialog) { }
 
   ngOnInit(): void {}
+
+  get cardHeader() {
+    if(this.type === 'circuit') {
+      return this.data.circuitName;
+    } else if(this.type === 'race') {
+      return this.data.raceName;
+    }
+    return this.data.Circuit.circuitName;
+  }
 
   showLocation(lat: string, long: string) {
     this.dialog.open(CircuitLocationComponent, {

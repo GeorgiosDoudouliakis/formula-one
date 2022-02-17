@@ -1,1 +1,6 @@
-<p>schedule works!</p>
+<section class="max-width pad">
+    <h2>Schedule</h2>
+    <section class="grid">
+        <app-card *ngFor="let round of schedule$ | async" [type]="'race'" [data]="round"></app-card>
+    </section>
+</section>
