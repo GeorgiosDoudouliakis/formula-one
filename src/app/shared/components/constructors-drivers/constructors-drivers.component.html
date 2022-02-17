@@ -1,14 +1,14 @@
 <section class="max-width pad">
     <h2 class="constructors-drivers-circuits-header">{{ type === 'drivers' ? 'Drivers' : 'Constructors' }} List</h2>
     <section class="grid constructors-drivers">
-        <article *ngFor="let data of data$ | async" class="box" (click)="navigateTo(data)">
+        <article *ngFor="let details of data" class="box" (click)="navigateTo(details)">
             <section class="image-name-container">
-                <div class="img-container" *ngIf="year === '2021'"
+                <div class="img-container" *ngIf="imageExists(details)"
                 [ngStyle]="{ width: type === 'drivers' ? '45px' : '30px', height: type === 'drivers' ? '45px' : '30px'}">
-                    <img src="assets/images/{{ type === 'drivers' ? data.driverId : data.constructorId }}.png" [alt]="(type === 'constructors' ? data.name : data.familyName) + (type === 'drivers' ? ' photo' : ' logo')" />
+                    <img src="assets/images/{{ type === 'drivers' ? details.driverId : details.constructorId }}.png" [alt]="(type === 'constructors' ? details.name : details.familyName) + (type === 'drivers' ? ' photo' : ' logo')" />
                 </div>
-                <span [style.marginLeft]="year === '2021' ? '1rem' : '0'">
-                    {{ type === 'constructors' ? data.name : data.givenName + " " + data.familyName }}
+                <span [style.marginLeft]="imageExists(details) ? '1rem' : '0'">
+                    {{ type === 'constructors' ? details.name : details.givenName + " " + details.familyName }}
                 </span>
             </section>
             <mat-icon>keyboard_arrow_right</mat-icon>
