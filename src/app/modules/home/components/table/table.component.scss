@@ -29,11 +29,13 @@ input, input::placeholder, th, td {
     color: $white;
 }
 
-tr {
-    cursor: pointer;
-    transition: .4s ease-in-out;
-    &:hover {
-        background: darken($accent, 5%);
+::ng-deep tbody {
+    tr {
+        cursor: pointer;
+        transition: .4s ease-in-out;
+        &:hover {
+            background: darken($accent, 5%);
+        }
     }
 }
 
