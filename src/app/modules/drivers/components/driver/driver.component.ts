@@ -12,6 +12,7 @@ import { DriversService } from '../../services/drivers.service';
   styleUrls: ['./driver.component.scss']
 })
 export class DriverComponent implements OnInit, OnDestroy {
+  isLoading: boolean = false;
   details: any;
   results: Race[] = [];
   private detailsSub$: Subscription;
@@ -32,14 +33,21 @@ export class DriverComponent implements OnInit, OnDestroy {
   }
 
   private getDriverDetails() {
+    this.isLoading = true;
+
     this.detailsSub$ = this.route.params.pipe(
       switchMap((params: Params) => forkJoin([
         this.driversService.getDriverDetails(params['id']),
         this.driversService.getDriverResults(params['id'])
       ]))
-      ).subscribe((res: [Driver[], Race[]]) => {
-        this.details = res[0][0];
-        this.results = res[1];
-    })
+      ).subscribe({
+        next: (res: [Driver[], Race[]]) => {
+          this.isLoading = false;
+          this.details = res[0][0];
+          this.results = res[1];
+        },
+        error: (err) => this.isLoading = false,
+        complete: () => this.isLoading = false
+      });
   }
 }

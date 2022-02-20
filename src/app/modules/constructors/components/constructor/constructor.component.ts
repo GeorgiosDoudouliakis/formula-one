@@ -12,6 +12,7 @@ import { ConstructorsService } from '../../services/constructors.service';
   styleUrls: ['./constructor.component.scss']
 })
 export class ConstructorComponent implements OnInit, OnDestroy {
+  isLoading: boolean = false;
   details: any;
   results: Race[] = [];
   private detailsSub$: Subscription;
@@ -32,14 +33,21 @@ export class ConstructorComponent implements OnInit, OnDestroy {
   }
 
   private getConstructorDetails() {
+    this.isLoading = true;
+
     this.detailsSub$ = this.route.params.pipe(
       switchMap((params: Params) => forkJoin([
         this.constructorsService.getConstructorDetails(params['id']),
         this.constructorsService.getConstructorResults(params['id'])
       ]))
-    ).subscribe((res: [Constructor[], Race[]]) => {
-      this.details = res[0][0];
-      this.results = res[1];
+    ).subscribe({
+        next: (res: [Constructor[], Race[]]) => {
+          this.isLoading = false;
+          this.details = res[0][0];
+          this.results = res[1];
+        },
+        error: (err) => this.isLoading = false,
+        complete: () => this.isLoading = false
     })
   }
 }

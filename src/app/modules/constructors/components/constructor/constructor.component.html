@@ -1,1 +1,2 @@
-<app-driver-constructor [type]="'constructor'" [details]="details" [results]="results"></app-driver-constructor>
+<app-driver-constructor *ngIf="!isLoading" [type]="'constructor'" [details]="details" [results]="results"></app-driver-constructor>
+<mat-spinner *ngIf="isLoading" class="driver-constructor"></mat-spinner>
