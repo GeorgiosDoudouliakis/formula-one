@@ -1,10 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 import { Constructor } from '@shared/models/constructor-driver.model';
 import { SeasonFilterVisibilityHandlerService } from '@shared/services/season-filter-visibility-handler.service';
 import { YearHandlerService } from '@shared/services/year-handler.service';
-import { Observable, switchMap } from 'rxjs';
+import { Subscription, switchMap } from 'rxjs';
 import { ConstructorsService } from '../../services/constructors.service';
 
 @Component({
@@ -12,8 +12,10 @@ import { ConstructorsService } from '../../services/constructors.service';
   templateUrl: './constructors.component.html',
   styleUrls: ['./constructors.component.scss']
 })
-export class ConstructorsComponent implements OnInit {
-  constructors$: Observable<Constructor[]>;
+export class ConstructorsComponent implements OnInit, OnDestroy {
+  isLoading: boolean = false;
+  constructors: Constructor[] = [];
+  private constructorsSub$: Subscription;
 
   constructor(
     private title: Title,
@@ -26,10 +28,26 @@ export class ConstructorsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.constructors$ = this.yearHandlerService.year$.pipe(
-      switchMap((year: string) => this.constructorsService.getConstructors(year))
-    );
-
+    this.getConstructors();
     this.seasonFilterVisibilityHandlerService.seasonFilterVisibilityHandler(true);
+  }
+
+  ngOnDestroy() {
+    this.constructorsSub$?.unsubscribe();
+  }
+
+  getConstructors() {
+    this.isLoading = true;
+
+    this.constructorsSub$ = this.yearHandlerService.year$.pipe(
+      switchMap((year: string) => this.constructorsService.getConstructors(year))
+    ).subscribe({
+      next: (constructors: Constructor[]) => {
+        this.isLoading = false;
+        this.constructors = constructors;
+      },
+      error: (err) => this.isLoading = false,
+      complete: () => this.isLoading = false
+    });
   }
 }

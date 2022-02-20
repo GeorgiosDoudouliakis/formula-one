@@ -1,6 +1,7 @@
-<section class="max-width pad">
+<section class="max-width pad" *ngIf="!isLoading">
     <h2>Schedule</h2>
     <section class="grid">
-        <app-card *ngFor="let round of schedule$ | async" [type]="'race'" [data]="round"></app-card>
+        <app-card *ngFor="let round of schedule" [type]="'race'" [data]="round"></app-card>
     </section>
 </section>
+<mat-spinner *ngIf="isLoading"></mat-spinner>

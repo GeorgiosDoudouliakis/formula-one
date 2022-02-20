@@ -1,7 +1,8 @@
-<section class="max-width pad">
+<section class="max-width pad" *ngIf="!isLoading">
     <h2 class="constructors-drivers-circuits-header">Circuits</h2>
     <section class="grid">
-        <app-card *ngFor="let circuit of circuits$ | async" 
+        <app-card *ngFor="let circuit of circuits" 
         [type]="'circuit'" [data]="circuit"></app-card>
     </section>
 </section>
+<mat-spinner *ngIf="isLoading"></mat-spinner>

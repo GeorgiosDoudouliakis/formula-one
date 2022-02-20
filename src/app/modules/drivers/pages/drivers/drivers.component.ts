@@ -1,10 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 import { Driver } from '@shared/models/constructor-driver.model';
 import { SeasonFilterVisibilityHandlerService } from '@shared/services/season-filter-visibility-handler.service';
 import { YearHandlerService } from '@shared/services/year-handler.service';
-import { Observable, switchMap } from 'rxjs';
+import { Subscription, switchMap } from 'rxjs';
 import { DriversService } from '../../services/drivers.service';
 
 @Component({
@@ -12,8 +12,10 @@ import { DriversService } from '../../services/drivers.service';
   templateUrl: './drivers.component.html',
   styleUrls: ['./drivers.component.scss']
 })
-export class DriversComponent implements OnInit {
-  drivers$: Observable<Driver[]>;
+export class DriversComponent implements OnInit, OnDestroy {
+  isLoading: boolean = false;
+  drivers: Driver[] = [];
+  private driversSub$: Subscription;
 
   constructor(
     private title: Title,
@@ -26,10 +28,26 @@ export class DriversComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.drivers$ = this.yearHandlerService.year$.pipe(
-      switchMap((year: string) => this.driversService.getDrivers(year))
-    );
-
+    this.getDrivers();
     this.seasonFilterVisibilityHandlerService.seasonFilterVisibilityHandler(true);
+  }
+
+  ngOnDestroy() {
+    this.driversSub$?.unsubscribe();
+  }
+
+  private getDrivers() {
+    this.isLoading = true;
+
+    this.driversSub$ = this.yearHandlerService.year$.pipe(
+      switchMap((year: string) => this.driversService.getDrivers(year))
+    ).subscribe({
+      next: (drivers: Driver[]) => {
+        this.isLoading = false;
+        this.drivers = drivers;
+      },
+      error: (err) => this.isLoading = false,
+      complete: () => this.isLoading = false
+    });
   }
 }

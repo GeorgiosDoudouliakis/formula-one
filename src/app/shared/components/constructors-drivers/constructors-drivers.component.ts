@@ -1,27 +1,18 @@
-import { Component, Input, OnDestroy, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Observable, Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-constructors-drivers',
   templateUrl: './constructors-drivers.component.html',
   styleUrls: ['./constructors-drivers.component.scss']
 })
-export class ConstructorsDriversComponent implements OnInit, OnDestroy {
+export class ConstructorsDriversComponent implements OnInit {
   @Input() type: 'drivers' | 'constructors';
-  @Input() data$: Observable<any>;
-  data: any[];
-  private dataSub$: Subscription;
+  @Input() data: any;
 
   constructor(public router: Router) { }
 
-  ngOnInit(): void {
-    this.dataSub$ = this.data$.subscribe(res => this.data = res);
-  }
-
-  ngOnDestroy() {
-    this.dataSub$?.unsubscribe();
-  }
+  ngOnInit(): void {}
 
   navigateTo(data: any) {
     if(this.type === 'drivers') {

@@ -1,1 +1,2 @@
-<app-constructors-drivers [type]="'drivers'" [data$]="drivers$"></app-constructors-drivers>
+<app-constructors-drivers *ngIf="!isLoading" [type]="'drivers'" [data]="drivers"></app-constructors-drivers>
+<mat-spinner *ngIf="isLoading"></mat-spinner>
