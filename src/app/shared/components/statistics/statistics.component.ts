@@ -1,86 +1,32 @@
-import { AfterViewChecked, ChangeDetectorRef, Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, OnChanges } from '@angular/core';
 import { Race } from '../../models/round-standings.model';
 import { EChartsOption } from 'echarts';
+import { GraphService } from '../../services/graph.service';
 
 @Component({
   selector: 'app-statistics',
   templateUrl: './statistics.component.html',
   styleUrls: ['./statistics.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class StatisticsComponent implements AfterViewChecked {
+export class StatisticsComponent implements OnChanges {
   @Input() type: 'driver' | 'constructor';
   @Input() results: Race[];
   chartOption: EChartsOption;
 
-  constructor(private cd: ChangeDetectorRef) { }
+  constructor(private graphService: GraphService) { }
 
-  ngAfterViewChecked(): void {
-    this.chartOption = {
-      xAxis: {
-        type: 'category',
-        data: this.xAxisData,
-        axisLine: {
-          show: true
-        },
-        axisLabel: {
-          rotate: 90,
-          color: '#888',
-          inside: true
-        }
-      },
-      yAxis: {
-        type: 'value',
-        axisLine: {
-          show: true
-        },
-        axisLabel: {
-          color: 'white'
-        },
-        minorTick: {
-          show: true
-        },
-        splitLine: {
-          lineStyle: {
-            color: '#444'
-          }
-        },
-        axisPointer: {
-          show: true,
-          type: 'line',
-          snap: true,
-          label: {
-            show: true,
-            precision: 2,
-            formatter: function(params) {
-              return params.value.toString();
-            }
-          },
-          lineStyle: {
-            color: '#666'
-          }
-        }
-      },
-      series: [
-        {
-          data: this.yAxisData,
-          type: 'line',
-          lineStyle: {
-            color: '#d43535'
-          }
-        }
-      ]
-    };
-
-    this.cd.detectChanges();
+  ngOnChanges() {
+    this.chartOption = this.graphService.graphOptions(this.xAxisData, this.yAxisData);
   }
 
-  get xAxisData() {
+  get xAxisData(): string[] {
     let xaxisdata:string[] = [];
     this.results.forEach(result => xaxisdata.push(result.Circuit.circuitName));
     return xaxisdata;
   }
 
-  get yAxisData() {
+  get yAxisData(): number[] {
     let yaxisdata:number[] = [];
     this.results.forEach(result => { 
       if(this.type === 'driver') {
