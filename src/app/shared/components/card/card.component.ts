@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { CircuitLocationComponent } from 'src/app/modules/circuits/components/circuit-location/circuit-location.component';
@@ -9,15 +9,13 @@ import { CircuitLocationComponent } from 'src/app/modules/circuits/components/ci
   styleUrls: ['./card.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class CardComponent implements OnInit {
-  @Input() type: 'driver' | 'constructor' | 'circuit' | 'race';
-  @Input() data: any;
+export class CardComponent {
+  @Input() public type: 'driver' | 'constructor' | 'circuit' | 'race';
+  @Input() public data: any;
 
   constructor(public router: Router, private dialog: MatDialog) { }
 
-  ngOnInit(): void {}
-
-  get cardHeader() {
+  public get cardHeader(): string {
     if(this.type === 'circuit') {
       return this.data.circuitName;
     } else if(this.type === 'race') {
@@ -26,13 +24,13 @@ export class CardComponent implements OnInit {
     return this.data.Circuit.circuitName;
   }
 
-  showLocation(lat: string, long: string) {
+  public showLocation(lat: string, long: string): void {
     this.dialog.open(CircuitLocationComponent, {
       width: '90vw',
       data: {
-        circuit: this.data.circuitName, 
-        lat, 
-        long 
+        circuit: this.data.circuitName,
+        lat,
+        long
       }
     });
   }

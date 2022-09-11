@@ -10,25 +10,25 @@ import { GraphService } from '../../services/graph.service';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class StatisticsComponent implements OnChanges {
-  @Input() type: 'driver' | 'constructor';
-  @Input() results: Race[];
-  chartOption: EChartsOption;
+  @Input() public type: 'driver' | 'constructor';
+  @Input() public results: Race[];
+  public chartOption: EChartsOption;
 
   constructor(private graphService: GraphService) { }
 
-  ngOnChanges() {
+  public ngOnChanges(): void {
     this.chartOption = this.graphService.graphOptions(this.xAxisData, this.yAxisData);
   }
 
-  get xAxisData(): string[] {
+  public get xAxisData(): string[] {
     let xaxisdata:string[] = [];
     this.results.forEach(result => xaxisdata.push(result.Circuit.circuitName));
     return xaxisdata;
   }
 
-  get yAxisData(): number[] {
+  public get yAxisData(): number[] {
     let yaxisdata:number[] = [];
-    this.results.forEach(result => { 
+    this.results.forEach(result => {
       if(this.type === 'driver') {
         yaxisdata.push(+result.Results[0].points);
       } else if(this.type === 'constructor') {

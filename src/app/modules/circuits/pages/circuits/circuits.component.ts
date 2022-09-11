@@ -12,32 +12,32 @@ import { CircuitsService } from '../../services/circuits.service';
   styleUrls: ['./circuits.component.scss']
 })
 export class CircuitsComponent implements OnInit, OnDestroy {
-  isLoading: boolean = false;
-  circuits: Circuit[] = [];
-  private circuitsSub$: Subscription;
+  public isLoading: boolean = false;
+  public circuits: Circuit[] = [];
+  private _circuitsSub$: Subscription;
 
   constructor(
     private title: Title,
     private yearHandlerService: YearHandlerService,
     private circuitsService: CircuitsService,
     private seasonFilterVisibilityHandler: SeasonFilterVisibilityHandlerService
-  ) { 
+  ) {
     this.title.setTitle('Formula 1 | Circuits');
   }
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
     this.getCircuits();
     this.seasonFilterVisibilityHandler.seasonFilterVisibilityHandler(true);
   }
 
-  ngOnDestroy() {
-    this.circuitsSub$?.unsubscribe();
+  public ngOnDestroy(): void {
+    if(this._circuitsSub$) this._circuitsSub$.unsubscribe();
   }
 
   private getCircuits() {
     this.isLoading = true;
 
-    this.circuitsSub$ = this.yearHandlerService.year$.pipe(
+    this._circuitsSub$ = this.yearHandlerService.year$.pipe(
       switchMap(year => this.circuitsService.getCircuits(year))
     ).subscribe({
       next: (circuits: Circuit[]) => {

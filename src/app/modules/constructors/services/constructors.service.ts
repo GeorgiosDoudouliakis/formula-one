@@ -11,17 +11,17 @@ export class ConstructorsService {
 
   constructor(private http: HttpClient) { }
 
-  getConstructorDetails(constructorId: string): Observable<Constructor[]> {
+  public getConstructorDetails(constructorId: string): Observable<Constructor[]> {
     return this.http.get<ConstructorData>(`${environment.api}/constructors/${constructorId}.json`).pipe(
       pluck('MRData', 'ConstructorTable', 'Constructors')
     );
   }
 
-  getConstructorResults(constructorId: string): Observable<Race[]> {
+  public getConstructorResults(constructorId: string): Observable<Race[]> {
     return this.http.get<RoundStandings>(`${environment.api}/constructors/${constructorId}/results.json`).pipe(pluck('MRData', 'RaceTable', 'Races'));
   }
 
-  getConstructors(year: string = '2021'): Observable<any> {
+  public getConstructors(year: string = '2021'): Observable<any> {
     return this.http.get<ConstructorData>(`${environment.api}/${year}/constructors.json`).pipe(pluck('MRData', 'ConstructorTable', 'Constructors'));
   }
 }

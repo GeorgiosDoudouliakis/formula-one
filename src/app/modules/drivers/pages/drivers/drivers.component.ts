@@ -13,9 +13,9 @@ import { DriversService } from '../../services/drivers.service';
   styleUrls: ['./drivers.component.scss']
 })
 export class DriversComponent implements OnInit, OnDestroy {
-  isLoading: boolean = false;
-  drivers: Driver[] = [];
-  private driversSub$: Subscription;
+  public isLoading: boolean = false;
+  public drivers: Driver[] = [];
+  private _driversSub$: Subscription;
 
   constructor(
     private title: Title,
@@ -23,23 +23,23 @@ export class DriversComponent implements OnInit, OnDestroy {
     public driversService: DriversService,
     public router: Router,
     private seasonFilterVisibilityHandlerService: SeasonFilterVisibilityHandlerService
-  ) { 
+  ) {
     this.title.setTitle('Formula 1 | Drivers');
   }
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
     this.getDrivers();
     this.seasonFilterVisibilityHandlerService.seasonFilterVisibilityHandler(true);
   }
 
-  ngOnDestroy() {
-    this.driversSub$?.unsubscribe();
+  public ngOnDestroy(): void {
+    if(this._driversSub$) this._driversSub$.unsubscribe();
   }
 
-  private getDrivers() {
+  private getDrivers(): void {
     this.isLoading = true;
 
-    this.driversSub$ = this.yearHandlerService.year$.pipe(
+    this._driversSub$ = this.yearHandlerService.year$.pipe(
       switchMap((year: string) => this.driversService.getDrivers(year))
     ).subscribe({
       next: (drivers: Driver[]) => {

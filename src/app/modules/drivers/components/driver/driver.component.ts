@@ -12,10 +12,10 @@ import { DriversService } from '../../services/drivers.service';
   styleUrls: ['./driver.component.scss']
 })
 export class DriverComponent implements OnInit, OnDestroy {
-  isLoading: boolean = false;
-  details: any;
-  results: Race[] = [];
-  private detailsSub$: Subscription;
+  public isLoading: boolean = false;
+  public details: any;
+  public results: Race[] = [];
+  private _detailsSub$: Subscription;
 
   constructor(
     private driversService: DriversService,
@@ -23,19 +23,19 @@ export class DriverComponent implements OnInit, OnDestroy {
     private seasonFilterVisibilityHandlerService: SeasonFilterVisibilityHandlerService
   ) { }
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
     this.getDriverDetails();
     this.seasonFilterVisibilityHandlerService.seasonFilterVisibilityHandler(false);
   }
 
-  ngOnDestroy() {
-    this.detailsSub$?.unsubscribe();
+  public ngOnDestroy(): void {
+    if(this._detailsSub$) this._detailsSub$.unsubscribe();
   }
 
-  private getDriverDetails() {
+  private getDriverDetails(): void {
     this.isLoading = true;
 
-    this.detailsSub$ = this.route.params.pipe(
+    this._detailsSub$ = this.route.params.pipe(
       switchMap((params: Params) => forkJoin([
         this.driversService.getDriverDetails(params['id']),
         this.driversService.getDriverResults(params['id'])

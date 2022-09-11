@@ -6,11 +6,11 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class SeasonFilterVisibilityHandlerService {
   private seasonFilterVisibility = new BehaviorSubject(true);
-  seasonFilterVisibility$ = this.seasonFilterVisibility.asObservable();
+  public seasonFilterVisibility$ = this.seasonFilterVisibility.asObservable();
 
   constructor() { }
 
-  seasonFilterVisibilityHandler(visible: boolean) {
+  public seasonFilterVisibilityHandler(visible: boolean): void {
     this.seasonFilterVisibility.next(visible);
   }
 }

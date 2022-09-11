@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -6,15 +6,13 @@ import { Router } from '@angular/router';
   templateUrl: './constructors-drivers.component.html',
   styleUrls: ['./constructors-drivers.component.scss']
 })
-export class ConstructorsDriversComponent implements OnInit {
-  @Input() type: 'drivers' | 'constructors';
-  @Input() data: any;
+export class ConstructorsDriversComponent {
+  @Input() public type: 'drivers' | 'constructors';
+  @Input() public data: any;
 
   constructor(public router: Router) { }
 
-  ngOnInit(): void {}
-
-  navigateTo(data: any) {
+  public navigateTo(data: any): void {
     if(this.type === 'drivers') {
       this.router.navigate(['/drivers', data.driverId]);
     } else if(this.type === 'constructors') {
@@ -22,7 +20,7 @@ export class ConstructorsDriversComponent implements OnInit {
     }
   }
 
-  imageExists(details: any) {
+  public imageExists(details: any): boolean {
     if(this.type === 'drivers') {
       return details?.driverId === 'alonso' ||
              details?.driverId === 'bottas' ||
@@ -45,7 +43,7 @@ export class ConstructorsDriversComponent implements OnInit {
              details?.driverId === 'tsunoda' ||
              details?.driverId === 'max_verstappen' ||
              details?.driverId === 'vettel';
-    } 
+    }
     return  details?.constructorId === 'alphatauri' ||
             details?.constructorId === 'alfa' ||
             details?.constructorId === 'alpine' ||
@@ -55,6 +53,6 @@ export class ConstructorsDriversComponent implements OnInit {
             details?.constructorId === 'mclaren' ||
             details?.constructorId === 'mercedes' ||
             details?.constructorId === 'red_bull' ||
-            details?.constructorId === 'williams'; 
+            details?.constructorId === 'williams';
   }
 }

@@ -12,32 +12,32 @@ import { ScheduleService } from '../../services/schedule.service';
   styleUrls: ['./schedule.component.scss']
 })
 export class ScheduleComponent implements OnInit, OnDestroy {
-  isLoading: boolean = false;
-  schedule: Race[] = [];
-  private scheduleSub$: Subscription;
+  public isLoading: boolean = false;
+  public schedule: Race[] = [];
+  private _scheduleSub$: Subscription;
 
   constructor(
     private title: Title,
     private seasonFilterVisibilityHandlerService: SeasonFilterVisibilityHandlerService,
     private scheduleService: ScheduleService,
     private yearHandlerService: YearHandlerService
-  ) { 
+  ) {
     this.title.setTitle('Formula 1 | Schedule');
   }
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
     this.getSchedule();
     this.seasonFilterVisibilityHandlerService.seasonFilterVisibilityHandler(true);
   }
 
-  ngOnDestroy() {
-    this.scheduleSub$?.unsubscribe();
+  public ngOnDestroy(): void {
+    if(this._scheduleSub$) this._scheduleSub$.unsubscribe();
   }
 
-  private getSchedule() {
+  private getSchedule(): void {
     this.isLoading = true;
 
-    this.scheduleSub$ = this.yearHandlerService.year$.pipe(
+    this._scheduleSub$ = this.yearHandlerService.year$.pipe(
       switchMap((year: string) => this.scheduleService.getSchedule(year))
     ).subscribe({
       next: (schedule: Race[]) => {

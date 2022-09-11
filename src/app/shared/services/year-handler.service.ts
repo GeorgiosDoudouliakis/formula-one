@@ -6,11 +6,11 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class YearHandlerService {
   private year = new BehaviorSubject(new Date().getFullYear().toString());
-  year$ = this.year.asObservable();
+  public year$ = this.year.asObservable();
 
   constructor() { }
 
-  yearHandler(year: string) {
+  public yearHandler(year: string): void {
     this.year.next(year);
   }
 }

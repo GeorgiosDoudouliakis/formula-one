@@ -10,10 +10,10 @@ import { Observable, Subscription } from 'rxjs';
   styleUrls: ['./season-filter.component.scss']
 })
 export class SeasonFilterComponent implements OnInit, OnDestroy {
-  isFilterVisible$: Observable<boolean>;
-  yearControl: FormControl;
-  private readonly currentYear: number = new Date().getFullYear();
-  private yearControlChangesSub$: Subscription;
+  public isFilterVisible$: Observable<boolean>;
+  public yearControl: FormControl;
+  private readonly _currentYear: number = new Date().getFullYear();
+  private _yearControlChangesSub$: Subscription;
 
   constructor(
     private fb: FormBuilder,
@@ -21,22 +21,22 @@ export class SeasonFilterComponent implements OnInit, OnDestroy {
     private seasonFilterVisibilityHandlerService: SeasonFilterVisibilityHandlerService
   ) { }
 
-  ngOnInit(): void {
-    this.yearControl = this.fb.control(this.currentYear.toString());
+  public ngOnInit(): void {
+    this.yearControl = this.fb.control(this._currentYear.toString());
 
-    this.yearControlChangesSub$ = this.yearControl.valueChanges.subscribe(year => this.yearHandlerService.yearHandler(year));
+    this._yearControlChangesSub$ = this.yearControl.valueChanges.subscribe(year => this.yearHandlerService.yearHandler(year));
 
     this.isFilterVisible$ = this.seasonFilterVisibilityHandlerService.seasonFilterVisibility$;
   }
 
-  ngOnDestroy() {
-    this.yearControlChangesSub$?.unsubscribe();
+  public ngOnDestroy(): void {
+    if(this._yearControlChangesSub$) this._yearControlChangesSub$.unsubscribe();
   }
 
-  get years() {
+  public get years(): string[] {
     let yearsArr:string[] = [];
 
-    for(let year = 1950; year <= this.currentYear; year++) {
+    for(let year = 1950; year <= this._currentYear; year++) {
       yearsArr.push(year.toString());
     }
 

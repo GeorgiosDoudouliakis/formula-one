@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Race } from '../../models/round-standings.model';
 
 @Component({
@@ -6,16 +6,14 @@ import { Race } from '../../models/round-standings.model';
   templateUrl: './driver-constructor.component.html',
   styleUrls: ['./driver-constructor.component.scss']
 })
-export class DriverConstructorComponent implements OnInit {
-  @Input() type: 'driver' | 'constructor';
-  @Input() details: any;
-  @Input() results: Race[];
+export class DriverConstructorComponent {
+  @Input() public type: 'driver' | 'constructor';
+  @Input() public details: any;
+  @Input() public results: Race[];
 
   constructor() { }
 
-  ngOnInit(): void {}
-
-  get imageExists() {
+  public get imageExists(): boolean {
     if(this.type === 'driver') {
       return this.details?.driverId === 'alonso' ||
              this.details?.driverId === 'bottas' ||
@@ -38,7 +36,7 @@ export class DriverConstructorComponent implements OnInit {
              this.details?.driverId === 'tsunoda' ||
              this.details?.driverId === 'max_verstappen' ||
              this.details?.driverId === 'vettel';
-    } 
+    }
     return  this.details?.constructorId === 'alphatauri' ||
             this.details?.constructorId === 'alfa' ||
             this.details?.constructorId === 'alpine' ||
@@ -48,6 +46,6 @@ export class DriverConstructorComponent implements OnInit {
             this.details?.constructorId === 'mclaren' ||
             this.details?.constructorId === 'mercedes' ||
             this.details?.constructorId === 'red_bull' ||
-            this.details?.constructorId === 'williams'; 
+            this.details?.constructorId === 'williams';
   }
 }

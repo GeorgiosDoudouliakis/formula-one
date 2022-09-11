@@ -13,33 +13,33 @@ import { ConstructorsService } from '../../services/constructors.service';
   styleUrls: ['./constructors.component.scss']
 })
 export class ConstructorsComponent implements OnInit, OnDestroy {
-  isLoading: boolean = false;
-  constructors: Constructor[] = [];
-  private constructorsSub$: Subscription;
+  public isLoading: boolean = false;
+  public constructors: Constructor[] = [];
+  private _constructorsSub$: Subscription;
 
   constructor(
     private title: Title,
     private yearHandlerService: YearHandlerService,
-    private constructorsService: ConstructorsService, 
+    private constructorsService: ConstructorsService,
     public router: Router,
     private seasonFilterVisibilityHandlerService: SeasonFilterVisibilityHandlerService
-  ) { 
+  ) {
     this.title.setTitle('Formula 1 | Constructors');
   }
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
     this.getConstructors();
     this.seasonFilterVisibilityHandlerService.seasonFilterVisibilityHandler(true);
   }
 
-  ngOnDestroy() {
-    this.constructorsSub$?.unsubscribe();
+  public ngOnDestroy(): void {
+    if(this._constructorsSub$) this._constructorsSub$.unsubscribe();
   }
 
-  getConstructors() {
+  public getConstructors(): void {
     this.isLoading = true;
 
-    this.constructorsSub$ = this.yearHandlerService.year$.pipe(
+    this._constructorsSub$ = this.yearHandlerService.year$.pipe(
       switchMap((year: string) => this.constructorsService.getConstructors(year))
     ).subscribe({
       next: (constructors: Constructor[]) => {

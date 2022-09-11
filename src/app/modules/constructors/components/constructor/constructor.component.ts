@@ -12,10 +12,10 @@ import { ConstructorsService } from '../../services/constructors.service';
   styleUrls: ['./constructor.component.scss']
 })
 export class ConstructorComponent implements OnInit, OnDestroy {
-  isLoading: boolean = false;
-  details: any;
-  results: Race[] = [];
-  private detailsSub$: Subscription;
+  public isLoading: boolean = false;
+  public details: any;
+  public results: Race[] = [];
+  private _detailsSub$: Subscription;
 
   constructor(
     private constructorsService: ConstructorsService,
@@ -23,19 +23,19 @@ export class ConstructorComponent implements OnInit, OnDestroy {
     private seasonFilterVisibilityHandlerService: SeasonFilterVisibilityHandlerService
   ) { }
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
     this.getConstructorDetails();
     this.seasonFilterVisibilityHandlerService.seasonFilterVisibilityHandler(false);
   }
 
-  ngOnDestroy() {
-    this.detailsSub$?.unsubscribe();
+  public ngOnDestroy(): void {
+    if(this._detailsSub$) this._detailsSub$.unsubscribe();
   }
 
-  private getConstructorDetails() {
+  private getConstructorDetails(): void {
     this.isLoading = true;
 
-    this.detailsSub$ = this.route.params.pipe(
+    this._detailsSub$ = this.route.params.pipe(
       switchMap((params: Params) => forkJoin([
         this.constructorsService.getConstructorDetails(params['id']),
         this.constructorsService.getConstructorResults(params['id'])

@@ -16,7 +16,7 @@ export class CircuitLocationComponent implements OnInit {
 
   constructor(@Inject(MAT_DIALOG_DATA) public data: Circuit) { }
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
   }
 
 }

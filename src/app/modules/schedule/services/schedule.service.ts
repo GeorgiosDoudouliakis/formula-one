@@ -9,7 +9,7 @@ export class ScheduleService {
 
   constructor(private http: HttpClient) { }
 
-  getSchedule(year: string = '2021'): Observable<Race[]> {
+  public getSchedule(year: string = '2021'): Observable<Race[]> {
     return this.http.get<RoundStandings>(`${environment.api}/${year}.json`).pipe(pluck('MRData', 'RaceTable', 'Races'));
   }
 }

@@ -8,7 +8,7 @@ export class GraphService {
 
   constructor() { }
 
-  graphOptions(xAxisData: string[], yAxisData: number[]): EChartsOption {
+  public graphOptions(xAxisData: string[], yAxisData: number[]): EChartsOption {
     return {
       xAxis: {
         type: 'category',

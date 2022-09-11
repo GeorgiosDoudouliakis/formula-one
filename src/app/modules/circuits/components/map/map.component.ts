@@ -19,19 +19,17 @@ import { fromLonLat } from 'ol/proj';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class MapComponent implements OnInit {
-  @Input() lat: string;
-  @Input() long: string;
-  map: Map;
+  @Input() public lat: string;
+  @Input() public long: string;
+  private _map: Map;
 
-  constructor() { }
-
-  ngOnInit(): void {
+  public ngOnInit(): void {
     this.initializeMap();
     this.initializePoint();
   }
 
-  private initializeMap() {
-    this.map = new Map({
+  private initializeMap(): void {
+    this._map = new Map({
       target: 'map-container',
       interactions: defaultInteractions().extend([new DragRotateAndZoom()]),
       layers: [
@@ -46,7 +44,7 @@ export class MapComponent implements OnInit {
     });
   }
 
-  private initializePoint() {
+  private initializePoint(): void {
     const pointFeature = new Feature({
       geometry: new Point(fromLonLat([+this.long, +this.lat])),
       size: 20,
@@ -61,10 +59,10 @@ export class MapComponent implements OnInit {
       style: this.styleFunction(),
     });
 
-    this.map.addLayer(vectorLayer);
+    this._map.addLayer(vectorLayer);
   }
 
-  private styleFunction() {
+  private styleFunction(): Style {
     return new Style({
       image: new CircleStyle({
         radius: 10,

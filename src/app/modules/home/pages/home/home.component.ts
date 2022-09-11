@@ -8,16 +8,16 @@ import { SeasonFilterVisibilityHandlerService } from '@shared/services/season-fi
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  option: 'Driver' | 'Constructor' = 'Driver';
+  public option: 'Driver' | 'Constructor' = 'Driver';
 
   constructor(
     private title: Title,
     private seasonFilterVisibilityHandlerService: SeasonFilterVisibilityHandlerService
-  ) { 
+  ) {
     this.title.setTitle('Formula 1');
   }
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
     this.seasonFilterVisibilityHandlerService.seasonFilterVisibilityHandler(true);
   }
 }

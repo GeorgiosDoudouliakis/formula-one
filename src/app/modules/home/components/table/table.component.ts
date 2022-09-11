@@ -1,4 +1,4 @@
-import { AfterViewChecked, Component, Input, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { AfterViewChecked, Component, Input, OnDestroy, ViewChild } from '@angular/core';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
@@ -13,23 +13,23 @@ import { DriverConstructorStandingsService } from '../../services/driver-constru
   templateUrl: './table.component.html',
   styleUrls: ['./table.component.scss']
 })
-export class TableComponent implements OnInit, AfterViewChecked, OnDestroy {
-  @Input() option: 'Driver' | 'Constructor';
-  @ViewChild(MatSort) sort: MatSort | null;
-  isLoading: boolean = false;
-  filterValue: string = '';
-  displayedColumns: string[] = [];
-  dataSource: MatTableDataSource<any>;
-  data: DriverStanding[] | ConstructorStanding[] = [];
-  private standingsSub$: Subscription;
+export class TableComponent implements AfterViewChecked, OnDestroy {
+  @Input() public option: 'Driver' | 'Constructor';
+  @ViewChild(MatSort) public sort: MatSort | null;
+  public isLoading: boolean = false;
+  public filterValue: string = '';
+  public displayedColumns: string[] = [];
+  public dataSource: MatTableDataSource<any>;
+  public data: DriverStanding[] | ConstructorStanding[] = [];
+  private _standingsSub$: Subscription;
 
   constructor(
     private yearHandlerService: YearHandlerService,
     private driverConstructorStandingsService: DriverConstructorStandingsService,
     private router: Router
   ) {}
-  
-  ngOnChanges() {
+
+  public ngOnChanges(): void {
     this.isLoading = false;
     this.displayedColumns = [];
     this.data = [];
@@ -38,9 +38,7 @@ export class TableComponent implements OnInit, AfterViewChecked, OnDestroy {
     this.tableDataSource();
   }
 
-  ngOnInit(): void {}
-  
-  ngAfterViewChecked() {
+  public ngAfterViewChecked(): void {
     if(this.option === 'Driver') {
       this.displayedColumns = ["position", "name", "constructor", "points", "wins"];
     } else {
@@ -52,16 +50,16 @@ export class TableComponent implements OnInit, AfterViewChecked, OnDestroy {
     this.dataSource.sort = this.sort;
   }
 
-  ngOnDestroy() {
-    this.standingsSub$?.unsubscribe();
+  public ngOnDestroy(): void {
+    if(this._standingsSub$) this._standingsSub$.unsubscribe();
   }
-  
-  applyFilter(event: Event) {
+
+  public applyFilter(event: Event): void {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
-  
-  showDetails(row: any) {
+
+  public showDetails(row: any): void {
     if(this.option === 'Driver') {
       this.router.navigate(['/drivers', row['Driver']['driverId']]);
     } else if(this.option === 'Constructor') {
@@ -69,25 +67,25 @@ export class TableComponent implements OnInit, AfterViewChecked, OnDestroy {
     }
   }
 
-  private tableDataSource() {
+  private tableDataSource(): void {
     if(this.option === 'Driver') {
       this.isLoading = true;
-      this.standingsSub$ = this.yearHandlerService.year$.pipe(
+      this._standingsSub$ = this.yearHandlerService.year$.pipe(
         switchMap((year: string) => this.driverConstructorStandingsService.getDriverStandings(year))
       )
       .subscribe({
         next: (res: DriverStandingsList[]) => {
           this.isLoading = false;
-          if(!res[0]) return; 
+          if(!res[0]) return;
           this.data = res[0].DriverStandings;
           this.dataSource = new MatTableDataSource(this.data);
         },
         error: (err) => this.isLoading = false,
         complete: () => this.isLoading = false
-      })  
+      })
     } else if(this.option === 'Constructor') {
       this.isLoading = true;
-      this.standingsSub$ = this.yearHandlerService.year$.pipe(
+      this._standingsSub$ = this.yearHandlerService.year$.pipe(
         switchMap((year: string) => this.driverConstructorStandingsService.getConstructorStandings(year))
       )
       .subscribe({
@@ -99,11 +97,11 @@ export class TableComponent implements OnInit, AfterViewChecked, OnDestroy {
         },
         error: (err) => this.isLoading = false,
         complete: () => this.isLoading = false
-      })  
+      })
     }
   }
 
-  private predicate(data: any, filter: string) {
+  private predicate(data: any, filter: string): boolean {
     let convertedData:string[] = [data['position'], data['points'], data['wins']];
 
     if(this.option === 'Driver') {
@@ -123,7 +121,7 @@ export class TableComponent implements OnInit, AfterViewChecked, OnDestroy {
     return convertedData.toString().toLowerCase().includes(filter);
   }
 
-  private dataAccessor(data: any, property: any) {
+  private dataAccessor(data: any, property: any): any {
     if(this.data && this.option === 'Driver') {
       switch(property) {
         case 'name': return data['Driver']['givenName'] + " " + data['Driver']['familyName'];
