@@ -1,9 +1,5 @@
 @import 'src/assets/scss/main';
 
-:host {
-    margin-right: 1rem;
-}
-
 ul {
     @include flex(column, nowrap, center, center);
     padding: 0;
