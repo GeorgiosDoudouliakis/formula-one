@@ -42,14 +42,3 @@ button {
         color: $white;
     }
 }
-
-.back-forth-navigation-btns {
-    @include flex(row, nowrap, center, center);
-    mat-icon {
-        font-size: 1.8rem;
-        cursor: pointer;
-        &:last-of-type {
-            margin-left: 1rem;
-        }
-    }
-}
