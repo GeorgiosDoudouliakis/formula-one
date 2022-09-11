@@ -1,8 +1,18 @@
 @import 'src/assets/scss/main';
 
+h2 {
+  text-align: center;
+}
+
 .grid {
     gap: 60px 20px;
     margin-bottom: 3rem;
+}
+
+@media(min-width: 768px) {
+  h2 {
+    text-align: left;
+  }
 }
 
 @media(min-width: 1024px) {

@@ -1,6 +1,7 @@
 @import 'src/assets/scss/main';
 
 h2, p {
+    text-align: center;
     margin-bottom: 1rem !important;
 }
 
@@ -9,6 +10,9 @@ p {
 }
 
 @media(min-width: 768px) {
+    h2, p {
+      text-align: left;
+    }
     p {
         font-size: 1rem;
     }
