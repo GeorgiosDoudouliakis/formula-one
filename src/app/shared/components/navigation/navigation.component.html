@@ -1,6 +1,11 @@
 <nav>
     <ul>
         <li>
+          <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+            <mat-icon>home</mat-icon>
+          </a>
+        </li>
+        <li>
             <a routerLink="/drivers" routerLinkActive="active">Drivers</a>
         </li>
         <li>
