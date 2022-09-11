@@ -26,15 +26,21 @@
           <ng-container *ngIf="type === 'circuit'">
             <p>Country: {{ data.Location.country }}</p>
             <p>Locality: {{ data.Location.locality }}</p>
-            <a [href]="data.url" target="_blank">Wikipedia</a>
           </ng-container>
           <ng-container *ngIf="type === 'race'">
             <p>Date: {{ data.date | date }}</p>
             <p *ngIf="data.time">Time: {{ data.time | toLocalTime }}</p>
           </ng-container>
         </mat-card-content>
-        <mat-card-actions *ngIf="type === 'circuit'">
-          <button mat-raised-button color="primary" class="mat-elevation-z8" (click)="showLocation(data.Location.lat, data.Location.long)">CIRCUIT LOCATION</button>
-        </mat-card-actions>
+        <mat-card-footer *ngIf="type === 'circuit'">
+          <button mat-icon-button matTooltip="Wikipedia" matTooltipPosition="below">
+            <a [href]="data.url" target="_blank" rel="noreferrer" class="wikipedia-link">
+              <mat-icon>open_in_new</mat-icon>
+            </a>
+          </button>
+          <button mat-icon-button color="primary" (click)="showLocation(data.Location.lat, data.Location.long)" matTooltip="View map" matTooltipPosition="below">
+            <mat-icon>location_searching</mat-icon>
+          </button>
+        </mat-card-footer>
       </mat-card>
 </article>
