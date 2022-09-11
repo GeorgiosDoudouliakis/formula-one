@@ -1,6 +1,11 @@
 // Custom Theme Configuration
 @use '@angular/material' as mat;
-@include mat.core();
+
+$custom-typography: mat.define-typography-config(
+  $font-family: 'Titillium Web'
+);
+
+@include mat.core($custom-typography);
 
 $custom-primary-palette: (
     50 : #fbe1e0,
@@ -87,7 +92,7 @@ $formula-one-theme: mat.define-light-theme((
 }
 
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body { margin: 0; font-family: 'Titillium Web', sans-serif; }
 
 // Angular Material Overwrites
 .mat-typography p {
@@ -107,7 +112,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   margin: 0 !important;
 }
 
-.mat-select-value-text, 
+.mat-select-value-text,
 .mat-select-arrow {
   color: white;
 }
