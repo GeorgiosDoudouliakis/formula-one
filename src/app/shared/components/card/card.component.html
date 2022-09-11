@@ -27,14 +27,14 @@
             <p>Country: {{ data.Location.country }}</p>
             <p>Locality: {{ data.Location.locality }}</p>
             <a [href]="data.url" target="_blank">Wikipedia</a>
-          </ng-container>  
+          </ng-container>
           <ng-container *ngIf="type === 'race'">
             <p>Date: {{ data.date | date }}</p>
             <p *ngIf="data.time">Time: {{ data.time | toLocalTime }}</p>
-          </ng-container>  
+          </ng-container>
         </mat-card-content>
         <mat-card-actions *ngIf="type === 'circuit'">
-          <button mat-raised-button color="primary" class="mat-elevation-z8" (click)="showLocation(data.Location.lat, data.Location.long)">Circuit Location</button>
+          <button mat-raised-button color="primary" class="mat-elevation-z8" (click)="showLocation(data.Location.lat, data.Location.long)">CIRCUIT LOCATION</button>
         </mat-card-actions>
       </mat-card>
 </article>
