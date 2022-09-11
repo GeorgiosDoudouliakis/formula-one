@@ -19,6 +19,9 @@ h1 {
 
 .navigation {
     @include flex(row, nowrap, unset, center);
+    @media(min-width: 768px) {
+      height: 100%;
+    }
 }
 
 ::ng-deep .mat-menu-panel {
