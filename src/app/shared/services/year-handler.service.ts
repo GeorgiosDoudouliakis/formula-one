@@ -5,7 +5,7 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root'
 })
 export class YearHandlerService {
-  private year = new BehaviorSubject('2021');
+  private year = new BehaviorSubject(new Date().getFullYear().toString());
   year$ = this.year.asObservable();
 
   constructor() { }

@@ -12,6 +12,7 @@ import { Observable, Subscription } from 'rxjs';
 export class SeasonFilterComponent implements OnInit, OnDestroy {
   isFilterVisible$: Observable<boolean>;
   yearControl: FormControl;
+  private readonly currentYear: number = new Date().getFullYear();
   private yearControlChangesSub$: Subscription;
 
   constructor(
@@ -21,7 +22,7 @@ export class SeasonFilterComponent implements OnInit, OnDestroy {
   ) { }
 
   ngOnInit(): void {
-    this.yearControl = this.fb.control('2021');
+    this.yearControl = this.fb.control(this.currentYear.toString());
 
     this.yearControlChangesSub$ = this.yearControl.valueChanges.subscribe(year => this.yearHandlerService.yearHandler(year));
 
@@ -35,10 +36,10 @@ export class SeasonFilterComponent implements OnInit, OnDestroy {
   get years() {
     let yearsArr:string[] = [];
 
-    for(let year = 1950; year <= 2021; year++) {
+    for(let year = 1950; year <= this.currentYear; year++) {
       yearsArr.push(year.toString());
     }
 
-    return yearsArr;
+    return yearsArr.reverse();
   }
 }
