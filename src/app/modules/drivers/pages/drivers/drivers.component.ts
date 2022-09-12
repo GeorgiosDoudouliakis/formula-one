@@ -2,8 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 import { Driver } from '@shared/models/constructor-driver.model';
-import { SeasonFilterVisibilityHandlerService } from '@shared/services/season-filter-visibility-handler.service';
-import { YearHandlerService } from '@shared/services/year-handler.service';
+import { YearHandlerService, SeasonFilterVisibilityHandlerService } from '@shared/services';
 import { Subscription, switchMap } from 'rxjs';
 import { DriversService } from '../../services/drivers.service';
 

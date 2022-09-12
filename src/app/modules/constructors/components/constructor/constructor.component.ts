@@ -2,7 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Constructor } from '@shared/models/constructor-driver.model';
 import { Race } from '@shared/models/round-standings.model';
-import { SeasonFilterVisibilityHandlerService } from '@shared/services/season-filter-visibility-handler.service';
+import { SeasonFilterVisibilityHandlerService } from '@shared/services';
 import { forkJoin, Subscription, switchMap } from 'rxjs';
 import { ConstructorsService } from '../../services/constructors.service';
 

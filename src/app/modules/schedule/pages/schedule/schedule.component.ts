@@ -1,8 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { Race } from '@shared/models/round-standings.model';
-import { SeasonFilterVisibilityHandlerService } from '@shared/services/season-filter-visibility-handler.service';
-import { YearHandlerService } from '@shared/services/year-handler.service';
+import { YearHandlerService, SeasonFilterVisibilityHandlerService } from '@shared/services';
 import { Subscription, switchMap } from 'rxjs';
 import { ScheduleService } from '../../services/schedule.service';
 

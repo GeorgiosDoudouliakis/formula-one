@@ -1,7 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormControl } from '@angular/forms';
-import { SeasonFilterVisibilityHandlerService } from '@shared/services/season-filter-visibility-handler.service';
-import { YearHandlerService } from '@shared/services/year-handler.service';
+import { YearHandlerService, SeasonFilterVisibilityHandlerService } from '@shared/services';
 import { Observable, Subscription } from 'rxjs';
 
 @Component({

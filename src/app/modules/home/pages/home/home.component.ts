@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
-import { SeasonFilterVisibilityHandlerService } from '@shared/services/season-filter-visibility-handler.service';
+import { SeasonFilterVisibilityHandlerService } from '@shared/services';
 
 @Component({
   selector: 'app-home',

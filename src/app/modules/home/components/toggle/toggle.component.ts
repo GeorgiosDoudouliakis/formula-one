@@ -1,6 +1,6 @@
 import { Component, OnInit, Output, EventEmitter, OnDestroy } from '@angular/core';
 import { MatSlideToggleChange } from '@angular/material/slide-toggle';
-import { YearHandlerService } from '@shared/services/year-handler.service';
+import { YearHandlerService } from '@shared/services';
 import { Subscription } from 'rxjs';
 
 @Component({

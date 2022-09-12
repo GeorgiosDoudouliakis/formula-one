@@ -4,7 +4,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
 import { ConstructorStandingsList, ConstructorStanding } from '@shared/models/constructor-standings.model';
 import { DriverStandingsList, DriverStanding } from '@shared/models/driver-standings.model';
-import { YearHandlerService } from '@shared/services/year-handler.service';
+import { YearHandlerService } from '@shared/services';
 import { Subscription, switchMap } from 'rxjs';
 import { DriverConstructorStandingsService } from '../../services/driver-constructor-standings.service';
 
