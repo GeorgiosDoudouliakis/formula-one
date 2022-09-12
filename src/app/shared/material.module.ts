@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
@@ -9,7 +8,6 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatCardModule } from '@angular/material/card';
-import { MatMenuModule } from '@angular/material/menu';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatSelectModule } from '@angular/material/select';
@@ -20,7 +18,6 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
   declarations: [],
   imports: [
     CommonModule,
-    MatToolbarModule,
     MatIconModule,
     MatTooltipModule,
     MatSlideToggleModule,
@@ -29,7 +26,6 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     MatFormFieldModule,
     MatInputModule,
     MatCardModule,
-    MatMenuModule,
     MatButtonModule,
     MatDialogModule,
     MatSelectModule,
@@ -37,7 +33,6 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     MatProgressSpinnerModule
   ],
   exports: [
-    MatToolbarModule,
     MatIconModule,
     MatTooltipModule,
     MatSlideToggleModule,
@@ -46,7 +41,6 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     MatFormFieldModule,
     MatInputModule,
     MatCardModule,
-    MatMenuModule,
     MatButtonModule,
     MatDialogModule,
     MatSelectModule,

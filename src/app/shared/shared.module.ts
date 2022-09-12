@@ -6,9 +6,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { NgxEchartsModule } from 'ngx-echarts';
 import * as echarts from 'echarts';
-import { HeaderComponent } from './components/header/header.component';
-import { FooterComponent } from './components/footer/footer.component';
-import { NavigationComponent } from './components/navigation/navigation.component';
 import { CardComponent } from './components/card/card.component';
 import { DriverConstructorComponent } from './components/driver-constructor/driver-constructor.component';
 import { ConstructorsDriversComponent } from './components/constructors-drivers/constructors-drivers.component';
@@ -18,9 +15,6 @@ import { ToLocalTimePipe } from './pipes/to-local-time.pipe';
 
 @NgModule({
   declarations: [
-    HeaderComponent,
-    FooterComponent,
-    NavigationComponent,
     CardComponent,
     DriverConstructorComponent,
     ConstructorsDriversComponent,
@@ -42,8 +36,6 @@ import { ToLocalTimePipe } from './pipes/to-local-time.pipe';
     HttpClientModule,
     ReactiveFormsModule,
     FormsModule,
-    HeaderComponent,
-    FooterComponent,
     CardComponent,
     DriverConstructorComponent,
     ConstructorsDriversComponent,
