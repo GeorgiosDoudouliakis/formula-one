@@ -11,7 +11,6 @@ import { FooterComponent } from './components/footer/footer.component';
 import { NavigationComponent } from './components/navigation/navigation.component';
 import { CardComponent } from './components/card/card.component';
 import { DriverConstructorComponent } from './components/driver-constructor/driver-constructor.component';
-import { GoTopDirective } from './directives/go-top.directive';
 import { ConstructorsDriversComponent } from './components/constructors-drivers/constructors-drivers.component';
 import { SeasonFilterComponent } from './components/season-filter/season-filter.component';
 import { StatisticsComponent } from './components/statistics/statistics.component';
@@ -24,7 +23,6 @@ import { ToLocalTimePipe } from './pipes/to-local-time.pipe';
     NavigationComponent,
     CardComponent,
     DriverConstructorComponent,
-    GoTopDirective,
     ConstructorsDriversComponent,
     SeasonFilterComponent,
     StatisticsComponent,
@@ -48,7 +46,6 @@ import { ToLocalTimePipe } from './pipes/to-local-time.pipe';
     FooterComponent,
     CardComponent,
     DriverConstructorComponent,
-    GoTopDirective,
     ConstructorsDriversComponent,
     SeasonFilterComponent,
     StatisticsComponent

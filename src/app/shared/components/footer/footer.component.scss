@@ -1,11 +1,21 @@
 @import 'src/assets/scss/main';
 
 footer {
+    padding: 0.8rem 0;
     background: $primary;
+}
+
+mat-icon {
+  display: block;
+  padding: 0.2rem;
+  margin: 0 auto .5rem;
+  background: $accent;
+  color: $white;
+  border-radius: 4px;
+  cursor: pointer;
 }
 
 p {
     text-align: center;
-    padding: 0.8rem 0;
     color: $white;
 }
