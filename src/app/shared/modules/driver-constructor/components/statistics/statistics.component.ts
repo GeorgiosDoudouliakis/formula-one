@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, Input, OnChanges } from '@angular/core';
 import { Race } from '../../../../models/round-standings.model';
 import { EChartsOption } from 'echarts';
-import { GraphService } from '../../../../services/graph.service';
+import { GraphService } from '../../services/graph.service';
 
 @Component({
   selector: 'app-statistics',

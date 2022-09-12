@@ -6,6 +6,7 @@ import { DriverConstructorComponent } from './components/driver-constructor/driv
 import { StatisticsComponent } from "./components/statistics/statistics.component";
 import { NgxEchartsModule } from "ngx-echarts";
 import * as echarts from "echarts";
+import { GraphService } from "./services/graph.service";
 
 @NgModule({
   imports: [
@@ -18,7 +19,8 @@ import * as echarts from "echarts";
     DriverConstructorComponent,
     StatisticsComponent
   ],
-  exports: [DriverConstructorComponent]
+  exports: [DriverConstructorComponent],
+  providers: [GraphService]
 })
 export class DriverConstructorModule {
 }
