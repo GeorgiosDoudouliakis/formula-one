@@ -1,7 +1,14 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { SharedModule } from '@shared/shared.module';
+import { FormsModule } from "@angular/forms";
+import { HttpClientModule } from "@angular/common/http";
+import { MatFormFieldModule } from "@angular/material/form-field";
+import { MatInputModule } from "@angular/material/input";
+import { MatTableModule } from '@angular/material/table';
+import { MatSortModule } from '@angular/material/sort';
+import { MatSlideToggleModule } from "@angular/material/slide-toggle";
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { HomeComponent } from './pages/home/home.component';
 import { ToggleComponent } from './components/toggle/toggle.component';
 import { TableComponent } from './components/table/table.component';
@@ -20,7 +27,14 @@ const routes = [
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
-    SharedModule
+    FormsModule,
+    HttpClientModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatTableModule,
+    MatSortModule,
+    MatSlideToggleModule,
+    MatProgressSpinnerModule
   ],
   exports: [
     RouterModule

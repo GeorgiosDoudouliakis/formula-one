@@ -1,7 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { SharedModule } from '@shared/shared.module';
+import { HttpClientModule } from "@angular/common/http";
+import { MatButtonModule } from "@angular/material/button";
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { CardModule } from "@shared/modules";
 import { CircuitsComponent } from './pages/circuits/circuits.component';
 import { CircuitsService } from './services/circuits.service';
 import { CircuitLocationComponent } from './components/circuit-location/circuit-location.component';
@@ -20,7 +24,11 @@ const routes = [
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
-    SharedModule
+    HttpClientModule,
+    CardModule,
+    MatButtonModule,
+    MatDialogModule,
+    MatProgressSpinnerModule
   ],
   exports: [
     RouterModule

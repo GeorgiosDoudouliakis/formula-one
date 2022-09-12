@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HeaderModule } from "./modules/header/header.module";
+import { SeasonFilterModule } from "./modules/season-filter/season-filter.module";
 import { FooterModule } from "./modules/footer/footer.module";
-import { SharedModule } from '@shared/shared.module';
+import { MatDialogModule } from "@angular/material/dialog";
 
 @NgModule({
   declarations: [
@@ -17,8 +17,9 @@ import { SharedModule } from '@shared/shared.module';
     AppRoutingModule,
     BrowserAnimationsModule,
     HeaderModule,
+    SeasonFilterModule,
     FooterModule,
-    SharedModule
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,7 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { SharedModule } from '@shared/shared.module';
+import { HttpClientModule } from "@angular/common/http";
+import { DriverConstructorModule, DriversConstructorsModule } from "@shared/modules";
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { DriversComponent } from './pages/drivers/drivers.component';
 import { DriverComponent } from './components/driver/driver.component';
 import { DriversService } from './services/drivers.service';
@@ -18,8 +20,11 @@ const routes = [
   ],
   imports: [
     CommonModule,
+    HttpClientModule,
     RouterModule.forChild(routes),
-    SharedModule
+    DriverConstructorModule,
+    DriversConstructorsModule,
+    MatProgressSpinnerModule
   ],
   exports: [
     RouterModule

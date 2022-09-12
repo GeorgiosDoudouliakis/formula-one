@@ -1,4 +1,4 @@
-@import 'src/assets/scss/main';
+@import '../../../assets/scss/main';
 
 section {
     @include flex(row, nowrap, center, center);

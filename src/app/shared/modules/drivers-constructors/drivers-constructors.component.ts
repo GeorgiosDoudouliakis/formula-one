@@ -2,11 +2,11 @@ import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-constructors-drivers',
-  templateUrl: './constructors-drivers.component.html',
-  styleUrls: ['./constructors-drivers.component.scss']
+  selector: 'app-drivers-constructors',
+  templateUrl: './drivers-constructors.component.html',
+  styleUrls: ['./drivers-constructors.component.scss']
 })
-export class ConstructorsDriversComponent {
+export class DriversConstructorsComponent {
   @Input() public type: 'drivers' | 'constructors';
   @Input() public data: any;
 
