@@ -8,10 +8,8 @@ import { MatInputModule } from "@angular/material/input";
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatTableModule } from '@angular/material/table';
 import { MatSortModule } from '@angular/material/sort';
-import { MatSlideToggleModule } from "@angular/material/slide-toggle";
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { HomeComponent } from './pages/home/home.component';
-import { ToggleComponent } from './components/toggle/toggle.component';
 import { TableComponent } from './components/table/table.component';
 import { DriverConstructorStandingsService } from './services/driver-constructor-standings.service';
 
@@ -22,7 +20,6 @@ const routes = [
 @NgModule({
   declarations: [
     HomeComponent,
-    ToggleComponent,
     TableComponent
   ],
   imports: [
@@ -35,7 +32,6 @@ const routes = [
     MatTabsModule,
     MatTableModule,
     MatSortModule,
-    MatSlideToggleModule,
     MatProgressSpinnerModule
   ],
   exports: [
