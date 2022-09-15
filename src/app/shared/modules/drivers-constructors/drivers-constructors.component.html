@@ -5,7 +5,7 @@
             <section class="image-name-container">
                 <div class="img-container" *ngIf="imageExists(details)"
                 [ngStyle]="{ width: type === 'drivers' ? '45px' : '30px', height: type === 'drivers' ? '45px' : '30px'}">
-                    <img src="assets/images/{{ type === 'drivers' ? details.driverId : details.constructorId }}.png" [alt]="(type === 'constructors' ? details.name : details.familyName) + (type === 'drivers' ? ' photo' : ' logo')" />
+                    <img src="assets/images/{{ type === 'drivers' ? details.driverId : details.constructorId }}.png" [alt]="(type === 'constructors' ? details.name : details.familyName) + (type === 'drivers' ? ' photo' : ' logo')" width="40" height="40" />
                 </div>
                 <span [style.marginLeft]="imageExists(details) ? '1rem' : '0'">
                     {{ type === 'constructors' ? details.name : details.givenName + " " + details.familyName }}
