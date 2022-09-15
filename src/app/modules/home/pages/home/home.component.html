@@ -1,4 +1,11 @@
-<app-toggle (optionHandler)="option = $event"></app-toggle>
-<h2 class="max-width">{{ option }} Standings</h2>
-<p class="max-width">Click on each row to show more details</p>
-<app-table [option]="option"></app-table>
+<div class="max-width">
+  <h2>Standings</h2>
+  <mat-tab-group mat-align-tabs="center" color="primary" backgroundColor="accent" class="tabs">
+    <mat-tab label="Driver">
+      <app-table [option]="'Driver'"></app-table>
+    </mat-tab>
+    <mat-tab label="Constructor">
+      <app-table [option]="'Constructor'"></app-table>
+    </mat-tab>
+  </mat-tab-group>
+</div>

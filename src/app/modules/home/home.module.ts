@@ -5,6 +5,7 @@ import { FormsModule } from "@angular/forms";
 import { HttpClientModule } from "@angular/common/http";
 import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatInputModule } from "@angular/material/input";
+import { MatTabsModule } from '@angular/material/tabs';
 import { MatTableModule } from '@angular/material/table';
 import { MatSortModule } from '@angular/material/sort';
 import { MatSlideToggleModule } from "@angular/material/slide-toggle";
@@ -31,6 +32,7 @@ const routes = [
     HttpClientModule,
     MatFormFieldModule,
     MatInputModule,
+    MatTabsModule,
     MatTableModule,
     MatSortModule,
     MatSlideToggleModule,
