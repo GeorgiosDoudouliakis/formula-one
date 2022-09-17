@@ -3,6 +3,9 @@ h2 {
   text-align: center;
   padding: 1rem;
   margin-bottom: 2rem;
+  background-image: url("../images/f1_racing_car.png");
+  background-position: right;
+  background-repeat: no-repeat;
   border: 3px solid lighten($accent, 10%);
   border-radius: 10px;
 }
