@@ -1,12 +1,20 @@
 @import 'src/assets/scss/main';
 
 h2 {
+  @include flex(row, nowrap, flex-start, flex-start);
   font-size: 1.5rem;
   padding: 0 0 1rem 0;
   margin-bottom: 0;
   background-image: url("/assets/images/f1_racing_car_100.png");
   background-position: right;
   background-repeat: no-repeat;
+}
+
+span {
+  font-size: 1rem;
+  margin-left: 1rem;
+  padding: 0 0.5rem;
+  background: $primary;
 }
 
 .road {

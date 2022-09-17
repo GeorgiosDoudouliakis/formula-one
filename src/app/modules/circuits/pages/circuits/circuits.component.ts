@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { YearHandlerService } from '@shared/services';
-import { Subscription, switchMap, map } from 'rxjs';
+import { Subscription } from 'rxjs';
 import { Circuit } from '../../models/circuits.model';
 import { CircuitsService } from '../../services/circuits.service';
 
@@ -12,6 +12,7 @@ import { CircuitsService } from '../../services/circuits.service';
 })
 export class CircuitsComponent implements OnInit, OnDestroy {
   public isLoading: boolean = false;
+  public currentYear: string = new Date().getFullYear().toString();
   public circuits: Circuit[] = [];
   private _circuitsSub$: Subscription;
 

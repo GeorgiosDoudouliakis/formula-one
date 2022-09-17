@@ -11,6 +11,7 @@ import { ScheduleService } from '../../services/schedule.service';
 })
 export class ScheduleComponent implements OnInit, OnDestroy {
   public isLoading: boolean = false;
+  public currentYear: string = new Date().getFullYear().toString();
   public schedule: Race[] = [];
   private _scheduleSub$: Subscription;
 
