@@ -5,7 +5,7 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root'
 })
 export class SeasonFilterVisibilityHandlerService {
-  private seasonFilterVisibility = new BehaviorSubject(true);
+  private seasonFilterVisibility = new BehaviorSubject(false);
   public seasonFilterVisibility$ = this.seasonFilterVisibility.asObservable();
 
   constructor() { }
