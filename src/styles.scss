@@ -94,6 +94,18 @@ $formula-one-theme: mat.define-light-theme((
 html, body { height: 100%; }
 body { margin: 0; font-family: 'Titillium Web', sans-serif; }
 
+h2, h3, p {
+  color: white;
+}
+
+li {
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+}
+
 // Angular Material Overwrites
 .mat-typography p {
   margin: 0 ;
@@ -126,5 +138,12 @@ body { margin: 0; font-family: 'Titillium Web', sans-serif; }
   &.driver-constructor {
     top: 3rem;
     margin: 0 auto;
+  }
+}
+
+// Media
+@media(min-width: 768px){
+  h3 {
+    font-size: 1.2rem;
   }
 }
