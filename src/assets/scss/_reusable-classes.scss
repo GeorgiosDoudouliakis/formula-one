@@ -157,6 +157,10 @@
 }
 
 @media(min-width: 1280px) {
+    .pad {
+      padding: 3rem 0;
+    }
+
     .grid {
         grid-template-columns: repeat(4, 1fr);
     }
