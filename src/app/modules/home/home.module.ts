@@ -11,6 +11,7 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { HomeComponent } from './pages/home/home.component';
 import { TableComponent } from './components/table/table.component';
+import { PageHeaderModule } from "@shared/modules";
 import { DriverConstructorStandingsService } from './services/driver-constructor-standings.service';
 
 const routes = [
@@ -25,6 +26,7 @@ const routes = [
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
+    PageHeaderModule,
     FormsModule,
     HttpClientModule,
     MatFormFieldModule,

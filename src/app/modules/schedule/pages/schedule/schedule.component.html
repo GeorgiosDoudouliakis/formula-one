@@ -1,4 +1,4 @@
-<h2>Schedule</h2>
+<app-page-header title="schedule"></app-page-header>
 <section class="grid" *ngIf="!isLoading">
     <app-card *ngFor="let round of schedule" [type]="'race'" [data]="round"></app-card>
 </section>

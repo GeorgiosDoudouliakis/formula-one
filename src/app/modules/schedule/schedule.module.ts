@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from "@angular/common/http";
 import { RouterModule } from '@angular/router';
+import { PageHeaderModule } from "@shared/modules";
 import { CardModule } from "@shared/modules";
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { ScheduleComponent } from './pages/schedule/schedule.component';
@@ -19,6 +20,7 @@ const routes = [
     CommonModule,
     HttpClientModule,
     RouterModule.forChild(routes),
+    PageHeaderModule,
     CardModule,
     MatProgressSpinnerModule
   ],

@@ -1,0 +1,42 @@
+@import 'src/assets/scss/main';
+
+h2 {
+  font-size: 1.5rem;
+  padding: 0 0 1rem 0;
+  margin-bottom: 0;
+  background-image: url("/assets/images/f1_racing_car_100.png");
+  background-position: right;
+  background-repeat: no-repeat;
+}
+
+.road {
+  @include flex(row, nowrap, flex-start, center);
+  margin-bottom: 2rem;
+  div {
+    width: 10%;
+    height: 20px;
+    &:nth-child(odd) {
+      background: #d62b47;
+    }
+    &:nth-child(even) {
+      background: white;
+    }
+  }
+}
+
+@media(min-width: 768px){
+  h2 {
+    font-size: 1.8rem;
+    background-image: url("/assets/images/f1_racing_car_150.png");
+  }
+
+  .road {
+    margin-bottom: 3rem;
+  }
+}
+
+@media(min-width: 1024px){
+  h2 {
+    font-size: 2rem;
+  }
+}
