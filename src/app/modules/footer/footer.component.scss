@@ -1,15 +1,16 @@
-@import '../../../assets/scss/main';
+@import 'src/assets/scss/main';
 
 footer {
     padding: 0.8rem 0;
-    background: $primary;
+    background: $accent;
+    border-top: 1px solid lighten($accent, 5%);
 }
 
 mat-icon {
   display: block;
   padding: 0.2rem;
   margin: 0 auto .5rem;
-  background: $accent;
+  background: lighten($accent, 5%);
   color: $white;
   border-radius: 4px;
   cursor: pointer;
