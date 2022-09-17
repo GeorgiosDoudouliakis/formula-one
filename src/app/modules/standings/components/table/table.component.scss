@@ -4,10 +4,6 @@
     padding-bottom: 1rem;
 }
 
-::ng-deep .mat-form-field-appearance-standard .mat-form-field-flex {
-    padding-top: 0;
-}
-
 .mat-form-field {
     width: 100%;
 }
@@ -27,16 +23,6 @@ th {
 
 input, input::placeholder, th, td {
     color: $white;
-}
-
-::ng-deep tbody {
-    tr {
-        cursor: pointer;
-        transition: .4s ease-in-out;
-        &:hover {
-            background: darken($accent, 5%);
-        }
-    }
 }
 
 .no-data {

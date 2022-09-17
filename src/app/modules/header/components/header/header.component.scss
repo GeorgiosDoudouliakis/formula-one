@@ -21,16 +21,6 @@ a {
     }
 }
 
-::ng-deep .mat-menu-panel {
-    background: unset;
-}
-
-::ng-deep .mat-menu-content:not(:empty) {
-    padding-top: 0 !important;
-    padding-bottom: 0 !important;
-    background: $accent;
-}
-
 button {
     background: transparent;
     border: none;

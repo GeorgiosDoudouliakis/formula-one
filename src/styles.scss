@@ -123,12 +123,34 @@ a {
   font-size: 1rem;
 }
 
+.mat-menu-panel {
+  background: unset;
+}
+
+.mat-menu-content:not(:empty) {
+  padding-top: 0;
+  padding-bottom: 0;
+  background: #1f1f27;
+}
+
 .mat-tab-label-container {
   margin-bottom: 1rem;
 }
 
+.mat-table > tbody > tr {
+    cursor: pointer;
+    transition: .4s ease-in-out;
+    &:hover {
+      background: darken(#1f1f27, 5%);
+    }
+}
+
 .mat-form-field-label {
   color: white;
+}
+
+.mat-form-field-appearance-standard .mat-form-field-flex {
+  padding-top: 0;
 }
 
 .mat-form-field-appearance-standard .mat-form-field-underline {
