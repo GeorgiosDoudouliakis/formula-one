@@ -6,7 +6,7 @@ import { PageHeaderModule } from "@shared/modules";
 import { DriverConstructorModule, DriversConstructorsModule } from "@shared/modules";
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { DriversComponent } from './pages/drivers/drivers.component';
-import { DriverComponent } from './components/driver/driver.component';
+import { DriverComponent } from './pages/driver/driver.component';
 import { DriversService } from './services/drivers.service';
 
 const routes = [
