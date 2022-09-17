@@ -6,10 +6,10 @@ import { environment } from 'src/environments/environment';
 
 @Injectable()
 export class ScheduleService {
-
   constructor(private http: HttpClient) { }
 
-  public getSchedule(year: string = '2021'): Observable<Race[]> {
-    return this.http.get<RoundStandings>(`${environment.api}/${year}.json`).pipe(pluck('MRData', 'RaceTable', 'Races'));
+  public getSchedule(): Observable<Race[]> {
+    const currentYear = new Date().getFullYear();
+    return this.http.get<RoundStandings>(`${environment.api}/${currentYear}.json`).pipe(pluck('MRData', 'RaceTable', 'Races'));
   }
 }

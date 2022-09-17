@@ -1,8 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { Race } from '@shared/models/round-standings.model';
-import { YearHandlerService } from '@shared/services';
-import { Subscription, switchMap, map } from 'rxjs';
+import { Subscription } from 'rxjs';
 import { ScheduleService } from '../../services/schedule.service';
 
 @Component({
@@ -17,8 +16,7 @@ export class ScheduleComponent implements OnInit, OnDestroy {
 
   constructor(
     private title: Title,
-    private scheduleService: ScheduleService,
-    private yearHandlerService: YearHandlerService
+    private scheduleService: ScheduleService
   ) {
     this.title.setTitle('Formula 1 | Schedule');
   }
@@ -32,19 +30,16 @@ export class ScheduleComponent implements OnInit, OnDestroy {
   }
 
   private getSchedule(): void {
-    this._scheduleSub$ = this.yearHandlerService.year$.pipe(
-      map((year: string) => {
-        this.isLoading = true;
-        return year;
-      }),
-      switchMap((year: string) => this.scheduleService.getSchedule(year))
-    ).subscribe({
-      next: (schedule: Race[]) => {
-        this.isLoading = false;
-        this.schedule = schedule;
-      },
-      error: (err) => this.isLoading = false,
-      complete: () => this.isLoading = false
-    });
+    this.isLoading = true;
+
+    this._scheduleSub$ = this.scheduleService.getSchedule()
+      .subscribe({
+        next: (schedule: Race[]) => {
+          this.isLoading = false;
+          this.schedule = schedule;
+        },
+        error: (err) => this.isLoading = false,
+        complete: () => this.isLoading = false
+      });
   }
 }
