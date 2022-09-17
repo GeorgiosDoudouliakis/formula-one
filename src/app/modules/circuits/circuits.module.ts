@@ -5,7 +5,7 @@ import { HttpClientModule } from "@angular/common/http";
 import { MatButtonModule } from "@angular/material/button";
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
-import { SeasonFilterModule, PageHeaderModule, CardModule } from "@shared/modules";
+import { PageHeaderModule, CardModule } from "@shared/modules";
 import { CircuitsComponent } from './pages/circuits/circuits.component';
 import { CircuitsService } from './services/circuits.service';
 import { CircuitLocationComponent } from './components/circuit-location/circuit-location.component';
@@ -25,7 +25,6 @@ const routes = [
     CommonModule,
     RouterModule.forChild(routes),
     HttpClientModule,
-    SeasonFilterModule,
     PageHeaderModule,
     CardModule,
     MatButtonModule,

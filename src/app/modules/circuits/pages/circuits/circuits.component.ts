@@ -32,19 +32,16 @@ export class CircuitsComponent implements OnInit, OnDestroy {
   }
 
   private getCircuits() {
-    this._circuitsSub$ = this.yearHandlerService.year$.pipe(
-      map((year: string) => {
-        this.isLoading = true;
-        return year;
-      }),
-      switchMap(year => this.circuitsService.getCircuits(year))
-    ).subscribe({
-      next: (circuits: Circuit[]) => {
-        this.isLoading = false;
-        this.circuits = circuits;
-      },
-      error: (err) => this.isLoading = false,
-      complete: () => this.isLoading = false
+    this.isLoading = true;
+
+    this._circuitsSub$ = this.circuitsService.getCircuits()
+      .subscribe({
+        next: (circuits: Circuit[]) => {
+          this.isLoading = false;
+          this.circuits = circuits;
+        },
+        error: (err) => this.isLoading = false,
+        complete: () => this.isLoading = false
     });
   }
 }

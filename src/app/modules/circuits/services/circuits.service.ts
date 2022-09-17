@@ -9,7 +9,8 @@ export class CircuitsService {
 
   constructor(private http: HttpClient) { }
 
-  public getCircuits(year: string = '2021'): Observable<Circuit[]> {
-    return this.http.get<CircuitData>(`${environment.api}/${year}/circuits.json`).pipe(pluck('MRData', 'CircuitTable', 'Circuits'));
+  public getCircuits(): Observable<Circuit[]> {
+    const currentYear = new Date().getFullYear();
+    return this.http.get<CircuitData>(`${environment.api}/${currentYear}/circuits.json`).pipe(pluck('MRData', 'CircuitTable', 'Circuits'));
   }
 }
