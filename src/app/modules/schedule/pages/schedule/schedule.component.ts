@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { Race } from '@shared/models/round-standings.model';
-import { YearHandlerService, SeasonFilterVisibilityHandlerService } from '@shared/services';
+import { YearHandlerService } from '@shared/services';
 import { Subscription, switchMap, map } from 'rxjs';
 import { ScheduleService } from '../../services/schedule.service';
 
@@ -17,7 +17,6 @@ export class ScheduleComponent implements OnInit, OnDestroy {
 
   constructor(
     private title: Title,
-    private seasonFilterVisibilityHandlerService: SeasonFilterVisibilityHandlerService,
     private scheduleService: ScheduleService,
     private yearHandlerService: YearHandlerService
   ) {
@@ -26,7 +25,6 @@ export class ScheduleComponent implements OnInit, OnDestroy {
 
   public ngOnInit(): void {
     this.getSchedule();
-    this.seasonFilterVisibilityHandlerService.seasonFilterVisibilityHandler(true);
   }
 
   public ngOnDestroy(): void {

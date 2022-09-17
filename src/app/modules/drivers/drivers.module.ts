@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from "@angular/common/http";
-import { PageHeaderModule } from "@shared/modules";
+import { SeasonFilterModule, PageHeaderModule } from "@shared/modules";
 import { DriverConstructorModule, DriversConstructorsModule } from "@shared/modules";
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { DriversComponent } from './pages/drivers/drivers.component';
@@ -23,6 +23,7 @@ const routes = [
     CommonModule,
     HttpClientModule,
     RouterModule.forChild(routes),
+    SeasonFilterModule,
     PageHeaderModule,
     DriverConstructorModule,
     DriversConstructorsModule,

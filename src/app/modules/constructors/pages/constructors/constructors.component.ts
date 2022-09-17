@@ -2,7 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 import { Constructor } from '@shared/models/constructor-driver.model';
-import { YearHandlerService, SeasonFilterVisibilityHandlerService } from '@shared/services';
+import { YearHandlerService } from '@shared/services';
 import { Subscription, switchMap, map } from 'rxjs';
 import { ConstructorsService } from '../../services/constructors.service';
 
@@ -20,15 +20,13 @@ export class ConstructorsComponent implements OnInit, OnDestroy {
     private title: Title,
     private yearHandlerService: YearHandlerService,
     private constructorsService: ConstructorsService,
-    public router: Router,
-    private seasonFilterVisibilityHandlerService: SeasonFilterVisibilityHandlerService
+    public router: Router
   ) {
     this.title.setTitle('Formula 1 | Constructors');
   }
 
   public ngOnInit(): void {
     this.getConstructors();
-    this.seasonFilterVisibilityHandlerService.seasonFilterVisibilityHandler(true);
   }
 
   public ngOnDestroy(): void {

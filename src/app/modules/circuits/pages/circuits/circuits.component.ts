@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
-import { YearHandlerService, SeasonFilterVisibilityHandlerService } from '@shared/services';
+import { YearHandlerService } from '@shared/services';
 import { Subscription, switchMap, map } from 'rxjs';
 import { Circuit } from '../../models/circuits.model';
 import { CircuitsService } from '../../services/circuits.service';
@@ -18,15 +18,13 @@ export class CircuitsComponent implements OnInit, OnDestroy {
   constructor(
     private title: Title,
     private yearHandlerService: YearHandlerService,
-    private circuitsService: CircuitsService,
-    private seasonFilterVisibilityHandler: SeasonFilterVisibilityHandlerService
+    private circuitsService: CircuitsService
   ) {
     this.title.setTitle('Formula 1 | Circuits');
   }
 
   public ngOnInit(): void {
     this.getCircuits();
-    this.seasonFilterVisibilityHandler.seasonFilterVisibilityHandler(true);
   }
 
   public ngOnDestroy(): void {
