@@ -6,7 +6,7 @@
                 <img src="assets/images/{{ type === 'driver' ? (details && details.driverId) : (details && details.constructorId) }}.png"
                 [alt]="(type === 'driver' ? (details && details.driverId) : (details && details.constructorId)) + (type === 'driver' ? ' photo' : ' logo')">
             </div>
-            <h3 class="details-name" [style.marginLeft]="imageExists ? '1rem' : '0'">
+            <h3 [style.marginLeft]="imageExists ? '1rem' : '0'">
                 {{ type === 'constructor' ? (details && details.name) : (details && details.givenName + " " + details.familyName) }}
             </h3>
         </section>
@@ -15,12 +15,12 @@
         <p *ngIf="type === 'driver'">Number: {{ details && details.permanentNumber }}</p>
         <a [href]="details && details.url" target="_blank">Wikipedia</a>
     </section>
-    <h3 class="results-header">CIRCUIT RESULTS</h3>
+    <h4 class="results-header">CIRCUIT RESULTS</h4>
     <section class="grid">
         <ng-container *ngFor="let result of results">
             <app-card [type]="type" [data]="result"></app-card>
         </ng-container>
     </section>
-    <h3>STATISTICS (points/circuit)</h3>
+    <h4>STATISTICS (points/circuit)</h4>
     <app-statistics [type]="type" [results]="results"></app-statistics>
 </article>
