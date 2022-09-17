@@ -63,6 +63,7 @@
         height: 100%;
         padding: 8px 16px;
         background: $accent;
+        border: 1px solid lighten($accent, 10%);
     }
     .mat-card-header {
         display: initial;
