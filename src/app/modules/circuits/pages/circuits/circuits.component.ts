@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { YearHandlerService, SeasonFilterVisibilityHandlerService } from '@shared/services';
-import { Subscription, switchMap } from 'rxjs';
+import { Subscription, switchMap, map } from 'rxjs';
 import { Circuit } from '../../models/circuits.model';
 import { CircuitsService } from '../../services/circuits.service';
 
@@ -34,9 +34,11 @@ export class CircuitsComponent implements OnInit, OnDestroy {
   }
 
   private getCircuits() {
-    this.isLoading = true;
-
     this._circuitsSub$ = this.yearHandlerService.year$.pipe(
+      map((year: string) => {
+        this.isLoading = true;
+        return year;
+      }),
       switchMap(year => this.circuitsService.getCircuits(year))
     ).subscribe({
       next: (circuits: Circuit[]) => {

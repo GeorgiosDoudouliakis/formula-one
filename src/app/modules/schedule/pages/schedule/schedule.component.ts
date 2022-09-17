@@ -2,7 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { Race } from '@shared/models/round-standings.model';
 import { YearHandlerService, SeasonFilterVisibilityHandlerService } from '@shared/services';
-import { Subscription, switchMap } from 'rxjs';
+import { Subscription, switchMap, map } from 'rxjs';
 import { ScheduleService } from '../../services/schedule.service';
 
 @Component({
@@ -34,9 +34,11 @@ export class ScheduleComponent implements OnInit, OnDestroy {
   }
 
   private getSchedule(): void {
-    this.isLoading = true;
-
     this._scheduleSub$ = this.yearHandlerService.year$.pipe(
+      map((year: string) => {
+        this.isLoading = true;
+        return year;
+      }),
       switchMap((year: string) => this.scheduleService.getSchedule(year))
     ).subscribe({
       next: (schedule: Race[]) => {

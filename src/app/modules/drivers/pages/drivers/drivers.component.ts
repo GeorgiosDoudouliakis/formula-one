@@ -3,7 +3,7 @@ import { Title } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 import { Driver } from '@shared/models/constructor-driver.model';
 import { YearHandlerService, SeasonFilterVisibilityHandlerService } from '@shared/services';
-import { Subscription, switchMap } from 'rxjs';
+import { Subscription, switchMap, map } from 'rxjs';
 import { DriversService } from '../../services/drivers.service';
 
 @Component({
@@ -36,10 +36,12 @@ export class DriversComponent implements OnInit, OnDestroy {
   }
 
   private getDrivers(): void {
-    this.isLoading = true;
-
     this._driversSub$ = this.yearHandlerService.year$.pipe(
-      switchMap((year: string) => this.driversService.getDrivers(year))
+      map((year: string) => {
+        this.isLoading = true;
+        return year;
+      }),
+      switchMap((year: string) => this.driversService.getDrivers(year)),
     ).subscribe({
       next: (drivers: Driver[]) => {
         this.isLoading = false;

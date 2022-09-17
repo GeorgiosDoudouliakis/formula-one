@@ -5,7 +5,7 @@ import { Router } from '@angular/router';
 import { ConstructorStandingsList, ConstructorStanding } from '@shared/models/constructor-standings.model';
 import { DriverStandingsList, DriverStanding } from '@shared/models/driver-standings.model';
 import { YearHandlerService } from '@shared/services';
-import { Subscription, switchMap } from 'rxjs';
+import { Subscription, switchMap, map } from 'rxjs';
 import { DriverConstructorStandingsService } from '../../services/driver-constructor-standings.service';
 
 @Component({
@@ -69,8 +69,11 @@ export class TableComponent implements AfterViewChecked, OnDestroy {
 
   private tableDataSource(): void {
     if(this.option === 'Driver') {
-      this.isLoading = true;
       this._standingsSub$ = this.yearHandlerService.year$.pipe(
+        map((year: string) => {
+          this.isLoading = true;
+          return year;
+        }),
         switchMap((year: string) => this.driverConstructorStandingsService.getDriverStandings(year))
       )
       .subscribe({
@@ -84,8 +87,11 @@ export class TableComponent implements AfterViewChecked, OnDestroy {
         complete: () => this.isLoading = false
       })
     } else if(this.option === 'Constructor') {
-      this.isLoading = true;
       this._standingsSub$ = this.yearHandlerService.year$.pipe(
+        map((year: string) => {
+          this.isLoading = true;
+          return year;
+        }),
         switchMap((year: string) => this.driverConstructorStandingsService.getConstructorStandings(year))
       )
       .subscribe({
