@@ -9,7 +9,6 @@ export class ScheduleService {
   constructor(private http: HttpClient) { }
 
   public getSchedule(): Observable<Race[]> {
-    const currentYear = new Date().getFullYear();
-    return this.http.get<RoundStandings>(`${environment.api}/${currentYear}.json`).pipe(pluck('MRData', 'RaceTable', 'Races'));
+    return this.http.get<RoundStandings>(`${environment.api}/current.json`).pipe(pluck('MRData', 'RaceTable', 'Races'));
   }
 }
