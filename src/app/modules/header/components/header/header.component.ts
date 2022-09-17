@@ -1,16 +1,15 @@
-import { Component, OnInit } from '@angular/core';
-import { Location } from '@angular/common';
-import { Router } from '@angular/router';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss']
+  styleUrls: ['./header.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class HeaderComponent implements OnInit {
   public isInMobile: boolean = false;
 
-  constructor(public location: Location, public router: Router) { }
+  constructor() { }
 
   public ngOnInit(): void {
     this.isInMobile = window.matchMedia('(max-width: 768px)').matches;

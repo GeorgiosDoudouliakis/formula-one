@@ -9,12 +9,9 @@ header {
     padding: 0;
 }
 
-h1 {
-    @include flex(row, nowrap, unset, center);
-    cursor: pointer;
-    img {
-        margin-right: 0.5rem;
-    }
+a {
+  width: 65px;
+  height: 46px;
 }
 
 .navigation {

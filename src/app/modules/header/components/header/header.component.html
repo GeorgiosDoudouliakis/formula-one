@@ -1,10 +1,9 @@
 <header>
     <mat-toolbar class="max-width" color="primary">
         <mat-toolbar-row>
-            <h1 (click)="router.navigate(['/'])">
-                <img src="../../../../../assets/images/f1_logo.png" alt="formula one logo">
-                Formula One
-            </h1>
+            <a routerLink="/" matTooltip="Go to home page" matTooltipPosition="right">
+              <img src="/assets/images/f1_logo.png" alt="formula one logo" width="65" height="46">
+            </a>
             <section class="navigation">
                 <ng-container *ngIf="!isInMobile">
                     <app-navigation></app-navigation>
