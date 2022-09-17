@@ -9,18 +9,18 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MatTableModule } from '@angular/material/table';
 import { MatSortModule } from '@angular/material/sort';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
-import { HomeComponent } from './pages/home/home.component';
+import { StandingsComponent } from './pages/standings/standings.component';
 import { TableComponent } from './components/table/table.component';
 import { PageHeaderModule } from "@shared/modules";
 import { DriverConstructorStandingsService } from './services/driver-constructor-standings.service';
 
 const routes = [
-  { path: '', component: HomeComponent }
+  { path: '', component: StandingsComponent }
 ];
 
 @NgModule({
   declarations: [
-    HomeComponent,
+    StandingsComponent,
     TableComponent
   ],
   imports: [
@@ -41,4 +41,4 @@ const routes = [
   ],
   providers: [DriverConstructorStandingsService]
 })
-export class HomeModule { }
+export class StandingsModule { }

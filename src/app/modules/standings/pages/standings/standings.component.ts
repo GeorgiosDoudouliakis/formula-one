@@ -3,11 +3,11 @@ import { Title } from '@angular/platform-browser';
 import { SeasonFilterVisibilityHandlerService } from '@shared/services';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  selector: 'app-standings',
+  templateUrl: './standings.component.html',
+  styleUrls: ['./standings.component.scss']
 })
-export class HomeComponent implements OnInit {
+export class StandingsComponent implements OnInit {
   public option: 'Driver' | 'Constructor' = 'Driver';
 
   constructor(
