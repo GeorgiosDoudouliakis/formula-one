@@ -1,12 +1,15 @@
 <article>
     <section class="details">
         <section class="image-name-container driver-constructor">
-            <div class="img-container" *ngIf="imageExists"
+            <div class="img-container"
             [ngStyle]="{ width: type === 'driver' ? '45px' : '30px', height: type === 'driver' ? '45px' : '30px'}">
-                <img src="assets/images/{{ type === 'driver' ? (details && details.driverId) : (details && details.constructorId) }}.png"
-                [alt]="(type === 'driver' ? (details && details.driverId) : (details && details.constructorId)) + (type === 'driver' ? ' photo' : ' logo')">
+                <img *ngIf="imageExists; else noImage" src="assets/images/{{ type === 'driver' ? (details && details.driverId) : (details && details.constructorId) }}.png"
+                [alt]="(type === 'driver' ? (details && details.driverId) : (details && details.constructorId)) + (type === 'driver' ? ' photo' : ' logo')" width="45" height="45">
+                <ng-template #noImage>
+                  <img src="/assets/images/no_image_available.jpg" alt="" width="45" height="45">
+                </ng-template>
             </div>
-            <h3 [style.marginLeft]="imageExists ? '1rem' : '0'">
+            <h3>
                 {{ type === 'constructor' ? (details && details.name) : (details && details.givenName + " " + details.familyName) }}
             </h3>
         </section>

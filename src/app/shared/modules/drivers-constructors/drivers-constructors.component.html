@@ -1,11 +1,14 @@
 <section class="grid constructors-drivers">
     <article *ngFor="let details of data" class="box" (click)="navigateTo(details)">
         <section class="image-name-container">
-            <div class="img-container" *ngIf="imageExists(details)"
+            <div class="img-container"
             [ngStyle]="{ width: type === 'drivers' ? '45px' : '30px', height: type === 'drivers' ? '45px' : '30px'}">
-                <img src="assets/images/{{ type === 'drivers' ? details.driverId : details.constructorId }}.png" [alt]="(type === 'constructors' ? details.name : details.familyName) + (type === 'drivers' ? ' photo' : ' logo')" width="40" height="40" />
+                <img *ngIf="imageExists(details); else noImage" src="assets/images/{{ type === 'drivers' ? details.driverId : details.constructorId }}.png" [alt]="(type === 'constructors' ? details.name : details.familyName) + (type === 'drivers' ? ' photo' : ' logo')" width="45" height="45" />
+                <ng-template #noImage>
+                  <img src="/assets/images/no_image_available.jpg" alt="" width="45" height="45">
+                </ng-template>
             </div>
-            <span [style.marginLeft]="imageExists(details) ? '1rem' : '0'">
+            <span>
                 {{ type === 'constructors' ? details.name : details.givenName + " " + details.familyName }}
             </span>
         </section>
