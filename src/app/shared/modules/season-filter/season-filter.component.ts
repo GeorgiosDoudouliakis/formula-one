@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormControl } from '@angular/forms';
-import { YearHandlerService, SeasonFilterVisibilityHandlerService } from '@shared/services';
+import { YearHandlerService } from '@shared/services';
 import { Observable, Subscription } from 'rxjs';
 
 @Component({
@@ -16,16 +16,13 @@ export class SeasonFilterComponent implements OnInit, OnDestroy {
 
   constructor(
     private fb: FormBuilder,
-    private yearHandlerService: YearHandlerService,
-    private seasonFilterVisibilityHandlerService: SeasonFilterVisibilityHandlerService
+    private yearHandlerService: YearHandlerService
   ) { }
 
   public ngOnInit(): void {
     this.yearControl = this.fb.control(this._currentYear.toString());
 
     this._yearControlChangesSub$ = this.yearControl.valueChanges.subscribe(year => this.yearHandlerService.yearHandler(year));
-
-    this.isFilterVisible$ = this.seasonFilterVisibilityHandlerService.seasonFilterVisibility$;
   }
 
   public ngOnDestroy(): void {
