@@ -14,7 +14,6 @@
 .driver {
     background: $lightAccent;
     padding: 0.3rem;
-    border-radius: 4px;
     cursor: pointer;
     transition: .4s ease-in-out;
     &:not(:last-of-type) {
