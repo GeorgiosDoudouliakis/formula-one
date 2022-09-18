@@ -1,4 +1,19 @@
 <app-season-filter></app-season-filter>
 <app-page-header title="constructors"></app-page-header>
-<app-drivers-constructors *ngIf="loadingState === 'LOADED'" [type]="'constructors'" [data]="data"></app-drivers-constructors>
+<ng-container *ngIf="loadingState === 'LOADED'">
+  <section class="grid constructors-drivers">
+    <article *ngFor="let details of data" class="box" (click)="router.navigate(['/constructors', details['constructorId']])">
+      <section class="image-name-container">
+        <div class="img-container">
+          <img *ngIf="imageExists(details); else noImage" src="assets/images/{{ details['constructorId'] }}.png" [alt]="details['name'] + ' logo'" width="45" height="45" />
+          <ng-template #noImage>
+            <img src="/assets/images/no_image_available.jpg" alt="" width="45" height="45">
+          </ng-template>
+        </div>
+        <span>{{ details['name'] }}</span>
+      </section>
+      <mat-icon>keyboard_arrow_right</mat-icon>
+    </article>
+  </section>
+</ng-container>
 <mat-spinner *ngIf="loadingState === 'LOADING'"></mat-spinner>

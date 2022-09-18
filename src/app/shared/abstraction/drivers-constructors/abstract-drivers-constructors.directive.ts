@@ -4,6 +4,7 @@ import {Subscription, switchMap} from "rxjs";
 import {map} from "rxjs/operators";
 import {YearHandlerService} from "../../services";
 import {ConstructorsService, DriversService} from "../../services";
+import {Router} from "@angular/router";
 
 type DataService = ConstructorsService | DriversService;
 
@@ -12,8 +13,10 @@ export abstract class AbstractDriversConstructorsDirective<DataType> implements 
   public loadingState: LoadingState | null = null;
   public data: Array<DataType>;
   private _dataSub$: Subscription;
+  public abstract imageExists(details: any): boolean;
 
   constructor(
+    public router: Router,
     protected _yearHandlerService: YearHandlerService,
     protected _dataService: DataService,
     protected _cdr: ChangeDetectorRef
