@@ -13,6 +13,14 @@
     grid-auto-rows: auto;
     &.constructors-drivers {
         gap: 20px;
+        .img-container {
+          width: 45px;
+          height: 45px;
+        }
+
+        span {
+          margin-left: 1rem;
+        }
     }
 }
 
