@@ -1,4 +1,4 @@
 <app-season-filter></app-season-filter>
 <app-page-header title="constructors"></app-page-header>
-<app-drivers-constructors *ngIf="!isLoading" [type]="'constructors'" [data]="constructors"></app-drivers-constructors>
-<mat-spinner *ngIf="isLoading"></mat-spinner>
+<app-drivers-constructors *ngIf="loadingState === 'LOADED'" [type]="'constructors'" [data]="data"></app-drivers-constructors>
+<mat-spinner *ngIf="loadingState === 'LOADING'"></mat-spinner>

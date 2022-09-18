@@ -1,52 +1,24 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Title } from '@angular/platform-browser';
-import { Router } from '@angular/router';
-import { Driver } from '@shared/models/constructor-driver.model';
-import { YearHandlerService } from '@shared/services';
-import { Subscription, switchMap, map } from 'rxjs';
-import { DriversService } from '../../services/drivers.service';
+import {ChangeDetectionStrategy, ChangeDetectorRef, Component} from '@angular/core';
+import {Title} from '@angular/platform-browser';
+import {Driver} from '@shared/models/constructor-driver.model';
+import {YearHandlerService} from '@shared/services';
+import {AbstractDriversConstructorsDirective} from "@shared/abstraction";
+import {DriversService} from "@shared/services/drivers/drivers.service";
 
 @Component({
   selector: 'app-drivers',
   templateUrl: './drivers.component.html',
-  styleUrls: ['./drivers.component.scss']
+  styleUrls: ['./drivers.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class DriversComponent implements OnInit, OnDestroy {
-  public isLoading: boolean = false;
-  public drivers: Driver[] = [];
-  private _driversSub$: Subscription;
-
+export class DriversComponent extends AbstractDriversConstructorsDirective<Driver> {
   constructor(
     private title: Title,
-    private yearHandlerService: YearHandlerService,
-    public driversService: DriversService,
-    public router: Router
+    protected override _yearHandlerService: YearHandlerService,
+    protected override _dataService: DriversService,
+    protected override _cdr: ChangeDetectorRef
   ) {
+    super(_yearHandlerService, _dataService, _cdr);
     this.title.setTitle('Formula 1 | Drivers');
-  }
-
-  public ngOnInit(): void {
-    this.getDrivers();
-  }
-
-  public ngOnDestroy(): void {
-    if(this._driversSub$) this._driversSub$.unsubscribe();
-  }
-
-  private getDrivers(): void {
-    this._driversSub$ = this.yearHandlerService.year$.pipe(
-      map((year: string) => {
-        this.isLoading = true;
-        return year;
-      }),
-      switchMap((year: string) => this.driversService.getDrivers(year)),
-    ).subscribe({
-      next: (drivers: Driver[]) => {
-        this.isLoading = false;
-        this.drivers = drivers;
-      },
-      error: (err) => this.isLoading = false,
-      complete: () => this.isLoading = false
-    });
   }
 }
