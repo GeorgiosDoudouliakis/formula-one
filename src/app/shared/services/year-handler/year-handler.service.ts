@@ -3,12 +3,13 @@ import { BehaviorSubject } from 'rxjs';
 
 @Injectable()
 export class YearHandlerService {
-  private year = new BehaviorSubject(new Date().getFullYear().toString());
-  public year$ = this.year.asObservable();
+  private _currentYear = new Date().getFullYear().toString();
+  private _year = new BehaviorSubject(this._currentYear);
+  public year$ = this._year.asObservable();
 
   constructor() { }
 
   public yearHandler(year: string): void {
-    this.year.next(year);
+    this._year.next(year);
   }
 }
