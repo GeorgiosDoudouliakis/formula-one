@@ -70,7 +70,6 @@
     }
     .mat-card-title {
         padding: 12px 0;
-        border-bottom: 1px solid $lightAccent;
     }
     .mat-card-subtitle {
         @include flex(row, nowrap, center, center);
@@ -83,7 +82,7 @@
         background: $primary;
         border-radius: 4px;
         &.race-subtitle {
-            top: 0 !important;
+            top: -2px !important;
             left: 7px;
             width: 70px !important;
             height: auto !important;

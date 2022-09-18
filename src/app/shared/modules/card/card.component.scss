@@ -23,6 +23,19 @@
     }
 }
 
+.race-date {
+  padding: .3rem .5rem;
+  color: $white;
+  background: $primary;
+}
+
+.race-time {
+  padding: .3rem .5rem;
+  margin-left: .5rem;
+  color: $white;
+  background: $lightAccent;
+}
+
 .wikipedia-link {
   display: inline-flex !important;
   justify-content: center;
