@@ -10,6 +10,6 @@ export class StandingsComponent {
   public option: 'Driver' | 'Constructor' = 'Driver';
 
   constructor(private title: Title) {
-    this.title.setTitle('Formula 1');
+    this.title.setTitle('Formula 1 | Standings');
   }
 }
