@@ -1,5 +1,5 @@
 import {ChangeDetectorRef, Directive, OnDestroy, OnInit} from '@angular/core';
-import {LoadingState} from "@shared/enums";
+import {LoadingState} from "../../enums";
 import {Subscription, switchMap} from "rxjs";
 import {map} from "rxjs/operators";
 import {YearHandlerService} from "../../services";
