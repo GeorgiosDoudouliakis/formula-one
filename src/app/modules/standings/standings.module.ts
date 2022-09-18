@@ -13,6 +13,7 @@ import { StandingsComponent } from './pages/standings/standings.component';
 import { TableComponent } from './components/table/table.component';
 import { SeasonFilterModule, PageHeaderModule } from "@shared/modules";
 import { DriverConstructorStandingsService } from './services/driver-constructor-standings.service';
+import { YearHandlerService } from "@shared/services";
 
 const routes = [
   { path: '', component: StandingsComponent }
@@ -40,6 +41,9 @@ const routes = [
   exports: [
     RouterModule
   ],
-  providers: [DriverConstructorStandingsService]
+  providers: [
+    DriverConstructorStandingsService,
+    YearHandlerService
+  ]
 })
 export class StandingsModule { }

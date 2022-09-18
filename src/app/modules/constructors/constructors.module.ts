@@ -8,6 +8,7 @@ import { DriverConstructorModule, DriversConstructorsModule } from "@shared/modu
 import { ConstructorsComponent } from './pages/constructors/constructors.component';
 import { ConstructorComponent } from './pages/constructor/constructor.component';
 import { ConstructorsService } from './services/constructors.service';
+import { YearHandlerService } from "@shared/services";
 
 const routes = [
   { path: '', component: ConstructorsComponent },
@@ -29,6 +30,9 @@ const routes = [
     DriversConstructorsModule,
     MatProgressSpinnerModule
   ],
-  providers: [ConstructorsService]
+  providers: [
+    ConstructorsService,
+    YearHandlerService
+  ]
 })
 export class ConstructorsModule { }
