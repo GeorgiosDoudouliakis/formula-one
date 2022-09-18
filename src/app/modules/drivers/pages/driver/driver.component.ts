@@ -3,7 +3,7 @@ import { ActivatedRoute, Params } from '@angular/router';
 import { Driver } from '@shared/models/constructor-driver.model';
 import { Race } from '@shared/models/round-standings.model';
 import { forkJoin, Subscription, switchMap } from 'rxjs';
-import { DriversService } from '../../services/drivers.service';
+import { DriverService } from '../../services/driver.service';
 
 @Component({
   selector: 'app-driver',
@@ -17,7 +17,7 @@ export class DriverComponent implements OnInit, OnDestroy {
   private _detailsSub$: Subscription;
 
   constructor(
-    private driversService: DriversService,
+    private driverService: DriverService,
     private route: ActivatedRoute
   ) { }
 
@@ -34,8 +34,8 @@ export class DriverComponent implements OnInit, OnDestroy {
 
     this._detailsSub$ = this.route.params.pipe(
       switchMap((params: Params) => forkJoin([
-        this.driversService.getDriverDetails(params['id']),
-        this.driversService.getDriverResults(params['id'])
+        this.driverService.getDriverDetails(params['id']),
+        this.driverService.getDriverResults(params['id'])
       ]))
       ).subscribe({
         next: (res: [Driver[], Race[]]) => {

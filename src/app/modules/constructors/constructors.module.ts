@@ -7,8 +7,8 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { DriverConstructorModule, DriversConstructorsModule } from "@shared/modules";
 import { ConstructorsComponent } from './pages/constructors/constructors.component';
 import { ConstructorComponent } from './pages/constructor/constructor.component';
-import { ConstructorsService } from './services/constructors.service';
-import { YearHandlerService } from "@shared/services";
+import { ConstructorService } from './services/constructor.service';
+import { ConstructorsService, YearHandlerService } from "@shared/services";
 
 const routes = [
   { path: '', component: ConstructorsComponent },
@@ -31,8 +31,9 @@ const routes = [
     MatProgressSpinnerModule
   ],
   providers: [
-    ConstructorsService,
-    YearHandlerService
+    YearHandlerService,
+    ConstructorService,
+    ConstructorsService
   ]
 })
 export class ConstructorsModule { }

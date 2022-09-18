@@ -6,7 +6,7 @@ import { environment } from 'src/environments/environment';
 import { Race, RoundStandings } from '@shared/models/round-standings.model';
 
 @Injectable()
-export class DriversService {
+export class DriverService {
 
   constructor(private http: HttpClient) { }
 
@@ -18,10 +18,5 @@ export class DriversService {
 
   public getDriverResults(driverId: string): Observable<Race[]> {
     return this.http.get<RoundStandings>(`${environment.api}/drivers/${driverId}/results.json`).pipe(pluck('MRData', 'RaceTable', 'Races'));
-  }
-
-  public getDrivers(year: string = '2021'): Observable<any> {
-    return this.http.get<Driver[]>(`${environment.api}/${year}/drivers.json`)
-    .pipe(pluck('MRData', 'DriverTable', 'Drivers'));
   }
 }

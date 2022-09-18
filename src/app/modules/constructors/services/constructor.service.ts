@@ -4,10 +4,10 @@ import { Constructor } from '@shared/models/constructor-driver.model';
 import { Race, RoundStandings } from '@shared/models/round-standings.model';
 import { Observable, pluck } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { ConstructorData } from '../models/constructor-data.model';
+import { ConstructorData } from '@shared/models/constructor-data.model';
 
 @Injectable()
-export class ConstructorsService {
+export class ConstructorService {
 
   constructor(private http: HttpClient) { }
 
@@ -21,7 +21,7 @@ export class ConstructorsService {
     return this.http.get<RoundStandings>(`${environment.api}/constructors/${constructorId}/results.json`).pipe(pluck('MRData', 'RaceTable', 'Races'));
   }
 
-  public getConstructors(year: string = '2021'): Observable<any> {
+  public getData(year: string = '2021'): Observable<any> {
     return this.http.get<ConstructorData>(`${environment.api}/${year}/constructors.json`).pipe(pluck('MRData', 'ConstructorTable', 'Constructors'));
   }
 }

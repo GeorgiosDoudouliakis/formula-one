@@ -3,7 +3,7 @@ import { ActivatedRoute, Params } from '@angular/router';
 import { Constructor } from '@shared/models/constructor-driver.model';
 import { Race } from '@shared/models/round-standings.model';
 import { forkJoin, Subscription, switchMap } from 'rxjs';
-import { ConstructorsService } from '../../services/constructors.service';
+import { ConstructorService } from '../../services/constructor.service';
 
 @Component({
   selector: 'app-constructor',
@@ -17,7 +17,7 @@ export class ConstructorComponent implements OnInit, OnDestroy {
   private _detailsSub$: Subscription;
 
   constructor(
-    private constructorsService: ConstructorsService,
+    private constructorsService: ConstructorService,
     private route: ActivatedRoute
   ) { }
 
