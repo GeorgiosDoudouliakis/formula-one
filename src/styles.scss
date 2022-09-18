@@ -94,6 +94,23 @@ $formula-one-theme: mat.define-light-theme((
 html, body { height: 100%; }
 body { margin: 0; font-family: 'Titillium Web', sans-serif; }
 
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1f1f27;
+}
+
+::-webkit-scrollbar-thumb {
+  background: lighten(#1f1f27, 20%);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: lighten(#1f1f27, 30%);
+}
+
 h2, h3, h4, p {
   color: white;
 }
