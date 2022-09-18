@@ -28,7 +28,7 @@
             <p>Locality: {{ data.Location.locality }}</p>
           </ng-container>
           <ng-container *ngIf="type === 'race'">
-            <span class="race-date">{{ data.date | date }}</span>
+            <span class="race-date">{{ data.date | date: 'MMM dd' }}</span>
             <span *ngIf="data.time" class="race-time">{{ data.time | toLocalTime }}</span>
           </ng-container>
         </mat-card-content>
