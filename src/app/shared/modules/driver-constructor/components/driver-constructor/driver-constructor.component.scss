@@ -8,7 +8,7 @@ h3 {
 
 h3, h4 {
     padding: 0.5rem;
-    background: lighten($accent, 5%);
+    background: $lightAccent;
     min-width: 150px;
 }
 
