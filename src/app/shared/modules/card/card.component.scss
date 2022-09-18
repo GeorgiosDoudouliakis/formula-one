@@ -1,12 +1,14 @@
 @import 'src/assets/scss/main';
 
 .drivers {
-    & > span {
-        display: block;
-        &:first-of-type {
-            margin-bottom: 0.5rem;
-        }
-    }
+  margin-bottom: 1rem;
+  & > span {
+      display: block;
+      color: $white;
+      &:first-of-type {
+          margin-bottom: 0.5rem;
+      }
+  }
 }
 
 .driver {

@@ -10,14 +10,14 @@
           <mat-card-subtitle *ngIf="type === 'race'" class="race-subtitle">Round {{ data.round }}</mat-card-subtitle>
         </mat-card-header>
         <mat-card-content>
-          <p class="drivers" *ngIf="type === 'constructor'">
+          <div class="drivers" *ngIf="type === 'constructor'">
               <span>Drivers:</span>
               <ng-container *ngFor="let result of data.Results">
                 <span class="driver" (click)="router.navigate(['/drivers', result.Driver.driverId])">
                   {{ result.Driver.givenName }} {{ result.Driver.familyName }}
                 </span>
               </ng-container>
-          </p>
+          </div>
           <ng-container *ngIf="type !== 'circuit' && type !== 'race'">
             <p>Laps: {{ data.Results[0].laps }}</p>
             <p>Status: {{ data.Results[0].status }}</p>
