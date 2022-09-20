@@ -1,5 +1,4 @@
 import {ChangeDetectorRef, Directive, OnDestroy, OnInit} from '@angular/core';
-import {LoadingState} from "../../enums";
 import {Subscription, switchMap} from "rxjs";
 import {map} from "rxjs/operators";
 import {YearHandlerService} from "../../services";
@@ -10,7 +9,7 @@ type DataService = ConstructorsService | DriversService;
 
 @Directive()
 export abstract class AbstractDriversConstructorsDirective<DataType> implements OnInit, OnDestroy {
-  public loadingState: LoadingState | null = null;
+  public loading: boolean = false;
   public data: Array<DataType>;
   private _dataSub$: Subscription;
   public abstract imageExists(details: any): boolean;
@@ -35,22 +34,22 @@ export abstract class AbstractDriversConstructorsDirective<DataType> implements 
   private getDataByYear(): void {
     this._dataSub$ = this._yearHandlerService.year$.pipe(
       map((year: string) => {
-        this.loadingState = LoadingState.LOADING;
+        this.loading = true;
         return year;
       }),
       switchMap((year: string) => this._dataService.getData(year))
     ).subscribe({
       next: (data: Array<DataType>) => {
-        this.loadingState = LoadingState.LOADED;
+        this.loading = false;
         this.data = data;
         this._cdr.markForCheck();
       },
       error: (err) => {
-        this.loadingState = LoadingState.LOADED;
+        this.loading = false;
         this._cdr.markForCheck();
       },
       complete: () => {
-        this.loadingState = LoadingState.LOADED;
+        this.loading = false;
         this._cdr.markForCheck();
       }
     });

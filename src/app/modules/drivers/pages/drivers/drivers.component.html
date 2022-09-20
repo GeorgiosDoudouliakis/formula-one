@@ -1,6 +1,6 @@
 <app-season-filter></app-season-filter>
 <app-page-header title="drivers"></app-page-header>
-<ng-container *ngIf="loadingState === 'LOADED'">
+<ng-container *ngIf="!loading">
   <section class="grid constructors-drivers">
     <article *ngFor="let details of data" class="box" (click)="router.navigate(['/drivers', details['driverId']])">
       <section class="image-name-container">
@@ -16,4 +16,4 @@
     </article>
   </section>
 </ng-container>
-<mat-spinner *ngIf="loadingState === 'LOADING'"></mat-spinner>
+<mat-spinner *ngIf="loading"></mat-spinner>
