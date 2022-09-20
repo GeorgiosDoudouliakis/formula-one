@@ -1,7 +1,8 @@
 @import 'src/assets/scss/main';
 
 header {
-    background: $primary;
+  position: relative;
+  background: $primary;
 }
 
 .mat-toolbar-row {
@@ -21,11 +22,44 @@ a {
     }
 }
 
-button {
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    mat-icon {
-        color: $white;
+.mobile-menu-icon {
+  width: 40px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  div {
+    height: 1px;
+    background: $white;
+    margin: .5rem 0;
+    transition: .4s ease-in-out;
+    &:nth-child(1) {
+      width: 100%;
     }
+    &:nth-child(2) {
+      width: 75%;
+    }
+    &:nth-child(3) {
+      width: 50%;
+    }
+  }
+  &.open {
+    div {
+      &:nth-child(1) {
+        transform: translateY(10px) rotate(45deg);
+      }
+      &:nth-child(2) {
+        width: 0;
+      }
+      &:nth-child(3) {
+        width: 100%;
+        transform: translateY(-8px) rotate(-45deg);
+      }
+    }
+  }
+}
+
+@media(min-width: 768px) {
+  .mobile-menu-icon {
+    display: none;
+  }
 }

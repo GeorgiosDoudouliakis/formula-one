@@ -5,15 +5,12 @@
               <img src="/assets/images/f1_logo.png" alt="formula one logo" width="65" height="46">
             </a>
             <section class="navigation">
-                <ng-container *ngIf="!isInMobile">
-                    <app-navigation></app-navigation>
-                </ng-container>
-                <button mat-icon-button *ngIf="isInMobile" [matMenuTriggerFor]="menu">
-                    <mat-icon>menu</mat-icon>
-                </button>
-                <mat-menu #menu="matMenu">
-                    <app-navigation></app-navigation>
-                </mat-menu>
+              <app-navigation [isMobileMenuOpen]="isMobileMenuOpen" (isMobileMenuHandler)="isMobileMenuOpen = $event"></app-navigation>
+              <button class="mobile-menu-icon {{ isMobileMenuOpen && 'open' }}" (click)="isMobileMenuOpen = !isMobileMenuOpen">
+                <div></div>
+                <div></div>
+                <div></div>
+              </button>
             </section>
         </mat-toolbar-row>
     </mat-toolbar>

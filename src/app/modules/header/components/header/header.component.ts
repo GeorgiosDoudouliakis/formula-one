@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 @Component({
   selector: 'app-header',
@@ -6,12 +6,6 @@ import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
   styleUrls: ['./header.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class HeaderComponent implements OnInit {
-  public isInMobile: boolean = false;
-
-  constructor() { }
-
-  public ngOnInit(): void {
-    this.isInMobile = window.matchMedia('(max-width: 768px)').matches;
-  }
+export class HeaderComponent {
+  public isMobileMenuOpen: boolean = false;
 }
