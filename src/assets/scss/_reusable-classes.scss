@@ -14,8 +14,14 @@
     &.constructors-drivers {
         gap: 20px;
         .img-container {
-          width: 45px;
-          height: 45px;
+          &_constructors {
+            width: 30px;
+            height: 30px;
+          }
+          &_drivers {
+            width: 45px;
+            height: 45px;
+          }
         }
 
         span {

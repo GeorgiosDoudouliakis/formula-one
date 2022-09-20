@@ -4,7 +4,7 @@
   <section class="grid constructors-drivers">
     <article *ngFor="let details of data" class="box" (click)="router.navigate(['/drivers', details['driverId']])">
       <section class="image-name-container">
-        <div class="img-container">
+        <div class="img-container_drivers">
           <img *ngIf="imageExists(details); else noImage" src="assets/images/{{ details['driverId'] }}.png" [alt]="details['familyName'] + ' photo'" width="45" height="45" />
           <ng-template #noImage>
             <img src="/assets/images/no_image_available.jpg" alt="" width="45" height="45">
