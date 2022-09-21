@@ -5,7 +5,7 @@
 }
 
 .pad {
-    padding: 2.5rem 0;
+    padding: 0 0 2.5rem 0;
 }
 
 .grid {
@@ -147,7 +147,7 @@
 
 @media(min-width: 1024px) {
     .pad {
-        padding: 3rem 0;
+        padding: 0 0 3rem 0;
     }
 
     .grid {
@@ -172,7 +172,7 @@
 
 @media(min-width: 1280px) {
     .pad {
-      padding: 4rem 0;
+      padding: 0 0 4rem 0;
     }
 
     .grid {
