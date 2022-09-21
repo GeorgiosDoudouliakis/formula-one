@@ -4,6 +4,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HeaderModule } from "./modules/header/header.module";
+import { BackForthButtonsModule } from "./modules/back-forth-buttons/back-forth-buttons.module";
 import { FooterModule } from "./modules/footer/footer.module";
 import { MatDialogModule } from "@angular/material/dialog";
 
@@ -16,6 +17,7 @@ import { MatDialogModule } from "@angular/material/dialog";
     AppRoutingModule,
     BrowserAnimationsModule,
     HeaderModule,
+    BackForthButtonsModule,
     FooterModule,
     MatDialogModule
   ],

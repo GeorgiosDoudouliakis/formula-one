@@ -1,0 +1,27 @@
+@import 'src/assets/scss/main';
+
+section {
+  text-align: right;
+  padding: 1rem 0;
+}
+
+button {
+  color: $white;
+  background: $accent;
+  border: none;
+  cursor: pointer;
+  &:last-of-type {
+    margin-left: 1rem;
+  }
+}
+
+.mat-button {
+  min-width: unset;
+  padding: 0;
+}
+
+@media(min-width: 1024px) {
+  section {
+    padding: 1.5rem 0;
+  }
+}
