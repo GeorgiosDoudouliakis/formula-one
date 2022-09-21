@@ -4,3 +4,7 @@ section {
     @include flex(row, nowrap, flex-start, center);
     margin-bottom: 1rem;
 }
+
+.mat-form-field {
+  width: 100%;
+}
