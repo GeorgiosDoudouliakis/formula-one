@@ -27,6 +27,7 @@
     "ngx-echarts": "^8.0.1",
     "ol": "^6.4.3",
     "rxjs": "~7.5.0",
+    "sh-ordinal-numbers": "^4.10.17",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"
   },
