@@ -4,6 +4,7 @@ import { MatCardModule } from "@angular/material/card";
 import { MatButtonModule } from "@angular/material/button";
 import { MatIconModule } from "@angular/material/icon";
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { OrdinalNumbersModule } from 'sh-ordinal-numbers';
 import { CardComponent } from './card.component';
 import { ToLocalTimePipe } from "@shared/pipes";
 
@@ -13,7 +14,8 @@ import { ToLocalTimePipe } from "@shared/pipes";
     MatCardModule,
     MatButtonModule,
     MatIconModule,
-    MatTooltipModule
+    MatTooltipModule,
+    OrdinalNumbersModule
   ],
   declarations: [
     CardComponent,

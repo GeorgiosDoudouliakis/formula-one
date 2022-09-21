@@ -5,7 +5,7 @@
               {{ cardHeader | uppercase }}
           </mat-card-title>
           <mat-card-subtitle *ngIf="type === 'driver' || type === 'constructor'">
-              {{ data.Results[0].position }}
+              {{ data.Results[0].position | ordinal }}
           </mat-card-subtitle>
           <mat-card-subtitle *ngIf="type === 'race'" class="race-subtitle">Round {{ data.round }}</mat-card-subtitle>
         </mat-card-header>
