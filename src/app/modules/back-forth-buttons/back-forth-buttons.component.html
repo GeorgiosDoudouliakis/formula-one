@@ -1,8 +1,4 @@
 <section class="max-width">
-  <button matTooltip="Go back" matTooltipPosition="below" (click)="location.back()">
-    <mat-icon>arrow_back_ios</mat-icon>
-  </button>
-  <button matTooltip="Go forward" matTooltipPosition="below" (click)="location.forward()">
-    <mat-icon>arrow_forward_ios</mat-icon>
-  </button>
+  <button mat-raised-button color="primary" (click)="location.back()">Back</button>
+  <button mat-raised-button color="primary" (click)="location.forward()">Forward</button>
 </section>

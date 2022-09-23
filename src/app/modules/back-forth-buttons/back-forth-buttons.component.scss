@@ -5,19 +5,8 @@ section {
   padding: 1rem 0;
 }
 
-button {
-  color: $white;
-  background: $accent;
-  border: none;
-  cursor: pointer;
-  &:last-of-type {
-    margin-left: 1rem;
-  }
-}
-
-.mat-button {
-  min-width: unset;
-  padding: 0;
+button:last-of-type {
+    margin-left: .5rem;
 }
 
 @media(min-width: 1024px) {
