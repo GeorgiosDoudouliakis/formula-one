@@ -8,15 +8,16 @@ import { ConstructorStandings } from '@shared/models/constructor-standings.model
 
 @Injectable()
 export class DriverConstructorStandingsService {
+  private _currentYear = new Date().getFullYear().toString();
 
   constructor(private http: HttpClient) { }
 
-  public getDriverStandings(year: string = '2021'): Observable<DriverStandingsList[]> {
+  public getDriverStandings(year: string = this._currentYear): Observable<DriverStandingsList[]> {
     return this.http.get<DriverStandings>(`${environment.api}/${year}/driverStandings.json?limit=400&offset=0`)
                .pipe(pluck('MRData', 'StandingsTable', 'StandingsLists'));
   }
 
-  public getConstructorStandings(year: string = '2021'): Observable<any> {
+  public getConstructorStandings(year: string = this._currentYear): Observable<any> {
     return this.http.get<ConstructorStandings>(`${environment.api}/${year}/constructorStandings.json?limit=400&offset=0`)
                .pipe(pluck('MRData', 'StandingsTable', 'StandingsLists'))
 

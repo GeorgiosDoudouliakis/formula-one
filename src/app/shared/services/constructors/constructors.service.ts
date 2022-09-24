@@ -6,10 +6,11 @@ import { ConstructorData } from '../../models/constructor-data.model';
 
 @Injectable()
 export class ConstructorsService {
+  private _currentYear = new Date().getFullYear().toString();
 
   constructor(private http: HttpClient) { }
 
-  public getData(year: string = '2021'): Observable<any> {
+  public getData(year: string = this._currentYear): Observable<any> {
     return this.http.get<ConstructorData>(`${environment.api}/${year}/constructors.json`).pipe(pluck('MRData', 'ConstructorTable', 'Constructors'));
   }
 }
