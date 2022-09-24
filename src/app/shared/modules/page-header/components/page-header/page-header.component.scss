@@ -1,13 +1,13 @@
 @import 'src/assets/scss/main';
 
+section:first-of-type {
+  @include flex(row, nowrap, space-between, center);
+}
+
 h2 {
   @include flex(row, nowrap, flex-start, flex-start);
   font-size: 1.5rem;
-  padding: 0 0 1rem 0;
   margin-bottom: 0;
-  background-image: url("/assets/images/f1_racing_car_100.png");
-  background-position: right;
-  background-repeat: no-repeat;
 }
 
 span {
@@ -35,7 +35,6 @@ span {
 @media(min-width: 768px){
   h2 {
     font-size: 1.8rem;
-    background-image: url("/assets/images/f1_racing_car_150.png");
   }
 
   .road {
