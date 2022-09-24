@@ -12,7 +12,4 @@ Live environment: https://georgiosdoudouliakis.github.io/formula-one/
 - Angular Material
 - Apache echarts
 - Open layers
-- Moment js  
-
-## Thought Process
-The design i followed depends on reusability and modularity. Modules for each page and reusable components that can be used in different places. With this design the code has a better structure and there is no code duplication.
+- Moment js
