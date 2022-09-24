@@ -8,6 +8,7 @@ import { ConstructorData } from '@shared/models/constructor-data.model';
 
 @Injectable()
 export class ConstructorService {
+  private _currentYear = new Date().getFullYear().toString();
 
   constructor(private http: HttpClient) { }
 
@@ -21,7 +22,7 @@ export class ConstructorService {
     return this.http.get<RoundStandings>(`${environment.api}/constructors/${constructorId}/results.json`).pipe(pluck('MRData', 'RaceTable', 'Races'));
   }
 
-  public getData(year: string = '2021'): Observable<any> {
+  public getData(year: string = this._currentYear): Observable<any> {
     return this.http.get<ConstructorData>(`${environment.api}/${year}/constructors.json`).pipe(pluck('MRData', 'ConstructorTable', 'Constructors'));
   }
 }
