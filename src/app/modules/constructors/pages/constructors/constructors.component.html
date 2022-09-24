@@ -7,7 +7,7 @@
         <div class="img-container_constructors">
           <img *ngIf="imageExists(details); else noImage" src="assets/images/{{ details['constructorId'] }}.png" [alt]="details['name'] + ' logo'" width="30" height="30" />
           <ng-template #noImage>
-            <img src="/assets/images/no_image_available.jpg" alt="" width="30" height="30">
+            <img src="assets/images/no_image_available.jpg" alt="" width="30" height="30">
           </ng-template>
         </div>
         <span>{{ details['name'] }}</span>

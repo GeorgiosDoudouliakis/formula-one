@@ -7,7 +7,7 @@
         <div class="img-container_drivers">
           <img *ngIf="imageExists(details); else noImage" src="assets/images/{{ details['driverId'] }}.png" [alt]="details['familyName'] + ' photo'" width="45" height="45" />
           <ng-template #noImage>
-            <img src="/assets/images/no_image_available.jpg" alt="" width="45" height="45">
+            <img src="assets/images/no_image_available.jpg" alt="" width="45" height="45">
           </ng-template>
         </div>
         <span>{{ details['givenName'] + " " + details['familyName'] }}</span>
