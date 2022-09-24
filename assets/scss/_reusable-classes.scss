@@ -5,7 +5,7 @@
 }
 
 .pad {
-    padding: 1rem 0;
+    padding: 0 0 2.5rem 0;
 }
 
 .grid {
@@ -13,14 +13,27 @@
     grid-auto-rows: auto;
     &.constructors-drivers {
         gap: 20px;
+        .img-container {
+          &_constructors {
+            width: 30px;
+            height: 30px;
+          }
+          &_drivers {
+            width: 45px;
+            height: 45px;
+          }
+        }
+
+        span {
+          margin-left: 1rem;
+        }
     }
 }
 
 .box {
     @include flex(row, nowrap, space-between, center);
     padding: 0.5rem;
-    background: lighten($accent, 5%);
-    border-radius: 4px;
+    background: $lightAccent;
     border-right: 1px solid lighten($primary, 20%);
     border-bottom: 1px solid lighten($primary, 20%);
     color: $white;
@@ -62,15 +75,16 @@
     height: 100%;
     & > .mat-card {
         height: 100%;
+        padding: 8px 16px;
         background: $accent;
-        position: relative;
+        border: 1px solid lighten($accent, 10%);
+        border-radius: 0;
     }
     .mat-card-header {
         display: initial;
     }
     .mat-card-title {
-        padding-bottom: 12px;
-        border-bottom: 1px solid lighten($accent, 5%);
+        padding: 12px 0;
     }
     .mat-card-subtitle {
         @include flex(row, nowrap, center, center);
@@ -81,9 +95,9 @@
         height: 30px;
         color: $white;
         background: $primary;
-        border-radius: 100%;
+        border-radius: 4px;
         &.race-subtitle {
-            top: 0 !important;
+            top: -2px !important;
             left: 7px;
             width: 70px !important;
             height: auto !important;
@@ -134,7 +148,7 @@
 
 @media(min-width: 1024px) {
     .pad {
-        padding: 2rem 0;
+        padding: 0 0 3rem 0;
     }
 
     .grid {
@@ -148,10 +162,6 @@
         }
     }
 
-    .details-header {
-        margin-bottom: 1.5rem;
-    }
-
     .details {
         p {
             &:not(:last-of-type) {
@@ -162,6 +172,10 @@
 }
 
 @media(min-width: 1280px) {
+    .pad {
+      padding: 0 0 4rem 0;
+    }
+
     .grid {
         grid-template-columns: repeat(4, 1fr);
     }
