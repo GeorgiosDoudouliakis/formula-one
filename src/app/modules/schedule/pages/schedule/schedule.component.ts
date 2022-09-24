@@ -1,13 +1,15 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Title } from '@angular/platform-browser';
-import { Race } from '@shared/models/round-standings.model';
-import { Subscription } from 'rxjs';
-import { ScheduleService } from '../../services/schedule.service';
+import {ChangeDetectionStrategy, ChangeDetectorRef, Component, OnDestroy, OnInit} from '@angular/core';
+import {Title} from '@angular/platform-browser';
+import {Race} from '@shared/models/round-standings.model';
+import {catchError, Subscription, tap, throwError} from 'rxjs';
+import {map} from "rxjs/operators";
+import {ScheduleService} from '../../services/schedule.service';
 
 @Component({
   selector: 'app-schedule',
   templateUrl: './schedule.component.html',
-  styleUrls: ['./schedule.component.scss']
+  styleUrls: ['./schedule.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ScheduleComponent implements OnInit, OnDestroy {
   public isLoading: boolean = false;
@@ -16,10 +18,11 @@ export class ScheduleComponent implements OnInit, OnDestroy {
   private _scheduleSub$: Subscription;
 
   constructor(
-    private title: Title,
-    private scheduleService: ScheduleService
+    private _title: Title,
+    private _scheduleService: ScheduleService,
+    private _cdr: ChangeDetectorRef
   ) {
-    this.title.setTitle('Formula 1 | Schedule');
+    this._title.setTitle('Formula 1 | Schedule');
   }
 
   public ngOnInit(): void {
@@ -33,14 +36,14 @@ export class ScheduleComponent implements OnInit, OnDestroy {
   private getSchedule(): void {
     this.isLoading = true;
 
-    this._scheduleSub$ = this.scheduleService.getSchedule()
-      .subscribe({
-        next: (schedule: Race[]) => {
-          this.isLoading = false;
-          this.schedule = schedule;
-        },
-        error: (err) => this.isLoading = false,
-        complete: () => this.isLoading = false
-      });
+    this._scheduleSub$ = this._scheduleService.getSchedule().pipe(
+      map((schedule: Race[]) => this.schedule = schedule),
+      tap(() => this.isLoading = false),
+      tap(() => this._cdr.markForCheck()),
+      catchError((err) => {
+        console.error(err);
+        return throwError(err);
+      })
+    ).subscribe();
   }
 }

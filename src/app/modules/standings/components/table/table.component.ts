@@ -1,17 +1,26 @@
-import { AfterViewChecked, Component, Input, OnDestroy, ViewChild } from '@angular/core';
-import { MatSort } from '@angular/material/sort';
-import { MatTableDataSource } from '@angular/material/table';
-import { Router } from '@angular/router';
-import { ConstructorStandingsList, ConstructorStanding } from '@shared/models/constructor-standings.model';
-import { DriverStandingsList, DriverStanding } from '@shared/models/driver-standings.model';
-import { YearHandlerService } from '@shared/services';
-import { Subscription, switchMap, map } from 'rxjs';
-import { DriverConstructorStandingsService } from '../../services/driver-constructor-standings.service';
+import {
+  AfterViewChecked,
+  ChangeDetectionStrategy,
+  ChangeDetectorRef,
+  Component,
+  Input,
+  OnDestroy,
+  ViewChild
+} from '@angular/core';
+import {MatSort} from '@angular/material/sort';
+import {MatTableDataSource} from '@angular/material/table';
+import {Router} from '@angular/router';
+import {ConstructorStanding, ConstructorStandingsList} from '@shared/models/constructor-standings.model';
+import {DriverStanding, DriverStandingsList} from '@shared/models/driver-standings.model';
+import {YearHandlerService} from '@shared/services';
+import {catchError, map, Subscription, switchMap, tap, throwError} from 'rxjs';
+import {DriverConstructorStandingsService} from '../../services/driver-constructor-standings.service';
 
 @Component({
   selector: 'app-table',
   templateUrl: './table.component.html',
-  styleUrls: ['./table.component.scss']
+  styleUrls: ['./table.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TableComponent implements AfterViewChecked, OnDestroy {
   @Input() public option: 'Driver' | 'Constructor';
@@ -24,9 +33,10 @@ export class TableComponent implements AfterViewChecked, OnDestroy {
   private _standingsSub$: Subscription;
 
   constructor(
-    private yearHandlerService: YearHandlerService,
-    private driverConstructorStandingsService: DriverConstructorStandingsService,
-    private router: Router
+    private _yearHandlerService: YearHandlerService,
+    private _driverConstructorStandingsService: DriverConstructorStandingsService,
+    private _router: Router,
+    private _cdr: ChangeDetectorRef
   ) {}
 
   public ngOnChanges(): void {
@@ -61,49 +71,47 @@ export class TableComponent implements AfterViewChecked, OnDestroy {
 
   public showDetails(row: any): void {
     if(this.option === 'Driver') {
-      this.router.navigate(['/drivers', row['Driver']['driverId']]);
+      this._router.navigate(['/drivers', row['Driver']['driverId']]);
     } else if(this.option === 'Constructor') {
-      this.router.navigate(['/constructors', row['Constructor']['constructorId']]);
+      this._router.navigate(['/constructors', row['Constructor']['constructorId']]);
     }
   }
 
   private tableDataSource(): void {
     if(this.option === 'Driver') {
-      this._standingsSub$ = this.yearHandlerService.year$.pipe(
-        map((year: string) => {
-          this.isLoading = true;
-          return year;
-        }),
-        switchMap((year: string) => this.driverConstructorStandingsService.getDriverStandings(year))
-      )
-      .subscribe({
-        next: (res: DriverStandingsList[]) => {
-          this.isLoading = false;
+      this._standingsSub$ = this._yearHandlerService.year$.pipe(
+        tap(() => this.isLoading = true),
+        tap(() => this._cdr.markForCheck()),
+        switchMap((year: string) => this._driverConstructorStandingsService.getDriverStandings(year)),
+        tap(() => this.isLoading = false),
+        map((res: DriverStandingsList[]) => {
           if(!res[0]) return;
           this.data = res[0].DriverStandings;
           this.dataSource = new MatTableDataSource(this.data);
-        },
-        error: (err) => this.isLoading = false,
-        complete: () => this.isLoading = false
-      })
-    } else if(this.option === 'Constructor') {
-      this._standingsSub$ = this.yearHandlerService.year$.pipe(
-        map((year: string) => {
-          this.isLoading = true;
-          return year;
         }),
-        switchMap((year: string) => this.driverConstructorStandingsService.getConstructorStandings(year))
-      )
-      .subscribe({
-        next: (res: ConstructorStandingsList[]) => {
-          this.isLoading = false;
+        tap(() => this._cdr.markForCheck()),
+        catchError((err) => {
+          console.error(err);
+          return throwError(err);
+        })
+      ).subscribe();
+    } else if(this.option === 'Constructor') {
+      this._standingsSub$ = this._yearHandlerService.year$.pipe(
+        tap(() => this.isLoading = true),
+        tap(() => this._cdr.markForCheck()),
+        switchMap((year: string) => this._driverConstructorStandingsService.getConstructorStandings(year)),
+        tap(() => this.isLoading = false),
+        map((res: ConstructorStandingsList[]) => {
           if(!res[0]) return;
           this.data = res[0].ConstructorStandings;
           this.dataSource = new MatTableDataSource(this.data);
-        },
-        error: (err) => this.isLoading = false,
-        complete: () => this.isLoading = false
-      })
+        }),
+        tap(() => this._cdr.markForCheck()),
+        catchError((err) => {
+          console.error(err);
+          return throwError(err);
+        })
+      ).subscribe();
     }
   }
 

@@ -1,14 +1,16 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
-import { ActivatedRoute, Params } from '@angular/router';
-import { Constructor } from '@shared/models/constructor-driver.model';
-import { Race } from '@shared/models/round-standings.model';
-import { forkJoin, Subscription, switchMap } from 'rxjs';
-import { ConstructorService } from '../../services/constructor.service';
+import {ChangeDetectionStrategy, ChangeDetectorRef, Component, OnDestroy, OnInit} from '@angular/core';
+import {ActivatedRoute, Params} from '@angular/router';
+import {Constructor} from '@shared/models/constructor-driver.model';
+import {Race} from '@shared/models/round-standings.model';
+import {catchError, forkJoin, Subscription, switchMap, tap, throwError} from 'rxjs';
+import {map} from "rxjs/operators";
+import {ConstructorService} from '../../services/constructor.service';
 
 @Component({
   selector: 'app-constructor',
   templateUrl: './constructor.component.html',
-  styleUrls: ['./constructor.component.scss']
+  styleUrls: ['./constructor.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ConstructorComponent implements OnInit, OnDestroy {
   public isLoading: boolean = false;
@@ -17,8 +19,9 @@ export class ConstructorComponent implements OnInit, OnDestroy {
   private _detailsSub$: Subscription;
 
   constructor(
-    private constructorsService: ConstructorService,
-    private route: ActivatedRoute
+    private _constructorsService: ConstructorService,
+    private _route: ActivatedRoute,
+    private _cdr: ChangeDetectorRef
   ) { }
 
   public ngOnInit(): void {
@@ -30,21 +33,22 @@ export class ConstructorComponent implements OnInit, OnDestroy {
   }
 
   private getConstructorDetails(): void {
-    this.isLoading = true;
-
-    this._detailsSub$ = this.route.params.pipe(
+    this._detailsSub$ = this._route.params.pipe(
+      tap(() => this.isLoading = true),
       switchMap((params: Params) => forkJoin([
-        this.constructorsService.getConstructorDetails(params['id']),
-        this.constructorsService.getConstructorResults(params['id'])
-      ]))
-    ).subscribe({
-        next: (res: [Constructor[], Race[]]) => {
-          this.isLoading = false;
-          this.details = res[0][0];
-          this.results = res[1];
-        },
-        error: (err) => this.isLoading = false,
-        complete: () => this.isLoading = false
-    })
+        this._constructorsService.getConstructorDetails(params['id']),
+        this._constructorsService.getConstructorResults(params['id'])
+      ])),
+      tap(() => this.isLoading = false),
+      map((res: [Constructor[], Race[]]) => {
+        this.details = res[0][0];
+        this.results = res[1];
+      }),
+      tap(() => this._cdr.markForCheck()),
+      catchError((err) => {
+        console.error(err);
+        return throwError(err);
+      })
+    ).subscribe();
   }
 }

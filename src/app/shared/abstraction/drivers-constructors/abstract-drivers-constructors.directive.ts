@@ -1,5 +1,5 @@
 import {ChangeDetectorRef, Directive, OnDestroy, OnInit} from '@angular/core';
-import {Subscription, switchMap} from "rxjs";
+import {catchError, Subscription, switchMap, tap, throwError} from "rxjs";
 import {map} from "rxjs/operators";
 import {YearHandlerService} from "../../services";
 import {ConstructorsService, DriversService} from "../../services";
@@ -33,25 +33,15 @@ export abstract class AbstractDriversConstructorsDirective<DataType> implements 
 
   private getDataByYear(): void {
     this._dataSub$ = this._yearHandlerService.year$.pipe(
-      map((year: string) => {
-        this.loading = true;
-        return year;
-      }),
-      switchMap((year: string) => this._dataService.getData(year))
-    ).subscribe({
-      next: (data: Array<DataType>) => {
-        this.loading = false;
-        this.data = data;
-        this._cdr.markForCheck();
-      },
-      error: (err) => {
-        this.loading = false;
-        this._cdr.markForCheck();
-      },
-      complete: () => {
-        this.loading = false;
-        this._cdr.markForCheck();
-      }
-    });
+      tap(() => this.loading = true),
+      switchMap((year: string) => this._dataService.getData(year)),
+      map((data: Array<DataType>) => this.data = data),
+      tap(() => this.loading = false),
+      tap(() => this._cdr.markForCheck()),
+      catchError((error)=> {
+        console.error(error);
+        return throwError(error);
+      })
+    ).subscribe();
   }
 }
