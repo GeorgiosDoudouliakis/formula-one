@@ -20,14 +20,33 @@ h3, h4 {
     }
 }
 
+.constructor-info {
+  @include flex(row, nowrap, flex-start, flex-start);
+  margin-bottom: 1rem;
+  color: #62c4ed;
+  mat-icon {
+    margin-right: .5rem;
+  }
+}
+
 a {
     font-size: 0.9rem;
     color: $white;
     text-decoration: underline;
 }
 
+@media(min-width: 450px) {
+  .constructor-info {
+    align-items: center;
+  }
+}
+
 @media(min-width: 768px) {
-    a {
-        font-size: 1rem;
-    }
+  .constructor-info {
+    font-size: 1rem;
+  }
+
+  a {
+      font-size: 1rem;
+  }
 }

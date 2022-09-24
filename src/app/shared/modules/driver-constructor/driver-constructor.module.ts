@@ -7,13 +7,15 @@ import { StatisticsComponent } from "./components/statistics/statistics.componen
 import { NgxEchartsModule } from "ngx-echarts";
 import * as echarts from "echarts";
 import { GraphService } from "./services/graph.service";
+import { MatIconModule } from "@angular/material/icon";
 
 @NgModule({
   imports: [
     CommonModule,
     HttpClientModule,
     CardModule,
-    NgxEchartsModule.forRoot({ echarts })
+    NgxEchartsModule.forRoot({ echarts }),
+    MatIconModule
   ],
   declarations: [
     DriverConstructorComponent,

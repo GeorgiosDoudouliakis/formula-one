@@ -18,6 +18,9 @@
         <p *ngIf="type === 'driver'">Number: {{ details && details.permanentNumber }}</p>
         <a [href]="details && details.url" target="_blank">Wikipedia</a>
     </section>
+    <p *ngIf="type === 'constructor'" class="constructor-info">
+      <mat-icon>info</mat-icon>Results represents a constructor's drivers stats as a whole
+    </p>
     <h4 class="results-header">CIRCUIT RESULTS</h4>
     <section class="grid">
         <ng-container *ngFor="let result of results">

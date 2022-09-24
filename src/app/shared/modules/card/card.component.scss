@@ -1,29 +1,5 @@
 @import 'src/assets/scss/main';
 
-.drivers {
-  margin-bottom: 1rem;
-  & > span {
-      display: block;
-      color: $white;
-      &:first-of-type {
-          margin-bottom: 0.5rem;
-      }
-  }
-}
-
-.driver {
-    background: $lightAccent;
-    padding: 0.3rem;
-    cursor: pointer;
-    transition: .4s ease-in-out;
-    &:not(:last-of-type) {
-        margin-bottom: 0.3rem;
-    }
-    &:hover {
-        background: black;
-    }
-}
-
 .race-date {
   padding: .3rem .5rem;
   color: $white;
@@ -48,11 +24,5 @@
   padding-left: 16px;
   button:last-of-type {
     margin-left: .5rem;
-  }
-}
-
-@media(min-width: 1024px) {
-  .drivers > span, p {
-    font-size: 1rem !important;
   }
 }
