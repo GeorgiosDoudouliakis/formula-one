@@ -35,6 +35,10 @@ a {
     text-decoration: underline;
 }
 
+.results-header + .grid {
+  margin-bottom: 0;
+}
+
 @media(min-width: 450px) {
   .constructor-info {
     align-items: center;
