@@ -1,0 +1,46 @@
+@import 'src/assets/scss/main';
+
+:host {
+ @include flex(column, nowrap, center, center);
+}
+
+.loader > div, span {
+  animation: fadeIn;
+  animation-duration: .8s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate-reverse;
+}
+
+.loader {
+  display: grid;
+  grid-template-columns: repeat(2, 25px);
+  gap: 5px;
+  margin-bottom: 1rem;
+  > div {
+    height: 25px;
+    background: $primary;
+    &:nth-child(2), &:nth-child(3) {
+      animation-delay: .8s
+    }
+  }
+}
+
+span {
+  color: darken($white, 30%);
+  animation-delay: 1.6s;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@media(min-width: 768px) {
+  span {
+    font-size: 1rem;
+  }
+}

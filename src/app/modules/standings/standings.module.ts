@@ -8,7 +8,7 @@ import { MatInputModule } from "@angular/material/input";
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatTableModule } from '@angular/material/table';
 import { MatSortModule } from '@angular/material/sort';
-import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { LoaderModule } from "@shared/modules";
 import { StandingsComponent } from './pages/standings/standings.component';
 import { TableComponent } from './components/table/table.component';
 import { SeasonFilterModule, PageHeaderModule } from "@shared/modules";
@@ -35,7 +35,7 @@ const routes = [
     MatTabsModule,
     MatTableModule,
     MatSortModule,
-    MatProgressSpinnerModule
+    LoaderModule
   ],
   exports: [
     RouterModule

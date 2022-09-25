@@ -2,4 +2,4 @@
 <section class="grid" *ngIf="!isLoading">
     <app-card *ngFor="let round of schedule" [type]="'race'" [data]="round"></app-card>
 </section>
-<mat-spinner *ngIf="isLoading"></mat-spinner>
+<app-loader *ngIf="isLoading"></app-loader>

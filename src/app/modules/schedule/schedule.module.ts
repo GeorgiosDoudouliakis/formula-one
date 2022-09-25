@@ -4,7 +4,7 @@ import { HttpClientModule } from "@angular/common/http";
 import { RouterModule } from '@angular/router';
 import { PageHeaderModule } from "@shared/modules";
 import { CardModule } from "@shared/modules";
-import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { LoaderModule } from "@shared/modules";
 import { ScheduleComponent } from './pages/schedule/schedule.component';
 import { ScheduleService } from './services/schedule.service';
 
@@ -22,7 +22,7 @@ const routes = [
     RouterModule.forChild(routes),
     PageHeaderModule,
     CardModule,
-    MatProgressSpinnerModule
+    LoaderModule
   ],
   exports: [
     RouterModule

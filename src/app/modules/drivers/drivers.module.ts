@@ -5,7 +5,7 @@ import { HttpClientModule } from "@angular/common/http";
 import { SeasonFilterModule, PageHeaderModule } from "@shared/modules";
 import { DriverConstructorModule } from "@shared/modules";
 import { MatIconModule } from "@angular/material/icon";
-import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { LoaderModule } from "@shared/modules";
 import { DriversComponent } from './pages/drivers/drivers.component';
 import { DriverComponent } from './pages/driver/driver.component';
 import { DriverService } from './services/driver.service';
@@ -29,7 +29,7 @@ const routes = [
     PageHeaderModule,
     DriverConstructorModule,
     MatIconModule,
-    MatProgressSpinnerModule
+    LoaderModule
   ],
   exports: [
     RouterModule

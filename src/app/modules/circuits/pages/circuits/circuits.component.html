@@ -3,4 +3,4 @@
     <app-card *ngFor="let circuit of circuits"
     [type]="'circuit'" [data]="circuit"></app-card>
 </section>
-<mat-spinner *ngIf="isLoading"></mat-spinner>
+<app-loader *ngIf="isLoading"></app-loader>

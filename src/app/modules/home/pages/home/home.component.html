@@ -14,7 +14,7 @@
                      name="{{ driver.Driver.givenName }} {{ driver.Driver.familyName }}"
       ></app-placement>
     </ng-container>
-    <mat-spinner *ngIf="isDriverStatsLoading"></mat-spinner>
+    <app-loader *ngIf="isDriverStatsLoading"></app-loader>
   </div>
   <h2>CONSTRUCTOR STATS</h2>
   <div class="placements">
@@ -24,7 +24,7 @@
                       [name]="constructor.Constructor.name"
       ></app-placement>
     </ng-container>
-    <mat-spinner *ngIf="isConstructorStatsLoading"></mat-spinner>
+    <app-loader *ngIf="isConstructorStatsLoading"></app-loader>
   </div>
   <a routerLink="/standings" mat-raised-button color="primary">Full Standings</a>
 </section>

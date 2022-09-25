@@ -3,12 +3,12 @@ import { CommonModule } from "@angular/common";
 import { RouterModule, Routes } from "@angular/router";
 import { HomeComponent } from './pages/home/home.component';
 import { MatButtonModule } from "@angular/material/button";
-import { MatProgressSpinnerModule } from "@angular/material/progress-spinner";
 import { TopDriversService } from "./services/top-drivers/top-drivers.service";
 import { TopConstructorsService } from "./services/top-constructors/top-constructors.service";
 import { HttpClientModule } from "@angular/common/http";
 import { PlacementComponent } from './components/placement/placement.component';
 import { OrdinalNumbersModule } from 'sh-ordinal-numbers';
+import { LoaderModule } from "@shared/modules";
 
 const routes: Routes = [
   {
@@ -19,7 +19,7 @@ const routes: Routes = [
 ]
 
 @NgModule({
-  imports: [HttpClientModule, CommonModule, RouterModule.forChild(routes), MatButtonModule, MatProgressSpinnerModule, OrdinalNumbersModule],
+  imports: [HttpClientModule, CommonModule, RouterModule.forChild(routes), LoaderModule, MatButtonModule, OrdinalNumbersModule],
   declarations: [HomeComponent, PlacementComponent],
   providers: [TopDriversService, TopConstructorsService]
 })

@@ -1,3 +1,3 @@
 <app-page-header title="constructor details"></app-page-header>
 <app-driver-constructor *ngIf="!isLoading" [type]="'constructor'" [details]="details" [results]="results"></app-driver-constructor>
-<mat-spinner *ngIf="isLoading" class="driver-constructor"></mat-spinner>
+<app-loader *ngIf="isLoading" class="driver-constructor"></app-loader>

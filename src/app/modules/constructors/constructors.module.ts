@@ -4,7 +4,7 @@ import { RouterModule } from '@angular/router';
 import { HttpClientModule } from "@angular/common/http";
 import { SeasonFilterModule, PageHeaderModule } from "@shared/modules";
 import { MatIconModule } from "@angular/material/icon";
-import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { LoaderModule } from "@shared/modules";
 import { DriverConstructorModule } from "@shared/modules";
 import { ConstructorsComponent } from './pages/constructors/constructors.component';
 import { ConstructorComponent } from './pages/constructor/constructor.component';
@@ -29,7 +29,7 @@ const routes = [
     PageHeaderModule,
     DriverConstructorModule,
     MatIconModule,
-    MatProgressSpinnerModule
+    LoaderModule
   ],
   providers: [
     ConstructorService,
