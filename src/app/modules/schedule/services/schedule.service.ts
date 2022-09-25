@@ -6,9 +6,9 @@ import { environment } from 'src/environments/environment';
 
 @Injectable()
 export class ScheduleService {
-  constructor(private http: HttpClient) { }
+  constructor(private _http: HttpClient) { }
 
   public getSchedule(): Observable<Race[]> {
-    return this.http.get<RoundStandings>(`${environment.api}/current.json`).pipe(pluck('MRData', 'RaceTable', 'Races'));
+    return this._http.get<RoundStandings>(`${environment.api}/current.json`).pipe(pluck('MRData', 'RaceTable', 'Races'));
   }
 }

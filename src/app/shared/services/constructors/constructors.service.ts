@@ -8,9 +8,9 @@ import { ConstructorData } from '../../models/constructor-data.model';
 export class ConstructorsService {
   private _currentYear = new Date().getFullYear().toString();
 
-  constructor(private http: HttpClient) { }
+  constructor(private _http: HttpClient) { }
 
   public getData(year: string = this._currentYear): Observable<any> {
-    return this.http.get<ConstructorData>(`${environment.api}/${year}/constructors.json`).pipe(pluck('MRData', 'ConstructorTable', 'Constructors'));
+    return this._http.get<ConstructorData>(`${environment.api}/${year}/constructors.json`).pipe(pluck('MRData', 'ConstructorTable', 'Constructors'));
   }
 }

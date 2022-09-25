@@ -8,10 +8,10 @@ import { environment } from 'src/environments/environment';
 export class DriversService {
   private _currentYear = new Date().getFullYear().toString();
 
-  constructor(private http: HttpClient) { }
+  constructor(private _http: HttpClient) { }
 
   public getData(year: string = this._currentYear): Observable<any> {
-    return this.http.get<Driver[]>(`${environment.api}/${year}/drivers.json`)
+    return this._http.get<Driver[]>(`${environment.api}/${year}/drivers.json`)
     .pipe(pluck('MRData', 'DriverTable', 'Drivers'));
   }
 }

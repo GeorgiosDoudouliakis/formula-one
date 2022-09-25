@@ -10,19 +10,19 @@ import { ConstructorData } from '@shared/models/constructor-data.model';
 export class ConstructorService {
   private _currentYear = new Date().getFullYear().toString();
 
-  constructor(private http: HttpClient) { }
+  constructor(private _http: HttpClient) { }
 
   public getConstructorDetails(constructorId: string): Observable<Constructor[]> {
-    return this.http.get<ConstructorData>(`${environment.api}/constructors/${constructorId}.json`).pipe(
+    return this._http.get<ConstructorData>(`${environment.api}/constructors/${constructorId}.json`).pipe(
       pluck('MRData', 'ConstructorTable', 'Constructors')
     );
   }
 
   public getConstructorResults(constructorId: string): Observable<Race[]> {
-    return this.http.get<RoundStandings>(`${environment.api}/constructors/${constructorId}/results.json`).pipe(pluck('MRData', 'RaceTable', 'Races'));
+    return this._http.get<RoundStandings>(`${environment.api}/constructors/${constructorId}/results.json`).pipe(pluck('MRData', 'RaceTable', 'Races'));
   }
 
   public getData(year: string = this._currentYear): Observable<any> {
-    return this.http.get<ConstructorData>(`${environment.api}/${year}/constructors.json`).pipe(pluck('MRData', 'ConstructorTable', 'Constructors'));
+    return this._http.get<ConstructorData>(`${environment.api}/${year}/constructors.json`).pipe(pluck('MRData', 'ConstructorTable', 'Constructors'));
   }
 }

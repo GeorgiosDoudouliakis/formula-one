@@ -7,10 +7,10 @@ import { Circuit, CircuitData } from '../models/circuits.model';
 @Injectable()
 export class CircuitsService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private _http: HttpClient) { }
 
   public getCircuits(): Observable<Circuit[]> {
     const currentYear = new Date().getFullYear();
-    return this.http.get<CircuitData>(`${environment.api}/${currentYear}/circuits.json`).pipe(pluck('MRData', 'CircuitTable', 'Circuits'));
+    return this._http.get<CircuitData>(`${environment.api}/${currentYear}/circuits.json`).pipe(pluck('MRData', 'CircuitTable', 'Circuits'));
   }
 }
