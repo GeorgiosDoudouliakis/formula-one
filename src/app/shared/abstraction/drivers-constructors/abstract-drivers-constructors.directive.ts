@@ -1,7 +1,6 @@
 import {ChangeDetectorRef, Directive, OnDestroy, OnInit} from '@angular/core';
 import {catchError, Subscription, switchMap, tap, throwError} from "rxjs";
 import {map} from "rxjs/operators";
-import {YearHandlerService} from "../../services";
 import {ConstructorsService, DriversService} from "../../services";
 import {ActivatedRoute, Params, Router} from "@angular/router";
 
