@@ -3,8 +3,7 @@ import {Title} from '@angular/platform-browser';
 import {Constructor} from '@shared/models/constructor-driver.model';
 import {ConstructorsService} from '@shared/services';
 import {AbstractDriversConstructorsDirective} from "@shared/abstraction";
-import {YearHandlerService} from "@shared/services";
-import {Router} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
   selector: 'app-constructors',
@@ -16,11 +15,11 @@ export class ConstructorsComponent extends AbstractDriversConstructorsDirective<
   constructor(
     private title: Title,
     public override router: Router,
-    protected override _yearHandlerService: YearHandlerService,
     protected override _dataService: ConstructorsService,
+    protected override _route: ActivatedRoute,
     protected override _cdr: ChangeDetectorRef
   ) {
-    super(router, _yearHandlerService, _dataService, _cdr);
+    super(router, _dataService, _route, _cdr);
     this.title.setTitle('Formula 1 | Constructors');
   }
 

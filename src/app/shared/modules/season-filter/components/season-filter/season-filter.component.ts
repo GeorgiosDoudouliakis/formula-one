@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormControl } from '@angular/forms';
-import { YearHandlerService } from '@shared/services';
-import { Observable, Subscription } from 'rxjs';
+import { Subscription } from 'rxjs';
+import { ActivatedRoute, Params, Router } from "@angular/router";
 
 @Component({
   selector: 'app-season-filter',
@@ -9,20 +9,25 @@ import { Observable, Subscription } from 'rxjs';
   styleUrls: ['./season-filter.component.scss']
 })
 export class SeasonFilterComponent implements OnInit, OnDestroy {
-  public isFilterVisible$: Observable<boolean>;
   public yearControl: FormControl;
   private readonly _currentYear: number = new Date().getFullYear();
   private _yearControlChangesSub$: Subscription;
 
   constructor(
-    private fb: FormBuilder,
-    private yearHandlerService: YearHandlerService
+    private _fb: FormBuilder,
+    private _router: Router,
+    private _route: ActivatedRoute
   ) { }
 
   public ngOnInit(): void {
-    this.yearControl = this.fb.control(this._currentYear.toString());
+    this.yearControl = this._fb.control(this._currentYear.toString());
 
-    this._yearControlChangesSub$ = this.yearControl.valueChanges.subscribe(year => this.yearHandlerService.yearHandler(year));
+    this._route.queryParams.subscribe((params: Params) => this.yearControl.setValue(params['year']));
+
+    this._yearControlChangesSub$ = this.yearControl.valueChanges.subscribe(year => this._router.navigate(['./'], {
+      queryParams: { year },
+      relativeTo: this._route
+    }));
   }
 
   public ngOnDestroy(): void {

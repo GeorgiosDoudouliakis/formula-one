@@ -1,10 +1,9 @@
 import {ChangeDetectionStrategy, ChangeDetectorRef, Component} from '@angular/core';
 import {Title} from '@angular/platform-browser';
 import {Driver} from '@shared/models/constructor-driver.model';
-import {YearHandlerService} from '@shared/services';
 import {AbstractDriversConstructorsDirective} from "@shared/abstraction";
 import {DriversService} from "@shared/services/drivers/drivers.service";
-import {Router} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
   selector: 'app-drivers',
@@ -16,11 +15,11 @@ export class DriversComponent extends AbstractDriversConstructorsDirective<Drive
   constructor(
     private title: Title,
     public override router: Router,
-    protected override _yearHandlerService: YearHandlerService,
     protected override _dataService: DriversService,
+    protected override _route: ActivatedRoute,
     protected override _cdr: ChangeDetectorRef
   ) {
-    super(router, _yearHandlerService, _dataService, _cdr);
+    super(router, _dataService, _route, _cdr);
     this.title.setTitle('Formula 1 | Drivers');
   }
 

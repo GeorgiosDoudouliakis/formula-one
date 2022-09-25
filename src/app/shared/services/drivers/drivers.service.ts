@@ -6,11 +6,9 @@ import { environment } from 'src/environments/environment';
 
 @Injectable()
 export class DriversService {
-  private _currentYear = new Date().getFullYear().toString();
-
   constructor(private _http: HttpClient) { }
 
-  public getData(year: string = this._currentYear): Observable<any> {
+  public getData(year: string): Observable<any> {
     return this._http.get<Driver[]>(`${environment.api}/${year}/drivers.json`)
     .pipe(pluck('MRData', 'DriverTable', 'Drivers'));
   }
