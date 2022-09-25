@@ -9,10 +9,9 @@ import {
 } from '@angular/core';
 import {MatSort} from '@angular/material/sort';
 import {MatTableDataSource} from '@angular/material/table';
-import {Router} from '@angular/router';
+import {ActivatedRoute, Params, Router} from '@angular/router';
 import {ConstructorStanding, ConstructorStandingsList} from '@shared/models/constructor-standings.model';
 import {DriverStanding, DriverStandingsList} from '@shared/models/driver-standings.model';
-import {YearHandlerService} from '@shared/services';
 import {catchError, map, Subscription, switchMap, tap, throwError} from 'rxjs';
 import {DriverConstructorStandingsService} from '../../services/driver-constructor-standings.service';
 
@@ -33,9 +32,9 @@ export class TableComponent implements AfterViewChecked, OnDestroy {
   private _standingsSub$: Subscription;
 
   constructor(
-    private _yearHandlerService: YearHandlerService,
     private _driverConstructorStandingsService: DriverConstructorStandingsService,
     private _router: Router,
+    private _route: ActivatedRoute,
     private _cdr: ChangeDetectorRef
   ) {}
 
@@ -79,10 +78,10 @@ export class TableComponent implements AfterViewChecked, OnDestroy {
 
   private tableDataSource(): void {
     if(this.option === 'Driver') {
-      this._standingsSub$ = this._yearHandlerService.year$.pipe(
+      this._standingsSub$ = this._route.queryParams.pipe(
         tap(() => this.isLoading = true),
         tap(() => this._cdr.markForCheck()),
-        switchMap((year: string) => this._driverConstructorStandingsService.getDriverStandings(year)),
+        switchMap((params: Params) => this._driverConstructorStandingsService.getDriverStandings(params['year'])),
         tap(() => this.isLoading = false),
         map((res: DriverStandingsList[]) => {
           if(!res[0]) return;
@@ -96,10 +95,10 @@ export class TableComponent implements AfterViewChecked, OnDestroy {
         })
       ).subscribe();
     } else if(this.option === 'Constructor') {
-      this._standingsSub$ = this._yearHandlerService.year$.pipe(
+      this._standingsSub$ = this._route.queryParams.pipe(
         tap(() => this.isLoading = true),
         tap(() => this._cdr.markForCheck()),
-        switchMap((year: string) => this._driverConstructorStandingsService.getConstructorStandings(year)),
+        switchMap((params: Params) => this._driverConstructorStandingsService.getConstructorStandings(params['year'])),
         tap(() => this.isLoading = false),
         map((res: ConstructorStandingsList[]) => {
           if(!res[0]) return;
