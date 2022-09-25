@@ -19,7 +19,6 @@ export class DriverConstructorStandingsService {
 
   public getConstructorStandings(year: string = this._currentYear): Observable<any> {
     return this._http.get<ConstructorStandings>(`${environment.api}/${year}/constructorStandings.json?limit=400&offset=0`)
-               .pipe(pluck('MRData', 'StandingsTable', 'StandingsLists'))
-
+               .pipe(pluck('MRData', 'StandingsTable', 'StandingsLists'));
   }
 }
