@@ -12,6 +12,7 @@ export class SeasonFilterComponent implements OnInit, OnDestroy {
   public yearControl: FormControl;
   private readonly _currentYear: number = new Date().getFullYear();
   private _yearControlChangesSub$: Subscription;
+  private _queryParamsSub$: Subscription;
 
   constructor(
     private _fb: FormBuilder,
@@ -22,7 +23,7 @@ export class SeasonFilterComponent implements OnInit, OnDestroy {
   public ngOnInit(): void {
     this.yearControl = this._fb.control(this._currentYear.toString());
 
-    this._route.queryParams.subscribe((params: Params) => this.yearControl.setValue(params['year']));
+    this._queryParamsSub$ = this._route.queryParams.subscribe((params: Params) => this.yearControl.setValue(params['year']));
 
     this._yearControlChangesSub$ = this.yearControl.valueChanges.subscribe(year => this._router.navigate(['./'], {
       queryParams: { year },
@@ -31,6 +32,7 @@ export class SeasonFilterComponent implements OnInit, OnDestroy {
   }
 
   public ngOnDestroy(): void {
+    if(this._queryParamsSub$) this._queryParamsSub$.unsubscribe();
     if(this._yearControlChangesSub$) this._yearControlChangesSub$.unsubscribe();
   }
 
