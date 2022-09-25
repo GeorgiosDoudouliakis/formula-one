@@ -10,7 +10,6 @@ import { CircuitsComponent } from './pages/circuits/circuits.component';
 import { CircuitsService } from './services/circuits.service';
 import { CircuitLocationComponent } from './components/circuit-location/circuit-location.component';
 import { MapComponent } from './components/map/map.component';
-import { YearHandlerService } from "@shared/services";
 
 const routes = [
   { path: '', component: CircuitsComponent }
@@ -36,8 +35,7 @@ const routes = [
     RouterModule
   ],
   providers: [
-    CircuitsService,
-    YearHandlerService
+    CircuitsService
   ]
 })
 export class CircuitsModule { }

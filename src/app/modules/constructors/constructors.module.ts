@@ -9,7 +9,7 @@ import { DriverConstructorModule } from "@shared/modules";
 import { ConstructorsComponent } from './pages/constructors/constructors.component';
 import { ConstructorComponent } from './pages/constructor/constructor.component';
 import { ConstructorService } from './services/constructor.service';
-import { ConstructorsService, YearHandlerService } from "@shared/services";
+import { ConstructorsService } from "@shared/services";
 
 const routes = [
   { path: '', component: ConstructorsComponent },
@@ -32,7 +32,6 @@ const routes = [
     MatProgressSpinnerModule
   ],
   providers: [
-    YearHandlerService,
     ConstructorService,
     ConstructorsService
   ]

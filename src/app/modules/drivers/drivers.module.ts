@@ -9,7 +9,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { DriversComponent } from './pages/drivers/drivers.component';
 import { DriverComponent } from './pages/driver/driver.component';
 import { DriverService } from './services/driver.service';
-import { DriversService, YearHandlerService } from "@shared/services";
+import { DriversService } from "@shared/services";
 
 const routes = [
   { path: '', component: DriversComponent },
@@ -35,7 +35,6 @@ const routes = [
     RouterModule
   ],
   providers: [
-    YearHandlerService,
     DriverService,
     DriversService
   ]
