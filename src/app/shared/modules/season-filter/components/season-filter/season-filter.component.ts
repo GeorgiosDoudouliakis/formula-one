@@ -21,7 +21,7 @@ export class SeasonFilterComponent implements OnInit, OnDestroy {
   ) { }
 
   public ngOnInit(): void {
-    this.yearControl = this._fb.control(this._currentYear.toString());
+    this.yearControl = this._fb.nonNullable.control<string>(this._currentYear.toString());
 
     this._queryParamsSub$ = this._route.queryParams.subscribe((params: Params) => this.yearControl.setValue(params['year']));
 
