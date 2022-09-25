@@ -1,0 +1,35 @@
+@import 'src/assets/scss/main';
+
+:host {
+  @include flex(row, nowrap, space-between, center);
+  padding: 1rem;
+  color: $white;
+  background: $lightAccent;
+  &:not(:last-of-type) {
+    margin-bottom: 1rem;
+  }
+  p {
+    font-size: 1.2rem;
+    span:last-of-type {
+      display: inline-block;
+      font-size: .8rem;
+      text-align: center;
+      min-width: 70px;
+      margin-left: 1rem;
+      padding: .3rem 0;
+      background: $primary;
+    }
+  }
+}
+
+@media(min-width: 768px) {
+  .name {
+    font-size: 1rem;
+  }
+}
+
+@media(min-width: 960px) {
+  :host {
+    padding: 1.5rem;
+  }
+}

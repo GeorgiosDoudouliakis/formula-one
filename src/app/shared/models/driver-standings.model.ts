@@ -23,6 +23,7 @@ export interface StandingsTable {
 export interface DriverStandings {
     MRData: {
         StandingsTable: StandingsTable;
+        series: string;
         limit: string;
         offset: string;
         total: string;

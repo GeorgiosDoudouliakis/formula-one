@@ -1,1 +1,30 @@
-<p>home works!</p>
+<section>
+  <div class="img-container">
+    <img src="assets/images/formula_one_cover.jpg" alt="">
+    <div class="intro">
+      <h1>Formula 1</h1>
+      <p>Standings, races, schedule and much more</p>
+    </div>
+  </div>
+  <h2>DRIVER STATS</h2>
+  <div class="placements">
+    <ng-container *ngIf="!isDriverStatsLoading">
+      <app-placement *ngFor="let driver of topDrivers; let i = index"
+                     [position]="(i + 1) | ordinal" [points]="driver.points"
+                     name="{{ driver.Driver.givenName }} {{ driver.Driver.familyName }}"
+      ></app-placement>
+    </ng-container>
+    <mat-spinner *ngIf="isDriverStatsLoading"></mat-spinner>
+  </div>
+  <h2>CONSTRUCTOR STATS</h2>
+  <div class="placements">
+    <ng-container *ngIf="!isConstructorStatsLoading">
+      <app-placement *ngFor="let constructor of topConstructors; let i = index"
+                      [position]="(i + 1) | ordinal" [points]="constructor.points"
+                      [name]="constructor.Constructor.name"
+      ></app-placement>
+    </ng-container>
+    <mat-spinner *ngIf="isConstructorStatsLoading"></mat-spinner>
+  </div>
+  <a routerLink="/standings" mat-raised-button color="primary">Full Standings</a>
+</section>
