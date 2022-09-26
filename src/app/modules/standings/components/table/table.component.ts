@@ -1,3 +1,4 @@
+/* Place angular imports */
 import {
   AfterViewChecked,
   ChangeDetectionStrategy,
@@ -7,12 +8,20 @@ import {
   OnDestroy,
   ViewChild
 } from '@angular/core';
+import {ActivatedRoute, Params, Router} from '@angular/router';
+
+/* Place angular material imports */
 import {MatSort} from '@angular/material/sort';
 import {MatTableDataSource} from '@angular/material/table';
-import {ActivatedRoute, Params, Router} from '@angular/router';
+
+/* Place model imports */
 import {ConstructorStanding, ConstructorStandingsList} from '@shared/models/constructor-standings.model';
 import {DriverStanding, DriverStandingsList} from '@shared/models/driver-standings.model';
+
+/* Place rxjs imports */
 import {catchError, map, Subscription, switchMap, tap, throwError} from 'rxjs';
+
+/* Place service imports */
 import {DriverConstructorStandingsService} from '../../services/driver-constructor-standings.service';
 
 @Component({

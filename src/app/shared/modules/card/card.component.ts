@@ -1,7 +1,12 @@
+/* Place angular imports */
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
+
+/* Place component imports */
 import { CircuitLocationComponent } from 'src/app/modules/circuits/components/circuit-location/circuit-location.component';
+
+/* Place angular material imports */
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-card',

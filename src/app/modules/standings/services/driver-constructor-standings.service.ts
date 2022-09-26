@@ -1,10 +1,17 @@
+/* Place angular imports */
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { environment } from 'src/environments/environment';
+
+/* Place model imports */
 import { DriverStandings, DriverStandingsList } from '@shared/models/driver-standings.model';
+import { ConstructorStandings } from '@shared/models/constructor-standings.model';
+
+/* Place rxjs imports */
 import { Observable } from 'rxjs';
 import { pluck } from 'rxjs/operators';
-import { ConstructorStandings } from '@shared/models/constructor-standings.model';
+
+/* Place any other imports here */
+import { environment } from 'src/environments/environment';
 
 @Injectable()
 export class DriverConstructorStandingsService {

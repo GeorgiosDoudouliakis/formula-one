@@ -1,17 +1,25 @@
+/* Place angular imports */
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from "@angular/forms";
 import { HttpClientModule } from "@angular/common/http";
+
+/* Place angular material imports */
 import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatInputModule } from "@angular/material/input";
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatTableModule } from '@angular/material/table';
 import { MatSortModule } from '@angular/material/sort';
-import { LoaderModule } from "@shared/modules";
+
+/* Place any other imports here */
+import { LoaderModule, SeasonFilterModule, PageHeaderModule } from "@shared/modules";
+
+/* Place components imports */
 import { StandingsComponent } from './pages/standings/standings.component';
 import { TableComponent } from './components/table/table.component';
-import { SeasonFilterModule, PageHeaderModule } from "@shared/modules";
+
+/* Place service imports */
 import { DriverConstructorStandingsService } from './services/driver-constructor-standings.service';
 
 const routes = [

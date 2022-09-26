@@ -1,9 +1,16 @@
+/* Place angular imports */
 import {ChangeDetectionStrategy, ChangeDetectorRef, Component} from '@angular/core';
 import {Title} from '@angular/platform-browser';
-import {Constructor} from '@shared/models/constructor-driver.model';
-import {ConstructorsService} from '@shared/services';
-import {AbstractDriversConstructorsDirective} from "@shared/abstraction";
 import {ActivatedRoute, Router} from "@angular/router";
+
+/* Place model imports */
+import {Constructor} from '@shared/models/constructor-driver.model';
+
+/* Place service imports */
+import {ConstructorsService} from '@shared/services';
+
+/* Place any other imports here */
+import {AbstractDriversConstructorsDirective} from "@shared/abstraction";
 
 @Component({
   selector: 'app-constructors',

@@ -1,3 +1,4 @@
+/* Place angular imports */
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 
 @Component({

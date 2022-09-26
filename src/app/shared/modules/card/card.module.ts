@@ -1,9 +1,16 @@
+/* Place angular imports */
 import { NgModule } from '@angular/core';
 import { CommonModule } from "@angular/common";
+
+/* Place angular material imports */
 import { MatCardModule } from "@angular/material/card";
 import { MatButtonModule } from "@angular/material/button";
-import { OrdinalNumbersModule } from 'sh-ordinal-numbers';
+
+/* Place component imports */
 import { CardComponent } from './card.component';
+
+/* Place any other imports here */
+import { OrdinalNumbersModule } from 'sh-ordinal-numbers';
 import { ToLocalTimePipe } from "@shared/pipes";
 
 @NgModule({

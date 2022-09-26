@@ -1,9 +1,16 @@
+/* Place angular imports */
 import {ChangeDetectionStrategy, ChangeDetectorRef, Component, OnDestroy, OnInit} from '@angular/core';
+
+/* Place service imports */
 import {TopDriversService} from "../../services/top-drivers/top-drivers.service";
 import {TopConstructorsService} from "../../services/top-constructors/top-constructors.service";
+
+/* Place rxjs imports */
 import {catchError, Subscription, tap, throwError} from "rxjs";
-import {DriverStanding, DriverStandingsList} from "@shared/models/driver-standings.model";
 import {map} from "rxjs/operators";
+
+/* Place model imports */
+import {DriverStanding, DriverStandingsList} from "@shared/models/driver-standings.model";
 import {ConstructorStanding, ConstructorStandingsList} from "@shared/models/constructor-standings.model";
 
 @Component({

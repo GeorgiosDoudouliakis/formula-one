@@ -1,11 +1,16 @@
+/* Place angular imports */
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from "@angular/common/http";
 import { RouterModule } from '@angular/router';
-import { PageHeaderModule } from "@shared/modules";
-import { CardModule } from "@shared/modules";
-import { LoaderModule } from "@shared/modules";
+
+/* Place any other imports here */
+import { PageHeaderModule, CardModule, LoaderModule  } from "@shared/modules";
+
+/* Place component imports */
 import { ScheduleComponent } from './pages/schedule/schedule.component';
+
+/* Place service imports */
 import { ScheduleService } from './services/schedule.service';
 
 const routes = [

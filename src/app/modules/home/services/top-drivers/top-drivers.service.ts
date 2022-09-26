@@ -1,7 +1,14 @@
+/* Place angular imports */
 import { Injectable } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
+
+/* Place model imports */
 import { DriverStandings, DriverStandingsList } from "@shared/models/driver-standings.model";
+
+/* Place any other imports here */
 import { environment } from "../../../../../environments/environment";
+
+/* Place rxjs imports */
 import { pluck } from "rxjs/operators";
 import { Observable } from "rxjs";
 

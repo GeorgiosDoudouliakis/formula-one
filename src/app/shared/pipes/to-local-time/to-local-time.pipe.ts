@@ -1,5 +1,8 @@
+/* Place angular imports */
 import { Pipe, PipeTransform } from '@angular/core';
-import * as moment from 'moment'; 
+
+/* Place any other imports here */
+import * as moment from 'moment';
 
 @Pipe({
   name: 'toLocalTime'

@@ -1,8 +1,13 @@
+/* Place angular imports */
 import {ChangeDetectorRef, Directive, OnDestroy, OnInit} from '@angular/core';
+import {ActivatedRoute, Params, Router} from "@angular/router";
+
+/* Place rxjs imports */
 import {catchError, Subscription, switchMap, tap, throwError} from "rxjs";
 import {map} from "rxjs/operators";
+
+/* Place service imports */
 import {ConstructorsService, DriversService} from "../../services";
-import {ActivatedRoute, Params, Router} from "@angular/router";
 
 type DataService = ConstructorsService | DriversService;
 

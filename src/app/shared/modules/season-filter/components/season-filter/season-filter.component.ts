@@ -1,7 +1,10 @@
+/* Place angular imports */
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormControl } from '@angular/forms';
-import { Subscription } from 'rxjs';
 import { ActivatedRoute, Params, Router } from "@angular/router";
+
+/* Place rxjs imports */
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-season-filter',

@@ -1,3 +1,4 @@
+/* Place angular imports */
 import { Component } from '@angular/core';
 
 @Component({

@@ -1,7 +1,14 @@
+/* Place angular imports */
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+
+/* Place model imports */
 import { Race, RoundStandings } from '@shared/models/round-standings.model';
+
+/* Place rxjs imports */
 import { Observable, pluck } from 'rxjs';
+
+/* Place any other imports here */
 import { environment } from 'src/environments/environment';
 
 @Injectable()

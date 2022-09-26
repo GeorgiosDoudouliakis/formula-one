@@ -1,4 +1,7 @@
+/* Place angular imports */
 import { Component, Input } from '@angular/core';
+
+/* Place model imports */
 import { Race } from '../../../../models/round-standings.model';
 
 @Component({

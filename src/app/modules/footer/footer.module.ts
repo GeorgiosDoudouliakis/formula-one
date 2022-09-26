@@ -1,7 +1,12 @@
+/* Place angular imports */
 import { NgModule } from '@angular/core';
 import { CommonModule } from "@angular/common";
-import { MatIconModule } from '@angular/material/icon';
+
+/* Place component imports */
 import { FooterComponent } from './footer.component';
+
+/* Place angular material imports */
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   imports: [

@@ -1,4 +1,7 @@
+/* Place angular imports */
 import { Component, Inject, OnInit } from '@angular/core';
+
+/* Place angular material imports */
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 interface Circuit {

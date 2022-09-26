@@ -1,9 +1,16 @@
+/* Place angular imports */
 import {ChangeDetectionStrategy, ChangeDetectorRef, Component, OnDestroy, OnInit} from '@angular/core';
 import {ActivatedRoute, Params} from '@angular/router';
+
+/* Place model imports */
 import {Constructor} from '@shared/models/constructor-driver.model';
 import {Race} from '@shared/models/round-standings.model';
+
+/* Place rxjs imports */
 import {catchError, forkJoin, Subscription, switchMap, tap, throwError} from 'rxjs';
 import {map} from "rxjs/operators";
+
+/* Place service imports */
 import {ConstructorService} from '../../services/constructor.service';
 
 @Component({

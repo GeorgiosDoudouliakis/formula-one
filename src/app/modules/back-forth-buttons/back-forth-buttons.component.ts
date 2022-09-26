@@ -1,3 +1,4 @@
+/* Place angular imports */
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { Location } from "@angular/common";
 

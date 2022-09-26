@@ -1,8 +1,15 @@
+/* Place angular imports */
 import {ChangeDetectionStrategy, ChangeDetectorRef, Component, OnDestroy, OnInit} from '@angular/core';
 import {Title} from '@angular/platform-browser';
+
+/* Place rxjs imports */
 import {catchError, Subscription, tap, throwError} from 'rxjs';
 import {map} from "rxjs/operators";
+
+/* Place model imports */
 import {Circuit} from '../../models/circuits.model';
+
+/* Place service imports */
 import {CircuitsService} from '../../services/circuits.service';
 
 @Component({

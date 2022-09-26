@@ -1,4 +1,7 @@
+/* Place angular imports */
 import { ChangeDetectionStrategy, Component, OnInit, Input } from '@angular/core';
+
+/* Place open layers imports */
 import { defaults as defaultInteractions, DragRotateAndZoom } from 'ol/interaction';
 import Feature from 'ol/Feature';
 import Point from 'ol/geom/Point';

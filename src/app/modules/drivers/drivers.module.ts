@@ -1,13 +1,20 @@
+/* Place angular imports */
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from "@angular/common/http";
-import { SeasonFilterModule, PageHeaderModule } from "@shared/modules";
-import { DriverConstructorModule } from "@shared/modules";
+
+/* Place any other imports here */
+import { SeasonFilterModule, PageHeaderModule, DriverConstructorModule, LoaderModule } from "@shared/modules";
+
+/* Place angular material imports */
 import { MatIconModule } from "@angular/material/icon";
-import { LoaderModule } from "@shared/modules";
+
+/* Place component imports */
 import { DriversComponent } from './pages/drivers/drivers.component';
 import { DriverComponent } from './pages/driver/driver.component';
+
+/* Place service imports */
 import { DriverService } from './services/driver.service';
 import { DriversService } from "@shared/services";
 
