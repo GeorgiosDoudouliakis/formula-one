@@ -11,7 +11,7 @@ import { CardComponent } from './card.component';
 
 /* Place any other imports here */
 import { OrdinalNumbersModule } from 'sh-ordinal-numbers';
-import { ToLocalTimePipe } from "@shared/pipes";
+import { ToLocalTimePipe } from "@shared/pipes/to-local-time/to-local-time.pipe";
 
 @NgModule({
   imports: [
