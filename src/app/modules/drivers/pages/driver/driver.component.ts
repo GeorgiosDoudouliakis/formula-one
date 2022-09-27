@@ -2,9 +2,9 @@
 import {ChangeDetectionStrategy, ChangeDetectorRef, Component, OnDestroy, OnInit} from '@angular/core';
 import {ActivatedRoute, Params} from '@angular/router';
 
-/* Place model imports */
-import {Driver} from '@shared/models/constructor-driver.model';
-import {Race} from '@shared/models/round-standings.model';
+/* Place interface imports */
+import {Driver} from '@shared/interfaces/constructor-driver.interface';
+import {Race} from '@shared/interfaces/round-standings.interface';
 
 /* Place rxjs imports */
 import {catchError, forkJoin, Subscription, switchMap, tap, throwError} from 'rxjs';

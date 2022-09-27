@@ -8,8 +8,8 @@ import { Observable, pluck } from 'rxjs';
 /* Place any other imports here */
 import { environment } from 'src/environments/environment';
 
-/* Place model imports */
-import { Circuit, CircuitData } from '../models/circuits.model';
+/* Place interface imports */
+import { Circuit, CircuitData } from '../interfaces/circuits.interface';
 
 @Injectable()
 export class CircuitsService {

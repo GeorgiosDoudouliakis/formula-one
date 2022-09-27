@@ -2,8 +2,8 @@
 import {ChangeDetectionStrategy, ChangeDetectorRef, Component, OnDestroy, OnInit} from '@angular/core';
 import {Title} from '@angular/platform-browser';
 
-/* Place model imports */
-import {Race} from '@shared/models/round-standings.model';
+/* Place interface imports */
+import {Race} from '@shared/interfaces/round-standings.interface';
 
 /* Place rxjs imports */
 import {catchError, Subscription, tap, throwError} from 'rxjs';

@@ -2,9 +2,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
-/* Place model imports */
-import { DriverStandings, DriverStandingsList } from '@shared/models/driver-standings.model';
-import { ConstructorStandings } from '@shared/models/constructor-standings.model';
+/* Place interface imports */
+import { DriverStandings, DriverStandingsList } from '@shared/interfaces/driver-standings.interface';
+import { ConstructorStandings } from '@shared/interfaces/constructor-standings.interface';
 
 /* Place rxjs imports */
 import { Observable } from 'rxjs';

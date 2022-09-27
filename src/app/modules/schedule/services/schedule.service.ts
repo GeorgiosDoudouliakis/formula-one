@@ -2,8 +2,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
-/* Place model imports */
-import { Race, RoundStandings } from '@shared/models/round-standings.model';
+/* Place interface imports */
+import { Race, RoundStandings } from '@shared/interfaces/round-standings.interface';
 
 /* Place rxjs imports */
 import { Observable, pluck } from 'rxjs';

@@ -2,8 +2,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
-/* Place model imports */
-import { Driver } from '@shared/models/constructor-driver.model';
+/* Place interface imports */
+import { Driver } from '@shared/interfaces/constructor-driver.interface';
 
 /* Place rxjs imports */
 import { Observable, pluck } from 'rxjs';

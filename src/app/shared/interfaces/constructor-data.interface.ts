@@ -1,4 +1,4 @@
-import { Constructor } from "../models/constructor-driver.model";
+import { Constructor } from "./constructor-driver.interface";
 
 export interface ConstructorData {
     MRData: {

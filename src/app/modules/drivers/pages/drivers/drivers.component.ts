@@ -3,8 +3,8 @@ import {ChangeDetectionStrategy, ChangeDetectorRef, Component} from '@angular/co
 import {Title} from '@angular/platform-browser';
 import {ActivatedRoute, Router} from "@angular/router";
 
-/* Place model imports */
-import {Driver} from '@shared/models/constructor-driver.model';
+/* Place interface imports */
+import {Driver} from '@shared/interfaces/constructor-driver.interface';
 
 /* Place service imports */
 import {DriversService} from "@shared/services/drivers/drivers.service";

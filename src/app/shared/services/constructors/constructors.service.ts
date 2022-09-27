@@ -8,8 +8,8 @@ import { Observable, pluck } from 'rxjs';
 /* Place any other imports here */
 import { environment } from 'src/environments/environment';
 
-/* Place model imports */
-import { ConstructorData } from '../../models/constructor-data.model';
+/* Place interface imports */
+import { ConstructorData } from '../../interfaces/constructor-data.interface';
 
 @Injectable()
 export class ConstructorsService {

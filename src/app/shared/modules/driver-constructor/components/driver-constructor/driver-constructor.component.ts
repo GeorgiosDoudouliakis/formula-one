@@ -1,8 +1,8 @@
 /* Place angular imports */
 import { Component, Input } from '@angular/core';
 
-/* Place model imports */
-import { Race } from '../../../../models/round-standings.model';
+/* Place interface imports */
+import { Race } from '../../../../interfaces/round-standings.interface';
 
 @Component({
   selector: 'app-driver-constructor',

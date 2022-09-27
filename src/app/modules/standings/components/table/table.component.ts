@@ -14,9 +14,9 @@ import {ActivatedRoute, Params, Router} from '@angular/router';
 import {MatSort} from '@angular/material/sort';
 import {MatTableDataSource} from '@angular/material/table';
 
-/* Place model imports */
-import {ConstructorStanding, ConstructorStandingsList} from '@shared/models/constructor-standings.model';
-import {DriverStanding, DriverStandingsList} from '@shared/models/driver-standings.model';
+/* Place interface imports */
+import {ConstructorStanding, ConstructorStandingsList} from '@shared/interfaces/constructor-standings.interface';
+import {DriverStanding, DriverStandingsList} from '@shared/interfaces/driver-standings.interface';
 
 /* Place rxjs imports */
 import {catchError, map, Subscription, switchMap, tap, throwError} from 'rxjs';

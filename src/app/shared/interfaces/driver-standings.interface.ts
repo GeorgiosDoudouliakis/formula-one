@@ -1,4 +1,4 @@
-import { Constructor, Driver } from "./constructor-driver.model";
+import { Constructor, Driver } from "./constructor-driver.interface";
 
 export interface DriverStanding {
     position: string;

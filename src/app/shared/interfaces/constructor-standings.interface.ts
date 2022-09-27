@@ -1,4 +1,4 @@
-import { Constructor } from "./constructor-driver.model";
+import { Constructor } from "./constructor-driver.interface";
 
 export interface ConstructorStanding {
     Constructor: Constructor;

@@ -6,8 +6,8 @@ import {Title} from '@angular/platform-browser';
 import {catchError, Subscription, tap, throwError} from 'rxjs';
 import {map} from "rxjs/operators";
 
-/* Place model imports */
-import {Circuit} from '../../models/circuits.model';
+/* Place interface imports */
+import {Circuit} from '../../interfaces/circuits.interface';
 
 /* Place service imports */
 import {CircuitsService} from '../../services/circuits.service';

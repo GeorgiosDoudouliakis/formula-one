@@ -9,9 +9,9 @@ import {TopConstructorsService} from "../../services/top-constructors/top-constr
 import {catchError, Subscription, tap, throwError} from "rxjs";
 import {map} from "rxjs/operators";
 
-/* Place model imports */
-import {DriverStanding, DriverStandingsList} from "@shared/models/driver-standings.model";
-import {ConstructorStanding, ConstructorStandingsList} from "@shared/models/constructor-standings.model";
+/* Place interface imports */
+import {DriverStanding, DriverStandingsList} from "@shared/interfaces/driver-standings.interface";
+import {ConstructorStanding, ConstructorStandingsList} from "@shared/interfaces/constructor-standings.interface";
 
 @Component({
   selector: 'app-home',

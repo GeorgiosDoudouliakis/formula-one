@@ -2,10 +2,10 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
-/* Place model imports here */
-import { Constructor } from '@shared/models/constructor-driver.model';
-import { Race, RoundStandings } from '@shared/models/round-standings.model';
-import { ConstructorData } from '@shared/models/constructor-data.model';
+/* Place interface imports here */
+import { Constructor } from '@shared/interfaces/constructor-driver.interface';
+import { Race, RoundStandings } from '@shared/interfaces/round-standings.interface';
+import { ConstructorData } from '@shared/interfaces/constructor-data.interface';
 
 /* Place rxjs imports */
 import { Observable, pluck } from 'rxjs';

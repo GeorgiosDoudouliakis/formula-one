@@ -1,4 +1,4 @@
-import { Constructor, Driver } from "@shared/models/constructor-driver.model";
+import { Constructor, Driver } from "@shared/interfaces/constructor-driver.interface";
 
 export interface Location {
     lat: string;

@@ -2,8 +2,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
 
-/* Place model imports */
-import { ConstructorStandings } from "@shared/models/constructor-standings.model";
+/* Place interface imports */
+import { ConstructorStandings } from "@shared/interfaces/constructor-standings.interface";
 
 /* Place any other imports here */
 import { environment } from "../../../../../environments/environment";
