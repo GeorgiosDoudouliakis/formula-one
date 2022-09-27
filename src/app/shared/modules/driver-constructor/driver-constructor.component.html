@@ -6,7 +6,7 @@
                 <img *ngIf="imageExists; else noImage" src="assets/images/{{ type === 'driver' ? (details && details.driverId) : (details && details.constructorId) }}.png"
                 [alt]="(type === 'driver' ? (details && details.driverId) : (details && details.constructorId)) + (type === 'driver' ? ' photo' : ' logo')" width="45" height="45">
                 <ng-template #noImage>
-                  <img src="assets/images/no_image_available.jpg" alt="" width="45" height="45">
+                  <img src="../../../../assets/images/no_image_available.jpg" alt="" width="45" height="45">
                 </ng-template>
             </div>
             <h3>

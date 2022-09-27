@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from "@angular/common";
 
 /* Place component imports */
-import { PageHeaderComponent } from './components/page-header/page-header.component';
+import { PageHeaderComponent } from './page-header.component';
 
 @NgModule({
   declarations: [PageHeaderComponent],

@@ -2,7 +2,7 @@
 import {ChangeDetectionStrategy, Component, Input} from '@angular/core';
 
 /* Place interface imports */
-import {Race} from '../../../../interfaces/round-standings.interface';
+import {Race} from '../../interfaces/round-standings.interface';
 
 @Component({
   selector: 'app-driver-constructor',

@@ -4,7 +4,7 @@ import { CommonModule } from "@angular/common";
 import { HttpClientModule } from "@angular/common/http";
 
 /* Place component imports */
-import { DriverConstructorComponent } from './components/driver-constructor/driver-constructor.component';
+import { DriverConstructorComponent } from './driver-constructor.component';
 
 /* Place any other imports */
 import { CardModule } from "../card/card.module";

@@ -4,7 +4,7 @@ import { CommonModule } from "@angular/common";
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 /* Place component imports */
-import { SeasonFilterComponent } from './components/season-filter/season-filter.component';
+import { SeasonFilterComponent } from './season-filter.component';
 
 /* Place angular material imports */
 import { MatFormFieldModule } from '@angular/material/form-field';
