@@ -1,8 +1,8 @@
 /* Place angular imports */
-import { Component, Inject, OnInit } from '@angular/core';
+import {ChangeDetectionStrategy, Component, Inject, OnInit} from '@angular/core';
 
 /* Place angular material imports */
-import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import {MAT_DIALOG_DATA} from '@angular/material/dialog';
 
 interface Circuit {
   circuit: string;
@@ -13,7 +13,8 @@ interface Circuit {
 @Component({
   selector: 'app-circuit-location',
   templateUrl: './circuit-location.component.html',
-  styleUrls: ['./circuit-location.component.scss']
+  styleUrls: ['./circuit-location.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CircuitLocationComponent implements OnInit {
 

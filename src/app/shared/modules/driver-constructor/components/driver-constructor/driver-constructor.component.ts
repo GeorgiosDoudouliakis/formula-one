@@ -1,13 +1,14 @@
 /* Place angular imports */
-import { Component, Input } from '@angular/core';
+import {ChangeDetectionStrategy, Component, Input} from '@angular/core';
 
 /* Place interface imports */
-import { Race } from '../../../../interfaces/round-standings.interface';
+import {Race} from '../../../../interfaces/round-standings.interface';
 
 @Component({
   selector: 'app-driver-constructor',
   templateUrl: './driver-constructor.component.html',
-  styleUrls: ['./driver-constructor.component.scss']
+  styleUrls: ['./driver-constructor.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DriverConstructorComponent {
   @Input() public type: 'driver' | 'constructor';
