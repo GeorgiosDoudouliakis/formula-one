@@ -19,8 +19,15 @@ import { DriverService } from './services/driver.service';
 import { DriversService } from "@shared/services";
 
 const routes = [
-  { path: '', component: DriversComponent },
-  { path: ':id', component: DriverComponent }
+  {
+    path: '',
+    title: 'Formula 1 | Drivers',
+    component: DriversComponent
+  },
+  {
+    path: ':id',
+    component: DriverComponent
+  }
 ]
 
 @NgModule({

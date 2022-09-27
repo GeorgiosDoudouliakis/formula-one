@@ -14,7 +14,11 @@ import { ScheduleComponent } from './pages/schedule/schedule.component';
 import { ScheduleService } from './services/schedule.service';
 
 const routes = [
-  { path: '', component: ScheduleComponent }
+  {
+    path: '',
+    title: 'Formula 1 | Schedule',
+    component: ScheduleComponent
+  }
 ];
 
 @NgModule({

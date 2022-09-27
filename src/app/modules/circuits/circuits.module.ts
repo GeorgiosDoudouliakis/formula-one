@@ -20,7 +20,11 @@ import { CircuitLocationComponent } from './components/circuit-location/circuit-
 import { MapComponent } from './components/map/map.component';
 
 const routes = [
-  { path: '', component: CircuitsComponent }
+  {
+    path: '',
+    title: 'Formula 1 | Circuits',
+    component: CircuitsComponent
+  }
 ]
 
 @NgModule({

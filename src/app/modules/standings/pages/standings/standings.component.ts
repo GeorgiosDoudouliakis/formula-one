@@ -1,6 +1,5 @@
 /* Place angular imports */
 import { Component } from '@angular/core';
-import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-standings',
@@ -10,7 +9,5 @@ import { Title } from '@angular/platform-browser';
 export class StandingsComponent {
   public option: 'Driver' | 'Constructor' = 'Driver';
 
-  constructor(private title: Title) {
-    this.title.setTitle('Formula 1 | Standings');
-  }
+  constructor() {}
 }

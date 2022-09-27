@@ -23,7 +23,11 @@ import { TableComponent } from './components/table/table.component';
 import { DriverConstructorStandingsService } from './services/driver-constructor-standings.service';
 
 const routes = [
-  { path: '', component: StandingsComponent }
+  {
+    path: '',
+    title: 'Formula 1 | Standings',
+    component: StandingsComponent
+  }
 ];
 
 @NgModule({

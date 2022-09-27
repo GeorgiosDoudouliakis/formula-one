@@ -1,6 +1,5 @@
 /* Place angular imports */
 import {ChangeDetectionStrategy, ChangeDetectorRef, Component, OnDestroy, OnInit} from '@angular/core';
-import {Title} from '@angular/platform-browser';
 
 /* Place interface imports */
 import {Race} from '@shared/interfaces/round-standings.interface';
@@ -25,12 +24,9 @@ export class ScheduleComponent implements OnInit, OnDestroy {
   private _scheduleSub$: Subscription;
 
   constructor(
-    private _title: Title,
     private _scheduleService: ScheduleService,
     private _cdr: ChangeDetectorRef
-  ) {
-    this._title.setTitle('Formula 1 | Schedule');
-  }
+  ) { }
 
   public ngOnInit(): void {
     this.getSchedule();

@@ -1,6 +1,5 @@
 /* Place angular imports */
 import {ChangeDetectionStrategy, ChangeDetectorRef, Component} from '@angular/core';
-import {Title} from '@angular/platform-browser';
 import {ActivatedRoute, Router} from "@angular/router";
 
 /* Place interface imports */
@@ -20,14 +19,12 @@ import {AbstractDriversConstructorsDirective} from "@shared/abstraction";
 })
 export class DriversComponent extends AbstractDriversConstructorsDirective<Driver> {
   constructor(
-    private title: Title,
     public override router: Router,
     protected override _dataService: DriversService,
     protected override _route: ActivatedRoute,
     protected override _cdr: ChangeDetectorRef
   ) {
     super(router, _dataService, _route, _cdr);
-    this.title.setTitle('Formula 1 | Drivers');
   }
 
   public imageExists(details: any): boolean {

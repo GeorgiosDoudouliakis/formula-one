@@ -1,6 +1,5 @@
 /* Place angular imports */
 import {ChangeDetectionStrategy, ChangeDetectorRef, Component, OnDestroy, OnInit} from '@angular/core';
-import {Title} from '@angular/platform-browser';
 
 /* Place rxjs imports */
 import {catchError, Subscription, tap, throwError} from 'rxjs';
@@ -25,12 +24,9 @@ export class CircuitsComponent implements OnInit, OnDestroy {
   private _circuitsSub$: Subscription;
 
   constructor(
-    private _title: Title,
     private _circuitsService: CircuitsService,
     private _cdr: ChangeDetectorRef
-  ) {
-    this._title.setTitle('Formula 1 | Circuits');
-  }
+  ) { }
 
   public ngOnInit(): void {
     this.getCircuits();

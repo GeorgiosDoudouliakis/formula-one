@@ -19,8 +19,15 @@ import { ConstructorsService } from "@shared/services";
 import { MatIconModule } from "@angular/material/icon";
 
 const routes = [
-  { path: '', component: ConstructorsComponent },
-  { path: ':id', component: ConstructorComponent }
+  {
+    path: '',
+    title: 'Formula 1 | Constructors',
+    component: ConstructorsComponent
+  },
+  {
+    path: ':id',
+    component: ConstructorComponent
+  }
 ]
 
 @NgModule({
