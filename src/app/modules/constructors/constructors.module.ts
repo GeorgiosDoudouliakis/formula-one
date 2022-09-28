@@ -17,6 +17,7 @@ import { ConstructorsService } from "@shared/services";
 
 /* Place angular material imports */
 import { MatIconModule } from "@angular/material/icon";
+import { TitleResolver } from "@core/resolvers/title.resolver";
 
 const routes = [
   {
@@ -26,9 +27,10 @@ const routes = [
   },
   {
     path: ':id',
+    title: TitleResolver,
     component: ConstructorComponent
   }
-]
+];
 
 @NgModule({
   declarations: [

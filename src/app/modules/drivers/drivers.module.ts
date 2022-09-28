@@ -17,6 +17,7 @@ import { DriverComponent } from './pages/driver/driver.component';
 /* Place service imports */
 import { DriverService } from './services/driver.service';
 import { DriversService } from "@shared/services";
+import { TitleResolver } from "@core/resolvers/title.resolver";
 
 const routes = [
   {
@@ -26,9 +27,10 @@ const routes = [
   },
   {
     path: ':id',
+    title: TitleResolver,
     component: DriverComponent
   }
-]
+];
 
 @NgModule({
   declarations: [
