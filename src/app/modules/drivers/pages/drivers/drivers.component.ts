@@ -2,16 +2,18 @@
 import {ChangeDetectionStrategy, ChangeDetectorRef, Component} from '@angular/core';
 import {ActivatedRoute, Params, Router} from "@angular/router";
 
+/* Place RxJs imports */
+import {catchError, Subscription, switchMap, tap, throwError} from "rxjs";
+import {map} from "rxjs/operators";
+
 /* Place interface imports */
-import {Constructor, Driver} from '@shared/interfaces/constructor-driver.interface';
+import {Driver} from '@shared/interfaces/constructor-driver.interface';
 
 /* Place service imports */
 import {DriversService} from "../../services/drivers.service";
 
 /* Place any other imports here */
 import {AbstractDriversConstructorsDirective} from "@shared/abstraction";
-import {catchError, Subscription, switchMap, tap, throwError} from "rxjs";
-import {map} from "rxjs/operators";
 
 @Component({
   selector: 'app-drivers',
