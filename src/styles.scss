@@ -196,6 +196,12 @@ a {
   border-radius: 0 !important;
 }
 
+.mat-dialog-container {
+  padding: 24px 0 !important;
+  border-radius: 0 !important;
+  overflow-x: hidden !important;
+}
+
 // Media
 @media(min-width: 768px){
   h3 {
