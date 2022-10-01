@@ -17,7 +17,8 @@ import { LoaderModule, SeasonFilterModule, PageHeaderModule } from "@shared/modu
 
 /* Place components imports */
 import { StandingsComponent } from './pages/standings/standings.component';
-import { TableComponent } from './components/table/table.component';
+import { DriversTableComponent } from "./components/drivers-table/drivers-table.component";
+import { ConstructorsTableComponent } from './components/constructors-table/constructors-table.component';
 
 /* Place service imports */
 import { DriverConstructorStandingsService } from './services/driver-constructor-standings.service';
@@ -33,7 +34,8 @@ const routes = [
 @NgModule({
   declarations: [
     StandingsComponent,
-    TableComponent
+    DriversTableComponent,
+    ConstructorsTableComponent
   ],
   imports: [
     CommonModule,
