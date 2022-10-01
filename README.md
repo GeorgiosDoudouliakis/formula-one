@@ -4,7 +4,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Description
 
-Website with stats about formula one from 1950 to 2021. Driver/Constructor details, standings, circuits, map with the location of each circuit and schedule
+Website with stats about formula from today through 1950. Driver/Constructor details, standings, circuits, map with the location of each circuit and schedule
 
 Live environment: https://georgiosdoudouliakis.github.io/formula-one/
 
@@ -12,3 +12,6 @@ Live environment: https://georgiosdoudouliakis.github.io/formula-one/
 - Angular Material
 - Open layers
 - Moment js
+
+## Data Source
+Ergast Developer API: http://ergast.com/mrd/
