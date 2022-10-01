@@ -2,31 +2,16 @@
     <mat-card>
         <mat-card-header>
           <mat-card-title>
-              {{ cardHeader | uppercase }}
+              {{ data.Circuit.circuitName | uppercase }}
           </mat-card-title>
-          <mat-card-subtitle *ngIf="type === 'driver' || type === 'constructor'">
+          <mat-card-subtitle>
               {{ data.Results[0].position | ordinal }}
           </mat-card-subtitle>
-          <mat-card-subtitle *ngIf="type === 'race'" class="race-subtitle">Round {{ data.round }}</mat-card-subtitle>
         </mat-card-header>
         <mat-card-content>
-          <ng-container *ngIf="type !== 'circuit' && type !== 'race'">
             <p>Laps: {{ data.Results[0].laps }}</p>
             <p>Status: {{ data.Results[0].status }}</p>
             <p>Points: {{ data.Results[0].points }}</p>
-          </ng-container>
-          <ng-container *ngIf="type === 'circuit'">
-            <p>Country: {{ data.Location.country }}</p>
-            <p>Locality: {{ data.Location.locality }}</p>
-          </ng-container>
-          <ng-container *ngIf="type === 'race'">
-            <span class="race-date">{{ data.date | date: 'MMM dd' }}</span>
-            <span *ngIf="data.time" class="race-time">{{ data.time }}</span>
-          </ng-container>
         </mat-card-content>
-        <mat-card-footer *ngIf="type === 'circuit'">
-          <a [href]="data.url" target="_blank" rel="noreferrer" mat-raised-button color="accent" class="mat-elevation-z8">Wikipedia</a>
-          <button mat-raised-button color="accent" class="mat-elevation-z8" (click)="showLocation(data.Location.lat, data.Location.long)">View on map</button>
-        </mat-card-footer>
       </mat-card>
 </article>

@@ -1,22 +1,2 @@
 @import 'src/assets/scss/main';
 
-.race-date {
-  padding: .3rem .5rem;
-  color: $white;
-  background: $primary;
-}
-
-.race-time {
-  padding: .3rem .5rem;
-  margin-left: .5rem;
-  color: $white;
-  background: $accent;
-}
-
-.mat-card-footer {
-  padding-left: 16px;
-  padding-bottom: 12px;
-  button:last-of-type {
-    margin-left: .5rem;
-  }
-}
