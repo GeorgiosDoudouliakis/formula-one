@@ -19,4 +19,15 @@ mat-icon {
 p {
     text-align: center;
     color: $white;
+    &:first-of-type {
+      margin-bottom: .5rem;
+    }
+    a {
+      color: $primary;
+      text-decoration: underline;
+      transition: .4s ease-in-out;
+      &:hover {
+        color: $white;
+      }
+    }
 }
