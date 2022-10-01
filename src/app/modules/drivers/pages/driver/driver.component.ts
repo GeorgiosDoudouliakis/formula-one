@@ -11,7 +11,7 @@ import {catchError, forkJoin, Subscription, switchMap, tap, throwError} from 'rx
 import {map} from "rxjs/operators";
 
 /* Place service imports */
-import {DriverService} from '../../services/driver.service';
+import {DriversService} from '../../services/drivers.service';
 
 @Component({
   selector: 'app-driver',
@@ -26,7 +26,7 @@ export class DriverComponent implements OnInit, OnDestroy {
   private _detailsSub$: Subscription;
 
   constructor(
-    private _driverService: DriverService,
+    private _driversService: DriversService,
     private _route: ActivatedRoute,
     private _cdr: ChangeDetectorRef
   ) { }
@@ -43,8 +43,8 @@ export class DriverComponent implements OnInit, OnDestroy {
     this._detailsSub$ = this._route.params.pipe(
       tap(() => this.isLoading = true),
       switchMap((params: Params) => forkJoin([
-        this._driverService.getDriverDetails(params['id']),
-        this._driverService.getDriverResults(params['id'])
+        this._driversService.getDriverDetails(params['id']),
+        this._driversService.getDriverResults(params['id'])
       ])),
       tap(() => this.isLoading = false),
       map((res: [Driver[], Race[]]) => {

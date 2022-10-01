@@ -14,7 +14,7 @@ import { Observable, pluck } from 'rxjs';
 import { environment } from 'src/environments/environment';
 
 @Injectable()
-export class ConstructorService {
+export class ConstructorsService {
   constructor(private _http: HttpClient) { }
 
   public getConstructorDetails(constructorId: string): Observable<Constructor[]> {
@@ -25,5 +25,9 @@ export class ConstructorService {
 
   public getConstructorResults(constructorId: string): Observable<Race[]> {
     return this._http.get<RoundStandings>(`${environment.api}/constructors/${constructorId}/results.json`).pipe(pluck('MRData', 'RaceTable', 'Races'));
+  }
+
+  public getConstructors(year: string): Observable<any> {
+    return this._http.get<ConstructorData>(`${environment.api}/${year}/constructors.json`).pipe(pluck('MRData', 'ConstructorTable', 'Constructors'));
   }
 }

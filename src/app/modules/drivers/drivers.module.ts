@@ -15,8 +15,7 @@ import { DriversComponent } from './pages/drivers/drivers.component';
 import { DriverComponent } from './pages/driver/driver.component';
 
 /* Place service imports */
-import { DriverService } from './services/driver.service';
-import { DriversService } from "@shared/services";
+import { DriversService } from './services/drivers.service';
 import { TitleResolver } from "@core/resolvers/title.resolver";
 
 const routes = [
@@ -50,9 +49,6 @@ const routes = [
   exports: [
     RouterModule
   ],
-  providers: [
-    DriverService,
-    DriversService
-  ]
+  providers: [DriversService]
 })
 export class DriversModule { }

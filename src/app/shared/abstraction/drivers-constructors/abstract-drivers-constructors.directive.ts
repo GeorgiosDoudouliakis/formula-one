@@ -1,45 +1,30 @@
 /* Place angular imports */
 import {ChangeDetectorRef, Directive, OnDestroy, OnInit} from '@angular/core';
-import {ActivatedRoute, Params, Router} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 
 /* Place rxjs imports */
-import {catchError, Subscription, switchMap, tap, throwError} from "rxjs";
-import {map} from "rxjs/operators";
-
-/* Place service imports */
-import {ConstructorsService, DriversService} from "../../services";
-
-type DataService = ConstructorsService | DriversService;
+import {Subscription} from "rxjs";
 
 @Directive()
-export abstract class AbstractDriversConstructorsDirective<DataType> implements OnInit, OnDestroy {
-  public loading: boolean = false;
-  public data: Array<DataType>;
-  private _dataSub$: Subscription;
-  public abstract imageExists(details: any): boolean;
+export abstract class AbstractDriversConstructorsDirective<C> implements OnInit, OnDestroy {
+  public abstract loading: boolean;
+  public abstract data: Array<C>;
+  protected abstract _dataSub$: Subscription;
 
   constructor(
     public router: Router,
-    protected _dataService: DataService,
     protected _route: ActivatedRoute,
     protected _cdr: ChangeDetectorRef
   ) { }
 
   public ngOnInit(): void {
-    this._dataSub$ = this._route.queryParams.pipe(
-      tap(() => this.loading = true),
-      switchMap((params: Params) => this._dataService.getData(params['year'])),
-      map((data: Array<DataType>) => this.data = data),
-      tap(() => this.loading = false),
-      tap(() => this._cdr.markForCheck()),
-      catchError((error)=> {
-        console.error(error);
-        return throwError(error);
-      })
-    ).subscribe();
+    this.getDataByYear();
   }
 
   public ngOnDestroy(): void {
     if(this._dataSub$) this._dataSub$.unsubscribe();
   }
+
+  protected abstract getDataByYear(): void;
+  public abstract imageExists(details: any): boolean;
 }

@@ -12,8 +12,7 @@ import { ConstructorsComponent } from './pages/constructors/constructors.compone
 import { ConstructorComponent } from './pages/constructor/constructor.component';
 
 /* Place service imports */
-import { ConstructorService } from './services/constructor.service';
-import { ConstructorsService } from "@shared/services";
+import { ConstructorsService } from './services/constructors.service';
 
 /* Place angular material imports */
 import { MatIconModule } from "@angular/material/icon";
@@ -47,9 +46,6 @@ const routes = [
     MatIconModule,
     LoaderModule
   ],
-  providers: [
-    ConstructorService,
-    ConstructorsService
-  ]
+  providers: [ConstructorsService]
 })
 export class ConstructorsModule { }

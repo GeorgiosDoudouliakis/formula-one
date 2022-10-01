@@ -11,7 +11,7 @@ import {catchError, forkJoin, Subscription, switchMap, tap, throwError} from 'rx
 import {map} from "rxjs/operators";
 
 /* Place service imports */
-import {ConstructorService} from '../../services/constructor.service';
+import {ConstructorsService} from '../../services/constructors.service';
 
 @Component({
   selector: 'app-constructor',
@@ -26,7 +26,7 @@ export class ConstructorComponent implements OnInit, OnDestroy {
   private _detailsSub$: Subscription;
 
   constructor(
-    private _constructorsService: ConstructorService,
+    private _constructorsService: ConstructorsService,
     private _route: ActivatedRoute,
     private _cdr: ChangeDetectorRef
   ) { }

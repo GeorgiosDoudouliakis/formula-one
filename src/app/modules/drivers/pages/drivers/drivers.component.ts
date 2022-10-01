@@ -1,15 +1,17 @@
 /* Place angular imports */
 import {ChangeDetectionStrategy, ChangeDetectorRef, Component} from '@angular/core';
-import {ActivatedRoute, Router} from "@angular/router";
+import {ActivatedRoute, Params, Router} from "@angular/router";
 
 /* Place interface imports */
-import {Driver} from '@shared/interfaces/constructor-driver.interface';
+import {Constructor, Driver} from '@shared/interfaces/constructor-driver.interface';
 
 /* Place service imports */
-import {DriversService} from "@shared/services/drivers/drivers.service";
+import {DriversService} from "../../services/drivers.service";
 
 /* Place any other imports here */
 import {AbstractDriversConstructorsDirective} from "@shared/abstraction";
+import {catchError, Subscription, switchMap, tap, throwError} from "rxjs";
+import {map} from "rxjs/operators";
 
 @Component({
   selector: 'app-drivers',
@@ -18,13 +20,31 @@ import {AbstractDriversConstructorsDirective} from "@shared/abstraction";
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DriversComponent extends AbstractDriversConstructorsDirective<Driver> {
+  public loading: boolean = false;
+  public data: Array<Driver>;
+  protected _dataSub$: Subscription;
+
   constructor(
     public override router: Router,
-    protected override _dataService: DriversService,
     protected override _route: ActivatedRoute,
-    protected override _cdr: ChangeDetectorRef
+    protected override _cdr: ChangeDetectorRef,
+    private _driversService: DriversService
   ) {
-    super(router, _dataService, _route, _cdr);
+    super(router, _route, _cdr);
+  }
+
+  protected override getDataByYear(): void {
+    this._dataSub$ = this._route.queryParams.pipe(
+      tap(() => this.loading = true),
+      switchMap((params: Params) => this._driversService.getDrivers(params['year'])),
+      map((data: Array<Driver>) => this.data = data),
+      tap(() => this.loading = false),
+      tap(() => this._cdr.markForCheck()),
+      catchError((error)=> {
+        console.error(error);
+        return throwError(error);
+      })
+    ).subscribe();
   }
 
   public imageExists(details: any): boolean {

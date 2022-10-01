@@ -13,17 +13,22 @@ import { Observable, pluck } from 'rxjs';
 import { environment } from 'src/environments/environment';
 
 @Injectable()
-export class DriverService {
+export class DriversService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private _http: HttpClient) { }
 
   public getDriverDetails(driverId: string): Observable<Driver[]> {
-    return this.http.get<DriverData>(`${environment.api}/drivers/${driverId}.json`).pipe(
+    return this._http.get<DriverData>(`${environment.api}/drivers/${driverId}.json`).pipe(
       pluck('MRData', 'DriverTable', 'Drivers')
     );
   }
 
   public getDriverResults(driverId: string): Observable<Race[]> {
-    return this.http.get<RoundStandings>(`${environment.api}/drivers/${driverId}/results.json`).pipe(pluck('MRData', 'RaceTable', 'Races'));
+    return this._http.get<RoundStandings>(`${environment.api}/drivers/${driverId}/results.json`).pipe(pluck('MRData', 'RaceTable', 'Races'));
+  }
+
+  public getDrivers(year: string): Observable<any> {
+    return this._http.get<Driver[]>(`${environment.api}/${year}/drivers.json`)
+      .pipe(pluck('MRData', 'DriverTable', 'Drivers'));
   }
 }
