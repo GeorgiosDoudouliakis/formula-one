@@ -1,5 +1,5 @@
 <app-page-header title="schedule">{{ currentYear }}</app-page-header>
 <section class="grid" *ngIf="!isLoading">
-    <app-card *ngFor="let round of schedule" [type]="'race'" [data]="round"></app-card>
+    <app-schedule-card *ngFor="let race of schedule" [race]="race"></app-schedule-card>
 </section>
 <app-loader *ngIf="isLoading"></app-loader>

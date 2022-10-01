@@ -4,14 +4,19 @@ import { CommonModule } from '@angular/common';
 import { HttpClientModule } from "@angular/common/http";
 import { RouterModule } from '@angular/router';
 
-/* Place any other imports here */
-import { PageHeaderModule, CardModule, LoaderModule  } from "@shared/modules";
-
 /* Place component imports */
 import { ScheduleComponent } from './pages/schedule/schedule.component';
+import { ScheduleCardComponent } from './components/schedule-card/schedule-card.component';
 
 /* Place service imports */
 import { ScheduleService } from './services/schedule.service';
+
+/* Place angular material imports */
+import { MatCardModule } from "@angular/material/card";
+
+/* Place any other imports here */
+import { PageHeaderModule, LoaderModule  } from "@shared/modules";
+import { ToLocalTimePipe } from "./pipes/to-local-time/to-local-time.pipe";
 
 const routes = [
   {
@@ -23,14 +28,16 @@ const routes = [
 
 @NgModule({
   declarations: [
-    ScheduleComponent
+    ScheduleComponent,
+    ScheduleCardComponent,
+    ToLocalTimePipe
   ],
   imports: [
     CommonModule,
     HttpClientModule,
     RouterModule.forChild(routes),
     PageHeaderModule,
-    CardModule,
+    MatCardModule,
     LoaderModule
   ],
   exports: [

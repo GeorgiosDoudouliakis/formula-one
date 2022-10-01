@@ -1,0 +1,14 @@
+<article class="card">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>
+        {{ race.raceName | uppercase }}
+      </mat-card-title>
+      <mat-card-subtitle class="race-subtitle">Round {{ race.round }}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <span class="race-date">{{ race.date | date: 'MMM dd' }}</span>
+      <span *ngIf="race.time" class="race-time">{{ race.time | toLocalTime }}</span>
+    </mat-card-content>
+  </mat-card>
+</article>

@@ -21,7 +21,7 @@
           </ng-container>
           <ng-container *ngIf="type === 'race'">
             <span class="race-date">{{ data.date | date: 'MMM dd' }}</span>
-            <span *ngIf="data.time" class="race-time">{{ data.time | toLocalTime }}</span>
+            <span *ngIf="data.time" class="race-time">{{ data.time }}</span>
           </ng-container>
         </mat-card-content>
         <mat-card-footer *ngIf="type === 'circuit'">

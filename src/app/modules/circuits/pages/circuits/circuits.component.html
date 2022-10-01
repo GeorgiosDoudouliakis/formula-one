@@ -1,6 +1,5 @@
 <app-page-header title="circuits">{{ currentYear }}</app-page-header>
 <section class="grid" *ngIf="!isLoading">
-    <app-card *ngFor="let circuit of circuits"
-    [type]="'circuit'" [data]="circuit"></app-card>
+    <app-circuit-card *ngFor="let circuit of circuits" [circuit]="circuit"></app-circuit-card>
 </section>
 <app-loader *ngIf="isLoading"></app-loader>
