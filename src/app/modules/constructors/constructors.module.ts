@@ -5,7 +5,7 @@ import { RouterModule } from '@angular/router';
 import { HttpClientModule } from "@angular/common/http";
 
 /* Place any other imports here imports */
-import {SeasonFilterModule, PageHeaderModule, DriverConstructorModule, LoaderModule} from "@shared/modules";
+import { SeasonFilterModule, PageHeaderModule, LoaderModule, DriverConstructorModule } from "@shared/modules";
 
 /* Place component imports here imports */
 import { ConstructorsComponent } from './pages/constructors/constructors.component';
