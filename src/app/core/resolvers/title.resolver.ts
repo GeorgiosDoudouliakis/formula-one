@@ -1,5 +1,8 @@
+/* Place angular imports */
 import { Injectable } from '@angular/core';
 import { Resolve, RouterStateSnapshot, ActivatedRouteSnapshot } from '@angular/router';
+
+/* Place RxJs imports */
 import { Observable, of } from 'rxjs';
 
 @Injectable({

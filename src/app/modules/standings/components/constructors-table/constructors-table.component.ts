@@ -1,9 +1,18 @@
+/* Place angular imports */
 import {AfterViewChecked, ChangeDetectionStrategy, Component} from '@angular/core';
-import {AbstractTableDirective} from "../../abstraction/abstract-table.directive";
-import {ConstructorStanding, ConstructorStandingsList} from "@shared/interfaces/constructor-standings.interface";
-import {MatTableDataSource} from "@angular/material/table";
-import {catchError, map, Subscription, switchMap, tap, throwError} from "rxjs";
 import {Params} from "@angular/router";
+
+/* Place RxJs imports */
+import {catchError, map, Subscription, switchMap, tap, throwError} from "rxjs";
+
+/* Place angular material imports */
+import {MatTableDataSource} from "@angular/material/table";
+
+/* Place interface imports */
+import {ConstructorStanding, ConstructorStandingsList} from "@shared/interfaces/constructor-standings.interface";
+
+/* Place any other imports */
+import {AbstractTableDirective} from "../../abstraction/abstract-table.directive";
 
 @Component({
   selector: 'app-constructors-table',

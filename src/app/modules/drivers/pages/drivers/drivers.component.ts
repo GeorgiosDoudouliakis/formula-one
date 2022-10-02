@@ -13,7 +13,7 @@ import {Driver} from '@shared/interfaces/constructor-driver.interface';
 import {DriversService} from "../../services/drivers.service";
 
 /* Place any other imports here */
-import {AbstractDriversConstructorsDirective} from "@shared/abstraction";
+import {AbstractDriversConstructorsDirective} from "@shared/abstraction/drivers-constructors/abstract-drivers-constructors.directive";
 
 @Component({
   selector: 'app-drivers',
