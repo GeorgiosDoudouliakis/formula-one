@@ -5,8 +5,19 @@ section {
   padding: 1rem 0;
 }
 
-button:last-of-type {
+button {
+  width: 80px;
+  color: $white;
+  background: $lightAccent;
+  border-radius: 20px !important;
+  box-shadow: none !important;
+  transition: .4s ease-in-out;
+  &:last-of-type {
     margin-left: .5rem;
+  }
+  &:hover {
+    background: $primary;
+  }
 }
 
 @media(min-width: 1024px) {

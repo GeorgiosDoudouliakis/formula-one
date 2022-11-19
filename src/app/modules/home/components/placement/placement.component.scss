@@ -8,32 +8,33 @@
   &:not(:last-of-type) {
     margin-bottom: 1rem;
   }
-  p {
-    font-size: 1.2rem;
-    span:last-of-type {
-      display: inline-block;
-      font-size: .8rem;
-      text-align: center;
-      min-width: 70px;
-      margin-left: 1rem;
-      padding: .3rem 0;
-      background: $primary;
+  p > span {
+    font-size: 1rem;
+    &:first-of-type {
+      font-weight: bold;
+      padding-right: 1rem;
     }
   }
 }
 
-span:first-of-type {
-  font-size: 1rem;
+.name {
+  font-weight: bold;
+  padding-left: 1rem;
+  border-left: 1px solid $primary;
 }
 
-@media(min-width: 768px) {
-  .name {
-    font-size: 1rem;
-  }
+.points {
+  display: inline-block;
+  font-size: .8rem;
+  text-align: center;
+  min-width: 70px;
+  padding: .3rem 0;
+  background: $accent;
+  border-radius: 20px;
 }
 
 @media(min-width: 960px) {
   :host {
-    padding: 1.5rem;
+    padding: 1rem;
   }
 }
