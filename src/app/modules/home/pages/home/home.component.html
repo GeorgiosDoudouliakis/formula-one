@@ -6,7 +6,7 @@
       <p>Standings, races, schedule and much more</p>
     </div>
   </div>
-  <h2>2022 DRIVER STANDINGS</h2>
+  <h2>DRIVER STANDINGS</h2>
   <div class="placements">
     <ng-container *ngIf="!isDriverStatsLoading">
       <app-placement *ngFor="let driver of topDrivers; let i = index"
@@ -16,7 +16,7 @@
     </ng-container>
     <app-loader *ngIf="isDriverStatsLoading"></app-loader>
   </div>
-  <h2>2022 CONSTRUCTOR STANDINGS</h2>
+  <h2>CONSTRUCTOR STANDINGS</h2>
   <div class="placements">
     <ng-container *ngIf="!isConstructorStatsLoading">
       <app-placement *ngFor="let constructor of topConstructors; let i = index"
