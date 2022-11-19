@@ -10,15 +10,13 @@ import { NavigationComponent } from "./components/navigation/navigation.componen
 /* Place angular material imports */
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
-import { MatTooltipModule } from "@angular/material/tooltip";
 
 @NgModule({
   imports: [
       CommonModule,
       RouterModule,
       MatToolbarModule,
-      MatIconModule,
-      MatTooltipModule
+      MatIconModule
   ],
   declarations: [
     HeaderComponent,
