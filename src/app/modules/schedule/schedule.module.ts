@@ -22,7 +22,7 @@ import { ToLocalTimePipe } from "./pipes/to-local-time/to-local-time.pipe";
 const routes = [
   {
     path: '',
-    title: 'Formula 1 | Schedule',
+    title: 'F1 | Schedule',
     component: ScheduleComponent
   }
 ];

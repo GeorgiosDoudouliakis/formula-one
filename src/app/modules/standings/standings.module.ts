@@ -26,7 +26,7 @@ import { DriverConstructorStandingsService } from './services/driver-constructor
 const routes = [
   {
     path: '',
-    title: 'Formula 1 | Standings',
+    title: 'F1 | Standings',
     component: StandingsComponent
   }
 ];

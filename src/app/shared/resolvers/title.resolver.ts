@@ -18,6 +18,6 @@ export class TitleResolver implements Resolve<string> {
       newId = idArr.join(" ");
     }
 
-    return of(`Formula 1 | ${newId}`);
+    return of(`F1 | ${newId}`);
   }
 }

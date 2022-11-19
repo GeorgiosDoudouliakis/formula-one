@@ -6,6 +6,7 @@ import { HttpClientModule } from "@angular/common/http";
 
 /* Place any other imports here imports */
 import { SeasonFilterModule, PageHeaderModule, LoaderModule, DriverConstructorModule } from "@shared/modules";
+import { TitleResolver } from "@shared/resolvers/title.resolver";
 
 /* Place component imports here imports */
 import { ConstructorsComponent } from './pages/constructors/constructors.component';
@@ -16,12 +17,11 @@ import { ConstructorsService } from './services/constructors.service';
 
 /* Place angular material imports */
 import { MatIconModule } from "@angular/material/icon";
-import { TitleResolver } from "@core/resolvers/title.resolver";
 
 const routes = [
   {
     path: '',
-    title: 'Formula 1 | Constructors',
+    title: 'F1 | Constructors',
     component: ConstructorsComponent
   },
   {

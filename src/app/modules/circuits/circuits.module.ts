@@ -24,7 +24,7 @@ import { CircuitsService } from './services/circuits.service';
 const routes = [
   {
     path: '',
-    title: 'Formula 1 | Circuits',
+    title: 'F1 | Circuits',
     component: CircuitsComponent
   }
 ]

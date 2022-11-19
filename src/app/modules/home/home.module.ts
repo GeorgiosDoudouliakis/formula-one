@@ -22,6 +22,7 @@ import { MatButtonModule } from "@angular/material/button";
 const routes: Routes = [
   {
     path: '',
+    title: 'F1',
     component: HomeComponent,
     pathMatch: 'full'
   }
