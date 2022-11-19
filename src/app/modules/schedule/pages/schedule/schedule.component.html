@@ -1,4 +1,8 @@
 <app-page-header title="schedule">{{ currentYear }}</app-page-header>
+<p class="info">
+  <mat-icon>info</mat-icon>
+  Rounds listed below refer to the date of the race
+</p>
 <section class="grid" *ngIf="!isLoading">
     <app-schedule-card *ngFor="let race of schedule" [race]="race"></app-schedule-card>
 </section>

@@ -13,12 +13,12 @@
                 {{ type === 'constructor' ? (details && details.name) : (details && details.givenName + " " + details.familyName) }}
             </h3>
         </section>
-        <p *ngIf="type === 'driver'">Date of birth: {{ (details && details.dateOfBirth) | date }}</p>
+        <p *ngIf="type === 'driver'">Date of birth: {{ (details && details.dateOfBirth) | date: 'mediumDate' }}</p>
         <p>Nationality: {{ details && details.nationality }}</p>
         <p *ngIf="type === 'driver'">Number: {{ details && details.permanentNumber }}</p>
         <a [href]="details && details.url" target="_blank">Wikipedia</a>
     </section>
-    <p *ngIf="type === 'constructor'" class="constructor-info">
+    <p *ngIf="type === 'constructor'" class="info">
       <mat-icon>info</mat-icon>Results represents a constructor's drivers stats as a whole
     </p>
     <h4 class="results-header">CIRCUIT RESULTS</h4>

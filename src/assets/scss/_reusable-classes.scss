@@ -93,16 +93,6 @@
         height: 30px;
         color: $white;
         background: $primary;
-        border-radius: 4px;
-        &.race-subtitle {
-            top: -2px !important;
-            left: 7px;
-            width: 70px !important;
-            height: auto !important;
-            color: $primary !important;
-            background: transparent !important;
-            border-radius: unset !important;
-        }
     }
     p {
         font-size: 0.9rem;
@@ -130,6 +120,18 @@
         height: 100%;
         object-fit: cover;
     }
+}
+
+.info {
+  @include flex(row, nowrap, flex-end, flex-start);
+  padding: 0.8rem 1rem;
+  margin-bottom: 1.5rem;
+  background: $lightAccent;
+  border-left: 2px solid $primary;
+  border-right: 2px solid $primary;
+  mat-icon {
+    margin-right: .5rem;
+  }
 }
 
 @media(min-width: 768px) {
@@ -166,6 +168,10 @@
                 margin-bottom: 0.8rem;
             }
         }
+    }
+
+    .info {
+      font-size: 1rem;
     }
 }
 

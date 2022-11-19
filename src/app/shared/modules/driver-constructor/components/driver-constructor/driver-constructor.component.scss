@@ -25,15 +25,6 @@ h4 {
     }
 }
 
-.constructor-info {
-  @include flex(row, nowrap, flex-start, flex-start);
-  margin-bottom: 1.5rem;
-  color: #62c4ed;
-  mat-icon {
-    margin-right: .5rem;
-  }
-}
-
 a {
     font-size: 0.9rem;
     color: $white;

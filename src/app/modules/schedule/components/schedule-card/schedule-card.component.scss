@@ -1,5 +1,20 @@
 @import 'src/assets/scss/main';
 
+.card {
+  padding: 0;
+}
+
+.mat-card-title {
+  padding-top: 0 !important;
+}
+
+.race-round {
+  display: inline-block;
+  font-size: .9rem;
+  margin-bottom: .3rem;
+  color: $primary;
+}
+
 .race-date {
   padding: .3rem .5rem;
   color: $white;

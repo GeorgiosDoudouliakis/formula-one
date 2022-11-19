@@ -13,6 +13,7 @@ import { ScheduleService } from './services/schedule.service';
 
 /* Place angular material imports */
 import { MatCardModule } from "@angular/material/card";
+import { MatIconModule } from "@angular/material/icon";
 
 /* Place any other imports here */
 import { PageHeaderModule, LoaderModule  } from "@shared/modules";
@@ -38,6 +39,7 @@ const routes = [
     RouterModule.forChild(routes),
     PageHeaderModule,
     MatCardModule,
+    MatIconModule,
     LoaderModule
   ],
   exports: [
