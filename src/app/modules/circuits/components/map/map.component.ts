@@ -1,5 +1,5 @@
 /* Place angular imports */
-import { ChangeDetectionStrategy, Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 /* Place open layers imports */
 import { defaults as defaultInteractions, DragRotateAndZoom } from 'ol/interaction';
@@ -18,8 +18,7 @@ import { fromLonLat } from 'ol/proj';
 @Component({
   selector: 'app-map',
   templateUrl: './map.component.html',
-  styleUrls: ['./map.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrls: ['./map.component.scss']
 })
 export class MapComponent implements OnInit {
   @Input() public lat: string;

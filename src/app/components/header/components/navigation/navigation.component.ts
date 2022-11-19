@@ -1,6 +1,5 @@
 /* Place angular imports */
 import {
-  ChangeDetectionStrategy,
   Component,
   EventEmitter, Inject,
   Input,
@@ -13,8 +12,7 @@ import {DOCUMENT} from "@angular/common";
 @Component({
   selector: 'app-navigation',
   templateUrl: './navigation.component.html',
-  styleUrls: ['./navigation.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrls: ['./navigation.component.scss']
 })
 export class NavigationComponent implements OnChanges {
   @Input() public isMobileMenuOpen: boolean = false;

@@ -1,5 +1,5 @@
 /* Place angular imports */
-import {ChangeDetectionStrategy, ChangeDetectorRef, Component, OnDestroy, OnInit} from '@angular/core';
+import {ChangeDetectorRef, Component, OnDestroy, OnInit} from '@angular/core';
 
 /* Place rxjs imports */
 import {catchError, Subscription, tap, throwError} from 'rxjs';
@@ -14,8 +14,7 @@ import {CircuitsService} from '../services/circuits.service';
 @Component({
   selector: 'app-circuits',
   templateUrl: './circuits.component.html',
-  styleUrls: ['./circuits.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrls: ['./circuits.component.scss']
 })
 export class CircuitsComponent implements OnInit, OnDestroy {
   public isLoading: boolean = false;

@@ -1,5 +1,5 @@
 /* Place angular imports */
-import {ChangeDetectionStrategy, Component, Input} from '@angular/core';
+import {Component, Input} from '@angular/core';
 
 /* Place component imports */
 import {CircuitLocationComponent} from "../circuit-location/circuit-location.component";
@@ -13,8 +13,7 @@ import {MatDialog} from "@angular/material/dialog";
 @Component({
   selector: 'app-circuit-card',
   templateUrl: './circuit-card.component.html',
-  styleUrls: ['./circuit-card.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrls: ['./circuit-card.component.scss']
 })
 export class CircuitCardComponent {
   @Input() circuit: Circuit;

@@ -1,11 +1,10 @@
 /* Place angular imports */
-import {ChangeDetectionStrategy, Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-placement',
   templateUrl: './placement.component.html',
-  styleUrls: ['./placement.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrls: ['./placement.component.scss']
 })
 export class PlacementComponent implements OnInit {
   @Input() public position!: string;

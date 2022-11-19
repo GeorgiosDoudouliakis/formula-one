@@ -1,5 +1,5 @@
 /* Place angular imports */
-import {ChangeDetectionStrategy, Component, Input} from '@angular/core';
+import {Component, Input} from '@angular/core';
 
 /* Place interface imports */
 import {Race} from "@shared/interfaces/round-standings.interface";
@@ -7,8 +7,7 @@ import {Race} from "@shared/interfaces/round-standings.interface";
 @Component({
   selector: 'app-schedule-card',
   templateUrl: './schedule-card.component.html',
-  styleUrls: ['./schedule-card.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrls: ['./schedule-card.component.scss']
 })
 export class ScheduleCardComponent {
   @Input() race: Race;

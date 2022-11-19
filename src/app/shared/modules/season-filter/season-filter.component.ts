@@ -1,5 +1,5 @@
 /* Place angular imports */
-import {ChangeDetectionStrategy, Component, OnDestroy, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {FormBuilder, FormControl} from '@angular/forms';
 import {ActivatedRoute, Params, Router} from "@angular/router";
 
@@ -9,8 +9,7 @@ import {Subscription} from 'rxjs';
 @Component({
   selector: 'app-season-filter',
   templateUrl: './season-filter.component.html',
-  styleUrls: ['./season-filter.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrls: ['./season-filter.component.scss']
 })
 export class SeasonFilterComponent implements OnInit, OnDestroy {
   public yearControl: FormControl;
