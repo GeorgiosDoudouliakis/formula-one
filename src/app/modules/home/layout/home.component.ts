@@ -2,8 +2,8 @@
 import {ChangeDetectionStrategy, ChangeDetectorRef, Component, OnDestroy, OnInit} from '@angular/core';
 
 /* Place service imports */
-import {TopDriversService} from "../../services/top-drivers/top-drivers.service";
-import {TopConstructorsService} from "../../services/top-constructors/top-constructors.service";
+import {TopDriversService} from "../services/top-drivers/top-drivers.service";
+import {TopConstructorsService} from "../services/top-constructors/top-constructors.service";
 
 /* Place rxjs imports */
 import {catchError, Subscription, tap, throwError} from "rxjs";

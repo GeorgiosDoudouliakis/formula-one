@@ -9,7 +9,7 @@ import {catchError, Subscription, tap, throwError} from 'rxjs';
 import {map} from "rxjs/operators";
 
 /* Place service imports */
-import {ScheduleService} from '../../services/schedule.service';
+import {ScheduleService} from '../services/schedule.service';
 
 @Component({
   selector: 'app-schedule',

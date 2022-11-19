@@ -5,7 +5,7 @@ import { HttpClientModule } from "@angular/common/http";
 import { RouterModule } from '@angular/router';
 
 /* Place component imports */
-import { ScheduleComponent } from './pages/schedule/schedule.component';
+import { ScheduleComponent } from './layout/schedule.component';
 import { ScheduleCardComponent } from './components/schedule-card/schedule-card.component';
 
 /* Place service imports */

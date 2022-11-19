@@ -16,7 +16,7 @@ import { MatSortModule } from '@angular/material/sort';
 import { LoaderModule, SeasonFilterModule, PageHeaderModule } from "@shared/modules";
 
 /* Place components imports */
-import { StandingsComponent } from './pages/standings/standings.component';
+import { StandingsComponent } from './layout/standings.component';
 import { DriversTableComponent } from "./components/drivers-table/drivers-table.component";
 import { ConstructorsTableComponent } from './components/constructors-table/constructors-table.component';
 

@@ -18,7 +18,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { PageHeaderModule, LoaderModule } from "@shared/modules";
 
 /* Place service imports */
-import { CircuitsComponent } from './pages/circuits/circuits.component';
+import { CircuitsComponent } from './layout/circuits.component';
 import { CircuitsService } from './services/circuits.service';
 
 const routes = [

@@ -5,7 +5,7 @@ import { RouterModule, Routes } from "@angular/router";
 import { HttpClientModule } from "@angular/common/http";
 
 /* Place component imports */
-import { HomeComponent } from './pages/home/home.component';
+import { HomeComponent } from './layout/home.component';
 import { PlacementComponent } from './components/placement/placement.component';
 
 /* Place service imports */

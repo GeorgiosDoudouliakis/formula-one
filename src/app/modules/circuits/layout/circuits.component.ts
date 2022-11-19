@@ -6,10 +6,10 @@ import {catchError, Subscription, tap, throwError} from 'rxjs';
 import {map} from "rxjs/operators";
 
 /* Place interface imports */
-import {Circuit} from '../../interfaces/circuits.interface';
+import {Circuit} from '../interfaces/circuits.interface';
 
 /* Place service imports */
-import {CircuitsService} from '../../services/circuits.service';
+import {CircuitsService} from '../services/circuits.service';
 
 @Component({
   selector: 'app-circuits',

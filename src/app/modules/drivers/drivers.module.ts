@@ -12,8 +12,8 @@ import { TitleResolver } from "@shared/resolvers/title.resolver";
 import { MatIconModule } from "@angular/material/icon";
 
 /* Place component imports */
-import { DriversComponent } from './pages/drivers/drivers.component';
-import { DriverComponent } from './pages/driver/driver.component';
+import { DriversComponent } from './layout/drivers/drivers.component';
+import { DriverComponent } from './layout/driver/driver.component';
 
 /* Place service imports */
 import { DriversService } from './services/drivers.service';

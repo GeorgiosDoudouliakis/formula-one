@@ -9,8 +9,8 @@ import { SeasonFilterModule, PageHeaderModule, LoaderModule, DriverConstructorMo
 import { TitleResolver } from "@shared/resolvers/title.resolver";
 
 /* Place component imports here imports */
-import { ConstructorsComponent } from './pages/constructors/constructors.component';
-import { ConstructorComponent } from './pages/constructor/constructor.component';
+import { ConstructorsComponent } from './layout/constructors/constructors.component';
+import { ConstructorComponent } from './layout/constructor/constructor.component';
 
 /* Place service imports */
 import { ConstructorsService } from './services/constructors.service';
