@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from "@angular/router";
 
 /* Place component imports */
-import { HeaderComponent } from './components/header/header.component';
+import { HeaderComponent } from './components/layout/header.component';
 import { NavigationComponent } from "./components/navigation/navigation.component";
 
 /* Place angular material imports */
@@ -13,13 +13,13 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatTooltipModule } from "@angular/material/tooltip";
 
 @NgModule({
-    imports: [
-        CommonModule,
-        RouterModule,
-        MatToolbarModule,
-        MatIconModule,
-        MatTooltipModule
-    ],
+  imports: [
+      CommonModule,
+      RouterModule,
+      MatToolbarModule,
+      MatIconModule,
+      MatTooltipModule
+  ],
   declarations: [
     HeaderComponent,
     NavigationComponent

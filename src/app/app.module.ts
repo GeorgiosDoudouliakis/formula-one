@@ -6,26 +6,26 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 /* Place component imports */
 import { AppComponent } from './app.component';
+import { BackForthButtonsComponent } from "./components/back-forth-buttons/back-forth-buttons.component";
+import { FooterComponent } from "./components/footer/footer.component";
 
 /* Place any other imports here */
-import { HeaderModule } from "./modules/header/header.module";
-import { BackForthButtonsModule } from "./modules/back-forth-buttons/back-forth-buttons.module";
-import { FooterModule } from "./modules/footer/footer.module";
+import { HeaderModule } from "./components/header/header.module";
 
 /* Place angular material imports */
 import { MatDialogModule } from "@angular/material/dialog";
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    BackForthButtonsComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     HeaderModule,
-    BackForthButtonsModule,
-    FooterModule,
     MatDialogModule
   ],
   providers: [],
