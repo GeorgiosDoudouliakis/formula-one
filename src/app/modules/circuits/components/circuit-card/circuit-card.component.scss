@@ -1,9 +1,27 @@
 @import 'src/assets/scss/main';
 
+.mat-card-title {
+  margin-bottom: 0 !important;
+}
+
+.mat-card-content {
+  margin-bottom: .5rem;
+}
+
 .mat-card-footer {
   padding-left: 16px;
-  padding-bottom: 12px;
-  button:last-of-type {
-    margin-left: .5rem;
+  .mat-button, .mat-stroked-button {
+    color: $white;
+  }
+  a {
+    padding: 0;
+    text-decoration: underline;
+    transition: .4s ease-in-out;
+    &:hover {
+      color: $primary;
+    }
+  }
+  .mat-stroked-button {
+    margin-left: 1rem;
   }
 }

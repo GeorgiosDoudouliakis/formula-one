@@ -6,13 +6,11 @@
       </mat-card-title>
     </mat-card-header>
     <mat-card-content>
-      <p>Country: {{ circuit.Location.country }}</p>
-      <p>Locality: {{ circuit.Location.locality }}</p>
+      <p>{{ circuit.Location.locality }} ({{ circuit.Location.country }})</p>
     </mat-card-content>
     <mat-card-footer>
-      <a [href]="circuit.url" target="_blank" rel="noreferrer" mat-raised-button color="accent" class="mat-elevation-z8">Wikipedia</a>
-      <button mat-raised-button color="accent" class="mat-elevation-z8" (click)="showLocation(circuit.Location.lat, circuit.Location.long)">View on map</button>
+      <a [href]="circuit.url" target="_blank" rel="noreferrer" mat-button>Wikipedia</a>
+      <button mat-stroked-button (click)="showLocation(circuit.Location.lat, circuit.Location.long)">View on map</button>
     </mat-card-footer>
   </mat-card>
 </article>
-
