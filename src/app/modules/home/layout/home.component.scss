@@ -23,7 +23,11 @@
 }
 
 h2 {
+  font-size: 1.2rem !important;
   text-align: center;
+  padding: 1rem 0;
+  margin-bottom: 1rem;
+  border: 1px solid $lightAccent;
 }
 
 .placements {
