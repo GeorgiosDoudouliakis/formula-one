@@ -84,6 +84,16 @@
     .mat-card-title {
         padding: 12px 0;
     }
+    .mat-card-subtitle {
+        @include flex(row, nowrap, center, center);
+        position: absolute;
+        top: -10px;
+        right: -10px;
+        width: 30px;
+        height: 30px;
+        color: $white;
+        background: $primary;
+    }
 }
 
 .image-name-container {

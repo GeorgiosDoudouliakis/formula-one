@@ -22,7 +22,7 @@
     background: $primary;
     border-radius: 100%;
     &:not(:first-of-type) {
-      margin-left: 1.5rem;
+      margin-left: 1rem;
     }
     &:nth-child(2) {
       animation-delay: .3s;
