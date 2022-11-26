@@ -33,10 +33,10 @@
 .box {
     @include flex(row, nowrap, space-between, center);
     padding: 0.5rem;
-    background: $lightAccent;
+    background: $lightGray;
     border-right: 1px solid lighten($primary, 20%);
     border-bottom: 1px solid lighten($primary, 20%);
-    color: $white;
+    color: $accent;
     cursor: pointer;
     transition: .4s ease-in-out;
     span {
@@ -50,26 +50,28 @@
 .card {
     height: 100%;
     & > .mat-card {
-        height: 100%;
-        padding: 8px 16px;
-        background: $lightAccent;
-        border-radius: 0;
+      height: 100%;
+      padding: 8px 16px;
+      background: $lightGray;
+      border-radius: 0;
+      box-shadow: none;
     }
     .mat-card-header {
-        display: initial;
+      display: initial;
     }
     .mat-card-title {
-        padding: 12px 0;
+      color: $accent;
+      padding: 12px 0;
     }
     .mat-card-subtitle {
-        @include flex(row, nowrap, center, center);
-        position: absolute;
-        top: -10px;
-        right: -10px;
-        width: 30px;
-        height: 30px;
-        color: $white;
-        background: $primary;
+      @include flex(row, nowrap, center, center);
+      position: absolute;
+      top: -8px;
+      right: -10px;
+      width: 35px;
+      height: 30px;
+      color: $white;
+      background: $primary;
     }
 }
 
@@ -87,7 +89,7 @@
   @include flex(row, nowrap, flex-end, flex-start);
   padding: 0.8rem 1rem;
   margin-bottom: 1.5rem;
-  background: $lightAccent;
+  background: $lightGray;
   border-left: 2px solid $primary;
   border-right: 2px solid $primary;
   mat-icon {
