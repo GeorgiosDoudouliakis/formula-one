@@ -25,14 +25,14 @@ export class ScheduleComponent implements OnInit, OnDestroy {
   constructor(private _scheduleService: ScheduleService) { }
 
   public ngOnInit(): void {
-    this.getSchedule();
+    this._getSchedule();
   }
 
   public ngOnDestroy(): void {
     if(this._scheduleSub$) this._scheduleSub$.unsubscribe();
   }
 
-  private getSchedule(): void {
+  private _getSchedule(): void {
     this.isLoading = true;
 
     this._scheduleSub$ = this._scheduleService.getSchedule().pipe(

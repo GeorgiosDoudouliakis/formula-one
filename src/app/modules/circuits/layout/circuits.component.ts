@@ -25,14 +25,14 @@ export class CircuitsComponent implements OnInit, OnDestroy {
   constructor(private _circuitsService: CircuitsService) { }
 
   public ngOnInit(): void {
-    this.getCircuits();
+    this._getCircuits();
   }
 
   public ngOnDestroy(): void {
     if(this._circuitsSub$) this._circuitsSub$.unsubscribe();
   }
 
-  private getCircuits() {
+  private _getCircuits() {
     this.isLoading = true;
 
     this._circuitsSub$ = this._circuitsService.getCircuits().pipe(

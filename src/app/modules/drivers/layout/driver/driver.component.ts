@@ -32,14 +32,14 @@ export class DriverComponent implements OnInit, OnDestroy {
   ) { }
 
   public ngOnInit(): void {
-    this.getDriverDetails();
+    this._getDriverDetails();
   }
 
   public ngOnDestroy(): void {
     if(this._detailsSub$) this._detailsSub$.unsubscribe();
   }
 
-  private getDriverDetails(): void {
+  private _getDriverDetails(): void {
     this._detailsSub$ = this._route.params.pipe(
       tap(() => this.isLoading = true),
       switchMap((params: Params) => forkJoin([

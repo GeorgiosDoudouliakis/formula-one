@@ -16,12 +16,12 @@ import {MatDialog} from "@angular/material/dialog";
   styleUrls: ['./circuit-card.component.scss']
 })
 export class CircuitCardComponent {
-  @Input() circuit: Circuit;
+  @Input() public circuit: Circuit;
 
-  constructor(private dialog: MatDialog) {}
+  constructor(private _dialog: MatDialog) {}
 
   public showLocation(lat: string, long: string): void {
-    this.dialog.open(CircuitLocationComponent, {
+    this._dialog.open(CircuitLocationComponent, {
       width: '90vw',
       data: {
         circuit: this.circuit.circuitName,

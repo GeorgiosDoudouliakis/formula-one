@@ -10,5 +10,5 @@ import {Race} from "@shared/interfaces/round-standings.interface";
   styleUrls: ['./schedule-card.component.scss']
 })
 export class ScheduleCardComponent {
-  @Input() race: Race;
+  @Input() public race: Race;
 }

@@ -26,11 +26,11 @@ export class MapComponent implements OnInit {
   private _map: Map;
 
   public ngOnInit(): void {
-    this.initializeMap();
-    this.initializePoint();
+    this._initializeMap();
+    this._initializePoint();
   }
 
-  private initializeMap(): void {
+  private _initializeMap(): void {
     this._map = new Map({
       target: 'map-container',
       interactions: defaultInteractions().extend([new DragRotateAndZoom()]),
@@ -46,7 +46,7 @@ export class MapComponent implements OnInit {
     });
   }
 
-  private initializePoint(): void {
+  private _initializePoint(): void {
     const pointFeature = new Feature({
       geometry: new Point(fromLonLat([+this.long, +this.lat])),
       size: 20,
@@ -58,13 +58,13 @@ export class MapComponent implements OnInit {
 
     const vectorLayer = new VectorLayer({
       source: vectorSource,
-      style: this.styleFunction(),
+      style: this._styleFunction(),
     });
 
     this._map.addLayer(vectorLayer);
   }
 
-  private styleFunction(): Style {
+  private _styleFunction(): Style {
     return new Style({
       image: new Icon({
           src: "data:image/svg+xml;utf8," + encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" height="36px" viewBox="0 0 24 24" width="36px" fill="#1f1f27"><path d="M0 0h24v24H0z" fill="none"/><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>`)

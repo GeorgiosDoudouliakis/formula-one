@@ -32,14 +32,14 @@ export class ConstructorComponent implements OnInit, OnDestroy {
   ) { }
 
   public ngOnInit(): void {
-    this.getConstructorDetails();
+    this._getConstructorDetails();
   }
 
   public ngOnDestroy(): void {
     if(this._detailsSub$) this._detailsSub$.unsubscribe();
   }
 
-  private getConstructorDetails(): void {
+  private _getConstructorDetails(): void {
     this._detailsSub$ = this._route.params.pipe(
       tap(() => this.isLoading = true),
       switchMap((params: Params) => forkJoin([
