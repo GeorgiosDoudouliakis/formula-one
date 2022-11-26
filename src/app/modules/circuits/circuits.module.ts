@@ -13,6 +13,7 @@ import { CircuitCardComponent } from './components/circuit-card/circuit-card.com
 import { MatCardModule } from "@angular/material/card";
 import { MatButtonModule } from "@angular/material/button";
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatIconModule } from '@angular/material/icon';
 
 /* Place any other imports here */
 import { PageHeaderModule, LoaderModule } from "@shared/modules";
@@ -44,7 +45,8 @@ const routes = [
     LoaderModule,
     MatCardModule,
     MatButtonModule,
-    MatDialogModule
+    MatDialogModule,
+    MatIconModule
   ],
   exports: [
     RouterModule

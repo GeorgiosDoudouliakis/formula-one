@@ -1,8 +1,24 @@
 @import 'src/assets/scss/main';
 
+:host {
+  position: relative;
+}
+
 h2 {
-    color: black;
+    color: $white;
+    background: $accent;
+    padding: 1rem;
+    margin-bottom: 0;
     line-height: 1.5rem;
+}
+
+button {
+  position: absolute;
+  top: .7rem;
+  right: 1rem;
+  mat-icon {
+    color: $white;
+  }
 }
 
 @media(min-width: 1024px) {
