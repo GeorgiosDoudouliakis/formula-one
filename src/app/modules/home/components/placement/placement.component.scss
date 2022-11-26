@@ -3,8 +3,8 @@
 :host {
   @include flex(row, nowrap, space-between, center);
   padding: 1rem;
-  color: $white;
-  background: $lightAccent;
+  color: $accent;
+  background: $lightGray;
   &:not(:last-of-type) {
     margin-bottom: 1rem;
   }
@@ -29,6 +29,7 @@
   text-align: center;
   min-width: 70px;
   padding: .3rem 0;
+  color: $white;
   background: $accent;
   border-radius: 20px;
 }

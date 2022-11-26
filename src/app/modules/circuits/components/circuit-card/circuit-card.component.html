@@ -9,8 +9,8 @@
       <p>{{ circuit.Location.locality }} ({{ circuit.Location.country }})</p>
     </mat-card-content>
     <mat-card-footer>
-      <a [href]="circuit.url" target="_blank" rel="noreferrer" mat-button>Wikipedia</a>
       <button mat-stroked-button (click)="showLocation(circuit.Location.lat, circuit.Location.long)">View on map</button>
+      <a [href]="circuit.url" target="_blank" rel="noreferrer">Wikipedia</a>
     </mat-card-footer>
   </mat-card>
 </article>

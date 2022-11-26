@@ -3,6 +3,7 @@
 h2 {
   font-weight: bold;
   margin-left: .5rem;
+  color: $accent;
 }
 
 h2, h3 {
@@ -11,7 +12,8 @@ h2, h3 {
 
 h3 {
   padding: 1rem .5rem;
-  border: 1px solid $lightAccent;
+  color: $accent;
+  background: $lightGray;
 }
 
 .details {
@@ -22,12 +24,13 @@ h3 {
 .driver-number {
   margin-left: .5rem;
   padding: .5rem;
+  color: $white;
   background: $primary;
 }
 
 a {
     font-size: 0.9rem;
-    color: $white;
+    color: $accent;
     text-decoration: underline;
     transition: .4s ease-in-out;
     &:hover {

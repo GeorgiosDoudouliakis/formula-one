@@ -111,10 +111,6 @@ body { margin: 0; font-family: 'Titillium Web', sans-serif; }
   background: lighten(#1f1f27, 30%);
 }
 
-h2, h3, p {
-  color: white;
-}
-
 h2 {
   font-size: 1.3rem !important;
 }
@@ -158,20 +154,16 @@ a {
     cursor: pointer;
     transition: .4s ease-in-out;
     &:hover {
-      background: darken(#1f1f27, 5%);
+      background: darken(#fff, 5%);
     }
-}
-
-.mat-form-field-label {
-  color: white;
 }
 
 .mat-form-field-appearance-standard .mat-form-field-flex {
   padding-top: 0;
 }
 
-.mat-form-field-appearance-standard .mat-form-field-underline {
-  background-color: white;
+.mat-tab-header {
+  border-bottom: none;
 }
 
 .mat-card-title {
@@ -181,11 +173,6 @@ a {
 .mat-card-header-text {
   color: white !important;
   margin: 0 !important;
-}
-
-.mat-select-value-text,
-.mat-select-arrow {
-  color: white;
 }
 
 .mat-raised-button {

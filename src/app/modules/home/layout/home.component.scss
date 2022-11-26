@@ -20,6 +20,9 @@
     font-size: 2.5rem;
     margin-bottom: 1rem;
   }
+  p {
+    color: $white;
+  }
 }
 
 h2 {
@@ -27,7 +30,17 @@ h2 {
   text-align: center;
   padding: 1rem 0;
   margin-bottom: 1rem;
-  border: 1px solid $lightAccent;
+  position: relative;
+  &::before {
+    position: absolute;
+    bottom: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    content: "";
+    width: 100px;
+    height: 3px;
+    background: $primary;
+  }
 }
 
 .placements {

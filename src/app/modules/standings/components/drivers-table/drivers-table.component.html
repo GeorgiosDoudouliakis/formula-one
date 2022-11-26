@@ -1,11 +1,11 @@
-<section class="table">
+<section>
   <ng-container *ngIf="!isLoading">
     <mat-form-field appearance="standard">
       <mat-label>Filter</mat-label>
       <input matInput (keyup)="applyFilter($event)" placeholder="Search..." [(ngModel)]="filterValue" autocomplete="off">
     </mat-form-field>
 
-    <section class="mat-elevation-z8 table-container">
+    <section class="table-container">
       <table mat-table [dataSource]="dataSource" matSort>
         <ng-container matColumnDef="position">
           <th mat-header-cell *matHeaderCellDef mat-sort-header>Position</th>

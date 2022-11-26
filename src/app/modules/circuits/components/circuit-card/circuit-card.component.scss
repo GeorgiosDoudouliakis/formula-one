@@ -5,23 +5,22 @@
 }
 
 .mat-card-content {
+  color: $accent;
   margin-bottom: .5rem;
 }
 
 .mat-card-footer {
   padding-left: 16px;
-  .mat-button, .mat-stroked-button {
-    color: $white;
+  a, .mat-stroked-button {
+    color: $accent;
   }
   a {
     padding: 0;
+    margin-left: 1rem;
     text-decoration: underline;
     transition: .4s ease-in-out;
     &:hover {
       color: $primary;
     }
-  }
-  .mat-stroked-button {
-    margin-left: 1rem;
   }
 }

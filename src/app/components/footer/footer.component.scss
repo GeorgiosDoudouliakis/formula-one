@@ -1,9 +1,8 @@
 @import 'src/assets/scss/main';
 
 footer {
-    padding: 0.8rem 0;
-    background: $accent;
-    border-top: 1px solid $lightAccent;
+  padding: 0.8rem 0;
+  background: $primary;
 }
 
 mat-icon {
@@ -23,11 +22,11 @@ p {
       margin-bottom: .5rem;
     }
     a {
-      color: $primary;
+      color: $white;
       text-decoration: underline;
       transition: .4s ease-in-out;
       &:hover {
-        color: $white;
+        color: $accent;
       }
     }
 }
