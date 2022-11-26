@@ -9,9 +9,9 @@
                   <img src="assets/images/no_image_available.jpg" alt="" width="45" height="45">
                 </ng-template>
             </div>
-            <h3>
+            <h2>
                 {{ type === 'constructor' ? (details && details.name) : (details && details.givenName + " " + details.familyName) }}
-            </h3>
+            </h2>
         </section>
         <p *ngIf="type === 'driver'">Date of birth: {{ (details && details.dateOfBirth) | date: 'mediumDate' }}</p>
         <p>Nationality: {{ details && details.nationality }}</p>
@@ -21,7 +21,7 @@
     <p *ngIf="type === 'constructor'" class="info">
       <mat-icon>info</mat-icon>Results represents a constructor's drivers stats as a whole
     </p>
-    <h4 class="results-header">CIRCUIT RESULTS</h4>
+    <h3 class="results-header">CIRCUIT RESULTS</h3>
     <section class="grid">
         <ng-container *ngFor="let result of results">
             <app-driver-constructor-card [data]="result"></app-driver-constructor-card>

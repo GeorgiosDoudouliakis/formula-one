@@ -4,9 +4,10 @@ section:first-of-type {
   @include flex(row, nowrap, space-between, center);
 }
 
-h2 {
+h1 {
   @include flex(row, nowrap, flex-start, flex-start);
   font-size: 1.5rem;
+  color: $white;
   margin-bottom: 0;
 }
 
