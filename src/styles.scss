@@ -111,17 +111,16 @@ body { margin: 0; font-family: 'Titillium Web', sans-serif; }
   background: lighten(#1f1f27, 30%);
 }
 
-h2, h3, h4, p {
+h2, h3, p {
   color: white;
 }
 
-h3 {
-  font-size: 1.2rem !important;
+h2 {
+  font-size: 1.3rem !important;
 }
 
-h4 {
-  font-size: 1rem;
-  margin-bottom: 3rem !important;
+h3 {
+  font-size: 1.1rem !important;
 }
 
 li {
@@ -133,6 +132,10 @@ a {
 }
 
 // Angular Material Overwrites
+.mat-typography h2 {
+  margin: 0;
+}
+
 .mat-typography p {
   margin: 0 ;
 }
@@ -197,17 +200,11 @@ a {
 
 // Media
 @media(min-width: 768px){
+  h2 {
+    font-size: 1.6rem !important;
+  }
+
   h3 {
     font-size: 1.4rem !important;
-  }
-
-  h4 {
-    font-size: 1.2rem !important;
-  }
-}
-
-@media(min-width: 1024px){
-  h3 {
-    font-size: 1.6rem !important;
   }
 }

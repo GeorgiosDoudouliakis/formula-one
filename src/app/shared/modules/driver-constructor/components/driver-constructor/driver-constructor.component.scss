@@ -1,34 +1,50 @@
 @import 'src/assets/scss/main';
 
 h2 {
-  margin-left: 1rem;
-  margin-bottom: 0;
-  background: $lightAccent;
-  padding: 0.5rem;
-  border-left: 2px solid $primary;
+  font-weight: bold;
+  margin-left: .5rem;
 }
 
 h2, h3 {
   min-width: 150px;
-  padding-bottom: .5rem;
 }
 
 h3 {
-  border-bottom: 2px solid $lightAccent;
+  padding: 1rem .5rem;
+  border: 2px solid $lightAccent;
 }
 
 .details {
-    p {
-        &:last-of-type {
-            margin-bottom: 0.5rem;
-        }
-    }
+  @include flex(row, nowrap, flex-start, center);
+  margin-bottom: 2rem;
+}
+
+.driver-number {
+  margin-left: .5rem;
+  padding: .5rem;
+  background: $primary;
 }
 
 a {
     font-size: 0.9rem;
     color: $white;
     text-decoration: underline;
+    transition: .4s ease-in-out;
+    &:hover {
+      color: $primary;
+    }
+}
+
+.results-header {
+  margin-bottom: 2rem;
+}
+
+.info {
+  margin-bottom: 3rem;
+}
+
+.grid {
+  gap: 60px 20px;
 }
 
 @media(min-width: 450px) {

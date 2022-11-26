@@ -1,27 +1,23 @@
 <article>
     <section class="details">
-        <section class="image-name-container driver-constructor">
-            <div class="img-container"
-            [ngStyle]="{ width: type === 'driver' ? '45px' : '30px', height: type === 'driver' ? '45px' : '30px'}">
-                <img *ngIf="imageExists; else noImage" src="assets/images/{{ type === 'driver' ? (details && details.driverId) : (details && details.constructorId) }}.png"
-                [alt]="(type === 'driver' ? (details && details.driverId) : (details && details.constructorId)) + (type === 'driver' ? ' photo' : ' logo')" width="45" height="45">
-                <ng-template #noImage>
-                  <img src="assets/images/no_image_available.jpg" alt="" width="45" height="45">
-                </ng-template>
-            </div>
-            <h2>
-                {{ type === 'constructor' ? (details && details.name) : (details && details.givenName + " " + details.familyName) }}
-            </h2>
-        </section>
-        <p *ngIf="type === 'driver'">Date of birth: {{ (details && details.dateOfBirth) | date: 'mediumDate' }}</p>
-        <p>Nationality: {{ details && details.nationality }}</p>
-        <p *ngIf="type === 'driver'">Number: {{ details && details.permanentNumber }}</p>
-        <a [href]="details && details.url" target="_blank">Wikipedia</a>
+        <div class="img-container"
+        [ngStyle]="{ width: type === 'driver' ? '45px' : '30px', height: type === 'driver' ? '45px' : '30px'}">
+            <img *ngIf="imageExists; else noImage" src="assets/images/{{ type === 'driver' ? (details && details.driverId) : (details && details.constructorId) }}.png"
+            [alt]="(type === 'driver' ? (details && details.driverId) : (details && details.constructorId)) + (type === 'driver' ? ' photo' : ' logo')" width="45" height="45">
+            <ng-template #noImage>
+              <img src="assets/images/no_image_available.jpg" alt="" width="45" height="45">
+            </ng-template>
+        </div>
+        <h2>
+            {{ type === 'constructor' ? (details && details.name) : (details && details.givenName + " " + details.familyName) }}
+        </h2>
+        <p *ngIf="type === 'driver'" class="driver-number">{{ details && details.permanentNumber }}</p>
+        <a [href]="details && details.url" target="_blank" style="margin-left: auto">Wikipedia</a>
     </section>
+    <h3 class="results-header">Circuit Results</h3>
     <p *ngIf="type === 'constructor'" class="info">
       <mat-icon>info</mat-icon>Results represents a constructor's drivers stats as a whole
     </p>
-    <h3 class="results-header">CIRCUIT RESULTS</h3>
     <section class="grid">
         <ng-container *ngFor="let result of results">
             <app-driver-constructor-card [data]="result"></app-driver-constructor-card>
