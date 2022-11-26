@@ -1,5 +1,5 @@
 /* Place angular imports */
-import {ChangeDetectorRef, Component, OnDestroy, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 
 /* Place rxjs imports */
 import {catchError, Subscription, tap, throwError} from 'rxjs';
@@ -22,10 +22,7 @@ export class CircuitsComponent implements OnInit, OnDestroy {
   public circuits: Circuit[] = [];
   private _circuitsSub$: Subscription;
 
-  constructor(
-    private _circuitsService: CircuitsService,
-    private _cdr: ChangeDetectorRef
-  ) { }
+  constructor(private _circuitsService: CircuitsService) { }
 
   public ngOnInit(): void {
     this.getCircuits();
@@ -41,7 +38,6 @@ export class CircuitsComponent implements OnInit, OnDestroy {
     this._circuitsSub$ = this._circuitsService.getCircuits().pipe(
       map((circuits: Circuit[]) => this.circuits = circuits),
       tap(() => this.isLoading = false),
-      tap(() => this._cdr.markForCheck()),
       catchError((err) => {
         console.error(err);
         return throwError(err);

@@ -1,5 +1,5 @@
 /* Place angular imports */
-import {ChangeDetectionStrategy, ChangeDetectorRef, Component, OnDestroy, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 
 /* Place interface imports */
 import {Race} from '@shared/interfaces/round-standings.interface';
@@ -14,8 +14,7 @@ import {ScheduleService} from '../services/schedule.service';
 @Component({
   selector: 'app-schedule',
   templateUrl: './schedule.component.html',
-  styleUrls: ['./schedule.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrls: ['./schedule.component.scss']
 })
 export class ScheduleComponent implements OnInit, OnDestroy {
   public isLoading: boolean = false;
@@ -23,10 +22,7 @@ export class ScheduleComponent implements OnInit, OnDestroy {
   public schedule: Race[] = [];
   private _scheduleSub$: Subscription;
 
-  constructor(
-    private _scheduleService: ScheduleService,
-    private _cdr: ChangeDetectorRef
-  ) { }
+  constructor(private _scheduleService: ScheduleService) { }
 
   public ngOnInit(): void {
     this.getSchedule();
@@ -42,7 +38,6 @@ export class ScheduleComponent implements OnInit, OnDestroy {
     this._scheduleSub$ = this._scheduleService.getSchedule().pipe(
       map((schedule: Race[]) => this.schedule = schedule),
       tap(() => this.isLoading = false),
-      tap(() => this._cdr.markForCheck()),
       catchError((err) => {
         console.error(err);
         return throwError(err);
