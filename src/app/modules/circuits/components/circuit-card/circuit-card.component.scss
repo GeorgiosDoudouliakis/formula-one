@@ -10,17 +10,13 @@
 }
 
 .mat-card-footer {
+  @include flex(row, nowrap, flex-start, center);
   padding-left: 16px;
-  a, .mat-stroked-button {
-    color: $accent;
-  }
   a {
-    padding: 0;
-    margin-left: 1rem;
-    text-decoration: underline;
-    transition: .4s ease-in-out;
-    &:hover {
-      color: $primary;
-    }
+    width: 24px;
+    height: 24px;
+  }
+  .mat-icon-button {
+    margin-left: .3rem;
   }
 }
