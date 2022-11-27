@@ -9,9 +9,9 @@
           </mat-card-subtitle>
         </mat-card-header>
         <mat-card-content>
-            <p>Laps: {{ data.Results[0].laps }}</p>
-            <p>Status: {{ data.Results[0].status }}</p>
-            <p>Points: {{ data.Results[0].points }}</p>
+            <span>{{ data.Results[0].status }}</span>
+            <span>{{ data.Results[0].laps }} laps</span>
+            <span>{{ data.Results[0].points }}pts</span>
         </mat-card-content>
       </mat-card>
 </article>
