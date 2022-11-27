@@ -1,0 +1,57 @@
+// Angular Material Overwrites
+.mat-typography h2 {
+  margin: 0;
+}
+
+.mat-typography p {
+  margin: 0 ;
+}
+
+.mat-menu-panel {
+  background: unset;
+}
+
+.mat-menu-content:not(:empty) {
+  padding-top: 0;
+  padding-bottom: 0;
+  background: #1f1f27;
+}
+
+.mat-tab-label-container {
+  margin-bottom: 1rem;
+}
+
+.mat-table > tbody > tr {
+  cursor: pointer;
+  transition: .4s ease-in-out;
+  &:hover {
+    background: darken(#fff, 5%);
+  }
+}
+
+.mat-form-field-appearance-standard .mat-form-field-flex {
+  padding-top: 0;
+}
+
+.mat-tab-header {
+  border-bottom: none;
+}
+
+.mat-card-title {
+  font-size: 1.1rem !important;
+}
+
+.mat-card-header-text {
+  color: white !important;
+  margin: 0 !important;
+}
+
+.mat-raised-button {
+  border-radius: 0 !important;
+}
+
+.mat-dialog-container {
+  padding: 0 !important;
+  border-radius: 0 !important;
+  overflow-x: hidden !important;
+}
