@@ -28,16 +28,6 @@ h3 {
   background: $primary;
 }
 
-a {
-    font-size: 0.9rem;
-    color: $accent;
-    text-decoration: underline;
-    transition: .4s ease-in-out;
-    &:hover {
-      color: $primary;
-    }
-}
-
 .results-header {
   margin-bottom: 2rem;
 }

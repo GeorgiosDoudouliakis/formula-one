@@ -12,7 +12,9 @@
             {{ type === 'constructor' ? (details && details.name) : (details && details.givenName + " " + details.familyName) }}
         </h2>
         <p *ngIf="type === 'driver'" class="driver-number">{{ details && details.permanentNumber }}</p>
-        <a [href]="details && details.url" target="_blank" style="margin-left: auto">Wikipedia</a>
+        <a [href]="details && details.url" target="_blank" style="margin-left: auto">
+          <img src="assets/images/wikipedia_logo.png" alt="Wikipedia logo" width="30" height="30">
+        </a>
     </section>
     <h3 class="results-header">Circuit Results</h3>
     <p *ngIf="type === 'constructor'" class="info">
