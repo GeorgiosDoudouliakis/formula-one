@@ -1,0 +1,88 @@
+// Custom Theme Configuration
+@use '@angular/material' as mat;
+
+$custom-typography: mat.define-typography-config(
+  $font-family: 'Titillium Web'
+);
+
+@include mat.core($custom-typography);
+
+$custom-primary-palette: (
+  50 : #fbe1e0,
+  100 : #f6b4b3,
+  200 : #f08380,
+  300 : #ea514d,
+  400 : #e62b26,
+  500 : #e10600,
+  600 : #dd0500,
+  700 : #d90400,
+  800 : #d50300,
+  900 : #cd0200,
+  A100 : #fff5f5,
+  A200 : #ffc2c2,
+  A400 : #ff8f8f,
+  A700 : #ff7575,
+  contrast: (
+    50 : #000000,
+    100 : #000000,
+    200 : #000000,
+    300 : #ffffff,
+    400 : #ffffff,
+    500 : #ffffff,
+    600 : #ffffff,
+    700 : #ffffff,
+    800 : #ffffff,
+    900 : #ffffff,
+    A100 : #000000,
+    A200 : #000000,
+    A400 : #000000,
+    A700 : #000000,
+  )
+);
+
+$custom-accent-palette: (
+  50 : #e4e4e5,
+  100 : #bcbcbe,
+  200 : #8f8f93,
+  300 : #626268,
+  400 : #414147,
+  500 : #1f1f27,
+  600 : #1b1b23,
+  700 : #17171d,
+  800 : #121217,
+  900 : #0a0a0e,
+  A100 : #5353ff,
+  A200 : #2020ff,
+  A400 : #0000ec,
+  A700 : #0000d3,
+  contrast: (
+    50 : #000000,
+    100 : #000000,
+    200 : #000000,
+    300 : #ffffff,
+    400 : #ffffff,
+    500 : #ffffff,
+    600 : #ffffff,
+    700 : #ffffff,
+    800 : #ffffff,
+    900 : #ffffff,
+    A100 : #ffffff,
+    A200 : #ffffff,
+    A400 : #ffffff,
+    A700 : #ffffff,
+  )
+);
+
+$formula-one-primary: mat.define-palette($custom-primary-palette);
+$formula-one-accent: mat.define-palette($custom-accent-palette, 500);
+$formula-one-warn: mat.define-palette(mat.$red-palette);
+
+$formula-one-theme: mat.define-light-theme((
+  color: (
+    primary: $formula-one-primary,
+    accent: $formula-one-accent,
+    warn: $formula-one-warn,
+  )
+));
+
+@include mat.all-component-themes($formula-one-theme);

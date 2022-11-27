@@ -31,20 +31,21 @@
 }
 
 .box {
-    @include flex(row, nowrap, space-between, center);
-    padding: 0.5rem;
-    background: $lightGray;
-    border-right: 1px solid lighten($primary, 20%);
-    border-bottom: 1px solid lighten($primary, 20%);
-    color: $accent;
-    cursor: pointer;
-    transition: .4s ease-in-out;
-    span {
-        font-size: 1rem;
-    }
-    &:hover {
-        transform: translateX(10px);
-    }
+  @include flex(row, nowrap, space-between, center);
+  padding: 0.5rem;
+  background: $lightGray;
+  border-radius: 0 0 10px 0;
+  border-right: 1px solid lighten($primary, 20%);
+  border-bottom: 1px solid lighten($primary, 20%);
+  color: $accent;
+  cursor: pointer;
+  transition: .4s ease-in-out;
+  span {
+      font-size: 1rem;
+  }
+  &:hover {
+      transform: translateX(10px);
+  }
 }
 
 .card {
@@ -53,7 +54,9 @@
       height: 100%;
       padding: 8px 16px;
       background: $lightGray;
-      border-radius: 0;
+      border-right: 1px solid $primary;
+      border-bottom: 1px solid $primary;
+      border-radius: 0 0 10px 0;
       box-shadow: none;
     }
     .mat-card-header {
@@ -67,11 +70,11 @@
       @include flex(row, nowrap, center, center);
       position: absolute;
       top: -8px;
-      right: -10px;
+      right: -15px;
       width: 35px;
       height: 30px;
       color: $white;
-      background: $primary;
+      background: $accent;
     }
 }
 
