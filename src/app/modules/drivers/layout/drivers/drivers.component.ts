@@ -22,6 +22,7 @@ import {AbstractDriversConstructorsDirective} from "@shared/abstraction/drivers-
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DriversComponent extends AbstractDriversConstructorsDirective<Driver> {
+  public selectedYear: string;
   public loading: boolean = false;
   public data: Array<Driver>;
   protected _dataSub$: Subscription;
@@ -38,7 +39,10 @@ export class DriversComponent extends AbstractDriversConstructorsDirective<Drive
   protected override getDataByYear(): void {
     this._dataSub$ = this._route.queryParams.pipe(
       tap(() => this.loading = true),
-      switchMap((params: Params) => this._driversService.getDrivers(params['year'])),
+      switchMap((params: Params) => {
+        this.selectedYear = params['year'];
+        return this._driversService.getDrivers(this.selectedYear)
+      }),
       map((data: Array<Driver>) => this.data = data),
       tap(() => this.loading = false),
       tap(() => this._cdr.markForCheck()),

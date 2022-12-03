@@ -7,6 +7,7 @@ import {Subscription} from "rxjs";
 
 @Directive()
 export abstract class AbstractDriversConstructorsDirective<C> implements OnInit, OnDestroy {
+  public abstract selectedYear: string;
   public abstract loading: boolean;
   public abstract data: Array<C>;
   protected abstract _dataSub$: Subscription;
