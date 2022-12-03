@@ -6,7 +6,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 /* Place component imports */
 import { AppComponent } from './app.component';
-import { BackForthButtonsComponent } from "./components/back-forth-buttons/back-forth-buttons.component";
 import { FooterComponent } from "./components/footer/footer.component";
 
 /* Place any other imports here */
@@ -18,7 +17,6 @@ import { MatDialogModule } from "@angular/material/dialog";
 @NgModule({
   declarations: [
     AppComponent,
-    BackForthButtonsComponent,
     FooterComponent
   ],
   imports: [
