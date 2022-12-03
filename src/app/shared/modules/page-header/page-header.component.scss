@@ -1,45 +1,25 @@
 @import 'src/assets/scss/main';
 
-section:first-of-type {
+:host {
   @include flex(row, nowrap, space-between, center);
+  margin-bottom: 2rem;
 }
 
 h1 {
-  @include flex(row, nowrap, flex-start, flex-start);
   font-size: 1.5rem;
   color: $accent;
   margin-bottom: 0;
 }
 
 span {
-  font-size: 1rem;
+  font-size: 2rem;
+  font-weight: bold;
   margin-left: 1rem;
-  padding: 0 0.5rem;
-  color: $white;
-  background: $primary;
-}
-
-.road {
-  @include flex(row, nowrap, flex-start, center);
-  margin-bottom: 2rem;
-  div {
-    width: 10%;
-    height: 20px;
-    &:nth-child(odd) {
-      background: #d62b47;
-    }
-    &:nth-child(even) {
-      background: $lightGray;
-    }
-  }
+  color: $primary;
 }
 
 @media(min-width: 768px){
   h1 {
     font-size: 1.8rem;
-  }
-
-  .road {
-    margin-bottom: 3rem;
   }
 }
