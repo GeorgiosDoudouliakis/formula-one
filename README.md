@@ -12,6 +12,7 @@ Live environment: https://georgiosdoudouliakis.github.io/formula-one/
 - Angular Material
 - Open layers
 - Moment js
+- Sh ordinal numbers
 
 ## Data Source
 Ergast Developer API: http://ergast.com/mrd/
