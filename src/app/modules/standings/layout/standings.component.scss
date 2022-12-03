@@ -1,1 +1,5 @@
 @import 'src/assets/scss/main';
+
+div {
+  @include flex(row, nowrap, space-between, center);
+}
