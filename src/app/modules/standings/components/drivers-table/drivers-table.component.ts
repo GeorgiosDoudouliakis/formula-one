@@ -21,7 +21,6 @@ import {DriverStanding, DriverStandingsList} from "@shared/interfaces/driver-sta
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DriversTableComponent extends AbstractTableDirective<DriverStanding> implements AfterViewChecked {
-  public isLoading: boolean = false;
   public displayedColumns: string[] = [];
   public dataSource: MatTableDataSource<any>;
   public data: Array<DriverStanding> = [];
@@ -41,12 +40,12 @@ export class DriversTableComponent extends AbstractTableDirective<DriverStanding
       tap(() => this.isLoading = true),
       tap(() => this.cdr.markForCheck()),
       switchMap((params: Params) => this.driverConstructorStandingsService.getDriverStandings(params['year'])),
-      tap(() => this.isLoading = false),
       map((res: DriverStandingsList[]) => {
         if(!res[0]) return;
         this.data = res[0].DriverStandings;
         this.dataSource = new MatTableDataSource(this.data);
       }),
+      tap(() => this.isLoading = false),
       tap(() => this.cdr.markForCheck()),
       catchError((err) => {
         console.error(err);

@@ -21,7 +21,6 @@ import {AbstractTableDirective} from "../../abstraction/abstract-table.directive
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ConstructorsTableComponent extends AbstractTableDirective<ConstructorStanding> implements AfterViewChecked {
-  public isLoading: boolean = false;
   public displayedColumns: string[] = [];
   public dataSource: MatTableDataSource<any>;
   public data: Array<ConstructorStanding> = [];
@@ -41,12 +40,12 @@ export class ConstructorsTableComponent extends AbstractTableDirective<Construct
       tap(() => this.isLoading = true),
       tap(() => this.cdr.markForCheck()),
       switchMap((params: Params) => this.driverConstructorStandingsService.getConstructorStandings(params['year'])),
-      tap(() => this.isLoading = false),
       map((res: ConstructorStandingsList[]) => {
         if(!res[0]) return;
         this.data = res[0].ConstructorStandings;
         this.dataSource = new MatTableDataSource(this.data);
       }),
+      tap(() => this.isLoading = false),
       tap(() => this.cdr.markForCheck()),
       catchError((err) => {
         console.error(err);

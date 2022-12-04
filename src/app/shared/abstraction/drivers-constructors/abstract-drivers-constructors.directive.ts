@@ -10,8 +10,8 @@ import {MatDialog} from "@angular/material/dialog";
 
 @Directive()
 export abstract class AbstractDriversConstructorsDirective<C> implements OnInit, OnDestroy {
+  public loading: boolean = false;
   public abstract selectedYear: string;
-  public abstract loading: boolean;
   public abstract data: Array<C>;
   protected abstract dataSub$: Subscription;
 

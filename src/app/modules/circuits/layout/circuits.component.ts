@@ -17,7 +17,7 @@ import {CircuitsService} from '../services/circuits.service';
   styleUrls: ['./circuits.component.scss']
 })
 export class CircuitsComponent implements OnInit, OnDestroy {
-  public isLoading: boolean = false;
+  public isLoading: boolean = true;
   public currentYear: string = new Date().getFullYear().toString();
   public circuits: Circuit[] = [];
   private _circuitsSub$: Subscription;
@@ -33,8 +33,6 @@ export class CircuitsComponent implements OnInit, OnDestroy {
   }
 
   private _getCircuits() {
-    this.isLoading = true;
-
     this._circuitsSub$ = this._circuitsService.getCircuits().pipe(
       map((circuits: Circuit[]) => this.circuits = circuits),
       tap(() => this.isLoading = false),

@@ -17,7 +17,7 @@ import {ScheduleService} from '../services/schedule.service';
   styleUrls: ['./schedule.component.scss']
 })
 export class ScheduleComponent implements OnInit, OnDestroy {
-  public isLoading: boolean = false;
+  public isLoading: boolean = true;
   public currentYear: string = new Date().getFullYear().toString();
   public schedule: Race[] = [];
   private _scheduleSub$: Subscription;
@@ -33,8 +33,6 @@ export class ScheduleComponent implements OnInit, OnDestroy {
   }
 
   private _getSchedule(): void {
-    this.isLoading = true;
-
     this._scheduleSub$ = this._scheduleService.getSchedule().pipe(
       map((schedule: Race[]) => this.schedule = schedule),
       tap(() => this.isLoading = false),

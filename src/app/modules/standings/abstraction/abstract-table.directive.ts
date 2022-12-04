@@ -16,7 +16,7 @@ import {DriverConstructorStandingsService} from "../services/driver-constructor-
 export abstract class AbstractTableDirective<C> implements OnInit, OnDestroy {
   @ViewChild(MatSort) public sort: MatSort | null;
   public filterValue: string = '';
-  public abstract isLoading: boolean;
+  public isLoading: boolean = false;
   public abstract displayedColumns: string[];
   public abstract dataSource: MatTableDataSource<any>;
   public abstract data: Array<C>;

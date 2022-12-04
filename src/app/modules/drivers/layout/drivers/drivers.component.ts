@@ -29,7 +29,6 @@ import {AbstractDriversConstructorsDirective} from "@shared/abstraction/drivers-
 })
 export class DriversComponent extends AbstractDriversConstructorsDirective<Driver> {
   public selectedYear: string;
-  public loading: boolean = false;
   public data: Array<Driver>;
   protected dataSub$: Subscription;
 

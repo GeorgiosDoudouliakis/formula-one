@@ -35,8 +35,8 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   public ngOnInit(): void {
     this._topDriversSub$ = this._topDriversService.getTopDrivers().pipe(
-      tap(() => this.isDriverStatsLoading = false),
       map((driversStandingsList: DriverStandingsList[]) => this.topDrivers = driversStandingsList[0].DriverStandings),
+      tap(() => this.isDriverStatsLoading = false),
       tap(() => this._cdr.markForCheck()),
       catchError((err) => {
         console.error(err);
@@ -45,8 +45,8 @@ export class HomeComponent implements OnInit, OnDestroy {
     ).subscribe();
 
     this._topConstructorsSub$ = this._topConstructorsService.getTopConstructors().pipe(
-      tap(() => this.isConstructorStatsLoading = false),
       map((constructorStandingsList: ConstructorStandingsList[]) => this.topConstructors = constructorStandingsList[0].ConstructorStandings),
+      tap(() => this.isConstructorStatsLoading = false),
       tap(() => this._cdr.markForCheck()),
       catchError((err) => {
         console.error(err);
