@@ -16,14 +16,14 @@ import { MatDialogModule } from "@angular/material/dialog";
 
 @NgModule({
   declarations: [
-    AppComponent,
-    FooterComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     HeaderModule,
+    FooterComponent,
     MatDialogModule
   ],
   providers: [],
