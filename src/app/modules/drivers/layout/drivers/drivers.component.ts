@@ -42,8 +42,8 @@ export class DriversComponent extends AbstractDriversConstructorsDirective<Drive
     super(dialog, _route, _cdr);
   }
 
-  public openDetails(): void {
-    const dialogRef = this.dialog.open(DriverDetailsComponent);
+  public openDetails(id: string): void {
+    this.dialog.open(DriverDetailsComponent, { data: { id }});
   }
 
   public imageExists(details: any): boolean {

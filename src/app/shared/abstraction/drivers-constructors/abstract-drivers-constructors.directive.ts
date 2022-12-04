@@ -29,7 +29,7 @@ export abstract class AbstractDriversConstructorsDirective<C> implements OnInit,
     if(this._dataSub$) this._dataSub$.unsubscribe();
   }
 
-  public abstract openDetails(): void;
+  public abstract openDetails(id: string): void;
   public abstract imageExists(details: any): boolean;
   protected abstract getDataByYear(): void;
 }
