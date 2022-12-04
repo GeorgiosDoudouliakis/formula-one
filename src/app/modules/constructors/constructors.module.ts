@@ -15,7 +15,7 @@ import { ConstructorComponent } from './layout/constructor/constructor.component
 import { ConstructorsService } from './services/constructors.service';
 
 /* Place angular material imports */
-import { MatIconModule } from "@angular/material/icon";
+import { MatButtonModule } from "@angular/material/button";
 
 const routes = [
   {
@@ -36,7 +36,7 @@ const routes = [
     SeasonFilterModule,
     HttpClientModule,
     PageHeaderModule,
-    MatIconModule,
+    MatButtonModule,
     LoaderModule
   ],
   providers: [ConstructorsService]

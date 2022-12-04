@@ -8,7 +8,7 @@ import { HttpClientModule } from "@angular/common/http";
 import { SeasonFilterModule, PageHeaderModule, LoaderModule } from "@shared/modules";
 
 /* Place angular material imports */
-import { MatIconModule } from "@angular/material/icon";
+import { MatButtonModule } from "@angular/material/button";
 
 /* Place component imports */
 import { DriversComponent } from './layout/drivers/drivers.component';
@@ -36,7 +36,7 @@ const routes = [
     RouterModule.forChild(routes),
     SeasonFilterModule,
     PageHeaderModule,
-    MatIconModule,
+    MatButtonModule,
     LoaderModule
   ],
   exports: [
