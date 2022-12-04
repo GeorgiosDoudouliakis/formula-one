@@ -31,15 +31,15 @@ export class ConstructorsComponent extends AbstractDriversConstructorsDirective<
   public selectedYear: string;
   public loading: boolean = false;
   public data: Array<Constructor>;
-  protected _dataSub$: Subscription;
+  protected dataSub$: Subscription;
 
   constructor(
     public override dialog: MatDialog,
-    protected override _route: ActivatedRoute,
-    protected override _cdr: ChangeDetectorRef,
+    protected override route: ActivatedRoute,
+    protected override cdr: ChangeDetectorRef,
     private _constructorsService: ConstructorsService,
   ) {
-    super(dialog, _route, _cdr);
+    super(dialog, route, cdr);
   }
 
   public openDetails(id: string): void {
@@ -64,7 +64,7 @@ export class ConstructorsComponent extends AbstractDriversConstructorsDirective<
   }
 
   protected override getDataByYear(): void {
-    this._dataSub$ = this._route.queryParams.pipe(
+    this.dataSub$ = this.route.queryParams.pipe(
       tap(() => this.loading = true),
       switchMap((params: Params) => {
         this.selectedYear = params['year'];
@@ -72,7 +72,7 @@ export class ConstructorsComponent extends AbstractDriversConstructorsDirective<
       }),
       map((data: Array<Constructor>) => this.data = data),
       tap(() => this.loading = false),
-      tap(() => this._cdr.markForCheck()),
+      tap(() => this.cdr.markForCheck()),
       catchError((error)=> {
         console.error(error);
         return throwError(error);

@@ -20,13 +20,13 @@ export abstract class AbstractTableDirective<C> implements OnInit, OnDestroy {
   public abstract displayedColumns: string[];
   public abstract dataSource: MatTableDataSource<any>;
   public abstract data: Array<C>;
-  protected abstract _standingsSub$: Subscription;
+  protected abstract standingsSub$: Subscription;
 
   constructor(
-    protected _driverConstructorStandingsService: DriverConstructorStandingsService,
-    protected _router: Router,
-    protected _route: ActivatedRoute,
-    protected _cdr: ChangeDetectorRef
+    protected driverConstructorStandingsService: DriverConstructorStandingsService,
+    protected router: Router,
+    protected route: ActivatedRoute,
+    protected cdr: ChangeDetectorRef
   ) {}
 
   public ngOnInit(): void {
@@ -34,7 +34,7 @@ export abstract class AbstractTableDirective<C> implements OnInit, OnDestroy {
   }
 
   public ngOnDestroy(): void {
-    if(this._standingsSub$) this._standingsSub$.unsubscribe();
+    if(this.standingsSub$) this.standingsSub$.unsubscribe();
   }
 
   public applyFilter(event: Event): void {

@@ -25,7 +25,7 @@ export class DriversTableComponent extends AbstractTableDirective<DriverStanding
   public displayedColumns: string[] = [];
   public dataSource: MatTableDataSource<any>;
   public data: Array<DriverStanding> = [];
-  protected _standingsSub$: Subscription;
+  protected standingsSub$: Subscription;
 
   public ngAfterViewChecked(): void {
     this.displayedColumns = ["position", "name", "constructor", "points", "wins"];
@@ -33,21 +33,21 @@ export class DriversTableComponent extends AbstractTableDirective<DriverStanding
   }
 
   public showDetails(row: any): void {
-    this._router.navigate(['/drivers', row['Driver']['driverId']]);
+    this.router.navigate(['/drivers', row['Driver']['driverId']]);
   }
 
   protected getTableData(): void {
-    this._standingsSub$ = this._route.queryParams.pipe(
+    this.standingsSub$ = this.route.queryParams.pipe(
       tap(() => this.isLoading = true),
-      tap(() => this._cdr.markForCheck()),
-      switchMap((params: Params) => this._driverConstructorStandingsService.getDriverStandings(params['year'])),
+      tap(() => this.cdr.markForCheck()),
+      switchMap((params: Params) => this.driverConstructorStandingsService.getDriverStandings(params['year'])),
       tap(() => this.isLoading = false),
       map((res: DriverStandingsList[]) => {
         if(!res[0]) return;
         this.data = res[0].DriverStandings;
         this.dataSource = new MatTableDataSource(this.data);
       }),
-      tap(() => this._cdr.markForCheck()),
+      tap(() => this.cdr.markForCheck()),
       catchError((err) => {
         console.error(err);
         return throwError(err);

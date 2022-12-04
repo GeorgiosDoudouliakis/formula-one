@@ -13,12 +13,12 @@ export abstract class AbstractDriversConstructorsDirective<C> implements OnInit,
   public abstract selectedYear: string;
   public abstract loading: boolean;
   public abstract data: Array<C>;
-  protected abstract _dataSub$: Subscription;
+  protected abstract dataSub$: Subscription;
 
   constructor(
     public dialog: MatDialog,
-    protected _route: ActivatedRoute,
-    protected _cdr: ChangeDetectorRef
+    protected route: ActivatedRoute,
+    protected cdr: ChangeDetectorRef
   ) { }
 
   public ngOnInit(): void {
@@ -26,7 +26,7 @@ export abstract class AbstractDriversConstructorsDirective<C> implements OnInit,
   }
 
   public ngOnDestroy(): void {
-    if(this._dataSub$) this._dataSub$.unsubscribe();
+    if(this.dataSub$) this.dataSub$.unsubscribe();
   }
 
   public abstract openDetails(id: string): void;
