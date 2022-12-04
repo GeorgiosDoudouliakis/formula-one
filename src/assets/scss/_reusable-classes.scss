@@ -88,18 +88,6 @@
     object-fit: cover;
 }
 
-.info {
-  @include flex(row, nowrap, flex-end, flex-start);
-  padding: 0.8rem 1rem;
-  margin-bottom: 1.5rem;
-  background: $lightGray;
-  border-left: 2px solid $primary;
-  border-right: 2px solid $primary;
-  mat-icon {
-    margin-right: .5rem;
-  }
-}
-
 @media(min-width: 768px) {
     .grid {
         grid-template-columns: repeat(2, 1fr);
