@@ -6,10 +6,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 /* Place component imports */
 import { AppComponent } from './app.component';
+import { HeaderComponent } from "./components/header/header.component";
 import { FooterComponent } from "./components/footer/footer.component";
-
-/* Place any other imports here */
-import { HeaderModule } from "./components/header/header.module";
 
 /* Place angular material imports */
 import { MatDialogModule } from "@angular/material/dialog";
@@ -22,7 +20,7 @@ import { MatDialogModule } from "@angular/material/dialog";
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    HeaderModule,
+    HeaderComponent,
     FooterComponent,
     MatDialogModule
   ],

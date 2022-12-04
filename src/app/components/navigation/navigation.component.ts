@@ -7,12 +7,22 @@ import {
   Output,
   SimpleChanges
 } from '@angular/core';
-import {DOCUMENT} from "@angular/common";
+import {RouterModule} from "@angular/router";
+import {CommonModule, DOCUMENT} from "@angular/common";
+
+/* Place angular material imports here */
+import {MatIconModule} from "@angular/material/icon";
 
 @Component({
   selector: 'app-navigation',
+  standalone: true,
   templateUrl: './navigation.component.html',
-  styleUrls: ['./navigation.component.scss']
+  styleUrls: ['./navigation.component.scss'],
+  imports: [
+    CommonModule,
+    RouterModule,
+    MatIconModule
+  ]
 })
 export class NavigationComponent implements OnChanges {
   @Input() public isMobileMenuOpen: boolean = false;
