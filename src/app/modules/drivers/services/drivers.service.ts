@@ -7,6 +7,7 @@ import { Driver, DriverData } from '@shared/interfaces/constructor-driver.interf
 
 /* Place rxjs imports */
 import { Observable, pluck } from 'rxjs';
+import { map } from "rxjs/operators";
 
 /* Place any other imports here */
 import { environment } from 'src/environments/environment';
@@ -16,9 +17,10 @@ export class DriversService {
 
   constructor(private _http: HttpClient) { }
 
-  public getDriverDetails(driverId: string): Observable<Driver[]> {
+  public getDriverDetails(driverId: string): Observable<Driver> {
     return this._http.get<DriverData>(`${environment.api}/drivers/${driverId}.json`).pipe(
-      pluck('MRData', 'DriverTable', 'Drivers')
+      pluck('MRData', 'DriverTable', 'Drivers'),
+      map((drivers: Driver[]) => drivers[0])
     );
   }
 

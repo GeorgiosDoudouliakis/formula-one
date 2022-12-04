@@ -1,1 +1,8 @@
-<p>constructor-details works!</p>
+<h1 mat-dialog-title>{{ f1Constructor?.name }}</h1>
+<div mat-dialog-content>
+  <span>Nationality: {{ f1Constructor?.nationality }}</span>
+  <a [href]="f1Constructor?.url" target="_blank" rel="noreferrer">Wikipedia</a>
+</div>
+<div mat-dialog-actions align="center">
+  <button mat-stroked-button color="accent" mat-dialog-close>Close</button>
+</div>

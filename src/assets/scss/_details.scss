@@ -1,0 +1,24 @@
+@import './variables';
+
+h1 {
+  text-align: center;
+  padding: 1rem 0;
+  color: $white;
+  background: $accent;
+}
+
+.mat-dialog-content {
+  padding: 0 2rem;
+}
+
+.mat-dialog-content > * {
+  display: block;
+  font-size: 1rem;
+  text-align: center;
+  margin-bottom: .8rem;
+}
+
+a {
+  text-decoration: underline;
+  color: $accent;
+}

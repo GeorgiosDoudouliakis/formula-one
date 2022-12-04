@@ -43,7 +43,11 @@ export class ConstructorsComponent extends AbstractDriversConstructorsDirective<
   }
 
   public openDetails(id: string): void {
-    this.dialog.open(ConstructorDetailsComponent, { data: { id }});
+    this.dialog.open(ConstructorDetailsComponent, {
+      data: { id },
+      minWidth: '330px',
+      minHeight: '240px'
+    });
   }
 
   public imageExists(details: any): boolean {
