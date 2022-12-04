@@ -9,7 +9,6 @@ import { SeasonFilterModule, PageHeaderModule, LoaderModule } from "@shared/modu
 
 /* Place component imports here imports */
 import { ConstructorsComponent } from './layout/constructors/constructors.component';
-import { ConstructorComponent } from './layout/constructor/constructor.component';
 
 /* Place service imports */
 import { ConstructorsService } from './services/constructors.service';
@@ -27,8 +26,7 @@ const routes = [
 
 @NgModule({
   declarations: [
-    ConstructorsComponent,
-    ConstructorComponent
+    ConstructorsComponent
   ],
   imports: [
     CommonModule,

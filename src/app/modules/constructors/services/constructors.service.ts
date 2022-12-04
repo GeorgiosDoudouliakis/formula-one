@@ -23,10 +23,6 @@ export class ConstructorsService {
     );
   }
 
-  public getConstructorResults(constructorId: string): Observable<Race[]> {
-    return this._http.get<RoundStandings>(`${environment.api}/constructors/${constructorId}/results.json`).pipe(pluck('MRData', 'RaceTable', 'Races'));
-  }
-
   public getConstructors(year: string): Observable<any> {
     return this._http.get<ConstructorData>(`${environment.api}/${year}/constructors.json`).pipe(pluck('MRData', 'ConstructorTable', 'Constructors'));
   }

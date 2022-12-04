@@ -23,10 +23,6 @@ export class DriversService {
     );
   }
 
-  public getDriverResults(driverId: string): Observable<Race[]> {
-    return this._http.get<RoundStandings>(`${environment.api}/drivers/${driverId}/results.json`).pipe(pluck('MRData', 'RaceTable', 'Races'));
-  }
-
   public getDrivers(year: string): Observable<any> {
     return this._http.get<Driver[]>(`${environment.api}/${year}/drivers.json`)
       .pipe(pluck('MRData', 'DriverTable', 'Drivers'));
