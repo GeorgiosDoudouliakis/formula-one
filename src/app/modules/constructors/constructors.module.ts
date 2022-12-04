@@ -9,12 +9,14 @@ import { SeasonFilterModule, PageHeaderModule, LoaderModule } from "@shared/modu
 
 /* Place component imports here imports */
 import { ConstructorsComponent } from './layout/constructors/constructors.component';
+import { ConstructorDetailsComponent } from './components/constructor-details/constructor-details.component';
 
 /* Place service imports */
 import { ConstructorsService } from './services/constructors.service';
 
 /* Place angular material imports */
 import { MatButtonModule } from "@angular/material/button";
+import { MatDialogModule } from "@angular/material/dialog";
 
 const routes = [
   {
@@ -26,7 +28,8 @@ const routes = [
 
 @NgModule({
   declarations: [
-    ConstructorsComponent
+    ConstructorsComponent,
+    ConstructorDetailsComponent
   ],
   imports: [
     CommonModule,
@@ -35,6 +38,7 @@ const routes = [
     HttpClientModule,
     PageHeaderModule,
     MatButtonModule,
+    MatDialogModule,
     LoaderModule
   ],
   providers: [ConstructorsService]

@@ -5,6 +5,9 @@ import {ActivatedRoute} from "@angular/router";
 /* Place rxjs imports */
 import {Subscription} from "rxjs";
 
+/* Place angular material imports here */
+import {MatDialog} from "@angular/material/dialog";
+
 @Directive()
 export abstract class AbstractDriversConstructorsDirective<C> implements OnInit, OnDestroy {
   public abstract selectedYear: string;
@@ -13,6 +16,7 @@ export abstract class AbstractDriversConstructorsDirective<C> implements OnInit,
   protected abstract _dataSub$: Subscription;
 
   constructor(
+    public dialog: MatDialog,
     protected _route: ActivatedRoute,
     protected _cdr: ChangeDetectorRef
   ) { }
@@ -25,6 +29,7 @@ export abstract class AbstractDriversConstructorsDirective<C> implements OnInit,
     if(this._dataSub$) this._dataSub$.unsubscribe();
   }
 
-  protected abstract getDataByYear(): void;
+  public abstract openDetails(): void;
   public abstract imageExists(details: any): boolean;
+  protected abstract getDataByYear(): void;
 }

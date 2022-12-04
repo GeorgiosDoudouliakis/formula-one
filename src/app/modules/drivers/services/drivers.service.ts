@@ -4,7 +4,6 @@ import { Injectable } from '@angular/core';
 
 /* Place interface imports */
 import { Driver, DriverData } from '@shared/interfaces/constructor-driver.interface';
-import { Race, RoundStandings } from '@shared/interfaces/round-standings.interface';
 
 /* Place rxjs imports */
 import { Observable, pluck } from 'rxjs';

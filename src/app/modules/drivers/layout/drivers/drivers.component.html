@@ -4,7 +4,7 @@
 </app-page-header>
 <ng-container *ngIf="!loading">
   <section class="grid constructors-drivers">
-    <article *ngFor="let details of data" class="box">
+    <article *ngFor="let details of data" class="box" (click)="openDetails()">
       <section class="image-name-container">
         <div class="img-container_drivers">
           <img *ngIf="imageExists(details); else noImage" src="assets/images/{{ details['driverId'] }}.png" [alt]="details['familyName'] + ' photo'" width="45" height="45" />

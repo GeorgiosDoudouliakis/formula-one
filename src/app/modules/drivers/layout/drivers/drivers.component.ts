@@ -6,11 +6,17 @@ import {ActivatedRoute, Params} from "@angular/router";
 import {catchError, Subscription, switchMap, tap, throwError} from "rxjs";
 import {map} from "rxjs/operators";
 
+/* Place component imports here */
+import {DriverDetailsComponent} from "../../components/driver-details/driver-details.component";
+
 /* Place interface imports */
 import {Driver} from '@shared/interfaces/constructor-driver.interface';
 
 /* Place service imports */
 import {DriversService} from "../../services/drivers.service";
+
+/* Place angular material imports here */
+import {MatDialog} from '@angular/material/dialog';
 
 /* Place any other imports here */
 import {AbstractDriversConstructorsDirective} from "@shared/abstraction/drivers-constructors/abstract-drivers-constructors.directive";
@@ -28,28 +34,16 @@ export class DriversComponent extends AbstractDriversConstructorsDirective<Drive
   protected _dataSub$: Subscription;
 
   constructor(
+    public override dialog: MatDialog,
     protected override _route: ActivatedRoute,
     protected override _cdr: ChangeDetectorRef,
     private _driversService: DriversService
   ) {
-    super(_route, _cdr);
+    super(dialog, _route, _cdr);
   }
 
-  protected override getDataByYear(): void {
-    this._dataSub$ = this._route.queryParams.pipe(
-      tap(() => this.loading = true),
-      switchMap((params: Params) => {
-        this.selectedYear = params['year'];
-        return this._driversService.getDrivers(this.selectedYear)
-      }),
-      map((data: Array<Driver>) => this.data = data),
-      tap(() => this.loading = false),
-      tap(() => this._cdr.markForCheck()),
-      catchError((error)=> {
-        console.error(error);
-        return throwError(error);
-      })
-    ).subscribe();
+  public openDetails(): void {
+    const dialogRef = this.dialog.open(DriverDetailsComponent);
   }
 
   public imageExists(details: any): boolean {
@@ -74,5 +68,22 @@ export class DriversComponent extends AbstractDriversConstructorsDirective<Drive
       details?.driverId === 'tsunoda' ||
       details?.driverId === 'max_verstappen' ||
       details?.driverId === 'vettel';
+  }
+
+  protected override getDataByYear(): void {
+    this._dataSub$ = this._route.queryParams.pipe(
+      tap(() => this.loading = true),
+      switchMap((params: Params) => {
+        this.selectedYear = params['year'];
+        return this._driversService.getDrivers(this.selectedYear)
+      }),
+      map((data: Array<Driver>) => this.data = data),
+      tap(() => this.loading = false),
+      tap(() => this._cdr.markForCheck()),
+      catchError((error)=> {
+        console.error(error);
+        return throwError(error);
+      })
+    ).subscribe();
   }
 }

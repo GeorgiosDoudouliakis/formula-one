@@ -9,9 +9,11 @@ import { SeasonFilterModule, PageHeaderModule, LoaderModule } from "@shared/modu
 
 /* Place angular material imports */
 import { MatButtonModule } from "@angular/material/button";
+import { MatDialogModule } from '@angular/material/dialog';
 
 /* Place component imports */
 import { DriversComponent } from './layout/drivers/drivers.component';
+import { DriverDetailsComponent } from './components/driver-details/driver-details.component';
 
 /* Place service imports */
 import { DriversService } from './services/drivers.service';
@@ -26,7 +28,8 @@ const routes = [
 
 @NgModule({
   declarations: [
-    DriversComponent
+    DriversComponent,
+    DriverDetailsComponent
   ],
   imports: [
     CommonModule,
@@ -35,6 +38,7 @@ const routes = [
     SeasonFilterModule,
     PageHeaderModule,
     MatButtonModule,
+    MatDialogModule,
     LoaderModule
   ],
   exports: [

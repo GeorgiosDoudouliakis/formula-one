@@ -6,11 +6,17 @@ import {ActivatedRoute, Params} from "@angular/router";
 import {catchError, Subscription, switchMap, tap, throwError} from "rxjs";
 import {map} from "rxjs/operators";
 
+/* Place component imports here */
+import {ConstructorDetailsComponent} from "../../components/constructor-details/constructor-details.component";
+
 /* Place interface imports */
 import {Constructor} from '@shared/interfaces/constructor-driver.interface';
 
 /* Place service imports */
 import {ConstructorsService} from '../../services/constructors.service';
+
+/* Place angular material imports here */
+import {MatDialog} from "@angular/material/dialog";
 
 /* Place any other imports here */
 import {AbstractDriversConstructorsDirective} from "@shared/abstraction/drivers-constructors/abstract-drivers-constructors.directive";
@@ -28,11 +34,29 @@ export class ConstructorsComponent extends AbstractDriversConstructorsDirective<
   protected _dataSub$: Subscription;
 
   constructor(
+    public override dialog: MatDialog,
     protected override _route: ActivatedRoute,
     protected override _cdr: ChangeDetectorRef,
     private _constructorsService: ConstructorsService,
   ) {
-    super(_route, _cdr);
+    super(dialog, _route, _cdr);
+  }
+
+  public openDetails(): void {
+    const dialogRef = this.dialog.open(ConstructorDetailsComponent);
+  }
+
+  public imageExists(details: any): boolean {
+    return  details?.constructorId === 'alphatauri' ||
+      details?.constructorId === 'alfa' ||
+      details?.constructorId === 'alpine' ||
+      details?.constructorId === 'aston_martin' ||
+      details?.constructorId === 'ferrari' ||
+      details?.constructorId === 'haas' ||
+      details?.constructorId === 'mclaren' ||
+      details?.constructorId === 'mercedes' ||
+      details?.constructorId === 'red_bull' ||
+      details?.constructorId === 'williams';
   }
 
   protected override getDataByYear(): void {
@@ -50,18 +74,5 @@ export class ConstructorsComponent extends AbstractDriversConstructorsDirective<
         return throwError(error);
       })
     ).subscribe();
-  }
-
-  public imageExists(details: any): boolean {
-    return  details?.constructorId === 'alphatauri' ||
-      details?.constructorId === 'alfa' ||
-      details?.constructorId === 'alpine' ||
-      details?.constructorId === 'aston_martin' ||
-      details?.constructorId === 'ferrari' ||
-      details?.constructorId === 'haas' ||
-      details?.constructorId === 'mclaren' ||
-      details?.constructorId === 'mercedes' ||
-      details?.constructorId === 'red_bull' ||
-      details?.constructorId === 'williams';
   }
 }
