@@ -2,7 +2,7 @@
 <div mat-dialog-content>
   <span>Date of birth: {{ driver?.dateOfBirth }}</span>
   <span>Nationality: {{ driver?.nationality }}</span>
-  <span>Driver number: {{ driver?.permanentNumber }}</span>
+  <span *ngIf="driver?.permanentNumber">Driver number: {{ driver?.permanentNumber }}</span>
   <a [href]="driver?.url" target="_blank" rel="noreferrer">Wikipedia</a>
 </div>
 <div mat-dialog-actions align="center">
