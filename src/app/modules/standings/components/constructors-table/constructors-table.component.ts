@@ -31,10 +31,6 @@ export class ConstructorsTableComponent extends AbstractTableDirective<Construct
     this.initializeFilterAndSorting();
   }
 
-  public showDetails(row: any): void {
-    this.router.navigate(['/constructors', row['Constructor']['constructorId']]);
-  }
-
   protected getTableData(): void {
     this.standingsSub$ = this.route.queryParams.pipe(
       tap(() => this.isLoading = true),

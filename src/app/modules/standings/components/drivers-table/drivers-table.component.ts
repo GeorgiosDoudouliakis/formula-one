@@ -31,10 +31,6 @@ export class DriversTableComponent extends AbstractTableDirective<DriverStanding
     this.initializeFilterAndSorting();
   }
 
-  public showDetails(row: any): void {
-    this.router.navigate(['/drivers', row['Driver']['driverId']]);
-  }
-
   protected getTableData(): void {
     this.standingsSub$ = this.route.queryParams.pipe(
       tap(() => this.isLoading = true),

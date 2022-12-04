@@ -1,6 +1,6 @@
 /* Place angular imports */
 import {ChangeDetectorRef, Directive, OnDestroy, OnInit, ViewChild} from '@angular/core';
-import {ActivatedRoute, Router} from "@angular/router";
+import {ActivatedRoute} from "@angular/router";
 
 /* Place RxJs imports */
 import {Subscription} from "rxjs";
@@ -24,7 +24,6 @@ export abstract class AbstractTableDirective<C> implements OnInit, OnDestroy {
 
   constructor(
     protected driverConstructorStandingsService: DriverConstructorStandingsService,
-    protected router: Router,
     protected route: ActivatedRoute,
     protected cdr: ChangeDetectorRef
   ) {}
@@ -50,7 +49,6 @@ export abstract class AbstractTableDirective<C> implements OnInit, OnDestroy {
     }
   }
 
-  public abstract showDetails(row: any): void;
   protected abstract getTableData(): void;
   protected abstract predicate(data: any, filter: string): boolean;
   protected abstract dataAccessor(data: any, property: any): any;
