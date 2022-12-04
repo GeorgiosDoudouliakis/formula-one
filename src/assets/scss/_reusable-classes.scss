@@ -84,6 +84,11 @@
     object-fit: cover;
 }
 
+.no-data {
+  font-size: 1.1rem;
+  text-align: center;
+}
+
 @media(min-width: 768px) {
     .grid {
         grid-template-columns: repeat(2, 1fr);

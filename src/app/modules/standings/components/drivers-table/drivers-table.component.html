@@ -5,7 +5,7 @@
       <input matInput (keyup)="applyFilter($event)" placeholder="Search..." [(ngModel)]="filterValue" autocomplete="off">
     </mat-form-field>
 
-    <section class="table-container">
+    <section *ngIf="data.length > 0" class="table-container">
       <table mat-table [dataSource]="dataSource" matSort>
         <ng-container matColumnDef="position">
           <th mat-header-cell *matHeaderCellDef mat-sort-header>Position</th>
@@ -40,6 +40,8 @@
         </tr>
       </table>
     </section>
+
+    <p *ngIf="data.length === 0" class="no-data">No data found</p>
   </ng-container>
   <app-loader *ngIf="isLoading"></app-loader>
 </section>

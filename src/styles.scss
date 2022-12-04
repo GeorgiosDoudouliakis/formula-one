@@ -47,6 +47,10 @@ a {
   text-decoration: none;
 }
 
+app-standings app-season-filter section {
+  margin-bottom: 0 !important;
+}
+
 // Media
 @media(min-width: 768px){
   h1 {
