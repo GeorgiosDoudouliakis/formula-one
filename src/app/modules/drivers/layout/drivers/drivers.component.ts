@@ -37,7 +37,7 @@ export class DriversComponent extends AbstractDriversConstructorsDirective<Drive
     public override dialog: MatDialog,
     protected override route: ActivatedRoute,
     protected override cdr: ChangeDetectorRef,
-    private driversService: DriversService
+    private _driversService: DriversService
   ) {
     super(dialog, route, cdr);
   }
@@ -79,7 +79,7 @@ export class DriversComponent extends AbstractDriversConstructorsDirective<Drive
       tap(() => this.loading = true),
       switchMap((params: Params) => {
         this.selectedYear = params['year'];
-        return this.driversService.getDrivers(this.selectedYear)
+        return this._driversService.getDrivers(this.selectedYear)
       }),
       map((data: Array<Driver>) => this.data = data),
       tap(() => this.loading = false),
