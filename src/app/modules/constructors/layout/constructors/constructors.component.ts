@@ -1,6 +1,6 @@
 /* Place angular imports */
 import {ChangeDetectionStrategy, ChangeDetectorRef, Component} from '@angular/core';
-import {ActivatedRoute, Params, Router} from "@angular/router";
+import {ActivatedRoute, Params} from "@angular/router";
 
 /* Place RxJs imports here */
 import {catchError, Subscription, switchMap, tap, throwError} from "rxjs";
@@ -28,12 +28,11 @@ export class ConstructorsComponent extends AbstractDriversConstructorsDirective<
   protected _dataSub$: Subscription;
 
   constructor(
-    public override router: Router,
     protected override _route: ActivatedRoute,
     protected override _cdr: ChangeDetectorRef,
     private _constructorsService: ConstructorsService,
   ) {
-    super(router, _route, _cdr);
+    super(_route, _cdr);
   }
 
   protected override getDataByYear(): void {

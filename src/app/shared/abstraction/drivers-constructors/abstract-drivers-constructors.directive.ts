@@ -1,6 +1,6 @@
 /* Place angular imports */
 import {ChangeDetectorRef, Directive, OnDestroy, OnInit} from '@angular/core';
-import {ActivatedRoute, Router} from "@angular/router";
+import {ActivatedRoute} from "@angular/router";
 
 /* Place rxjs imports */
 import {Subscription} from "rxjs";
@@ -13,7 +13,6 @@ export abstract class AbstractDriversConstructorsDirective<C> implements OnInit,
   protected abstract _dataSub$: Subscription;
 
   constructor(
-    public router: Router,
     protected _route: ActivatedRoute,
     protected _cdr: ChangeDetectorRef
   ) { }

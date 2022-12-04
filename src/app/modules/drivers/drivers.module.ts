@@ -5,8 +5,7 @@ import { RouterModule } from '@angular/router';
 import { HttpClientModule } from "@angular/common/http";
 
 /* Place any other imports here */
-import { SeasonFilterModule, PageHeaderModule, LoaderModule, DriverConstructorModule } from "@shared/modules";
-import { TitleResolver } from "@shared/resolvers/title.resolver";
+import { SeasonFilterModule, PageHeaderModule, LoaderModule } from "@shared/modules";
 
 /* Place angular material imports */
 import { MatIconModule } from "@angular/material/icon";
@@ -23,11 +22,6 @@ const routes = [
     path: '',
     title: 'F1 | Drivers',
     component: DriversComponent
-  },
-  {
-    path: ':id',
-    title: TitleResolver,
-    component: DriverComponent
   }
 ];
 
@@ -42,7 +36,6 @@ const routes = [
     RouterModule.forChild(routes),
     SeasonFilterModule,
     PageHeaderModule,
-    DriverConstructorModule,
     MatIconModule,
     LoaderModule
   ],
