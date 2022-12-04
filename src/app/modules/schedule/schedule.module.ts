@@ -7,6 +7,8 @@ import { RouterModule } from '@angular/router';
 /* Place component imports */
 import { ScheduleComponent } from './layout/schedule.component';
 import { ScheduleCardComponent } from './components/schedule-card/schedule-card.component';
+import { PageHeaderComponent } from "@shared/components/page-header/page-header.component";
+import { LoaderComponent } from "@shared/components/loader/loader.component";
 
 /* Place service imports */
 import { ScheduleService } from './services/schedule.service';
@@ -16,7 +18,6 @@ import { MatCardModule } from "@angular/material/card";
 import { MatIconModule } from "@angular/material/icon";
 
 /* Place any other imports here */
-import { PageHeaderModule, LoaderModule  } from "@shared/modules";
 import { ToLocalTimePipe } from "./pipes/to-local-time/to-local-time.pipe";
 
 const routes = [
@@ -37,10 +38,10 @@ const routes = [
     CommonModule,
     HttpClientModule,
     RouterModule.forChild(routes),
-    PageHeaderModule,
+    LoaderComponent,
+    PageHeaderComponent,
     MatCardModule,
-    MatIconModule,
-    LoaderModule
+    MatIconModule
   ],
   exports: [
     RouterModule

@@ -8,15 +8,14 @@ import { HttpClientModule } from "@angular/common/http";
 import { CircuitLocationComponent } from './components/circuit-location/circuit-location.component';
 import { MapComponent } from './components/map/map.component';
 import { CircuitCardComponent } from './components/circuit-card/circuit-card.component';
+import { PageHeaderComponent } from "@shared/components/page-header/page-header.component";
+import { LoaderComponent } from "@shared/components/loader/loader.component";
 
 /* Place angular material imports */
 import { MatCardModule } from "@angular/material/card";
 import { MatButtonModule } from "@angular/material/button";
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
-
-/* Place any other imports here */
-import { PageHeaderModule, LoaderModule } from "@shared/modules";
 
 /* Place service imports */
 import { CircuitsComponent } from './layout/circuits.component';
@@ -41,8 +40,8 @@ const routes = [
     CommonModule,
     RouterModule.forChild(routes),
     HttpClientModule,
-    PageHeaderModule,
-    LoaderModule,
+    PageHeaderComponent,
+    LoaderComponent,
     MatCardModule,
     MatButtonModule,
     MatDialogModule,

@@ -7,6 +7,7 @@ import { HttpClientModule } from "@angular/common/http";
 /* Place component imports */
 import { HomeComponent } from './layout/home.component';
 import { PlacementComponent } from './components/placement/placement.component';
+import { LoaderComponent } from "@shared/components/loader/loader.component";
 
 /* Place service imports */
 import { TopDriversService } from "./services/top-drivers/top-drivers.service";
@@ -14,7 +15,6 @@ import { TopConstructorsService } from "./services/top-constructors/top-construc
 
 /* Place any other imports here */
 import { OrdinalNumbersModule } from 'sh-ordinal-numbers';
-import { LoaderModule } from "@shared/modules";
 
 /* Place angular material imports */
 import { MatButtonModule } from "@angular/material/button";
@@ -29,7 +29,7 @@ const routes: Routes = [
 ]
 
 @NgModule({
-  imports: [HttpClientModule, CommonModule, RouterModule.forChild(routes), LoaderModule, MatButtonModule, OrdinalNumbersModule],
+  imports: [HttpClientModule, CommonModule, RouterModule.forChild(routes), LoaderComponent, MatButtonModule, OrdinalNumbersModule],
   declarations: [HomeComponent, PlacementComponent],
   providers: [TopDriversService, TopConstructorsService]
 })

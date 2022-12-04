@@ -12,13 +12,13 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MatTableModule } from '@angular/material/table';
 import { MatSortModule } from '@angular/material/sort';
 
-/* Place any other imports here */
-import { LoaderModule, SeasonFilterModule, PageHeaderModule } from "@shared/modules";
-
 /* Place components imports */
 import { StandingsComponent } from './layout/standings.component';
 import { DriversTableComponent } from "./components/drivers-table/drivers-table.component";
 import { ConstructorsTableComponent } from './components/constructors-table/constructors-table.component';
+import { SeasonFilterComponent } from "@shared/components/season-filter/season-filter.component";
+import { PageHeaderComponent } from "@shared/components/page-header/page-header.component";
+import { LoaderComponent } from "@shared/components/loader/loader.component";
 
 /* Place service imports */
 import { DriverConstructorStandingsService } from './services/driver-constructor-standings.service';
@@ -40,16 +40,16 @@ const routes = [
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
-    SeasonFilterModule,
-    PageHeaderModule,
+    LoaderComponent,
+    SeasonFilterComponent,
+    PageHeaderComponent,
     FormsModule,
     HttpClientModule,
     MatFormFieldModule,
     MatInputModule,
     MatTabsModule,
     MatTableModule,
-    MatSortModule,
-    LoaderModule
+    MatSortModule
   ],
   exports: [
     RouterModule
