@@ -20,7 +20,7 @@ import {Constructor} from "@shared/interfaces/constructor-driver.interface";
   styleUrls: ['./constructor-details.component.scss']
 })
 export class ConstructorDetailsComponent implements OnInit, OnDestroy {
-  public f1Constructor: Constructor;
+  public f1Constructor: Constructor = {} as Constructor;
   private _constructorSub$: Subscription;
 
   constructor(

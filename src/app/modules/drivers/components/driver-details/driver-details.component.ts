@@ -20,7 +20,7 @@ import {Driver} from "@shared/interfaces/constructor-driver.interface";
   styleUrls: ['./driver-details.component.scss']
 })
 export class DriverDetailsComponent implements OnInit, OnDestroy {
-  public driver: Driver;
+  public driver: Driver = {} as Driver;
   private _driverSub$: Subscription;
 
   constructor(
