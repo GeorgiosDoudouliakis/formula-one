@@ -8,6 +8,4 @@ import {Component} from '@angular/core';
 })
 export class StandingsComponent {
   public option: 'Driver' | 'Constructor' = 'Driver';
-
-  constructor() {}
 }

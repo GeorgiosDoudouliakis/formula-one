@@ -1,9 +1,6 @@
 /* Place angular imports */
-import {ChangeDetectorRef, Directive, OnDestroy, OnInit, ViewChild} from '@angular/core';
+import {ChangeDetectorRef, Directive, OnInit, ViewChild} from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
-
-/* Place RxJs imports */
-import {Subscription} from "rxjs";
 
 /* Place angular material imports */
 import {MatSort} from "@angular/material/sort";
@@ -12,28 +9,28 @@ import {MatTableDataSource} from "@angular/material/table";
 /* Place service imports */
 import {DriverConstructorStandingsService} from "../services/driver-constructor-standings.service";
 
+/* Place any other imports here */
+import {UnsubscribeUtility} from "@core/unsubscribe-utility.directive";
+
 @Directive()
-export abstract class AbstractTableDirective<C> implements OnInit, OnDestroy {
+export abstract class AbstractTableDirective<C> extends UnsubscribeUtility implements OnInit {
   @ViewChild(MatSort) public sort: MatSort | null;
   public filterValue: string = '';
   public isLoading: boolean = false;
   public abstract displayedColumns: string[];
   public abstract dataSource: MatTableDataSource<any>;
   public abstract data: Array<C>;
-  protected abstract standingsSub$: Subscription;
 
   constructor(
     protected driverConstructorStandingsService: DriverConstructorStandingsService,
     protected route: ActivatedRoute,
     protected cdr: ChangeDetectorRef
-  ) {}
+  ) {
+    super();
+  }
 
   public ngOnInit(): void {
     this.getTableData();
-  }
-
-  public ngOnDestroy(): void {
-    if(this.standingsSub$) this.standingsSub$.unsubscribe();
   }
 
   public applyFilter(event: Event): void {

@@ -1,9 +1,9 @@
 /* Place angular imports */
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 /* Place rxjs imports */
-import {catchError, Subscription, tap, throwError} from 'rxjs';
-import {map} from "rxjs/operators";
+import {catchError, tap, throwError} from 'rxjs';
+import {map, takeUntil} from "rxjs/operators";
 
 /* Place interface imports */
 import {Circuit} from '../interfaces/circuits.interface';
@@ -11,35 +11,36 @@ import {Circuit} from '../interfaces/circuits.interface';
 /* Place service imports */
 import {CircuitsService} from '../services/circuits.service';
 
+/* Place any other imports here */
+import {UnsubscribeUtility} from "@core/unsubscribe-utility.directive";
+
 @Component({
   selector: 'app-circuits',
   templateUrl: './circuits.component.html',
   styleUrls: ['./circuits.component.scss']
 })
-export class CircuitsComponent implements OnInit, OnDestroy {
+export class CircuitsComponent extends UnsubscribeUtility implements OnInit {
   public isLoading: boolean = true;
   public currentYear: string = new Date().getFullYear().toString();
   public circuits: Circuit[] = [];
-  private _circuitsSub$: Subscription;
 
-  constructor(private _circuitsService: CircuitsService) { }
+  constructor(private _circuitsService: CircuitsService) {
+    super();
+  }
 
   public ngOnInit(): void {
     this._getCircuits();
   }
 
-  public ngOnDestroy(): void {
-    if(this._circuitsSub$) this._circuitsSub$.unsubscribe();
-  }
-
   private _getCircuits() {
-    this._circuitsSub$ = this._circuitsService.getCircuits().pipe(
+    this._circuitsService.getCircuits().pipe(
       map((circuits: Circuit[]) => this.circuits = circuits),
       tap(() => this.isLoading = false),
       catchError((err) => {
         console.error(err);
         return throwError(err);
-      })
+      }),
+      takeUntil(this.destroy$)
     ).subscribe();
   }
 }

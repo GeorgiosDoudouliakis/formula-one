@@ -3,7 +3,8 @@ import {AfterViewChecked, ChangeDetectionStrategy, Component} from '@angular/cor
 import {Params} from "@angular/router";
 
 /* Place RxJs imports */
-import {catchError, map, Subscription, switchMap, tap, throwError} from "rxjs";
+import {catchError, map, switchMap, tap, throwError} from "rxjs";
+import {takeUntil} from "rxjs/operators";
 
 /* Place any other imports */
 import {AbstractTableDirective} from "../../abstraction/abstract-table.directive";
@@ -24,7 +25,6 @@ export class DriversTableComponent extends AbstractTableDirective<DriverStanding
   public displayedColumns: string[] = [];
   public dataSource: MatTableDataSource<any>;
   public data: Array<DriverStanding> = [];
-  protected standingsSub$: Subscription;
 
   public ngAfterViewChecked(): void {
     this.displayedColumns = ["position", "name", "constructor", "points", "wins"];
@@ -32,7 +32,7 @@ export class DriversTableComponent extends AbstractTableDirective<DriverStanding
   }
 
   protected getTableData(): void {
-    this.standingsSub$ = this.route.queryParams.pipe(
+    this.route.queryParams.pipe(
       tap(() => this.isLoading = true),
       tap(() => this.cdr.markForCheck()),
       switchMap((params: Params) => this.driverConstructorStandingsService.getDriverStandings(params['year'])),
@@ -46,7 +46,8 @@ export class DriversTableComponent extends AbstractTableDirective<DriverStanding
       catchError((err) => {
         console.error(err);
         return throwError(err);
-      })
+      }),
+      takeUntil(this.destroy$)
     ).subscribe();
   }
 

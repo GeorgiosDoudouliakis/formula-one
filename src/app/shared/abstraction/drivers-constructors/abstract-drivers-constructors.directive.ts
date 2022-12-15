@@ -1,32 +1,29 @@
 /* Place angular imports */
-import {ChangeDetectorRef, Directive, OnDestroy, OnInit} from '@angular/core';
+import {ChangeDetectorRef, Directive, OnInit} from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
-
-/* Place rxjs imports */
-import {Subscription} from "rxjs";
 
 /* Place angular material imports here */
 import {MatDialog} from "@angular/material/dialog";
 
+/* Place any other imports here */
+import {UnsubscribeUtility} from "@core/unsubscribe-utility.directive";
+
 @Directive()
-export abstract class AbstractDriversConstructorsDirective<C> implements OnInit, OnDestroy {
+export abstract class AbstractDriversConstructorsDirective<C> extends UnsubscribeUtility implements OnInit {
   public loading: boolean = false;
   public abstract selectedYear: string;
   public abstract data: Array<C>;
-  protected abstract dataSub$: Subscription;
 
   constructor(
     public dialog: MatDialog,
     protected route: ActivatedRoute,
     protected cdr: ChangeDetectorRef
-  ) { }
+  ) {
+    super();
+  }
 
   public ngOnInit(): void {
     this.getDataByYear();
-  }
-
-  public ngOnDestroy(): void {
-    if(this.dataSub$) this.dataSub$.unsubscribe();
   }
 
   public abstract openDetails(id: string): void;

@@ -3,8 +3,8 @@ import {ChangeDetectionStrategy, ChangeDetectorRef, Component} from '@angular/co
 import {ActivatedRoute, Params} from "@angular/router";
 
 /* Place RxJs imports here */
-import {catchError, Subscription, switchMap, tap, throwError} from "rxjs";
-import {map} from "rxjs/operators";
+import {catchError, switchMap, tap, throwError} from "rxjs";
+import {map, takeUntil} from "rxjs/operators";
 
 /* Place component imports here */
 import {ConstructorDetailsComponent} from "../../components/constructor-details/constructor-details.component";
@@ -30,7 +30,6 @@ import {AbstractDriversConstructorsDirective} from "@shared/abstraction/drivers-
 export class ConstructorsComponent extends AbstractDriversConstructorsDirective<Constructor> {
   public selectedYear: string;
   public data: Array<Constructor>;
-  protected dataSub$: Subscription;
 
   constructor(
     public override dialog: MatDialog,
@@ -63,7 +62,7 @@ export class ConstructorsComponent extends AbstractDriversConstructorsDirective<
   }
 
   protected override getDataByYear(): void {
-    this.dataSub$ = this.route.queryParams.pipe(
+    this.route.queryParams.pipe(
       tap(() => this.loading = true),
       switchMap((params: Params) => {
         this.selectedYear = params['year'];
@@ -75,7 +74,8 @@ export class ConstructorsComponent extends AbstractDriversConstructorsDirective<
       catchError((error)=> {
         console.error(error);
         return throwError(error);
-      })
+      }),
+      takeUntil(this.destroy$)
     ).subscribe();
   }
 }

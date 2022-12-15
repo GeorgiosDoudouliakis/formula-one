@@ -1,5 +1,5 @@
 /* Place angular imports */
-import {Component, Inject, OnInit} from '@angular/core';
+import {Component, Inject} from '@angular/core';
 
 /* Place angular material imports */
 import {MAT_DIALOG_DATA} from '@angular/material/dialog';
@@ -15,11 +15,6 @@ interface Circuit {
   templateUrl: './circuit-location.component.html',
   styleUrls: ['./circuit-location.component.scss']
 })
-export class CircuitLocationComponent implements OnInit {
-
+export class CircuitLocationComponent {
   constructor(@Inject(MAT_DIALOG_DATA) public data: Circuit) { }
-
-  public ngOnInit(): void {
-  }
-
 }
