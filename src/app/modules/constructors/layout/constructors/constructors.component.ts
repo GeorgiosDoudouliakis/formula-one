@@ -72,7 +72,8 @@ export class ConstructorsComponent extends AbstractDriversConstructorsDirective<
       tap(() => this.loading = false),
       tap(() => this.cdr.markForCheck()),
       catchError((error)=> {
-        console.error(error);
+        this.loading = false;
+        this.cdr.markForCheck();
         return throwError(error);
       }),
       takeUntil(this.destroy$)

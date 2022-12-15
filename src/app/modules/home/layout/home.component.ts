@@ -42,7 +42,8 @@ export class HomeComponent extends UnsubscribeUtility implements OnInit {
       tap(() => this.isDriverStatsLoading = false),
       tap(() => this._cdr.markForCheck()),
       catchError((err) => {
-        console.error(err);
+        this.isDriverStatsLoading = false;
+        this._cdr.markForCheck();
         return throwError(err);
       }),
       takeUntil(this.destroy$)
@@ -53,7 +54,8 @@ export class HomeComponent extends UnsubscribeUtility implements OnInit {
       tap(() => this.isConstructorStatsLoading = false),
       tap(() => this._cdr.markForCheck()),
       catchError((err) => {
-        console.error(err);
+        this.isConstructorStatsLoading = false;
+        this._cdr.markForCheck();
         return throwError(err);
       }),
       takeUntil(this.destroy$)

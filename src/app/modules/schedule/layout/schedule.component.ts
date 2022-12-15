@@ -37,7 +37,7 @@ export class ScheduleComponent extends UnsubscribeUtility implements OnInit {
       map((schedule: Race[]) => this.schedule = schedule),
       tap(() => this.isLoading = false),
       catchError((err) => {
-        console.error(err);
+        this.isLoading = false;
         return throwError(err);
       }),
       takeUntil(this.destroy$)

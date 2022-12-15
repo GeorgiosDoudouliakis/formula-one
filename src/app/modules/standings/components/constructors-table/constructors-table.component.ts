@@ -44,7 +44,8 @@ export class ConstructorsTableComponent extends AbstractTableDirective<Construct
       tap(() => this.isLoading = false),
       tap(() => this.cdr.markForCheck()),
       catchError((err) => {
-        console.error(err);
+        this.isLoading = false;
+        this.cdr.markForCheck();
         return throwError(err);
       }),
       takeUntil(this.destroy$)

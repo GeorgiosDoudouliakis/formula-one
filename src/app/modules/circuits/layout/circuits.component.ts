@@ -37,7 +37,7 @@ export class CircuitsComponent extends UnsubscribeUtility implements OnInit {
       map((circuits: Circuit[]) => this.circuits = circuits),
       tap(() => this.isLoading = false),
       catchError((err) => {
-        console.error(err);
+        this.isLoading = false;
         return throwError(err);
       }),
       takeUntil(this.destroy$)
