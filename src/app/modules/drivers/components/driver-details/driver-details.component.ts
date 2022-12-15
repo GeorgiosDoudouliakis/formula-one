@@ -6,7 +6,7 @@ import {MAT_DIALOG_DATA} from "@angular/material/dialog";
 
 /* Place RxJs imports here */
 import {map} from "rxjs/operators";
-import {Subscription} from "rxjs";
+import {catchError, Subscription, tap, throwError} from "rxjs";
 
 /* Place service imports here */
 import {DriversService} from "../../services/drivers.service";
@@ -21,6 +21,7 @@ import {Driver} from "@shared/interfaces/constructor-driver.interface";
 })
 export class DriverDetailsComponent implements OnInit, OnDestroy {
   public driver: Driver = {} as Driver;
+  public loading: boolean = true;
   private _driverSub$: Subscription;
 
   constructor(
@@ -30,7 +31,12 @@ export class DriverDetailsComponent implements OnInit, OnDestroy {
 
   public ngOnInit(): void {
     this._driverSub$ = this._driversService.getDriverDetails(this.data.id).pipe(
-      map((driver: Driver) => this.driver = driver)
+      map((driver: Driver) => this.driver = driver),
+      tap(() => this.loading = false),
+      catchError((err) => {
+        this.loading = false;
+        return throwError(err);
+      })
     ).subscribe();
   }
 

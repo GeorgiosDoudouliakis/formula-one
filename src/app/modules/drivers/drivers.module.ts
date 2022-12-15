@@ -7,6 +7,7 @@ import { HttpClientModule } from "@angular/common/http";
 /* Place angular material imports */
 import { MatButtonModule } from "@angular/material/button";
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatProgressSpinnerModule } from "@angular/material/progress-spinner";
 
 /* Place component imports */
 import { DriversComponent } from './layout/drivers/drivers.component';
@@ -39,7 +40,8 @@ const routes = [
     PageHeaderComponent,
     SeasonFilterComponent,
     MatButtonModule,
-    MatDialogModule
+    MatDialogModule,
+    MatProgressSpinnerModule
   ],
   exports: [
     RouterModule

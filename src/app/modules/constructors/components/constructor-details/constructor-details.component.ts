@@ -3,7 +3,7 @@ import {Component, Inject, OnDestroy, OnInit} from '@angular/core';
 
 /* Place RxJs imports here */
 import {map} from "rxjs/operators";
-import {Subscription} from "rxjs";
+import {catchError, Subscription, tap, throwError} from "rxjs";
 
 /* Place angular material imports here */
 import {MAT_DIALOG_DATA} from "@angular/material/dialog";
@@ -21,6 +21,7 @@ import {Constructor} from "@shared/interfaces/constructor-driver.interface";
 })
 export class ConstructorDetailsComponent implements OnInit, OnDestroy {
   public f1Constructor: Constructor = {} as Constructor;
+  public loading: boolean = true;
   private _constructorSub$: Subscription;
 
   constructor(
@@ -30,7 +31,12 @@ export class ConstructorDetailsComponent implements OnInit, OnDestroy {
 
   public ngOnInit(): void {
     this._constructorSub$ = this._constructorsService.getConstructorDetails(this.data.id).pipe(
-      map((f1Constructor: Constructor) => this.f1Constructor = f1Constructor)
+      map((f1Constructor: Constructor) => this.f1Constructor = f1Constructor),
+      tap(() => this.loading = false),
+      catchError((err) => {
+        this.loading = false;
+        return throwError(err);
+      })
     ).subscribe();
   }
 

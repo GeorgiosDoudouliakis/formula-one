@@ -1,10 +1,13 @@
-<h1 mat-dialog-title>{{ driver.givenName }} {{ driver.familyName }}</h1>
-<div mat-dialog-content>
-  <span>Date of birth: {{ driver.dateOfBirth }}</span>
-  <span>Nationality: {{ driver.nationality }}</span>
-  <span *ngIf="driver.permanentNumber">Driver number: {{ driver.permanentNumber }}</span>
-  <a [href]="driver.url" target="_blank" rel="noopener">Wikipedia</a>
-</div>
-<div mat-dialog-actions align="center">
-  <button mat-stroked-button color="accent" mat-dialog-close>Close</button>
-</div>
+<ng-container *ngIf="!loading">
+  <h1 mat-dialog-title>{{ driver.givenName }} {{ driver.familyName }}</h1>
+  <div mat-dialog-content>
+    <span>Date of birth: {{ driver.dateOfBirth }}</span>
+    <span>Nationality: {{ driver.nationality }}</span>
+    <span *ngIf="driver.permanentNumber">Driver number: {{ driver.permanentNumber }}</span>
+    <a [href]="driver.url" target="_blank" rel="noopener">Wikipedia</a>
+  </div>
+  <div mat-dialog-actions align="center">
+    <button mat-stroked-button color="accent" mat-dialog-close>Close</button>
+  </div>
+</ng-container>
+<mat-spinner *ngIf="loading" color="primary"></mat-spinner>

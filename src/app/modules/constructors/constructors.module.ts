@@ -17,6 +17,7 @@ import { ConstructorsService } from './services/constructors.service';
 /* Place angular material imports */
 import { MatButtonModule } from "@angular/material/button";
 import { MatDialogModule } from "@angular/material/dialog";
+import { MatProgressSpinnerModule } from "@angular/material/progress-spinner";
 
 const routes = [
   {
@@ -39,7 +40,8 @@ const routes = [
     PageHeaderComponent,
     SeasonFilterComponent,
     MatButtonModule,
-    MatDialogModule
+    MatDialogModule,
+    MatProgressSpinnerModule
   ],
   providers: [ConstructorsService]
 })
