@@ -5,8 +5,10 @@
   scroll-behavior: smooth;
 }
 
-html, body { height: 100%; }
-body { margin: 0; font-family: 'Titillium Web', sans-serif; }
+body {
+  margin: 0;
+  font-family: 'Titillium Web', sans-serif;
+}
 
 ::-webkit-scrollbar {
   width: 10px;
