@@ -1,12 +1,12 @@
 /* Place angular imports */
-import { Component } from '@angular/core';
-import { RouterModule } from "@angular/router";
+import {ChangeDetectionStrategy, Component} from '@angular/core';
+import {RouterModule} from "@angular/router";
 
 /* Place component imports here */
-import { NavigationComponent } from "../navigation/navigation.component";
+import {NavigationComponent} from "../navigation/navigation.component";
 
 /* Place angular material imports here */
-import { MatToolbarModule } from "@angular/material/toolbar";
+import {MatToolbarModule} from "@angular/material/toolbar";
 
 @Component({
   selector: 'app-header',
@@ -17,7 +17,8 @@ import { MatToolbarModule } from "@angular/material/toolbar";
     RouterModule,
     NavigationComponent,
     MatToolbarModule
-  ]
+  ],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class HeaderComponent {
   public isMobileMenuOpen: boolean = false;

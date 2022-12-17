@@ -1,5 +1,5 @@
 /* Place angular imports */
-import {Component, OnInit} from '@angular/core';
+import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
 import {CommonModule} from "@angular/common";
 import {FormBuilder, FormControl, FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {ActivatedRoute, Params, Router} from "@angular/router";
@@ -29,7 +29,8 @@ import {UnsubscribeUtility} from "@core/unsubscribe-utility.directive";
     MatInputModule,
     MatSelectModule,
     MatOptionModule
-  ]
+  ],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SeasonFilterComponent extends UnsubscribeUtility implements OnInit {
   public yearControl: FormControl;
