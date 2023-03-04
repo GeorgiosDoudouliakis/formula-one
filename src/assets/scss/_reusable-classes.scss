@@ -33,7 +33,6 @@
 .box {
   @include flex(row, nowrap, space-between, center);
   padding: 0.5rem;
-  background: $lightGray;
   border-radius: 0;
   border-right: 1px solid lighten($primary, 20%);
   border-bottom: 1px solid lighten($primary, 20%);
