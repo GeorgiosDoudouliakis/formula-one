@@ -2,26 +2,21 @@
 
 footer {
   padding: 0.8rem 0;
-  background: $primary;
-}
-
-button {
-  display: block;
-  margin: 0 auto .8rem auto;
 }
 
 p {
-    text-align: center;
-    color: $white;
-    &:first-of-type {
-      margin-bottom: .5rem;
+  font-size: 1rem;
+  text-align: center;
+  color: $accent;
+  &:first-of-type {
+    margin-bottom: .5rem;
+  }
+  a {
+    color: $accent;
+    text-decoration: underline;
+    transition: .4s ease-in-out;
+    &:hover {
+      color: $primary;
     }
-    a {
-      color: $white;
-      text-decoration: underline;
-      transition: .4s ease-in-out;
-      &:hover {
-        color: $accent;
-      }
-    }
+  }
 }
