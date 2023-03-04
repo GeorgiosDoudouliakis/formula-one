@@ -2,6 +2,9 @@
 
 .mat-form-field {
   width: 100%;
+  [placeholder] {
+    font-size: 1rem;
+  }
 }
 
 .table-container {

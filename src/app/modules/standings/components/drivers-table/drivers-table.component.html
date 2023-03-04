@@ -1,8 +1,7 @@
 <section>
   <ng-container *ngIf="!isLoading">
-    <mat-form-field appearance="standard">
-      <mat-label>Filter</mat-label>
-      <input matInput (keyup)="applyFilter($event)" placeholder="Search..." [(ngModel)]="filterValue" autocomplete="off">
+    <mat-form-field appearance="outline">
+      <input matInput (keyup)="applyFilter($event)" placeholder="Search for driver" [(ngModel)]="filterValue" autocomplete="off">
     </mat-form-field>
 
     <section *ngIf="data.length > 0" class="table-container">
