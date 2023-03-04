@@ -39,6 +39,7 @@ export class DriverDetailsComponent extends UnsubscribeUtility implements OnInit
       tap(() => this.loading = false),
       catchError((err) => {
         this.loading = false;
+        console.error(err);
         return throwError(err);
       }),
       takeUntil(this.destroy$)

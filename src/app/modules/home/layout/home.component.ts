@@ -44,6 +44,7 @@ export class HomeComponent extends UnsubscribeUtility implements OnInit {
       catchError((err) => {
         this.isDriverStatsLoading = false;
         this._cdr.markForCheck();
+        console.error(err);
         return throwError(err);
       }),
       takeUntil(this.destroy$)
@@ -56,6 +57,7 @@ export class HomeComponent extends UnsubscribeUtility implements OnInit {
       catchError((err) => {
         this.isConstructorStatsLoading = false;
         this._cdr.markForCheck();
+        console.error(err);
         return throwError(err);
       }),
       takeUntil(this.destroy$)

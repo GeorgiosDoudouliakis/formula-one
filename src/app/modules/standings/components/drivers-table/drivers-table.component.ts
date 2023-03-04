@@ -46,6 +46,7 @@ export class DriversTableComponent extends AbstractTableDirective<DriverStanding
       catchError((err) => {
         this.isLoading = false;
         this.cdr.markForCheck();
+        console.error(err);
         return throwError(err);
       }),
       takeUntil(this.destroy$)

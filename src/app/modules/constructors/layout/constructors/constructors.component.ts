@@ -74,6 +74,7 @@ export class ConstructorsComponent extends AbstractDriversConstructorsDirective<
       catchError((error)=> {
         this.loading = false;
         this.cdr.markForCheck();
+        console.error(error);
         return throwError(error);
       }),
       takeUntil(this.destroy$)

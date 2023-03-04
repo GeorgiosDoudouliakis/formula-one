@@ -39,6 +39,7 @@ export class ConstructorDetailsComponent extends UnsubscribeUtility implements O
       tap(() => this.loading = false),
       catchError((err) => {
         this.loading = false;
+        console.error(err);
         return throwError(err);
       }),
       takeUntil(this.destroy$)
