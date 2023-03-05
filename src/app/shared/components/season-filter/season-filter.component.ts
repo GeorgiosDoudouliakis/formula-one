@@ -34,7 +34,17 @@ import {UnsubscribeUtility} from "@core/unsubscribe-utility.directive";
 })
 export class SeasonFilterComponent extends UnsubscribeUtility implements OnInit {
   public yearControl: FormControl;
-  private readonly _currentYear: number = new Date().getFullYear();
+  private readonly _currentYear: string = new Date().getFullYear().toString();
+
+  public get years(): string[] {
+    let yearsArr:string[] = [];
+
+    for(let year = 1950; year <= +this._currentYear; year++) {
+      yearsArr.push(year.toString());
+    }
+
+    return yearsArr.reverse();
+  }
 
   constructor(
     private _fb: FormBuilder,
@@ -45,7 +55,7 @@ export class SeasonFilterComponent extends UnsubscribeUtility implements OnInit 
   }
 
   public ngOnInit(): void {
-    this.yearControl = this._fb.nonNullable.control<string>(this._currentYear.toString());
+    this.yearControl = this._fb.nonNullable.control<string>(this._currentYear);
 
     this._route.queryParams.pipe(
       takeUntil(this.destroy$)
@@ -57,15 +67,5 @@ export class SeasonFilterComponent extends UnsubscribeUtility implements OnInit 
       queryParams: { year },
       relativeTo: this._route
     }));
-  }
-
-  public get years(): string[] {
-    let yearsArr:string[] = [];
-
-    for(let year = 1950; year <= this._currentYear; year++) {
-      yearsArr.push(year.toString());
-    }
-
-    return yearsArr.reverse();
   }
 }

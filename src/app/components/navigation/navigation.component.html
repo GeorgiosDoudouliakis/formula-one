@@ -6,13 +6,13 @@
           </a>
         </li>
         <li (click)="isMobileMenuHandler.emit(false)">
-          <a routerLink="/standings" routerLinkActive="active" [queryParams]="{ year: '2022' }">Standings</a>
+          <a routerLink="/standings" routerLinkActive="active" [queryParams]="{ year: currentYear }">Standings</a>
         </li>
         <li (click)="isMobileMenuHandler.emit(false)">
-            <a routerLink="/drivers" routerLinkActive="active" [queryParams]="{ year: '2022' }">Drivers</a>
+            <a routerLink="/drivers" routerLinkActive="active" [queryParams]="{ year: currentYear }">Drivers</a>
         </li>
         <li (click)="isMobileMenuHandler.emit(false)">
-            <a routerLink="/constructors" routerLinkActive="active" [queryParams]="{ year: '2022' }">Constructors</a>
+            <a routerLink="/constructors" routerLinkActive="active" [queryParams]="{ year: currentYear }">Constructors</a>
         </li>
         <li (click)="isMobileMenuHandler.emit(false)">
             <a routerLink="/circuits" routerLinkActive="active">Circuits</a>

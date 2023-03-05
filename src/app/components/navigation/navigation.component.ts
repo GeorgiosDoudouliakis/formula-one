@@ -25,6 +25,7 @@ import {MatIconModule} from "@angular/material/icon";
   ]
 })
 export class NavigationComponent implements OnChanges {
+  public currentYear: string = new Date().getFullYear().toString();
   @Input() public isMobileMenuOpen: boolean = false;
   @Output() public isMobileMenuHandler = new EventEmitter<boolean>(false);
 
