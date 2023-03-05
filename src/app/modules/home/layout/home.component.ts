@@ -27,6 +27,7 @@ export class HomeComponent extends UnsubscribeUtility implements OnInit {
   public isConstructorStatsLoading: boolean = true;
   public topDrivers: DriverStanding[] = [];
   public topConstructors: ConstructorStanding[] = [];
+  public currentYear: string = new Date().getFullYear().toString();
 
   constructor(
     private _topDriversService: TopDriversService,

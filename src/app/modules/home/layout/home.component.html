@@ -26,5 +26,5 @@
     </ng-container>
     <app-loader *ngIf="isConstructorStatsLoading"></app-loader>
   </div>
-  <a routerLink="/standings" [queryParams]="{ year: '2022' }" mat-raised-button color="primary">Full Standings</a>
+  <a routerLink="/standings" [queryParams]="{ year: currentYear }" mat-raised-button color="primary">Full Standings</a>
 </section>
