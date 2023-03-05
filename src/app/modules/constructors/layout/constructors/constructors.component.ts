@@ -44,7 +44,7 @@ export class ConstructorsComponent extends AbstractDriversConstructorsDirective<
     this.dialog.open(ConstructorDetailsComponent, {
       data: { id },
       minWidth: '330px',
-      minHeight: '240px'
+      minHeight: '220px'
     });
   }
 
