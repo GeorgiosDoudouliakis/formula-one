@@ -22,15 +22,11 @@
 }
 
 .mat-tab-label-container {
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
 }
 
 .mat-tab-label-content {
   font-weight: bold;
-}
-
-.mat-table > thead > tr {
-  background: darken(#fff, 5%);
 }
 
 .mat-table > tbody > tr {
@@ -74,4 +70,9 @@
   top: 70px;
   left: 50%;
   transform: translateX(-50%);
+}
+
+.mat-tooltip {
+  font-size: 1rem;
+  text-align: center;
 }

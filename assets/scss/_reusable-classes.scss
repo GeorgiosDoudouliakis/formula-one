@@ -33,12 +33,10 @@
 .box {
   @include flex(row, nowrap, space-between, center);
   padding: 0.5rem;
-  background: $lightGray;
-  border-radius: 0;
-  border-right: 1px solid lighten($primary, 20%);
-  border-bottom: 1px solid lighten($primary, 20%);
+  border-right: 2px solid lighten($primary, 20%);
+  border-bottom: 2px solid lighten($primary, 20%);
+  border-radius: 0 0 10px 0;
   color: $accent;
-  cursor: pointer;
   span {
       font-size: 1rem;
   }
@@ -49,10 +47,9 @@
     & > .mat-card {
       height: 100%;
       padding: 8px 16px;
-      background: $lightGray;
-      border-right: 1px solid $primary;
-      border-bottom: 1px solid $primary;
-      border-radius: 0;
+      border-right: 2px solid $primary;
+      border-bottom: 2px solid $primary;
+      border-radius: 0 0 10px 0;
       box-shadow: none;
     }
     .mat-card-header {
