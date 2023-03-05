@@ -18,6 +18,8 @@ import { OrdinalNumbersModule } from 'sh-ordinal-numbers';
 
 /* Place angular material imports */
 import { MatButtonModule } from "@angular/material/button";
+import { MatIconModule } from "@angular/material/icon";
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 const routes: Routes = [
   {
@@ -29,7 +31,7 @@ const routes: Routes = [
 ]
 
 @NgModule({
-  imports: [HttpClientModule, CommonModule, RouterModule.forChild(routes), LoaderComponent, MatButtonModule, OrdinalNumbersModule],
+  imports: [HttpClientModule, CommonModule, RouterModule.forChild(routes), LoaderComponent, MatButtonModule, MatIconModule, MatTooltipModule, OrdinalNumbersModule],
   declarations: [HomeComponent, PlacementComponent],
   providers: [TopDriversService, TopConstructorsService]
 })

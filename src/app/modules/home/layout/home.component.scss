@@ -31,16 +31,10 @@ h2 {
   text-align: center;
   padding: 1rem 0;
   margin-bottom: 1rem;
-  position: relative;
-  &::before {
-    position: absolute;
-    bottom: 8px;
-    left: 50%;
-    transform: translateX(-50%);
-    content: "";
-    width: 100px;
-    height: 3px;
-    background: $primary;
+  mat-icon {
+    vertical-align: middle;
+    margin-left: .8rem;
+    cursor: pointer;
   }
 }
 
