@@ -1,7 +1,5 @@
 <app-season-filter></app-season-filter>
-<app-page-header title="drivers">
-  {{ selectedYear }}
-</app-page-header>
+<app-page-header title="drivers" [year]="selectedYear"></app-page-header>
 <ng-container *ngIf="!loading">
   <section *ngIf="data.length > 0" class="grid constructors-drivers">
     <article *ngFor="let details of data" class="box">

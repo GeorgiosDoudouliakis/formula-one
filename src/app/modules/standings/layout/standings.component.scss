@@ -3,7 +3,3 @@
 div {
   @include flex(row, nowrap, space-between, center);
 }
-
-app-page-header {
-  margin-bottom: 0;
-}
