@@ -2,26 +2,26 @@
 
 :host {
   position: relative;
-}
-
-h2 {
+  
+  h2 {
     color: $accent;
     padding: 1rem;
     margin-bottom: 0;
     line-height: 1.5rem;
-}
-
-button {
-  position: absolute;
-  top: .5rem;
-  right: 1rem;
-  mat-icon {
-    color: $accent;
   }
-}
-
-@media(min-width: 1024px) {
-    h2 {
-        font-size: 1.4rem;
+  
+  button {
+    position: absolute;
+    top: .5rem;
+    right: 1rem;
+    mat-icon {
+      color: $accent;
     }
+  }
+
+  @media(min-width: 1024px) {
+    h2 {
+      font-size: 1.4rem;
+    }
+  }
 }

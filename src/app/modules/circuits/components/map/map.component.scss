@@ -1,5 +1,7 @@
 @import 'src/assets/scss/main';
 
-#map-container {
-    height: 500px;
+:host {
+    #map-container {
+        height: 500px;
+    }
 }

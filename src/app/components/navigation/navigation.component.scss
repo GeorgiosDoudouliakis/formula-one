@@ -1,85 +1,85 @@
 @import 'src/assets/scss/main';
 
-nav {
-  @include flex(column, nowrap, center, center);
-  position: absolute;
-  top: 56px;
-  left: 0;
-  width: 100%;
-  height: calc(100vh - 56px);
-  background: $primary;
-  border-top: 2px solid $accent;
-  opacity: 0;
-  z-index: -1;
-  transition: .4s ease-in-out;
-  &.open {
-    opacity: 1;
-    z-index: 5;
-  }
-}
-
-ul {
+:host {
+  nav {
+    @include flex(column, nowrap, center, center);
+    position: absolute;
+    top: 56px;
+    left: 0;
     width: 100%;
-    padding: 0;
-    margin: 0;
-    li {
-        text-align: center;
-        width: 100%;
-        cursor: pointer;
-        a {
-            display: inline-block;
-            font-size: 1rem;
-            text-align: center;
-            color: $white;
-            padding: 0.5rem 0;
-            width: 100%;
-            transition: .4s ease-in-out;
-            &:hover {
-              background: $accent;
-            }
-        }
-    }
-}
-
-@media(min-width: 600px) {
-  nav {
-    top: 64px;
-    height: calc(100vh - 64px);
-  }
-}
-
-@media(min-width: 768px) {
-  :host {
-    height: 100%;
-  }
-
-  nav {
-    display: initial;
-    position: relative;
-    top: 0;
-    width: auto;
-    height: 100%;
-    border: none;
-    opacity: 1;
-    z-index: 1;
-    ul {
-        @include flex(row, nowrap, center, center);
-        height: 100%;
-        li {
-            height: 100%;
-            a {
-                display: inline-flex;
-                align-items: center;
-                width: unset;
-                height: 100%;
-                padding: 0 0.8rem;
-                color: $white !important;
-            }
-        }
+    height: calc(100vh - 56px);
+    background: $primary;
+    border-top: 2px solid $accent;
+    opacity: 0;
+    z-index: -1;
+    transition: .4s ease-in-out;
+    &.open {
+      opacity: 1;
+      z-index: 5;
     }
   }
-}
 
-.active {
-  background: $accent;
+  ul {
+      width: 100%;
+      padding: 0;
+      margin: 0;
+      li {
+          text-align: center;
+          width: 100%;
+          cursor: pointer;
+          a {
+              display: inline-block;
+              font-size: 1rem;
+              text-align: center;
+              color: $white;
+              padding: 0.5rem 0;
+              width: 100%;
+              transition: .4s ease-in-out;
+              &:hover {
+                background: $accent;
+              }
+          }
+      }
+  }
+
+  @media(min-width: 600px) {
+    nav {
+      top: 64px;
+      height: calc(100vh - 64px);
+    }
+  }
+
+  @media(min-width: 768px) {
+    height: 100%;
+
+    nav {
+      display: initial;
+      position: relative;
+      top: 0;
+      width: auto;
+      height: 100%;
+      border: none;
+      opacity: 1;
+      z-index: 1;
+      ul {
+          @include flex(row, nowrap, center, center);
+          height: 100%;
+          li {
+              height: 100%;
+              a {
+                  display: inline-flex;
+                  align-items: center;
+                  width: unset;
+                  height: 100%;
+                  padding: 0 0.8rem;
+                  color: $white !important;
+              }
+          }
+      }
+    }
+  }
+
+  .active {
+    background: $accent;
+  }
 }

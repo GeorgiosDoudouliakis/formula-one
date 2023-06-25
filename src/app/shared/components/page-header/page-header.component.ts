@@ -11,8 +11,10 @@ import { CommonModule } from "@angular/common";
     </h1>
   `,
   styles: [`
-    h1 {
-      margin-bottom: 2rem;
+    :host {
+      h1 {
+        margin-bottom: 2rem;
+      }
     }
   `],
   imports: [CommonModule],

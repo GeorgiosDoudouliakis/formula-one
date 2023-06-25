@@ -1,28 +1,30 @@
 @import 'src/assets/scss/main';
 
-.mat-card-title {
-  margin-bottom: 0 !important;
-  span {
-    font-size: 1rem;
+:host {
+  .mat-card-title {
+    margin-bottom: 0 !important;
+    span {
+      font-size: 1rem;
+    }
   }
-}
 
-.mat-card-content {
-  color: $accent;
-  margin-bottom: 12px;
-}
-
-a {
-  @include flex(row, nowrap, center, center);
-  margin-bottom: .5rem;
-  img {
-    margin-left: .5rem;
+  .mat-card-content {
+    color: $accent;
+    margin-bottom: 12px;
   }
-}
 
-.mat-card-footer {
-  padding: 0 16px;
-  button {
-    width: 100%;
+  a {
+    @include flex(row, nowrap, center, center);
+    margin-bottom: .5rem;
+    img {
+      margin-left: .5rem;
+    }
+  }
+
+  .mat-card-footer {
+    padding: 0 16px;
+    button {
+      width: 100%;
+    }
   }
 }

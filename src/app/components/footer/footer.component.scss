@@ -1,27 +1,29 @@
 @import 'src/assets/scss/main';
 
-footer {
-  padding: 0.8rem 0;
-}
-
-p {
-  text-align: center;
-  color: $accent;
-  &:first-of-type {
-    margin-bottom: .5rem;
+:host {
+  footer {
+    padding: 0.8rem 0;
   }
-  a {
+  
+  p {
+    text-align: center;
     color: $accent;
-    text-decoration: underline;
-    transition: .4s ease-in-out;
-    &:hover {
-      color: $primary;
+    &:first-of-type {
+      margin-bottom: .5rem;
+    }
+    a {
+      color: $accent;
+      text-decoration: underline;
+      transition: .4s ease-in-out;
+      &:hover {
+        color: $primary;
+      }
     }
   }
-}
 
-@media(min-width: 960px) {
-  p {
-    font-size: 1rem;
+  @media(min-width: 960px) {
+    p {
+      font-size: 1rem;
+    }
   }
 }

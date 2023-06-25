@@ -1,5 +1,7 @@
 @import 'src/assets/scss/main';
 
-.grid {
-    gap: 60px 20px;
+:host {
+    .grid {
+        gap: 60px 20px;
+    }
 }

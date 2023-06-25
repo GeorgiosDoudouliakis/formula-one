@@ -1,65 +1,67 @@
 @import 'src/assets/scss/main';
 
-header {
-  position: relative;
-  background: $primary;
-}
-
-.mat-toolbar-row {
-    @include flex(row, nowrap, space-between, center);
-    padding: 0;
-}
-
-a {
-  width: 65px;
-  height: 46px;
-}
-
-.navigation {
-    @include flex(row, nowrap, unset, center);
-    @media(min-width: 768px) {
-      height: 100%;
-    }
-}
-
-.mobile-menu-icon {
-  width: 40px;
-  background: transparent;
-  border: none;
-  cursor: pointer;
-  div {
-    height: 1px;
-    background: $white;
-    margin: .5rem 0;
-    transition: .4s ease-in-out;
-    &:nth-child(1) {
-      width: 100%;
-    }
-    &:nth-child(2) {
-      width: 75%;
-    }
-    &:nth-child(3) {
-      width: 50%;
-    }
+:host {
+  header {
+    position: relative;
+    background: $primary;
   }
-  &.open {
+
+  .mat-toolbar-row {
+      @include flex(row, nowrap, space-between, center);
+      padding: 0;
+  }
+
+  a {
+    width: 65px;
+    height: 46px;
+  }
+
+  .navigation {
+      @include flex(row, nowrap, unset, center);
+      @media(min-width: 768px) {
+        height: 100%;
+      }
+  }
+
+  .mobile-menu-icon {
+    width: 40px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
     div {
+      height: 1px;
+      background: $white;
+      margin: .5rem 0;
+      transition: .4s ease-in-out;
       &:nth-child(1) {
-        transform: translateY(10px) rotate(45deg);
+        width: 100%;
       }
       &:nth-child(2) {
-        width: 0;
+        width: 75%;
       }
       &:nth-child(3) {
-        width: 100%;
-        transform: translateY(-8px) rotate(-45deg);
+        width: 50%;
+      }
+    }
+    &.open {
+      div {
+        &:nth-child(1) {
+          transform: translateY(10px) rotate(45deg);
+        }
+        &:nth-child(2) {
+          width: 0;
+        }
+        &:nth-child(3) {
+          width: 100%;
+          transform: translateY(-8px) rotate(-45deg);
+        }
       }
     }
   }
-}
 
-@media(min-width: 768px) {
-  .mobile-menu-icon {
-    display: none;
+  @media(min-width: 768px) {
+    .mobile-menu-icon {
+      display: none;
+    }
   }
 }

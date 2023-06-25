@@ -1,29 +1,31 @@
 @import 'src/assets/scss/main';
 
-.card {
-  padding: 0;
-}
+:host {
+  .card {
+    padding: 0;
+  }
 
-.mat-card-title {
-  padding-top: 0 !important;
-}
+  .mat-card-title {
+    padding-top: 0 !important;
+  }
 
-.race-round {
-  display: inline-block;
-  font-size: .9rem;
-  margin-bottom: .3rem;
-  color: $primary;
-}
+  .race-round {
+    display: inline-block;
+    font-size: .9rem;
+    margin-bottom: .3rem;
+    color: $primary;
+  }
 
-.race-date {
-  padding: .3rem .5rem;
-  color: $white;
-  background: $primary;
-}
+  .race-date {
+    padding: .3rem .5rem;
+    color: $white;
+    background: $primary;
+  }
 
-.race-time {
-  padding: .3rem .5rem;
-  margin-left: .5rem;
-  color: $white;
-  background: $accent;
+  .race-time {
+    padding: .3rem .5rem;
+    margin-left: .5rem;
+    color: $white;
+    background: $accent;
+  }
 }

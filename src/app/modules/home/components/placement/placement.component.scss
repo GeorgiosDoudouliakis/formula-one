@@ -15,26 +15,25 @@
       padding-right: 1rem;
     }
   }
-}
-
-.name {
-  font-weight: bold;
-  padding-left: 1rem;
-  border-left: 2px solid $primary;
-}
-
-.points {
-  display: inline-block;
-  font-size: .8rem;
-  text-align: center;
-  min-width: 70px;
-  padding: .3rem 0;
-  color: $white;
-  background: $accent;
-}
-
-@media(min-width: 960px) {
-  :host {
+  
+  .name {
+    font-weight: bold;
+    padding-left: 1rem;
+    border-left: 2px solid $primary;
+  }
+  
+  .points {
+    display: inline-block;
+    font-size: .8rem;
+    text-align: center;
+    min-width: 70px;
+    padding: .3rem 0;
+    color: $white;
+    background: $accent;
+  }
+  
+  @media(min-width: 960px) {
     padding: 1rem;
   }
 }
+  

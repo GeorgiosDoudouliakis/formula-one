@@ -1,23 +1,25 @@
 @import 'src/assets/scss/main';
 
-.info {
-  @include flex(row, nowrap, flex-end, flex-start);
-  padding: 0.8rem 1rem;
-  margin-bottom: 2.5rem;
-  background: $lightGray;
-  border-left: 2px solid $primary;
-  border-right: 2px solid $primary;
-  mat-icon {
-    margin-right: .5rem;
-  }
-}
-
-.grid {
-    gap: 60px 20px;
-}
-
-@media(min-width: 1024px) {
+:host {
   .info {
-    font-size: 1rem;
+    @include flex(row, nowrap, flex-end, flex-start);
+    padding: 0.8rem 1rem;
+    margin-bottom: 2.5rem;
+    background: $lightGray;
+    border-left: 2px solid $primary;
+    border-right: 2px solid $primary;
+    mat-icon {
+      margin-right: .5rem;
+    }
+  }
+
+  .grid {
+      gap: 60px 20px;
+  }
+
+  @media(min-width: 1024px) {
+    .info {
+      font-size: 1rem;
+    }
   }
 }
